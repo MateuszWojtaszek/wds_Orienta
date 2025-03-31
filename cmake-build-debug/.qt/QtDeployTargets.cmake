@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_wds_Orienta_FILE /Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta)
+set(__QT_DEPLOY_TARGET_wds_Orienta_TYPE EXECUTABLE)
