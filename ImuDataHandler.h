@@ -40,16 +40,16 @@ class ImuDataHandler : public QWidget {
 
 public:
     explicit ImuDataHandler(QWidget *parent = nullptr);
-    void setRange(int min, int max);
     void updateData(const QVector<int> &acc, const QVector<int> &gyro, const QVector<int> &mag);
     void setSampleCount(int samples);
-
-    private slots:
-        void showCurrentData();
-    void showGraph();
-
+    void setRange(int, int);
+    void setRotation(float yaw, float pitch, float roll);
+    void updateCompass(float heading);
 private:
-    QWidget* create3DView();
+    QWidget *create3DView();
+    QWidget *createCompassView();
+    void showCurrentData();
+    void showGraph();
 
     QProgressBar *accXBar, *accYBar, *accZBar;
     QProgressBar *gyroXBar, *gyroYBar, *gyroZBar;
@@ -59,11 +59,12 @@ private:
     SensorGraph *gyroGraph;
     SensorGraph *magGraph;
 
-    QWidget *visualizationCurrent;
-    QWidget *visualizationGraph;
-
     QStackedWidget *stackedWidget;
     int sampleCount;
+
+    Qt3DCore::QEntity *compassArrowEntity = nullptr;
+    Qt3DCore::QTransform *compassTransform = nullptr;
+    Qt3DCore::QTransform *boardTransform = nullptr;
 };
 
 #endif // IMUDATAHANDLER_H

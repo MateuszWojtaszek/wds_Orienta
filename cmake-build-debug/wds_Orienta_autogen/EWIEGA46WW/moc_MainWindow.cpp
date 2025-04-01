@@ -47,7 +47,12 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "toggleSimulationMode",
         "selectPort",
         "showIMUHandler",
-        "showGPSHandler"
+        "showGPSHandler",
+        "updateSimulationData",
+        "setManualRotation",
+        "yaw",
+        "pitch",
+        "roll"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -67,6 +72,12 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(8, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'showGPSHandler'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateSimulationData'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'setManualRotation'
+        QtMocHelpers::SlotData<void(float, float, float)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Float, 12 }, { QMetaType::Float, 13 }, { QMetaType::Float, 14 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -98,6 +109,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->selectPort(); break;
         case 6: _t->showIMUHandler(); break;
         case 7: _t->showGPSHandler(); break;
+        case 8: _t->updateSimulationData(); break;
+        case 9: _t->setManualRotation((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[3]))); break;
         default: ;
         }
     }
@@ -128,14 +141,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }

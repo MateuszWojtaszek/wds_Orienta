@@ -4,6 +4,8 @@
 
 #include <QMainWindow>
 #include <QStackedWidget>
+#include <QTimer>
+#include <QVector3D>
 
 class ImuDataHandler;
 class GPSDataHandler;
@@ -26,11 +28,16 @@ public:
     void selectPort();
     void showIMUHandler();
     void showGPSHandler();
+    void updateSimulationData();
+
+    void setManualRotation(float yaw, float pitch, float roll);
 
 private:
     void createMenus();
-
+    QVector3D manualRotationEuler = {0.0f, 0.0f, 0.0f}; // yaw, pitch, roll
     QStackedWidget *stackedWidget;
     ImuDataHandler *imuHandler;
     GPSDataHandler *gpsHandler;
+    bool simulationMode = false;
+    QTimer *simulationTimer;
 };

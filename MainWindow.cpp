@@ -6,12 +6,13 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QStackedWidget>
+#include <random> // Include this header for random number generation
 
 #include "ImuDataHandler.h"
 #include "GpsDataHandler.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent)
+    QMainWindow(parent), simulationTimer(new QTimer(this))
 {
     setWindowTitle(tr("Main Window"));
 
@@ -32,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(this, &MainWindow::switchToIMU, this, &MainWindow::showIMUHandler);
     connect(this, &MainWindow::switchToGPS, this, &MainWindow::showGPSHandler);
+    connect(simulationTimer, &QTimer::timeout, this, &MainWindow::updateSimulationData);
+
 }
 
 MainWindow::~MainWindow() = default;
@@ -71,10 +74,79 @@ void MainWindow::setPolishLanguage() {
 }
 
 void MainWindow::toggleSimulationMode() {
-    // TODO: Implement simulation mode toggle
-    qDebug() << "Simulation mode toggled.";
+    simulationMode = !simulationMode;
+    if (simulationMode) {
+        simulationTimer->start(100); // Update every 100 ms
+    } else {
+        simulationTimer->stop();
+    }
+    QMessageBox::information(this, tr("Simulation Mode"), simulationMode ? tr("Simulation mode enabled.") : tr("Simulation mode disabled."));
 }
+void MainWindow::updateSimulationData() {
+    static float t = 0;
+    static float yaw = 0;
+    static float pitch = 0;
+    static float roll = 0;
 
+    t += 0.1f;
+    yaw += 1.0f;
+    pitch += 0.5f;
+    roll += 0.8f;
+
+    if (yaw > 360.0f) yaw -= 360.0f;
+    if (pitch > 360.0f) pitch -= 360.0f;
+    if (roll > 360.0f) roll -= 360.0f;
+
+    // === 1. Apply rotation to 3D board ===
+    imuHandler->setRotation(yaw, pitch, roll);
+
+    // === 2. Build rotation matrix from Euler angles ===
+    QQuaternion rotation = QQuaternion::fromEulerAngles(pitch, yaw, roll);
+    QMatrix4x4 rotMatrix;
+    rotMatrix.rotate(rotation);
+
+    // === 3. Simulate accelerometer data (gravity in world frame) ===
+    QVector3D gravityWorld(0, 0, -1000); // in mg
+    QVector3D accSensor = rotMatrix.inverted() * gravityWorld;
+
+    // === 4. Simulate magnetometer data (north = +X in world frame) ===
+    QVector3D magWorld(600, 0, 0); // in mG
+    QVector3D magSensor = rotMatrix.inverted() * magWorld;
+
+    // === 5. Simulate gyroscope data ===
+    QVector<int> gyro = {
+        static_cast<int>(yaw * 10),
+        static_cast<int>(pitch * 10),
+        static_cast<int>(roll * 10)
+    };
+
+    QVector<int> acc = {
+        static_cast<int>(accSensor.x()),
+        static_cast<int>(accSensor.y()),
+        static_cast<int>(accSensor.z())
+    };
+
+    QVector<int> mag = {
+        static_cast<int>(magSensor.x()),
+        static_cast<int>(magSensor.y()),
+        static_cast<int>(magSensor.z())
+    };
+
+    imuHandler->updateData(acc, gyro, mag);
+
+    // === 6. Compass heading from magnetometer ===
+    float heading = std::atan2(mag[1], mag[0]) * 180.0f / M_PI;
+    if (heading < 0) heading += 360.0f;
+    imuHandler->updateCompass(heading);
+
+    // === 7. Simulate GPS offset ===
+    double offsetLat = 0.00005 * sin(t);
+    double offsetLon = 0.00005 * cos(t);
+    gpsHandler->updateMarker(52.2297 + offsetLat, 21.0122 + offsetLon);
+}
+void MainWindow::setManualRotation(float yaw, float pitch, float roll) {
+    manualRotationEuler = QVector3D(yaw, pitch, roll);
+}
 void MainWindow::selectPort() {
     // TODO: Implement port selection dialog
     qDebug() << "Select port triggered.";
@@ -92,6 +164,7 @@ void MainWindow::showIMUHandler() {
 void MainWindow::showGPSHandler() {
     qDebug() << "Switching to GPS handler.";
     if (stackedWidget && gpsHandler) {
+        gpsHandler->updateMarker(52.2297, 21.0122); // Warszawa
         stackedWidget->setCurrentWidget(gpsHandler);
     } else {
         qDebug() << "GPS handler or stacked widget is null!";
