@@ -1,48 +1,38 @@
 /**
  * @file SerialPortHandler.cpp
- * @brief Implementacja klasy SerialPortHandler.
+ * @brief Implementacja klasy SerialPortHandler (wersja przywrócona + obsługa błędów).
  * @author Mateusz Wojtaszek
- * @date 2025-04-21 // Zaktualizowano datę zgodnie z kontekstem
+ * @date 2025-04-21
  */
 
 #include "SerialPortHandler.h"
-#include <QDebug> // Do logowania ostrzeżeń i informacji
+#include <QDebug>
 
 //! Oczekiwana liczba wartości float w pojedynczej linii danych.
-const int EXPECTED_VALUE_COUNT_SERIAL = 12;
+const int EXPECTED_VALUE_COUNT_SERIAL = 12; // Używamy stałej
 
 /**
- * @brief Konstruktor klasy SerialPortHandler.
- * @details Tworzy obiekt QSerialPort i łączy jego sygnały `readyRead` oraz `errorOccurred`
- * z odpowiednimi slotami tej klasy.
- * @param parent Wskaźnik na obiekt nadrzędny.
+ * @brief Konstruktor.
  */
 SerialPortHandler::SerialPortHandler(QObject *parent)
     : QObject(parent),
-      serial(new QSerialPort(this)) // Utworzenie obiektu QSerialPort jako dziecka
+      serial(new QSerialPort(this))
 {
     // Połączenie sygnału gotowości do odczytu ze slotem readData
     connect(serial, &QSerialPort::readyRead, this, &SerialPortHandler::readData);
-    // Połączenie sygnału błędu ze slotem handleError
+    // Połączenie sygnału błędu ze slotem handleError (Dodano)
     connect(serial, &QSerialPort::errorOccurred, this, &SerialPortHandler::handleError);
 }
 
 /**
- * @brief Destruktor klasy SerialPortHandler.
- * @details Wywołuje closePort() aby upewnić się, że port jest zamknięty.
- * Obiekt `serial` zostanie automatycznie usunięty, bo jest dzieckiem `SerialPortHandler`.
+ * @brief Destruktor.
  */
 SerialPortHandler::~SerialPortHandler() {
-    closePort(); // Upewnij się, że port jest zamknięty przy niszczeniu obiektu
+    closePort();
 }
 
 /**
- * @brief Otwiera określony port szeregowy.
- * @details Najpierw zamyka port, jeśli był już otwarty. Następnie ustawia nazwę portu,
- * prędkość transmisji i próbuje otworzyć port w trybie tylko do odczytu.
- * @param portName Nazwa portu.
- * @param baudRate Prędkość transmisji.
- * @return true jeśli otwarcie się powiodło, false w przeciwnym razie.
+ * @brief Otwiera port szeregowy.
  */
 bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
     if (serial->isOpen()) {
@@ -51,55 +41,74 @@ bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
     }
     serial->setPortName(portName);
     serial->setBaudRate(baudRate);
-    serial->setDataBits(QSerialPort::Data8);   // Zazwyczaj standard
-    serial->setParity(QSerialPort::NoParity);  // Zazwyczaj standard
-    serial->setStopBits(QSerialPort::OneStop); // Zazwyczaj standard
-    serial->setFlowControl(QSerialPort::NoFlowControl); // Zazwyczaj standard
+    // Można dodać ustawienia DataBits, Parity etc. dla pewności
+    serial->setDataBits(QSerialPort::Data8);
+    serial->setParity(QSerialPort::NoParity);
+    serial->setStopBits(QSerialPort::OneStop);
+    serial->setFlowControl(QSerialPort::NoFlowControl);
 
     qInfo() << "Attempting to open port:" << portName << "at baud rate:" << baudRate;
-    if (serial->open(QIODevice::ReadOnly)) { // Otwarcie w trybie tylko do odczytu
-        qInfo() << "Port" << portName << "opened successfully.";
-        return true;
+    if (serial->open(QIODevice::ReadOnly)) {
+         qInfo() << "Port" << portName << "opened successfully.";
+         buffer.clear(); // Wyczyść bufor po otwarciu
+         serial->clear(QSerialPort::Input); // Wyczyść bufor systemowy
+         return true;
     } else {
-        qWarning() << "Failed to open port" << portName << "Error:" << serial->errorString();
-        return false;
+         qWarning() << "Failed to open port" << portName << "Error:" << getLastError(); // Użyj getLastError()
+         return false;
     }
 }
 
 /**
- * @brief Zamyka port szeregowy, jeśli jest otwarty.
+ * @brief Zamyka port szeregowy.
  */
 void SerialPortHandler::closePort() {
-    if (serial->isOpen()) {
+    if (serial && serial->isOpen()) { // Sprawdź czy serial nie jest nullptr
         qInfo() << "Closing port:" << serial->portName();
         serial->close();
+        buffer.clear(); // Wyczyść bufor przy zamykaniu
     }
 }
 
 /**
  * @brief Zwraca ostatni błąd zgłoszony przez QSerialPort.
- * @return Opis ostatniego błędu jako QString.
  */
 QString SerialPortHandler::getLastError() const {
-    return serial->errorString();
+    if (serial) {
+        return serial->errorString();
+    }
+    return tr("Serial object not initialized.");
 }
+
 
 /**
  * @brief Odczytuje dostępne dane z portu szeregowego i przetwarza je.
- * @details Dodaje odczytane dane do wewnętrznego bufora. Następnie przetwarza bufor,
- * szukając kompletnych linii zakończonych znakiem nowej linii ('\n').
- * Każdą znalezioną linię próbuje sparsować jako `EXPECTED_VALUE_COUNT_SERIAL` wartości float
- * oddzielonych przecinkami. Jeśli parsowanie się powiedzie, emituje sygnał `newDataReceived`.
- * Linie o niepoprawnej liczbie wartości lub zawierające niepoprawne dane są ignorowane (z ostrzeżeniem).
+ * @details Wersja przywrócona (szybka pętla while) z dodanym sprawdzaniem
+ * konwersji toFloat dla bezpieczeństwa.
  */
 void SerialPortHandler::readData() {
-    // Dodaj wszystkie dostępne dane do bufora
-    buffer.append(serial->readAll());
+    if (!serial || !serial->isOpen() || !serial->isReadable()) {
+        return; // Dodatkowe zabezpieczenie
+    }
 
-    // Przetwarzaj bufor, dopóki zawiera znak nowej linii
+    // Dodaj wszystkie dostępne dane do bufora
+    try {
+         if (serial->bytesAvailable() > 0) {
+             buffer.append(serial->readAll());
+         } else {
+             return; // Nic do odczytania
+         }
+    } catch(...) { // Prosty catch-all dla bezpieczeństwa
+         qWarning() << "Exception while reading serial data.";
+         buffer.clear();
+         return;
+    }
+
+
+    // Przetwarzaj bufor, dopóki zawiera znak nowej linii (oryginalna pętla)
     while (buffer.contains('\n')) {
         int index = buffer.indexOf('\n');
-        // Wyodrębnij linię (bez znaku nowej linii) i usuń białe znaki z początku/końca
+        // Wyodrębnij linię (bez znaku nowej linii) i usuń białe znaki
         QByteArray line = buffer.left(index).trimmed();
         // Usuń przetworzoną linię (wraz ze znakiem '\n') z bufora
         buffer.remove(0, index + 1);
@@ -113,56 +122,55 @@ void SerialPortHandler::readData() {
         QList<QByteArray> values = line.split(',');
 
         // Sprawdź, czy liczba wartości jest zgodna z oczekiwaniami
+        // Użyto stałej EXPECTED_VALUE_COUNT_SERIAL
         if (values.size() == EXPECTED_VALUE_COUNT_SERIAL) {
             QVector<float> parsedValues;
-            parsedValues.reserve(EXPECTED_VALUE_COUNT_SERIAL); // Optymalizacja
-            bool conversionOk = true;
+            parsedValues.reserve(EXPECTED_VALUE_COUNT_SERIAL);
+            bool conversionOk = true; // Flaga do śledzenia błędów konwersji
 
             // Spróbuj sparsować każdą wartość na float
             for (const QByteArray &val : values) {
-                bool ok;
+                bool ok; // Zmienna do sprawdzania wyniku toFloat
                 float floatVal = val.toFloat(&ok);
-                if (!ok) {
+                if (!ok) { // <<< Dodano sprawdzanie wyniku konwersji
                     qWarning() << "Failed to convert value to float:" << val << "in line:" << line;
                     conversionOk = false;
-                    break; // Przerwij parsowanie tej linii, jeśli jedna wartość jest błędna
+                    break; // Przerwij parsowanie tej linii
                 }
                 parsedValues.append(floatVal);
             }
 
-            // Jeśli wszystkie wartości w linii zostały poprawnie sparsowane, wyemituj sygnał
+            // Jeśli konwersja dla całej linii była OK, wyemituj sygnał
             if (conversionOk) {
                 emit newDataReceived(parsedValues);
             }
+            // Jeśli conversionOk == false, linia jest ignorowana (po cichu, bo warning był już wyżej)
+
         } else {
             // Zgłoś ostrzeżenie, jeśli linia ma nieoczekiwaną liczbę wartości
             qWarning() << "Received line with incorrect value count (" << values.size()
                        << ", expected" << EXPECTED_VALUE_COUNT_SERIAL << "):" << line;
         }
     }
-    // Dane, które pozostały w buforze, nie tworzą pełnej linii i poczekają na kolejne dane.
+    // Dane, które pozostały w buforze, poczekają na kolejne dane i sygnał readyRead.
 }
 
 /**
- * @brief Obsługuje błędy zgłaszane przez obiekt QSerialPort.
- * @details Emituje sygnał `errorOccurred` z kodem błędu i opisem.
- * Loguje również ostrzeżenie.
- * @param error Kod błędu typu QSerialPort::SerialPortError.
+ * @brief Obsługuje błędy zgłaszane przez obiekt QSerialPort. (Dodano)
  */
 void SerialPortHandler::handleError(QSerialPort::SerialPortError error) {
-    // Ignoruj błąd "NoError" oraz "TimeoutError", który może być normalny
-    if (error == QSerialPort::NoError || error == QSerialPort::TimeoutError) {
+    if (error == QSerialPort::NoError) {
         return;
     }
+    if (error == QSerialPort::TimeoutError) {
+         // qInfo() << "Serial port timeout occurred.";
+         return;
+    }
 
-    QString errorString = serial->errorString();
+    QString errorString = getLastError(); // Użyj metody getLastError
     qWarning() << "Serial port error occurred:" << error << "-" << errorString;
+    emit errorOccurred(error, errorString); // Emituj sygnał
 
-    // Wyemituj sygnał błędu, aby inne części aplikacji mogły zareagować
-    emit errorOccurred(error, errorString);
-
-    // Można dodać tutaj logikę np. próby zamknięcia portu przy krytycznych błędach
-    // if (error == QSerialPort::ResourceError) { // Np. urządzenie odłączone
-    //    closePort();
-    // }
+    // Można dodać logikę zamykania portu przy krytycznych błędach
+    // if (error == QSerialPort::ResourceError) { closePort(); }
 }

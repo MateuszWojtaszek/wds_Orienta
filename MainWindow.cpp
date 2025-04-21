@@ -22,7 +22,7 @@
 
 // --- Stałe ---
 //! Ścieżka do pliku z danymi symulacji. UWAGA: Hardkodowana ścieżka jest złą praktyką!
-const QString SIMULATION_DATA_FILE_PATH = "/Users/mateuszwojtaszek/projekty/wds_Orienta/simulation_data2.log";
+const QString SIMULATION_DATA_FILE_PATH = "/Users/mateuszwojtaszek/projekty/wds_Orienta/simulation_data3.log";
 //! Interwał timera symulacji w milisekundach.
 const int SIMULATION_TIMER_INTERVAL_MS = 10;
 

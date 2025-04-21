@@ -987,7 +987,9 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.31/Modules/Platform/Linker/Apple-AppleClang.cmake \
 	/Users/mateuszwojtaszek/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.31/Modules/Platform/UnixPaths.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/include/QtQmlIntegration/qqmlintegration.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QComponent \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QEntity \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QTransform \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qcomponent.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qentity.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qnode.h \
@@ -1275,8 +1277,10 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtQml.framework/Versions/A/Headers/qtqmlexports.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtQml.framework/Versions/A/Headers/qtqmlglobal.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/QSerialPort \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/QSerialPortInfo \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/qserialport.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/qserialportglobal.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/qserialportinfo.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtSerialPort.framework/Versions/A/Headers/qtserialportexports.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWebEngineCore.framework/Versions/A/Headers/qtwebenginecore-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWebEngineCore.framework/Versions/A/Headers/qtwebenginecoreglobal.h \
@@ -1291,6 +1295,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWebEngineWidgets.framework/Versions/A/Headers/qwebengineview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsView \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsWidget \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGroupBox \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QHBoxLayout \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
@@ -1309,6 +1314,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicswidget.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgroupbox.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
