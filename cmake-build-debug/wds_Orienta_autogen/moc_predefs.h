@@ -18,11 +18,34 @@
 #define QT_QMLWORKERSCRIPT_LIB 1
 #define QT_QML_LIB 1
 #define QT_QUICK_LIB 1
+#define QT_SERIALPORT_LIB 1
 #define QT_WEBCHANNEL_LIB 1
 #define QT_WEBENGINECORE_LIB 1
 #define QT_WEBENGINEWIDGETS_LIB 1
 #define QT_WIDGETS_LIB 1
 #define SIZEOF_DPTR (sizeof(void*))
+#define TARGET_IPHONE_SIMULATOR 0
+#define TARGET_OS_ARROW 1
+#define TARGET_OS_BRIDGE 0
+#define TARGET_OS_DRIVERKIT 0
+#define TARGET_OS_EMBEDDED 0
+#define TARGET_OS_IOS 0
+#define TARGET_OS_IOSMAC 0
+#define TARGET_OS_IPHONE 0
+#define TARGET_OS_LINUX 0
+#define TARGET_OS_MAC 1
+#define TARGET_OS_MACCATALYST 0
+#define TARGET_OS_NANO 0
+#define TARGET_OS_OSX 1
+#define TARGET_OS_SIMULATOR 0
+#define TARGET_OS_TV 0
+#define TARGET_OS_UIKITFORMAC 0
+#define TARGET_OS_UNIX 0
+#define TARGET_OS_VISION 0
+#define TARGET_OS_WATCH 0
+#define TARGET_OS_WIN32 0
+#define TARGET_OS_WINDOWS 0
+#define TARGET_OS_XR 0
 #define _LP64 1
 #define __AARCH64EL__ 1
 #define __AARCH64_CMODEL_SMALL__ 1
@@ -74,6 +97,8 @@
 #define __ARM_PCS_AAPCS64 1
 #define __ARM_SIZEOF_MINIMAL_ENUM 4
 #define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_STATE_ZA 1
+#define __ARM_STATE_ZT0 1
 #define __ATOMIC_ACQUIRE 2
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_CONSUME 1
@@ -114,6 +139,7 @@
 #define __DBL_MIN_10_EXP__ (-307)
 #define __DBL_MIN_EXP__ (-1021)
 #define __DBL_MIN__ 2.2250738585072014e-308
+#define __DBL_NORM_MAX__ 1.7976931348623157e+308
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __DEPRECATED 1
 #define __DYNAMIC__ 1
@@ -135,6 +161,7 @@
 #define __FLT16_MIN_10_EXP__ (-4)
 #define __FLT16_MIN_EXP__ (-13)
 #define __FLT16_MIN__ 6.103515625e-5F16
+#define __FLT16_NORM_MAX__ 6.5504e+4F16
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_DENORM_MIN__ 1.40129846e-45F
 #define __FLT_DIG__ 6
@@ -149,6 +176,7 @@
 #define __FLT_MIN_10_EXP__ (-37)
 #define __FLT_MIN_EXP__ (-125)
 #define __FLT_MIN__ 1.17549435e-38F
+#define __FLT_NORM_MAX__ 3.40282347e+38F
 #define __FLT_RADIX__ 2
 #define __FPCLASS_NEGINF 0x0004
 #define __FPCLASS_NEGNORMAL 0x0008
@@ -175,8 +203,11 @@
 #define __GCC_ATOMIC_SHORT_LOCK_FREE 2
 #define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
 #define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __GCC_CONSTRUCTIVE_SIZE 64
+#define __GCC_DESTRUCTIVE_SIZE 64
 #define __GCC_HAVE_DWARF2_CFI_ASM 1
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_16 1
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
 #define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 1
@@ -279,6 +310,7 @@
 #define __LDBL_MIN_10_EXP__ (-307)
 #define __LDBL_MIN_EXP__ (-1021)
 #define __LDBL_MIN__ 2.2250738585072014e-308L
+#define __LDBL_NORM_MAX__ 1.7976931348623157e+308L
 #define __LITTLE_ENDIAN__ 1
 #define __LLONG_WIDTH__ 64
 #define __LONG_LONG_MAX__ 9223372036854775807LL
@@ -286,6 +318,11 @@
 #define __LONG_WIDTH__ 64
 #define __LP64__ 1
 #define __MACH__ 1
+#define __MEMORY_SCOPE_DEVICE 1
+#define __MEMORY_SCOPE_SINGLE 4
+#define __MEMORY_SCOPE_SYSTEM 0
+#define __MEMORY_SCOPE_WRKGRP 2
+#define __MEMORY_SCOPE_WVFRNT 3
 #define __NO_INLINE__ 1
 #define __NO_MATH_ERRNO__ 1
 #define __OBJC_BOOL_IS_BOOL 1
@@ -334,6 +371,9 @@
 #define __SSP__ 1
 #define __STDCPP_DEFAULT_NEW_ALIGNMENT__ 16UL
 #define __STDCPP_THREADS__ 1
+#define __STDC_EMBED_EMPTY__ 2
+#define __STDC_EMBED_FOUND__ 1
+#define __STDC_EMBED_NOT_FOUND__ 0
 #define __STDC_HOSTED__ 1
 #define __STDC_NO_THREADS__ 1
 #define __STDC_UTF_16__ 1
@@ -431,7 +471,7 @@
 #define __UINT_LEAST8_MAX__ 255
 #define __UINT_LEAST8_TYPE__ unsigned char
 #define __USER_LABEL_PREFIX__ _
-#define __VERSION__ "Apple LLVM 16.0.0 (clang-1600.0.26.6)"
+#define __VERSION__ "Apple LLVM 17.0.0 (clang-1700.0.13.3)"
 #define __WCHAR_MAX__ 2147483647
 #define __WCHAR_TYPE__ int
 #define __WCHAR_WIDTH__ 32
@@ -439,16 +479,16 @@
 #define __WINT_TYPE__ int
 #define __WINT_WIDTH__ 32
 #define __aarch64__ 1
-#define __apple_build_version__ 16000026
+#define __apple_build_version__ 17000013
 #define __arm64 1
 #define __arm64__ 1
 #define __block __attribute__((__blocks__(byref)))
 #define __clang__ 1
 #define __clang_literal_encoding__ "UTF-8"
-#define __clang_major__ 16
+#define __clang_major__ 17
 #define __clang_minor__ 0
 #define __clang_patchlevel__ 0
-#define __clang_version__ "16.0.0 (clang-1600.0.26.6)"
+#define __clang_version__ "17.0.0 (clang-1700.0.13.3)"
 #define __clang_wide_literal_encoding__ "UTF-32"
 #define __cplusplus 202302L
 #define __cpp_aggregate_bases 201603L
@@ -457,10 +497,11 @@
 #define __cpp_alias_templates 200704L
 #define __cpp_aligned_new 201606L
 #define __cpp_attributes 200809L
+#define __cpp_auto_cast 202110L
 #define __cpp_binary_literals 201304L
 #define __cpp_capture_star_this 201603L
 #define __cpp_char8_t 202207L
-#define __cpp_concepts 201907L
+#define __cpp_concepts 202002
 #define __cpp_conditional_explicit 201806L
 #define __cpp_consteval 202211L
 #define __cpp_constexpr 202211L
@@ -471,6 +512,7 @@
 #define __cpp_decltype_auto 201304L
 #define __cpp_deduction_guides 201703L
 #define __cpp_delegating_constructors 200604L
+#define __cpp_deleted_function 202403L
 #define __cpp_designated_initializers 201707L
 #define __cpp_digit_separators 201309L
 #define __cpp_enumerator_attributes 201411L
@@ -484,7 +526,7 @@
 #define __cpp_impl_coroutine 201902L
 #define __cpp_impl_destroying_delete 201806L
 #define __cpp_impl_three_way_comparison 201907L
-#define __cpp_implicit_move 202011L
+#define __cpp_implicit_move 202207L
 #define __cpp_inheriting_constructors 201511L
 #define __cpp_init_captures 201803L
 #define __cpp_initializer_lists 200806L
@@ -498,7 +540,9 @@
 #define __cpp_nontype_template_args 201411L
 #define __cpp_nontype_template_parameter_auto 201606L
 #define __cpp_nsdmi 200809L
-#define __cpp_range_based_for 201603L
+#define __cpp_pack_indexing 202311L
+#define __cpp_placeholder_variables 202306L
+#define __cpp_range_based_for 202211L
 #define __cpp_raw_strings 200710L
 #define __cpp_ref_qualifiers 200710L
 #define __cpp_return_type_deduction 201304L
@@ -507,8 +551,9 @@
 #define __cpp_size_t_suffix 202011L
 #define __cpp_static_assert 201411L
 #define __cpp_static_call_operator 202207L
-#define __cpp_structured_bindings 201606L
+#define __cpp_structured_bindings 202403L
 #define __cpp_template_auto 201606L
+#define __cpp_template_template_args 201611L
 #define __cpp_threadsafe_static_init 200806L
 #define __cpp_unicode_characters 200704L
 #define __cpp_unicode_literals 200710L

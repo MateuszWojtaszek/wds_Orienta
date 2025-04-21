@@ -17,6 +17,7 @@ find_package(Qt6 COMPONENTS
   3DRender
   3DExtras
   WebEngineWidgets
+  SerialPort
   REQUIRED)
 
 add_executable(wds_Orienta main.cpp
@@ -25,7 +26,9 @@ add_executable(wds_Orienta main.cpp
         ImuDataHandler.cpp
         ImuDataHandler.h
         GpsDataHandler.cpp
-        GpsDataHandler.h)
+        GpsDataHandler.h
+        SerialPortHandler.cpp
+        SerialPortHandler.h)
 target_link_libraries(wds_Orienta
         Qt6::Widgets
         Qt6::Charts
@@ -33,5 +36,6 @@ target_link_libraries(wds_Orienta
         Qt6::3DRender
         Qt6::3DExtras
         Qt6::WebEngineWidgets
+        Qt6::SerialPort
 )
 

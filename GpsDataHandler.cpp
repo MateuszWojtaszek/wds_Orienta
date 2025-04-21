@@ -1,4 +1,4 @@
-#include "GPSDataHandler.h"
+#include "GpsDataHandler.h"
 #include <QVBoxLayout>
 #include <QWebEngineView>
 #include <QWebEnginePage>

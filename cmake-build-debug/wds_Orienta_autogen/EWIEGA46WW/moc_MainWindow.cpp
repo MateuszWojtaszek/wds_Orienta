@@ -8,6 +8,7 @@
 
 #include "../../../MainWindow.h"
 #include <QtCore/qmetatype.h>
+#include <QtCore/QList>
 
 #include <QtCore/qtmochelpers.h>
 
@@ -49,6 +50,9 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "showIMUHandler",
         "showGPSHandler",
         "updateSimulationData",
+        "handleSerialData",
+        "QList<float>",
+        "data",
         "setManualRotation",
         "yaw",
         "pitch",
@@ -74,9 +78,13 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'updateSimulationData'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleSerialData'
+        QtMocHelpers::SlotData<void(QVector<float>)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 12, 13 },
+        }}),
         // Slot 'setManualRotation'
-        QtMocHelpers::SlotData<void(float, float, float)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Float, 12 }, { QMetaType::Float, 13 }, { QMetaType::Float, 14 },
+        QtMocHelpers::SlotData<void(float, float, float)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Float, 15 }, { QMetaType::Float, 16 }, { QMetaType::Float, 17 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -110,8 +118,21 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->showIMUHandler(); break;
         case 7: _t->showGPSHandler(); break;
         case 8: _t->updateSimulationData(); break;
-        case 9: _t->setManualRotation((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[3]))); break;
+        case 9: _t->handleSerialData((*reinterpret_cast< std::add_pointer_t<QList<float>>>(_a[1]))); break;
+        case 10: _t->setManualRotation((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[3]))); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 9:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<float> >(); break;
+            }
+            break;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
@@ -141,14 +162,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 10;
+        if (_id < 11)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 11;
     }
     return _id;
 }

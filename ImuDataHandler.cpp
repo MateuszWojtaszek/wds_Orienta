@@ -111,8 +111,8 @@ ImuDataHandler::ImuDataHandler(QWidget *parent) : QWidget(parent), sampleCount(1
         createBar("Z:", z);
     };
 
-    addBarGroup("Accelerometer [mg]", accXBar, accYBar, accZBar, 2000);
-    addBarGroup("Gyroscope [dps]", gyroXBar, gyroYBar, gyroZBar, 2000);
+    addBarGroup("Accelerometer [mg]", accXBar, accYBar, accZBar, 4000);
+    addBarGroup("Gyroscope [dps]", gyroXBar, gyroYBar, gyroZBar, 250);
     addBarGroup("Magnetometer [mG]", magXBar, magYBar, magZBar, 1600);
 
     // Wizualizacja: góra model, dół kompas
@@ -133,8 +133,8 @@ ImuDataHandler::ImuDataHandler(QWidget *parent) : QWidget(parent), sampleCount(1
     currentLayout->addWidget(rightPanel, 1);
 
     // Widok wykresów
-    accGraph = new SensorGraph("Accelerometer [mg]", -2000, 2000, this);
-    gyroGraph = new SensorGraph("Gyroscope [dps]", -2000, 2000, this);
+    accGraph = new SensorGraph("Accelerometer [mg]", -4000, 4000, this);
+    gyroGraph = new SensorGraph("Gyroscope [dps]", -250, 250, this);
     magGraph = new SensorGraph("Magnetometer [mG]", -1600, 1600, this);
     accGraph->setSampleCount(1000);
     gyroGraph->setSampleCount(1000);

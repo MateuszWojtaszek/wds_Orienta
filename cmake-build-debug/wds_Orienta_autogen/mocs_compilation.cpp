@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_GpsDataHandler.cpp"
 #include "EWIEGA46WW/moc_ImuDataHandler.cpp"
 #include "EWIEGA46WW/moc_MainWindow.cpp"
+#include "EWIEGA46WW/moc_SerialPortHandler.cpp"
