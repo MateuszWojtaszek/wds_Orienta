@@ -1,0 +1,42 @@
+\doxysubsection{Sensor\+Graph.\+h}
+\hypertarget{SensorGraph_8h_source}{}\label{SensorGraph_8h_source}\mbox{\hyperlink{SensorGraph_8h}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifndef\ SENSORGRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00007}00007\ \textcolor{preprocessor}{\#define\ SENSORGRAPH\_H}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <QChartView>}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <QVector>}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00014}00014\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00015}00015\ \textcolor{keyword}{class\ }QLineSeries;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00016}00016\ \textcolor{keyword}{class\ }QValueAxis;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00017}00017\ \textcolor{keyword}{class\ }QWidget;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00018}00018\ \textcolor{keyword}{class\ }QChart;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00026}\mbox{\hyperlink{classSensorGraph}{00026}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSensorGraph_a0e5e199aca324e0766a8e378b2c4e92d}{SensorGraph}}\ :\ \textcolor{keyword}{public}\ QChartView\ \{}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00027}00027\ \ \ \ \ Q\_OBJECT\ \textcolor{comment}{//\ Makro\ wymagane\ dla\ klas\ Qt\ używających\ sygnałów\ i\ slotów}}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00029}00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00039}00039\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classSensorGraph_a0e5e199aca324e0766a8e378b2c4e92d}{SensorGraph}}(\textcolor{keyword}{const}\ QString\ \&title,\ \textcolor{keywordtype}{int}\ minY,\ \textcolor{keywordtype}{int}\ maxY,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSensorGraph_af5d08b4e576111efbc7a486bb27b6bf2}{addData}}(\textcolor{keyword}{const}\ QVector<int>\ \&data);}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSensorGraph_a4d7ecb0ea8158a3a4085fc6a5f1f9a01}{setSampleCount}}(\textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSensorGraph_a39e5bd8e6ed79b3d9f89ed8584699adc}{setYRange}}(\textcolor{keywordtype}{int}\ minY,\ \textcolor{keywordtype}{int}\ maxY);}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00069}00069\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00074}\mbox{\hyperlink{classSensorGraph_a54157a16d0780c9f8cbf523d39200636}{00074}}\ \ \ \ \ QList<QLineSeries\ *>\ \mbox{\hyperlink{classSensorGraph_a54157a16d0780c9f8cbf523d39200636}{seriesList}};}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00080}\mbox{\hyperlink{classSensorGraph_a0601e344e7fd1d787b403207157c0b02}{00080}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSensorGraph_a0601e344e7fd1d787b403207157c0b02}{sampleCount}}\ =\ 1000;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00086}\mbox{\hyperlink{classSensorGraph_abdad7688725fa35ee0a925745c9f3053}{00086}}\ \ \ \ \ qint64\ \mbox{\hyperlink{classSensorGraph_abdad7688725fa35ee0a925745c9f3053}{currentSampleIndex}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00087}00087\ \};}
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{SensorGraph_8h_source_l00089}00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SENSORGRAPH\_H}}
+
+\end{DoxyCode}

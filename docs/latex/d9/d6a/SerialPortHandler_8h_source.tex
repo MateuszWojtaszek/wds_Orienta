@@ -1,0 +1,43 @@
+\doxysubsection{Serial\+Port\+Handler.\+h}
+\hypertarget{SerialPortHandler_8h_source}{}\label{SerialPortHandler_8h_source}\mbox{\hyperlink{SerialPortHandler_8h}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ SERIALPORTHANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ SERIALPORTHANDLER\_H}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QSerialPort>}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QSerialPortInfo>}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QVector>}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00016}\mbox{\hyperlink{classSerialPortHandler}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSerialPortHandler_a658dff23f3feb1250f3a6a241da57d9c}{SerialPortHandler}}\ :\ \textcolor{keyword}{public}\ QObject\ \{}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00017}00017\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00019}00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classSerialPortHandler_a658dff23f3feb1250f3a6a241da57d9c}{SerialPortHandler}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{classSerialPortHandler_ac2457fbfb197c1b1f0f2903e235d47d9}{\string~SerialPortHandler}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSerialPortHandler_adeff07f05f079a490d420d7c5f1a1f49}{openPort}}(\textcolor{keyword}{const}\ QString\ \&portName,\ qint32\ baudRate\ =\ 115200);}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerialPortHandler_ae65de3358e0a9ace1a70cc445fdd63c6}{closePort}}();}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00054}\mbox{\hyperlink{classSerialPortHandler_aa35d31d76da6b8fffe8393942fca4651}{00054}}\ \ \ \ \ QString\ \mbox{\hyperlink{classSerialPortHandler_aa56731a0a07da0f041f45b98252fb768}{getLastError}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00056}00056\ signals:}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{void}\ newDataReceived(QVector<float>\ data);}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00069}\mbox{\hyperlink{classSerialPortHandler_a4d1f046a923f041217bcb726c6b1b11e}{00069}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerialPortHandler_a9100e1e4ac6284a5a682096a451c7d07}{errorOccurred}}(QSerialPort::SerialPortError\ error,\ \textcolor{keyword}{const}\ QString\&\ errorString);}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00071}00071\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00077}00077\ \ \ \ \ \textcolor{keywordtype}{void}\ readData();}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSerialPortHandler_a95c99f9ac835be091ec1589f47ace6e0}{handleError}}(QSerialPort::SerialPortError\ error);}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00086}00086\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00090}\mbox{\hyperlink{classSerialPortHandler_a9b3fe8fd6ebae5e2b8d3011a00af7889}{00090}}\ \ \ \ \ QSerialPort\ *\mbox{\hyperlink{classSerialPortHandler_a9b3fe8fd6ebae5e2b8d3011a00af7889}{serial}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00094}\mbox{\hyperlink{classSerialPortHandler_a8121acf3b781ea020b4b36dd74bfb767}{00094}}\ \ \ \ \ QByteArray\ \mbox{\hyperlink{classSerialPortHandler_a8121acf3b781ea020b4b36dd74bfb767}{buffer}};}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00095}00095\ \};}
+\DoxyCodeLine{\Hypertarget{SerialPortHandler_8h_source_l00096}00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SERIALPORTHANDLER\_H}}
+
+\end{DoxyCode}

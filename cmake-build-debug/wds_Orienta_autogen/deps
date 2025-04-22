@@ -13,7 +13,6 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_bounds.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_ctermid.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_ctype.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_inttypes.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_locale.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_mb_cur_max.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/_printf.h \
@@ -371,6 +370,22 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__debug_utils/strict_weak_ordering_check.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/operations.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_iterator.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_status.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_type.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/operations.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perms.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/space_info.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/buffer.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/concepts.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/container_adaptor.h \
@@ -767,9 +782,11 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctime \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cwchar \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cwctype \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/filesystem \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/format \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
@@ -802,7 +819,6 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/version \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ctype.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/errno.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/inttypes.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/_OSByteOrder.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libkern/arm/_OSByteOrder.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/limits.h \
@@ -925,7 +941,6 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/___wctype.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_ctype.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_inttypes.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_stdio.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_stdlib.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_string.h \
@@ -987,66 +1002,27 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.31/Modules/Platform/Linker/Apple-AppleClang.cmake \
 	/Users/mateuszwojtaszek/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.31/Modules/Platform/UnixPaths.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/include/QtQmlIntegration/qqmlintegration.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QComponent \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QEntity \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/QTransform \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qcomponent.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qentity.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qnode.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qnodeid.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qt3dcore-config.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qt3dcore_global.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DCore.framework/Versions/A/Headers/qtransform.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/QOrbitCameraController \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/QPhongMaterial \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/Qt3DWindow \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/qabstractcameracontroller.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/qorbitcameracontroller.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/qphongmaterial.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/qt3dextras_global.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DExtras.framework/Versions/A/Headers/qt3dwindow.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/QCamera \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/QSceneLoader \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qabstracttexture.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qcamera.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qcameralens.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qeffect.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qmaterial.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qrenderapi.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qsceneloader.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qt3drender-config.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qt3drender_global.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qtextureimagedata.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/Qt3DRender.framework/Versions/A/Headers/qtexturewrapmode.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QAbstractAxis \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QAbstractSeries \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QChart \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QChartGlobal \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QChartView \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QLegend \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QLineSeries \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/QXYSeries \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qabstractaxis.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qabstractseries.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qchart.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qchartglobal.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qchartview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qlegend.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qlineseries.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qtcharts-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qtchartsexports.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qxyseries.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QDebug \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QEvent \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QFile \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QFlags \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QHashFunctions \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QList \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QMargins \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QMetaType \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QObject \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QRect \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QScopedPointer \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QSharedPointer \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QSize \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QSizeF \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QString \
@@ -1103,6 +1079,8 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qendian.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfile.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfiledevice.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qflags.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qforeach.h \
@@ -1198,17 +1176,14 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QAction \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QBrush \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QColor \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QFont \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QImage \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QMatrix4x4 \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QPageLayout \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QPen \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QQuaternion \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QTransform \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QVector3D \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QWindow \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qaction.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
@@ -1228,8 +1203,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qinputdevice.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qinputmethod.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qmatrix4x4.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qopengl.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpagelayout.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpageranges.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpagesize.h \
@@ -1238,7 +1211,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpainterpath.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpalette.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpen.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpicture.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpixmap.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qpointingdevice.h \
@@ -1249,9 +1221,9 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qscreen_platform.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qsurface.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qsurfaceformat.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextcursor.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextformat.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextoption.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
@@ -1261,16 +1233,12 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qvector3d.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qvector4d.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qvectornd.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindow.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtNetwork.framework/Versions/A/Headers/qssl.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtNetwork.framework/Versions/A/Headers/qsslcertificate.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtNetwork.framework/Versions/A/Headers/qtnetwork-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtNetwork.framework/Versions/A/Headers/qtnetworkexports.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtNetwork.framework/Versions/A/Headers/qtnetworkglobal.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtOpenGL.framework/Versions/A/Headers/qopengltexture.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtOpenGL.framework/Versions/A/Headers/qtopenglexports.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtOpenGL.framework/Versions/A/Headers/qtopenglglobal.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtQml.framework/Versions/A/Headers/qjsvalue.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtQml.framework/Versions/A/Headers/qqmlregistration.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtQml.framework/Versions/A/Headers/qtqml-config.h \
@@ -1295,18 +1263,18 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWebEngineWidgets.framework/Versions/A/Headers/qwebengineview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsView \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsWidget \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGroupBox \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QHBoxLayout \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QLabel \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QInputDialog \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QProgressBar \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QPushButton \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenu \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenuBar \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMessageBox \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QStackedWidget \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QVBoxLayout \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractbutton.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qboxlayout.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialogbuttonbox.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsitem.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicslayoutitem.h \
@@ -1314,13 +1282,14 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicswidget.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgroupbox.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlabel.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qinputdialog.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlineedit.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qprogressbar.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qpushbutton.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenu.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenubar.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmessagebox.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qscrollarea.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qstackedwidget.h \
@@ -2527,6 +2496,8 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/ImuDataHandler.h \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/MainWindow.cpp \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/MainWindow.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/SensorGraph.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/SensorGraph.h \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/SerialPortHandler.cpp \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/SerialPortHandler.h \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/CMakeFiles/3.31.6/CMakeCCompiler.cmake \

@@ -1,48 +1,96 @@
-/**
-* @file SerialPortHandler.h
- * @brief Definicja klasy SerialPortHandler (wersja przywrócona + obsługa błędów).
- * @author Mateusz Wojtaszek
- * @date 2025-04-21
- */
-
 #ifndef SERIALPORTHANDLER_H
 #define SERIALPORTHANDLER_H
 
 #include <QObject>
 #include <QSerialPort>
-#include <QSerialPortInfo> // Mimo że nie używane, zostawiam jak w Twoim kodzie
-#include <QVector>     // Dodano dla QVector
-#include <QString>     // Dodano dla QString
+#include <QSerialPortInfo>
+#include <QVector>
+#include <QString>
 
 /**
  * @brief Klasa obsługująca komunikację przez port szeregowy.
+ *
+ * Odpowiada za otwieranie, zamykanie portu, odczytywanie danych,
+ * parsowanie ich do formatu QVector<float> oraz obsługę błędów.
  */
 class SerialPortHandler : public QObject {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Konstruktor klasy SerialPortHandler.
+     * @param parent Wskaźnik na obiekt nadrzędny (opcjonalny).
+     */
     explicit SerialPortHandler(QObject *parent = nullptr);
-    ~SerialPortHandler() override; // Dodano override
 
+    /**
+     * @brief Destruktor klasy SerialPortHandler.
+     * Zamyka port szeregowy, jeśli jest otwarty.
+     */
+    ~SerialPortHandler() override;
+
+    /**
+     * @brief Otwiera i konfiguruje port szeregowy.
+     * Ustawia nazwę portu, prędkość transmisji (baud rate) oraz inne parametry komunikacji.
+     * Jeśli port był już otwarty, najpierw go zamyka.
+     * Czyści bufor wejściowy po pomyślnym otwarciu.
+     * @param portName Nazwa portu szeregowego do otwarcia (np. "COM3" lub "/dev/ttyUSB0").
+     * @param baudRate Prędkość transmisji (domyślnie 115200).
+     * @return Zwraca `true` jeśli port został pomyślnie otwarty, `false` w przeciwnym razie.
+     */
     bool openPort(const QString &portName, qint32 baudRate = 115200);
-    void closePort();
-    /** @brief Zwraca ostatni błąd zgłoszony przez QSerialPort. */
-    QString getLastError() const; // Dodano
 
-    signals:
-        /** @brief Sygnał emitowany po odebraniu i sparsowaniu nowej linii danych. */
-        void newDataReceived(QVector<float> data);
-    /** @brief Sygnał emitowany, gdy wystąpi błąd portu szeregowego. */
-    void errorOccurred(QSerialPort::SerialPortError error, const QString& errorString); // Dodano
+    /**
+     * @brief Zamyka aktualnie otwarty port szeregowy.
+     * Jeśli port nie jest otwarty, funkcja nic nie robi.
+     * Czyści wewnętrzny bufor danych.
+     */
+    void closePort();
+
+    /**
+     * @brief Zwraca opis ostatniego błędu portu szeregowego.
+     * @return QString zawierający opis ostatniego błędu lub informację, że obiekt QSerialPort nie został zainicjalizowany.
+     */
+    QString getLastError() const;
+
+signals:
+    /**
+     * @brief Sygnał emitowany po otrzymaniu i sparsowaniu nowej linii danych.
+     * Dane są oczekiwane w formacie CSV, rozdzielane przecinkami, zakończone znakiem nowej linii.
+     * @param data Wektor zawierający sparsowane wartości zmiennoprzecinkowe (float).
+     */
+    void newDataReceived(QVector<float> data);
+
+    /**
+     * @brief Sygnał emitowany w przypadku wystąpienia błędu portu szeregowego.
+     * @param error Kod błędu typu QSerialPort::SerialPortError.
+     * @param errorString Opis błędu w formacie QString.
+     */
+    void errorOccurred(QSerialPort::SerialPortError error, const QString& errorString);
 
 private slots:
-    /** @brief Odczytuje i przetwarza dane z portu (oryginalna, szybka pętla while). */
+    /**
+     * @brief Slot wywoływany, gdy nowe dane są dostępne do odczytu z portu szeregowego.
+     * Odczytuje dostępne dane, dodaje je do wewnętrznego bufora, a następnie próbuje
+     * przetwarzać kompletne linie (zakończone znakiem '\n'), parsować je i emitować sygnał newDataReceived.
+     */
     void readData();
-    /** @brief Slot obsługujący błędy zgłaszane przez QSerialPort. */
-    void handleError(QSerialPort::SerialPortError error); // Dodano
+
+    /**
+     * @brief Slot wywoływany w przypadku wystąpienia błędu sprzętowego lub konfiguracyjnego portu szeregowego.
+     * Ignoruje błędy typu NoError oraz TimeoutError. Dla innych błędów emituje sygnał errorOccurred.
+     * @param error Kod błędu zgłoszony przez QSerialPort.
+     */
+    void handleError(QSerialPort::SerialPortError error);
 
 private:
-    QSerialPort *serial = nullptr; // Inicjalizacja nullptr
+    /**
+     * @brief Wskaźnik na obiekt QSerialPort używany do komunikacji.
+     */
+    QSerialPort *serial = nullptr;
+    /**
+     * @brief Bufor przechowujący dane odczytane z portu szeregowego przed ich przetworzeniem.
+     */
     QByteArray buffer;
 };
 #endif //SERIALPORTHANDLER_H

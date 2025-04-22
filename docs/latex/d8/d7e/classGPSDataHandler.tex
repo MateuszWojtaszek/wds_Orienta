@@ -1,0 +1,145 @@
+\doxysubsection{Dokumentacja klasy GPSData\+Handler}
+\hypertarget{classGPSDataHandler}{}\label{classGPSDataHandler}\index{GPSDataHandler@{GPSDataHandler}}
+
+
+Klasa odpowiedzialna za zarządzanie danymi GPS i wyświetlanie ich na mapie.  
+
+
+
+
+{\ttfamily \#include $<$Gps\+Data\+Handler.\+h$>$}
+
+
+
+Diagram dziedziczenia dla GPSData\+Handler
+% FIG 0
+
+
+Diagram współpracy dla GPSData\+Handler\+:
+% FIG 1
+\doxysubsubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGPSDataHandler_a796526492a3842e3843f1066f661476a}{GPSData\+Handler}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{classGPSDataHandler}{GPSData\+Handler}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGPSDataHandler_ae459d1a2c8c27d7c65bb24db85b687e4}{update\+Marker}} (float latitude, float longitude)
+\begin{DoxyCompactList}\small\item\em Aktualizuje pozycję markera na mapie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+QWeb\+Engine\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGPSDataHandler_a268423536fd56853f7c28d0aa634b52e}{map\+View}}
+\begin{DoxyCompactList}\small\item\em Wskaźnik na obiekt QWeb\+Engine\+View, który wyświetla mapę. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Opis szczegółowy}
+Klasa odpowiedzialna za zarządzanie danymi GPS i wyświetlanie ich na mapie. 
+
+Ta klasa dziedziczy po QWidget i wykorzystuje QWeb\+Engine\+View do wyświetlenia interaktywnej mapy (Leaflet na Open\+Street\+Map) oraz do oznaczania na niej pozycji za pomocą markera, którego położenie można aktualizować. 
+
+Definicja w linii \mbox{\hyperlink{GpsDataHandler_8h_source_l00015}{15}} pliku \mbox{\hyperlink{GpsDataHandler_8h_source}{Gps\+Data\+Handler.\+h}}.
+
+
+
+\doxysubsubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{classGPSDataHandler_a796526492a3842e3843f1066f661476a}\index{GPSDataHandler@{GPSDataHandler}!GPSDataHandler@{GPSDataHandler}}
+\index{GPSDataHandler@{GPSDataHandler}!GPSDataHandler@{GPSDataHandler}}
+\doxyparagraph{\texorpdfstring{GPSDataHandler()}{GPSDataHandler()}}
+{\footnotesize\ttfamily \label{classGPSDataHandler_a796526492a3842e3843f1066f661476a} 
+GPSData\+Handler\+::\+GPSData\+Handler (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor klasy \doxylink{classGPSDataHandler}{GPSData\+Handler}. 
+
+Inicjalizuje widget, tworzy widok mapy QWeb\+Engine\+View, ładuje do niego stronę HTML z mapą Leaflet i konfiguruje layout. 
+\begin{DoxyParams}{Parametry}
+{\em parent} & Wskaźnik na widget rodzica (domyślnie nullptr). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Nie zwraca wartości (konstruktor).
+\end{DoxyReturn}
+Inicjalizuje widget, tworzy widok mapy QWeb\+Engine\+View, ładuje do niego stronę HTML z mapą Leaflet i konfiguruje layout. Kod HTML i Java\+Script dla mapy Leaflet jest osadzony bezpośrednio w kodzie źródłowym. 
+\begin{DoxyParams}{Parametry}
+{\em parent} & Wskaźnik na widget rodzica (domyślnie nullptr). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Nie zwraca wartości (konstruktor). 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{GpsDataHandler_8cpp_source_l00016}{16}} pliku \mbox{\hyperlink{GpsDataHandler_8cpp_source}{Gps\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{GpsDataHandler_8h_source_l00042}{map\+View}}.
+
+
+
+\doxysubsubsection{Dokumentacja funkcji składowych}
+\Hypertarget{classGPSDataHandler_ae459d1a2c8c27d7c65bb24db85b687e4}\index{GPSDataHandler@{GPSDataHandler}!updateMarker@{updateMarker}}
+\index{updateMarker@{updateMarker}!GPSDataHandler@{GPSDataHandler}}
+\doxyparagraph{\texorpdfstring{updateMarker()}{updateMarker()}}
+{\footnotesize\ttfamily \label{classGPSDataHandler_ae459d1a2c8c27d7c65bb24db85b687e4} 
+void GPSData\+Handler\+::update\+Marker (\begin{DoxyParamCaption}\item[{float}]{latitude}{, }\item[{float}]{longitude}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizuje pozycję markera na mapie. 
+
+Wywołuje funkcję Java\+Script {\ttfamily update\+Marker} w załadowanej stronie HTML, przekazując jej nowe współrzędne geograficzne. Ustawia również widok mapy na nową pozycję. 
+\begin{DoxyParams}{Parametry}
+{\em latitude} & Szerokość geograficzna (float). \\
+\hline
+{\em longitude} & Długość geograficzna (float). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Nie zwraca wartości (void).
+\end{DoxyReturn}
+Wywołuje funkcję Java\+Script {\ttfamily update\+Marker} w załadowanej stronie HTML, przekazując jej nowe współrzędne geograficzne. Ustawia również widok mapy na nową pozycję. Metoda {\ttfamily page()-\/\texorpdfstring{$>$}{>}run\+Java\+Script()} jest używana do wykonania kodu JS w kontekście strony. 
+\begin{DoxyParams}{Parametry}
+{\em latitude} & Szerokość geograficzna (float) do ustawienia markera. \\
+\hline
+{\em longitude} & Długość geograficzna (float) do ustawienia markera. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Nie zwraca wartości (void). 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{GpsDataHandler_8cpp_source_l00096}{96}} pliku \mbox{\hyperlink{GpsDataHandler_8cpp_source}{Gps\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{GpsDataHandler_8h_source_l00042}{map\+View}}.
+
+
+
+\doxysubsubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{classGPSDataHandler_a268423536fd56853f7c28d0aa634b52e}\index{GPSDataHandler@{GPSDataHandler}!mapView@{mapView}}
+\index{mapView@{mapView}!GPSDataHandler@{GPSDataHandler}}
+\doxyparagraph{\texorpdfstring{mapView}{mapView}}
+{\footnotesize\ttfamily \label{classGPSDataHandler_a268423536fd56853f7c28d0aa634b52e} 
+QWeb\+Engine\+View\texorpdfstring{$\ast$}{*} GPSData\+Handler\+::map\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wskaźnik na obiekt QWeb\+Engine\+View, który wyświetla mapę. 
+
+
+
+Definicja w linii \mbox{\hyperlink{GpsDataHandler_8h_source_l00042}{42}} pliku \mbox{\hyperlink{GpsDataHandler_8h_source}{Gps\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{GpsDataHandler_8cpp_source_l00016}{GPSData\+Handler()}} i \mbox{\hyperlink{GpsDataHandler_8cpp_source_l00096}{update\+Marker()}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GpsDataHandler_8h}{Gps\+Data\+Handler.\+h}}\item 
+\mbox{\hyperlink{GpsDataHandler_8cpp}{Gps\+Data\+Handler.\+cpp}}\end{DoxyCompactItemize}

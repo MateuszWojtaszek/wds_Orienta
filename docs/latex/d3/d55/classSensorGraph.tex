@@ -1,0 +1,259 @@
+\doxysubsection{Dokumentacja klasy Sensor\+Graph}
+\hypertarget{classSensorGraph}{}\label{classSensorGraph}\index{SensorGraph@{SensorGraph}}
+
+
+Klasa \doxylink{classSensorGraph}{Sensor\+Graph} dziedzicząca po QChart\+View, przeznaczona do wyświetlania danych z czujników (np. 3-\/osiowych) w czasie rzeczywistym jako wykres liniowy.  
+
+
+
+
+{\ttfamily \#include $<$Sensor\+Graph.\+h$>$}
+
+
+
+Diagram dziedziczenia dla Sensor\+Graph
+% FIG 0
+
+
+Diagram współpracy dla Sensor\+Graph\+:
+% FIG 1
+\doxysubsubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSensorGraph_a0e5e199aca324e0766a8e378b2c4e92d}{Sensor\+Graph}} (const QString \&title, int minY, int maxY, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{classSensorGraph}{Sensor\+Graph}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSensorGraph_af5d08b4e576111efbc7a486bb27b6bf2}{add\+Data}} (const QVector$<$ int $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Dodaje nowy zestaw danych (punkt pomiarowy) do wykresu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSensorGraph_a4d7ecb0ea8158a3a4085fc6a5f1f9a01}{set\+Sample\+Count}} (int count)
+\begin{DoxyCompactList}\small\item\em Ustawia maksymalną liczbę próbek wyświetlanych na wykresie dla każdej serii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSensorGraph_a39e5bd8e6ed79b3d9f89ed8584699adc}{set\+YRange}} (int minY, int maxY)
+\begin{DoxyCompactList}\small\item\em Ustawia zakres (minimalną i maksymalną wartość) dla osi Y. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+QList$<$ QLine\+Series \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classSensorGraph_a54157a16d0780c9f8cbf523d39200636}{series\+List}}
+\begin{DoxyCompactList}\small\item\em Lista przechowująca wskaźniki do obiektów QLine\+Series, reprezentujących poszczególne kanały danych (np. X, Y, Z). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSensorGraph_a0601e344e7fd1d787b403207157c0b02}{sample\+Count}} = 1000
+\begin{DoxyCompactList}\small\item\em Maksymalna liczba punktów danych wyświetlanych jednocześnie na wykresie dla każdej serii. Domyślnie 1000. \end{DoxyCompactList}\item 
+qint64 \mbox{\hyperlink{classSensorGraph_abdad7688725fa35ee0a925745c9f3053}{current\+Sample\+Index}} = 0
+\begin{DoxyCompactList}\small\item\em Bieżący indeks próbki, używany jako wartość na osi X dla nowo dodawanych punktów. Inkrementowany po każdym dodaniu danych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Opis szczegółowy}
+Klasa \doxylink{classSensorGraph}{Sensor\+Graph} dziedzicząca po QChart\+View, przeznaczona do wyświetlania danych z czujników (np. 3-\/osiowych) w czasie rzeczywistym jako wykres liniowy. 
+
+Zarządza seriami danych dla różnych kanałów, konfiguruje osie wykresu i aktualizuje widok w miarę napływania nowych danych. 
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8h_source_l00026}{26}} pliku \mbox{\hyperlink{SensorGraph_8h_source}{Sensor\+Graph.\+h}}.
+
+
+
+\doxysubsubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{classSensorGraph_a0e5e199aca324e0766a8e378b2c4e92d}\index{SensorGraph@{SensorGraph}!SensorGraph@{SensorGraph}}
+\index{SensorGraph@{SensorGraph}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{SensorGraph()}{SensorGraph()}}
+{\footnotesize\ttfamily \label{classSensorGraph_a0e5e199aca324e0766a8e378b2c4e92d} 
+Sensor\+Graph\+::\+Sensor\+Graph (\begin{DoxyParamCaption}\item[{const QString \&}]{title}{, }\item[{int}]{minY}{, }\item[{int}]{maxY}{, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor klasy \doxylink{classSensorGraph}{Sensor\+Graph}. 
+
+Inicjalizuje wykres z podanym tytułem, zakresem osi Y i opcjonalnym rodzicem. Tworzy trzy serie danych (domyślnie dla osi X, Y, Z). 
+\begin{DoxyParams}{Parametry}
+{\em title} & Tytuł wykresu wyświetlany nad obszarem rysowania. \\
+\hline
+{\em minY} & Minimalna wartość dla osi Y. \\
+\hline
+{\em maxY} & Maksymalna wartość dla osi Y. \\
+\hline
+{\em parent} & Wskaźnik na widget nadrzędny (opcjonalny).\\
+\hline
+\end{DoxyParams}
+Inicjalizuje wykres z podanym tytułem, zakresem osi Y i opcjonalnym rodzicem. Tworzy wewnętrzny obiekt QChart, konfiguruje tytuł, legendę, osie (X i Y) oraz tworzy trzy serie danych (domyślnie dla osi X, Y, Z) z odpowiednimi kolorami. 
+\begin{DoxyParams}{Parametry}
+{\em title} & Tytuł wykresu wyświetlany nad obszarem rysowania. \\
+\hline
+{\em minY} & Minimalna wartość dla osi Y. \\
+\hline
+{\em maxY} & Maksymalna wartość dla osi Y. \\
+\hline
+{\em parent} & Wskaźnik na widget nadrzędny (opcjonalny). \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8cpp_source_l00029}{29}} pliku \mbox{\hyperlink{SensorGraph_8cpp_source}{Sensor\+Graph.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{SensorGraph_8h_source_l00086}{current\+Sample\+Index}}, \mbox{\hyperlink{SensorGraph_8h_source_l00080}{sample\+Count}} i \mbox{\hyperlink{SensorGraph_8h_source_l00074}{series\+List}}.
+
+
+
+\doxysubsubsection{Dokumentacja funkcji składowych}
+\Hypertarget{classSensorGraph_af5d08b4e576111efbc7a486bb27b6bf2}\index{SensorGraph@{SensorGraph}!addData@{addData}}
+\index{addData@{addData}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{addData()}{addData()}}
+{\footnotesize\ttfamily \label{classSensorGraph_af5d08b4e576111efbc7a486bb27b6bf2} 
+void Sensor\+Graph\+::add\+Data (\begin{DoxyParamCaption}\item[{const QVector$<$ int $>$ \&}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Dodaje nowy zestaw danych (punkt pomiarowy) do wykresu. 
+
+Oczekuje wektora z trzema wartościami całkowitymi, które są dodawane do odpowiednich serii danych (X, Y, Z). Aktualizuje oś X, aby pokazywać najnowszy zakres próbek. 
+\begin{DoxyParams}{Parametry}
+{\em data} & Wektor {\ttfamily QVector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} zawierający trzy wartości danych do dodania. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości.
+\end{DoxyReturn}
+Funkcja przyjmuje wektor {\ttfamily data} z trzema wartościami. Każda wartość jest dodawana do odpowiedniej serii (pierwsza do serii X, druga do Y, trzecia do Z) z bieżącym indeksem próbki {\ttfamily current\+Sample\+Index} jako wartością X. Jeśli liczba punktów w serii przekroczy {\ttfamily sample\+Count}, najstarszy punkt jest usuwany. Oś X jest aktualizowana co {\ttfamily x\+Axis\+Update\+Frequency} próbek lub przy pierwszej próbce, aby pokazywać okno ostatnich {\ttfamily sample\+Count} próbek. 
+\begin{DoxyParams}{Parametry}
+{\em data} & Wektor {\ttfamily QVector\texorpdfstring{$<$}{<}int\texorpdfstring{$>$}{>}} zawierający dokładnie trzy wartości danych do dodania. Jeśli rozmiar wektora jest inny niż 3, funkcja nic nie robi. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8cpp_source_l00099}{99}} pliku \mbox{\hyperlink{SensorGraph_8cpp_source}{Sensor\+Graph.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{SensorGraph_8h_source_l00086}{current\+Sample\+Index}}, \mbox{\hyperlink{SensorGraph_8h_source_l00080}{sample\+Count}} i \mbox{\hyperlink{SensorGraph_8h_source_l00074}{series\+List}}.
+
+\Hypertarget{classSensorGraph_a4d7ecb0ea8158a3a4085fc6a5f1f9a01}\index{SensorGraph@{SensorGraph}!setSampleCount@{setSampleCount}}
+\index{setSampleCount@{setSampleCount}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{setSampleCount()}{setSampleCount()}}
+{\footnotesize\ttfamily \label{classSensorGraph_a4d7ecb0ea8158a3a4085fc6a5f1f9a01} 
+void Sensor\+Graph\+::set\+Sample\+Count (\begin{DoxyParamCaption}\item[{int}]{count}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia maksymalną liczbę próbek wyświetlanych na wykresie dla każdej serii. 
+
+Określa, ile ostatnich punktów danych ma być widocznych. Starsze punkty są usuwane, gdy dodawane są nowe, przekraczające ten limit. 
+\begin{DoxyParams}{Parametry}
+{\em count} & Nowa maksymalna liczba próbek (minimum 10). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości.
+\end{DoxyReturn}
+Aktualizuje wewnętrzną zmienną {\ttfamily sample\+Count} (minimum 10). Następnie iteruje przez wszystkie serie danych i usuwa najstarsze punkty, jeśli ich liczba przekracza nowo ustawiony limit. Na koniec aktualizuje zakres osi X, aby pasował do nowej liczby próbek lub aktualnych danych, jeśli istnieją. 
+\begin{DoxyParams}{Parametry}
+{\em count} & Nowa maksymalna liczba próbek do wyświetlenia. Wartość jest ograniczana od dołu do 10. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8cpp_source_l00154}{154}} pliku \mbox{\hyperlink{SensorGraph_8cpp_source}{Sensor\+Graph.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{SensorGraph_8h_source_l00086}{current\+Sample\+Index}}, \mbox{\hyperlink{SensorGraph_8h_source_l00080}{sample\+Count}} i \mbox{\hyperlink{SensorGraph_8h_source_l00074}{series\+List}}.
+
+\Hypertarget{classSensorGraph_a39e5bd8e6ed79b3d9f89ed8584699adc}\index{SensorGraph@{SensorGraph}!setYRange@{setYRange}}
+\index{setYRange@{setYRange}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{setYRange()}{setYRange()}}
+{\footnotesize\ttfamily \label{classSensorGraph_a39e5bd8e6ed79b3d9f89ed8584699adc} 
+void Sensor\+Graph\+::set\+YRange (\begin{DoxyParamCaption}\item[{int}]{minY}{, }\item[{int}]{maxY}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia zakres (minimalną i maksymalną wartość) dla osi Y. 
+
+Definiuje widoczny zakres wartości na pionowej osi wykresu. 
+\begin{DoxyParams}{Parametry}
+{\em minY} & Nowa minimalna wartość dla osi Y. \\
+\hline
+{\em maxY} & Nowa maksymalna wartość dla osi Y. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości.
+\end{DoxyReturn}
+Znajduje oś Y wykresu i ustawia jej zakres na podane wartości {\ttfamily minY} i {\ttfamily maxY}. 
+\begin{DoxyParams}{Parametry}
+{\em minY} & Nowa minimalna wartość dla osi Y. \\
+\hline
+{\em maxY} & Nowa maksymalna wartość dla osi Y. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+void Funkcja nie zwraca wartości. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8cpp_source_l00207}{207}} pliku \mbox{\hyperlink{SensorGraph_8cpp_source}{Sensor\+Graph.\+cpp}}.
+
+
+
+\doxysubsubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{classSensorGraph_abdad7688725fa35ee0a925745c9f3053}\index{SensorGraph@{SensorGraph}!currentSampleIndex@{currentSampleIndex}}
+\index{currentSampleIndex@{currentSampleIndex}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{currentSampleIndex}{currentSampleIndex}}
+{\footnotesize\ttfamily \label{classSensorGraph_abdad7688725fa35ee0a925745c9f3053} 
+qint64 Sensor\+Graph\+::current\+Sample\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Bieżący indeks próbki, używany jako wartość na osi X dla nowo dodawanych punktów. Inkrementowany po każdym dodaniu danych. 
+
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8h_source_l00086}{86}} pliku \mbox{\hyperlink{SensorGraph_8h_source}{Sensor\+Graph.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{SensorGraph_8cpp_source_l00029}{Sensor\+Graph()}}, \mbox{\hyperlink{SensorGraph_8cpp_source_l00099}{add\+Data()}} i \mbox{\hyperlink{SensorGraph_8cpp_source_l00154}{set\+Sample\+Count()}}.
+
+\Hypertarget{classSensorGraph_a0601e344e7fd1d787b403207157c0b02}\index{SensorGraph@{SensorGraph}!sampleCount@{sampleCount}}
+\index{sampleCount@{sampleCount}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{sampleCount}{sampleCount}}
+{\footnotesize\ttfamily \label{classSensorGraph_a0601e344e7fd1d787b403207157c0b02} 
+int Sensor\+Graph\+::sample\+Count = 1000\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maksymalna liczba punktów danych wyświetlanych jednocześnie na wykresie dla każdej serii. Domyślnie 1000. 
+
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8h_source_l00080}{80}} pliku \mbox{\hyperlink{SensorGraph_8h_source}{Sensor\+Graph.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{SensorGraph_8cpp_source_l00029}{Sensor\+Graph()}}, \mbox{\hyperlink{SensorGraph_8cpp_source_l00099}{add\+Data()}} i \mbox{\hyperlink{SensorGraph_8cpp_source_l00154}{set\+Sample\+Count()}}.
+
+\Hypertarget{classSensorGraph_a54157a16d0780c9f8cbf523d39200636}\index{SensorGraph@{SensorGraph}!seriesList@{seriesList}}
+\index{seriesList@{seriesList}!SensorGraph@{SensorGraph}}
+\doxyparagraph{\texorpdfstring{seriesList}{seriesList}}
+{\footnotesize\ttfamily \label{classSensorGraph_a54157a16d0780c9f8cbf523d39200636} 
+QList$<$QLine\+Series \texorpdfstring{$\ast$}{*}$>$ Sensor\+Graph\+::series\+List\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Lista przechowująca wskaźniki do obiektów QLine\+Series, reprezentujących poszczególne kanały danych (np. X, Y, Z). 
+
+
+
+Definicja w linii \mbox{\hyperlink{SensorGraph_8h_source_l00074}{74}} pliku \mbox{\hyperlink{SensorGraph_8h_source}{Sensor\+Graph.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{SensorGraph_8cpp_source_l00029}{Sensor\+Graph()}}, \mbox{\hyperlink{SensorGraph_8cpp_source_l00099}{add\+Data()}} i \mbox{\hyperlink{SensorGraph_8cpp_source_l00154}{set\+Sample\+Count()}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{SensorGraph_8h}{Sensor\+Graph.\+h}}\item 
+\mbox{\hyperlink{SensorGraph_8cpp}{Sensor\+Graph.\+cpp}}\end{DoxyCompactItemize}

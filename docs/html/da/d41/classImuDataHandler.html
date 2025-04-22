@@ -1,0 +1,1797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Orienta -- WDS: Dokumentacja klasy ImuDataHandler</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Orienta -- WDS<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Dokumentacja projektu Orienta</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Szukaj',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('da/d41/classImuDataHandler.html','../../'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="#pub-attribs">Atrybuty publiczne</a> &#124;
+<a href="#pri-methods">Metody prywatne</a> &#124;
+<a href="#pri-attribs">Atrybuty prywatne</a> &#124;
+<a href="../../d2/db8/classImuDataHandler-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle"><div class="title">Dokumentacja klasy ImuDataHandler</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa <a class="el" href="../../da/d41/classImuDataHandler.html" title="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU.">ImuDataHandler</a> zarządza i wizualizuje dane z jednostki IMU.  
+ <a href="#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram dziedziczenia dla ImuDataHandler</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d0/d5d/classImuDataHandler__inherit__graph.png" border="0" usemap="#aImuDataHandler_inherit__map" alt="Inheritance graph"/></div>
+</div>
+<div class="dynheader">
+Diagram współpracy dla ImuDataHandler:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d9/de2/classImuDataHandler__coll__graph.png" border="0" usemap="#aImuDataHandler_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a1ebcd9d4e4ff48f36ca78edcbcece7c7" id="r_a1ebcd9d4e4ff48f36ca78edcbcece7c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ebcd9d4e4ff48f36ca78edcbcece7c7">ImuDataHandler</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a1ebcd9d4e4ff48f36ca78edcbcece7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy <a class="el" href="../../da/d41/classImuDataHandler.html" title="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU.">ImuDataHandler</a>.  <br /></td></tr>
+<tr class="separator:a1ebcd9d4e4ff48f36ca78edcbcece7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18aa5b9ea29b6757d9cb9329e37bd4eb" id="r_a18aa5b9ea29b6757d9cb9329e37bd4eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18aa5b9ea29b6757d9cb9329e37bd4eb">updateData</a> (const QVector&lt; int &gt; &amp;acc, const QVector&lt; int &gt; &amp;gyro, const QVector&lt; int &gt; &amp;mag)</td></tr>
+<tr class="memdesc:a18aa5b9ea29b6757d9cb9329e37bd4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualizuje dane wyświetlane przez widget.  <br /></td></tr>
+<tr class="separator:a18aa5b9ea29b6757d9cb9329e37bd4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e9b4fe17a2bf511d67eba5c65b3e2c" id="r_ac6e9b4fe17a2bf511d67eba5c65b3e2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6e9b4fe17a2bf511d67eba5c65b3e2c">setSampleCount</a> (int samples)</td></tr>
+<tr class="memdesc:ac6e9b4fe17a2bf511d67eba5c65b3e2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia liczbę próbek wyświetlanych na wykresach.  <br /></td></tr>
+<tr class="separator:ac6e9b4fe17a2bf511d67eba5c65b3e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f78bbf73ad3c919f33800c563cf14d8" id="r_a9f78bbf73ad3c919f33800c563cf14d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f78bbf73ad3c919f33800c563cf14d8">setRange</a> (int minVal, int maxVal)</td></tr>
+<tr class="memdesc:a9f78bbf73ad3c919f33800c563cf14d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz, ignorując parametry.  <br /></td></tr>
+<tr class="separator:a9f78bbf73ad3c919f33800c563cf14d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2774f802773da8e0121d2323a860e8fc" id="r_a2774f802773da8e0121d2323a860e8fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2774f802773da8e0121d2323a860e8fc">setRotation</a> (float yaw, float pitch, float roll)</td></tr>
+<tr class="memdesc:a2774f802773da8e0121d2323a860e8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia rotację modelu 3D na podstawie kątów Eulera.  <br /></td></tr>
+<tr class="separator:a2774f802773da8e0121d2323a860e8fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c806ccd18eaae4b8afc0c9213c2b485" id="r_a5c806ccd18eaae4b8afc0c9213c2b485"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c806ccd18eaae4b8afc0c9213c2b485">updateCompass</a> (float heading)</td></tr>
+<tr class="memdesc:a5c806ccd18eaae4b8afc0c9213c2b485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualizuje kierunek wskazywany przez strzałkę kompasu.  <br /></td></tr>
+<tr class="separator:a5c806ccd18eaae4b8afc0c9213c2b485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a22d9a72d177b0ede32f905ee3ac241" id="r_a7a22d9a72d177b0ede32f905ee3ac241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a22d9a72d177b0ede32f905ee3ac241">showGraph</a> ()</td></tr>
+<tr class="memdesc:a7a22d9a72d177b0ede32f905ee3ac241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot przełączający widok na zakładkę z wykresami.  <br /></td></tr>
+<tr class="separator:a7a22d9a72d177b0ede32f905ee3ac241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atrybuty publiczne</h2></td></tr>
+<tr class="memitem:ae5e4e195f4bbd4dd2ade774f6194572e" id="r_ae5e4e195f4bbd4dd2ade774f6194572e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom">: void showCurrentData()</td></tr>
+<tr class="separator:ae5e4e195f4bbd4dd2ade774f6194572e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Metody prywatne</h2></td></tr>
+<tr class="memitem:ac2a199dc1a1aed47e0ac97509bf0ae56" id="r_ac2a199dc1a1aed47e0ac97509bf0ae56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2a199dc1a1aed47e0ac97509bf0ae56">setupMainLayout</a> ()</td></tr>
+<tr class="memdesc:ac2a199dc1a1aed47e0ac97509bf0ae56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje główny układ interfejsu użytkownika.  <br /></td></tr>
+<tr class="separator:ac2a199dc1a1aed47e0ac97509bf0ae56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab54382d06d6dddb783422b93e2b12c25" id="r_ab54382d06d6dddb783422b93e2b12c25"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab54382d06d6dddb783422b93e2b12c25">createButtonPanel</a> ()</td></tr>
+<tr class="memdesc:ab54382d06d6dddb783422b93e2b12c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy panel z przyciskami do przełączania widoków.  <br /></td></tr>
+<tr class="separator:ab54382d06d6dddb783422b93e2b12c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ffdfb6a4e85385b2b9e2234cba3ee1" id="r_a87ffdfb6a4e85385b2b9e2234cba3ee1"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87ffdfb6a4e85385b2b9e2234cba3ee1">createLeftPanel</a> ()</td></tr>
+<tr class="memdesc:a87ffdfb6a4e85385b2b9e2234cba3ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy lewy panel zawierający przełączane widoki danych (paski/wykresy).  <br /></td></tr>
+<tr class="separator:a87ffdfb6a4e85385b2b9e2234cba3ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf10774c1c6dc0f610a7e0da6d916b7e" id="r_aaf10774c1c6dc0f610a7e0da6d916b7e"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf10774c1c6dc0f610a7e0da6d916b7e">createBarDisplayWidget</a> ()</td></tr>
+<tr class="memdesc:aaf10774c1c6dc0f610a7e0da6d916b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy widget wyświetlający dane w postaci pasków postępu.  <br /></td></tr>
+<tr class="separator:aaf10774c1c6dc0f610a7e0da6d916b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2511de943f7f2c27c82e5e58ab7d869" id="r_ac2511de943f7f2c27c82e5e58ab7d869"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2511de943f7f2c27c82e5e58ab7d869">createGraphDisplayWidget</a> ()</td></tr>
+<tr class="memdesc:ac2511de943f7f2c27c82e5e58ab7d869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy widget wyświetlający dane w postaci wykresów.  <br /></td></tr>
+<tr class="separator:ac2511de943f7f2c27c82e5e58ab7d869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9179f9700276cd0eaad6a9c764780156" id="r_a9179f9700276cd0eaad6a9c764780156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9179f9700276cd0eaad6a9c764780156">setupVisualizationPanel</a> ()</td></tr>
+<tr class="memdesc:a9179f9700276cd0eaad6a9c764780156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje panel wizualizacji 3D (model i kompas).  <br /></td></tr>
+<tr class="separator:a9179f9700276cd0eaad6a9c764780156"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa577768c3943c9ab20d01449a2abc5b4" id="r_aa577768c3943c9ab20d01449a2abc5b4"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa577768c3943c9ab20d01449a2abc5b4">create3DView</a> ()</td></tr>
+<tr class="memdesc:aa577768c3943c9ab20d01449a2abc5b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy widok 3D do wyświetlania modelu urządzenia.  <br /></td></tr>
+<tr class="separator:aa577768c3943c9ab20d01449a2abc5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4754002ef74444e87ff8a32e8a47a149" id="r_a4754002ef74444e87ff8a32e8a47a149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4754002ef74444e87ff8a32e8a47a149">setupCameraAndController3D</a> (Qt3DExtras::Qt3DWindow *view, Qt3DCore::QEntity *rootEntity)</td></tr>
+<tr class="memdesc:a4754002ef74444e87ff8a32e8a47a149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje kamerę i kontroler dla widoku modelu 3D.  <br /></td></tr>
+<tr class="separator:a4754002ef74444e87ff8a32e8a47a149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b0df574f13907172df13ec93ab4430c" id="r_a3b0df574f13907172df13ec93ab4430c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b0df574f13907172df13ec93ab4430c">setupLighting3D</a> (Qt3DCore::QEntity *rootEntity)</td></tr>
+<tr class="memdesc:a3b0df574f13907172df13ec93ab4430c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje oświetlenie dla sceny modelu 3D.  <br /></td></tr>
+<tr class="separator:a3b0df574f13907172df13ec93ab4430c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5824452fd383d251cb5651a8db52d79" id="r_ab5824452fd383d251cb5651a8db52d79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5824452fd383d251cb5651a8db52d79">setupModelLoader3D</a> (Qt3DCore::QEntity *rootEntity)</td></tr>
+<tr class="memdesc:ab5824452fd383d251cb5651a8db52d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje ładowanie modelu 3D (np. z pliku .dae).  <br /></td></tr>
+<tr class="separator:ab5824452fd383d251cb5651a8db52d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a015c4523ec22dfe00e7128f4081c9a66" id="r_a015c4523ec22dfe00e7128f4081c9a66"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a015c4523ec22dfe00e7128f4081c9a66">createCompassView</a> ()</td></tr>
+<tr class="memdesc:a015c4523ec22dfe00e7128f4081c9a66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy widok 3D dla kompasu.  <br /></td></tr>
+<tr class="separator:a015c4523ec22dfe00e7128f4081c9a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc085ea14f6988b41b2a731968027a7" id="r_a8cc085ea14f6988b41b2a731968027a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cc085ea14f6988b41b2a731968027a7">setupCameraAndControllerCompass</a> (Qt3DExtras::Qt3DWindow *view, Qt3DCore::QEntity *rootEntity)</td></tr>
+<tr class="memdesc:a8cc085ea14f6988b41b2a731968027a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje kamerę i kontroler dla widoku kompasu.  <br /></td></tr>
+<tr class="separator:a8cc085ea14f6988b41b2a731968027a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f683011837380b0d2ea575ad5b07ce9" id="r_a3f683011837380b0d2ea575ad5b07ce9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f683011837380b0d2ea575ad5b07ce9">setupLightingCompass</a> (Qt3DCore::QEntity *rootEntity)</td></tr>
+<tr class="memdesc:a3f683011837380b0d2ea575ad5b07ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konfiguruje oświetlenie dla sceny kompasu.  <br /></td></tr>
+<tr class="separator:a3f683011837380b0d2ea575ad5b07ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9fc18fee49df95c702ce5f89147920f" id="r_ae9fc18fee49df95c702ce5f89147920f"><td class="memItemLeft" align="right" valign="top">Qt3DCore::QEntity *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9fc18fee49df95c702ce5f89147920f">createCompassRing</a> (Qt3DCore::QEntity *parentEntity)</td></tr>
+<tr class="memdesc:ae9fc18fee49df95c702ce5f89147920f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy pierścień kompasu jako element sceny 3D.  <br /></td></tr>
+<tr class="separator:ae9fc18fee49df95c702ce5f89147920f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ecf69a4d883f09b5123b57937a973c9" id="r_a8ecf69a4d883f09b5123b57937a973c9"><td class="memItemLeft" align="right" valign="top">Qt3DCore::QEntity *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ecf69a4d883f09b5123b57937a973c9">createCompassArrow</a> (Qt3DCore::QEntity *parentEntity)</td></tr>
+<tr class="memdesc:a8ecf69a4d883f09b5123b57937a973c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy strzałkę kompasu jako element sceny 3D.  <br /></td></tr>
+<tr class="separator:a8ecf69a4d883f09b5123b57937a973c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5931bf0e948c1f34c5f8079f04d310" id="r_a6f5931bf0e948c1f34c5f8079f04d310"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f5931bf0e948c1f34c5f8079f04d310">addCompassLabels</a> (Qt3DCore::QEntity *parentEntity)</td></tr>
+<tr class="memdesc:a6f5931bf0e948c1f34c5f8079f04d310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje etykiety kierunków (N, E, S, W) do sceny kompasu.  <br /></td></tr>
+<tr class="separator:a6f5931bf0e948c1f34c5f8079f04d310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a1c0a2a1767b8621205b3972a5cab6bd6" id="r_a1c0a2a1767b8621205b3972a5cab6bd6"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c0a2a1767b8621205b3972a5cab6bd6">accXBar</a> = nullptr</td></tr>
+<tr class="separator:a1c0a2a1767b8621205b3972a5cab6bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2259dc2830f76451c861bb798a6c5e6" id="r_ac2259dc2830f76451c861bb798a6c5e6"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2259dc2830f76451c861bb798a6c5e6">accYBar</a> = nullptr</td></tr>
+<tr class="separator:ac2259dc2830f76451c861bb798a6c5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a153c3674781806b1e3521a85bd7de9d3" id="r_a153c3674781806b1e3521a85bd7de9d3"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a153c3674781806b1e3521a85bd7de9d3">accZBar</a> = nullptr</td></tr>
+<tr class="memdesc:a153c3674781806b1e3521a85bd7de9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paski dla akcelerometru X, Y, Z.  <br /></td></tr>
+<tr class="separator:a153c3674781806b1e3521a85bd7de9d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa20b8feea41f31c812e900014f440b7c" id="r_aa20b8feea41f31c812e900014f440b7c"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa20b8feea41f31c812e900014f440b7c">gyroXBar</a> = nullptr</td></tr>
+<tr class="separator:aa20b8feea41f31c812e900014f440b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86947f3a0ceda7494afb92b2e8de0fe" id="r_ab86947f3a0ceda7494afb92b2e8de0fe"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab86947f3a0ceda7494afb92b2e8de0fe">gyroYBar</a> = nullptr</td></tr>
+<tr class="separator:ab86947f3a0ceda7494afb92b2e8de0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44676ca7b55459e3c2a5dfd8c2bf7e13" id="r_a44676ca7b55459e3c2a5dfd8c2bf7e13"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44676ca7b55459e3c2a5dfd8c2bf7e13">gyroZBar</a> = nullptr</td></tr>
+<tr class="memdesc:a44676ca7b55459e3c2a5dfd8c2bf7e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paski dla żyroskopu X, Y, Z.  <br /></td></tr>
+<tr class="separator:a44676ca7b55459e3c2a5dfd8c2bf7e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4c59111a73ad1903c3b97bc4c9614a9" id="r_ab4c59111a73ad1903c3b97bc4c9614a9"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4c59111a73ad1903c3b97bc4c9614a9">magXBar</a> = nullptr</td></tr>
+<tr class="separator:ab4c59111a73ad1903c3b97bc4c9614a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381fd5be357127b011085de38def2a28" id="r_a381fd5be357127b011085de38def2a28"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381fd5be357127b011085de38def2a28">magYBar</a> = nullptr</td></tr>
+<tr class="separator:a381fd5be357127b011085de38def2a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b4baf17210aa4328bee4088c268201" id="r_a29b4baf17210aa4328bee4088c268201"><td class="memItemLeft" align="right" valign="top">QProgressBar *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29b4baf17210aa4328bee4088c268201">magZBar</a> = nullptr</td></tr>
+<tr class="memdesc:a29b4baf17210aa4328bee4088c268201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Paski dla magnetometru X, Y, Z.  <br /></td></tr>
+<tr class="separator:a29b4baf17210aa4328bee4088c268201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c475a0c5787e56256adfb638e5464e7" id="r_a0c475a0c5787e56256adfb638e5464e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c475a0c5787e56256adfb638e5464e7">accGraph</a> = nullptr</td></tr>
+<tr class="memdesc:a0c475a0c5787e56256adfb638e5464e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wykres dla akcelerometru.  <br /></td></tr>
+<tr class="separator:a0c475a0c5787e56256adfb638e5464e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2076f1f1f53bb378fd62c3e42d4701b" id="r_ac2076f1f1f53bb378fd62c3e42d4701b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2076f1f1f53bb378fd62c3e42d4701b">gyroGraph</a> = nullptr</td></tr>
+<tr class="memdesc:ac2076f1f1f53bb378fd62c3e42d4701b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wykres dla żyroskopu.  <br /></td></tr>
+<tr class="separator:ac2076f1f1f53bb378fd62c3e42d4701b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad632a86ed603579020ff922a26db285e" id="r_ad632a86ed603579020ff922a26db285e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad632a86ed603579020ff922a26db285e">magGraph</a> = nullptr</td></tr>
+<tr class="memdesc:ad632a86ed603579020ff922a26db285e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wykres dla magnetometru.  <br /></td></tr>
+<tr class="separator:ad632a86ed603579020ff922a26db285e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad040a42ce230d3a98a62585626843bdb" id="r_ad040a42ce230d3a98a62585626843bdb"><td class="memItemLeft" align="right" valign="top">QStackedWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad040a42ce230d3a98a62585626843bdb">stackedWidget</a> = nullptr</td></tr>
+<tr class="memdesc:ad040a42ce230d3a98a62585626843bdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Widget zarządzający widokami danych.  <br /></td></tr>
+<tr class="separator:ad040a42ce230d3a98a62585626843bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5fd7c20e56decd6abfa512a5f02ada" id="r_a4b5fd7c20e56decd6abfa512a5f02ada"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b5fd7c20e56decd6abfa512a5f02ada">currentSampleCount</a> = 1000</td></tr>
+<tr class="memdesc:a4b5fd7c20e56decd6abfa512a5f02ada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualna liczba próbek na wykresach.  <br /></td></tr>
+<tr class="separator:a4b5fd7c20e56decd6abfa512a5f02ada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a912ae87d0b8cfde5f539150754c135bb" id="r_a912ae87d0b8cfde5f539150754c135bb"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a912ae87d0b8cfde5f539150754c135bb">visualizationPanelWidget</a> = nullptr</td></tr>
+<tr class="memdesc:a912ae87d0b8cfde5f539150754c135bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Główny widget panelu wizualizacji (3D + kompas)  <br /></td></tr>
+<tr class="separator:a912ae87d0b8cfde5f539150754c135bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0374c6d26e76b7900a3d915cd8ebc2" id="r_a2f0374c6d26e76b7900a3d915cd8ebc2"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f0374c6d26e76b7900a3d915cd8ebc2">view3DContainerWidget</a> = nullptr</td></tr>
+<tr class="memdesc:a2f0374c6d26e76b7900a3d915cd8ebc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontener dla widoku modelu 3D.  <br /></td></tr>
+<tr class="separator:a2f0374c6d26e76b7900a3d915cd8ebc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abefb855b5b0847efc251b2215ef7b75e" id="r_abefb855b5b0847efc251b2215ef7b75e"><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abefb855b5b0847efc251b2215ef7b75e">compassContainerWidget</a> = nullptr</td></tr>
+<tr class="memdesc:abefb855b5b0847efc251b2215ef7b75e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontener dla widoku kompasu.  <br /></td></tr>
+<tr class="separator:abefb855b5b0847efc251b2215ef7b75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e01799410c507772a97dab13c6d6727" id="r_a0e01799410c507772a97dab13c6d6727"><td class="memItemLeft" align="right" valign="top">Qt3DCore::QTransform *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e01799410c507772a97dab13c6d6727">compassTransform</a> = nullptr</td></tr>
+<tr class="memdesc:a0e01799410c507772a97dab13c6d6727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformacja dla strzałki kompasu.  <br /></td></tr>
+<tr class="separator:a0e01799410c507772a97dab13c6d6727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf894b25a3d8e4f7542130ad2e1d624" id="r_acbf894b25a3d8e4f7542130ad2e1d624"><td class="memItemLeft" align="right" valign="top">Qt3DCore::QTransform *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acbf894b25a3d8e4f7542130ad2e1d624">boardTransform</a> = nullptr</td></tr>
+<tr class="memdesc:acbf894b25a3d8e4f7542130ad2e1d624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformacja dla modelu 3D płytki.  <br /></td></tr>
+<tr class="separator:acbf894b25a3d8e4f7542130ad2e1d624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa <a class="el" href="../../da/d41/classImuDataHandler.html" title="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU.">ImuDataHandler</a> zarządza i wizualizuje dane z jednostki IMU. </p>
+<p>Odpowiada za odbieranie danych z akcelerometru, żyroskopu i magnetometru, wyświetlanie ich w postaci pasków postępu, wykresów, a także wizualizację orientacji 3D urządzenia i kierunku kompasu. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00048">48</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a1ebcd9d4e4ff48f36ca78edcbcece7c7" name="a1ebcd9d4e4ff48f36ca78edcbcece7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ebcd9d4e4ff48f36ca78edcbcece7c7">&#9670;&#160;</a></span>ImuDataHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImuDataHandler::ImuDataHandler </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konstruktor klasy <a class="el" href="../../da/d41/classImuDataHandler.html" title="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU.">ImuDataHandler</a>. </p>
+<p>Konstruktor klasy <a class="el" href="../../da/d41/classImuDataHandler.html" title="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU.">ImuDataHandler</a>. Inicjalizuje UI poprzez wywołanie setupMainLayout.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Wskaźnik na widget nadrzędny (opcjonalny). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00039">39</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00217">currentSampleCount</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7_cgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a6f5931bf0e948c1f34c5f8079f04d310" name="a6f5931bf0e948c1f34c5f8079f04d310"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f5931bf0e948c1f34c5f8079f04d310">&#9670;&#160;</a></span>addCompassLabels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::addCompassLabels </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>parentEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dodaje etykiety kierunków (N, E, S, W) do sceny kompasu. </p>
+<p>Dodaje etykiety kierunków (N, E, S, W) jako tekst 2D do sceny kompasu. Wykorzystuje QText2DEntity do wyświetlenia liter w odpowiednich miejscach wokół pierścienia.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentEntity</td><td>Wskaźnik na byt nadrzędny, do którego zostaną dodane etykiety. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00657">657</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aa577768c3943c9ab20d01449a2abc5b4" name="aa577768c3943c9ab20d01449a2abc5b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa577768c3943c9ab20d01449a2abc5b4">&#9670;&#160;</a></span>create3DView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::create3DView </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy widok 3D do wyświetlania modelu urządzenia. </p>
+<p>Tworzy widok 3D do wyświetlania modelu urządzenia. Inicjalizuje okno Qt3DWindow, ustawia jego tło, tworzy główny byt sceny, konfiguruje kamerę, oświetlenie i ładowanie modelu.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na kontener QWidget zawierający okno Qt3DWindow dla modelu 3D.</dd>
+<dd>
+Wskaźnik na kontener QWidget (<code>QWidget::createWindowContainer</code>) zawierający okno Qt3DWindow dla modelu 3D. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00389">389</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00420">setupCameraAndController3D()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00444">setupLighting3D()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00463">setupModelLoader3D()</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="aaf10774c1c6dc0f610a7e0da6d916b7e" name="aaf10774c1c6dc0f610a7e0da6d916b7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf10774c1c6dc0f610a7e0da6d916b7e">&#9670;&#160;</a></span>createBarDisplayWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::createBarDisplayWidget </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy widget wyświetlający dane w postaci pasków postępu. </p>
+<p>Tworzy widget wyświetlający dane IMU w postaci pasków postępu. Grupuje paski dla akcelerometru, żyroskopu i magnetometru w osobnych QGroupBox.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony widget z paskami postępu. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">269</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magYBar</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magZBar</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00243">createLeftPanel()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab54382d06d6dddb783422b93e2b12c25" name="ab54382d06d6dddb783422b93e2b12c25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab54382d06d6dddb783422b93e2b12c25">&#9670;&#160;</a></span>createButtonPanel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::createButtonPanel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy panel z przyciskami do przełączania widoków. </p>
+<p>Tworzy panel z przyciskami do przełączania widoków ("Current Data", "Graph"). Łączy sygnały <code>clicked</code> przycisków z odpowiednimi slotami <code>showCurrentData</code> i <code>showGraph</code>.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony widget panelu przycisków. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00217">217</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00174">showGraph()</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a8ecf69a4d883f09b5123b57937a973c9" name="a8ecf69a4d883f09b5123b57937a973c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ecf69a4d883f09b5123b57937a973c9">&#9670;&#160;</a></span>createCompassArrow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt3DCore::QEntity * ImuDataHandler::createCompassArrow </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>parentEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy strzałkę kompasu jako element sceny 3D. </p>
+<p>Tworzy strzałkę kompasu jako element sceny 3D. Wykorzystuje siatkę QCuboidMesh (prostopadłościan) i materiał QPhongMaterial. Przypisuje do strzałki transformację <code>compassTransform</code>, która będzie używana do obracania strzałki zgodnie z kierunkiem.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentEntity</td><td>Wskaźnik na byt nadrzędny, do którego zostanie dodana strzałka. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony byt strzałki kompasu. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00626">626</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00225">compassTransform</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ae9fc18fee49df95c702ce5f89147920f" name="ae9fc18fee49df95c702ce5f89147920f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9fc18fee49df95c702ce5f89147920f">&#9670;&#160;</a></span>createCompassRing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt3DCore::QEntity * ImuDataHandler::createCompassRing </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>parentEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy pierścień kompasu jako element sceny 3D. </p>
+<p>Tworzy pierścień kompasu jako element sceny 3D. Wykorzystuje siatkę QTorusMesh i materiał QPhongMaterial.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parentEntity</td><td>Wskaźnik na byt nadrzędny, do którego zostanie dodany pierścień. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony byt pierścienia kompasu. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00601">601</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a015c4523ec22dfe00e7128f4081c9a66" name="a015c4523ec22dfe00e7128f4081c9a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a015c4523ec22dfe00e7128f4081c9a66">&#9670;&#160;</a></span>createCompassView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::createCompassView </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy widok 3D dla kompasu. </p>
+<p>Tworzy widok 3D dla kompasu. Inicjalizuje okno Qt3DWindow, ustawia tło, tworzy główny byt sceny, konfiguruje kamerę, oświetlenie oraz tworzy elementy wizualne kompasu (pierścień, strzałkę, etykiety).</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na kontener QWidget zawierający okno Qt3DWindow dla kompasu.</dd>
+<dd>
+Wskaźnik na kontener QWidget (<code>QWidget::createWindowContainer</code>) zawierający okno Qt3DWindow dla kompasu. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">525</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00657">addCompassLabels()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00626">createCompassArrow()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00601">createCompassRing()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00560">setupCameraAndControllerCompass()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00583">setupLightingCompass()</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ac2511de943f7f2c27c82e5e58ab7d869" name="ac2511de943f7f2c27c82e5e58ab7d869"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2511de943f7f2c27c82e5e58ab7d869">&#9670;&#160;</a></span>createGraphDisplayWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::createGraphDisplayWidget </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy widget wyświetlający dane w postaci wykresów. </p>
+<p>Tworzy widget wyświetlający dane IMU w postaci wykresów. Inicjalizuje obiekty <a class="el" href="../../d3/d55/classSensorGraph.html" title="Klasa SensorGraph dziedzicząca po QChartView, przeznaczona do wyświetlania danych z czujników (np....">SensorGraph</a> dla akcelerometru, żyroskopu i magnetometru.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony widget z wykresami. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">331</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00211">accGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00217">currentSampleCount</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00212">gyroGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00213">magGraph</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">setSampleCount()</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00243">createLeftPanel()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a87ffdfb6a4e85385b2b9e2234cba3ee1" name="a87ffdfb6a4e85385b2b9e2234cba3ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ffdfb6a4e85385b2b9e2234cba3ee1">&#9670;&#160;</a></span>createLeftPanel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget * ImuDataHandler::createLeftPanel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tworzy lewy panel zawierający przełączane widoki danych (paski/wykresy). </p>
+<p>Tworzy lewy panel zawierający QStackedWidget. QStackedWidget umożliwia przełączanie między widokiem pasków postępu a widokiem wykresów.</p>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na utworzony widget lewego panelu. </dd></dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00243">243</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00216">stackedWidget</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a9f78bbf73ad3c919f33800c563cf14d8" name="a9f78bbf73ad3c919f33800c563cf14d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f78bbf73ad3c919f33800c563cf14d8">&#9670;&#160;</a></span>setRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setRange </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minVal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxVal</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz, ignorując parametry. </p>
+<p>Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz. Parametry minVal i maxVal są ignorowane. Ustawia predefiniowane zakresy dla akcelerometru (-4000, 4000), żyroskopu (-250, 250) i magnetometru (-1600, 1600).</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minVal</td><td>Minimalna wartość zakresu (obecnie nieużywana). </td></tr>
+    <tr><td class="paramname">maxVal</td><td>Maksymalna wartość zakresu (obecnie nieużywana). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">102</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00211">accGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00212">gyroGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00213">magGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magYBar</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magZBar</a>.</p>
+
+</div>
+</div>
+<a id="a2774f802773da8e0121d2323a860e8fc" name="a2774f802773da8e0121d2323a860e8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2774f802773da8e0121d2323a860e8fc">&#9670;&#160;</a></span>setRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setRotation </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>yaw</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>pitch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>roll</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia rotację modelu 3D na podstawie kątów Eulera. </p>
+<p>Ustawia rotację modelu 3D na podstawie kątów Eulera. Tworzy kwaternion rotacji z podanych kątów i stosuje go do transformacji modelu 3D (<code>boardTransform</code>).</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">yaw</td><td>Kąt odchylenia (obrót wokół osi Z). </td></tr>
+    <tr><td class="paramname">pitch</td><td>Kąt pochylenia (obrót wokół osi X). </td></tr>
+    <tr><td class="paramname">roll</td><td>Kąt przechylenia (obrót wokół osi Y). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00127">127</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00226">boardTransform</a>.</p>
+
+</div>
+</div>
+<a id="ac6e9b4fe17a2bf511d67eba5c65b3e2c" name="ac6e9b4fe17a2bf511d67eba5c65b3e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e9b4fe17a2bf511d67eba5c65b3e2c">&#9670;&#160;</a></span>setSampleCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setSampleCount </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>samples</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia liczbę próbek wyświetlanych na wykresach. </p>
+<p>Ustawia liczbę próbek wyświetlanych na wykresach. Aktualizuje liczbę próbek dla każdego z wykresów (akcelerometr, żyroskop, magnetometr). Minimalna liczba próbek to 10.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">samples</td><td>Liczba próbek do wyświetlenia. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">86</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00211">accGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00217">currentSampleCount</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00212">gyroGraph</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00213">magGraph</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a4754002ef74444e87ff8a32e8a47a149" name="a4754002ef74444e87ff8a32e8a47a149"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4754002ef74444e87ff8a32e8a47a149">&#9670;&#160;</a></span>setupCameraAndController3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupCameraAndController3D </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DExtras::Qt3DWindow *</td>          <td class="paramname"><span class="paramname"><em>view</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>rootEntity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje kamerę i kontroler dla widoku modelu 3D. </p>
+<p>Konfiguruje kamerę i kontroler orbity dla widoku modelu 3D. Ustawia projekcję perspektywiczną, pozycję i kierunek kamery oraz tworzy kontroler QOrbitCameraController umożliwiający obracanie widoku myszą.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>Wskaźnik na okno Qt3DWindow dla modelu 3D. </td></tr>
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D.</td></tr>
+    <tr><td class="paramname">view</td><td>Wskaźnik na okno Qt3DWindow dla modelu 3D. </td></tr>
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D, do którego zostanie dodany kontroler. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00420">420</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00389">create3DView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a8cc085ea14f6988b41b2a731968027a7" name="a8cc085ea14f6988b41b2a731968027a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc085ea14f6988b41b2a731968027a7">&#9670;&#160;</a></span>setupCameraAndControllerCompass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupCameraAndControllerCompass </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DExtras::Qt3DWindow *</td>          <td class="paramname"><span class="paramname"><em>view</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>rootEntity</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje kamerę i kontroler dla widoku kompasu. </p>
+<p>Konfiguruje kamerę i kontroler orbity dla widoku kompasu. Ustawia kamerę w widoku z góry (nad kompasem) i tworzy kontroler QOrbitCameraController (choć interakcja z nim jest wyłączona przez NoFocus).</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>Wskaźnik na okno Qt3DWindow dla kompasu. </td></tr>
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny kompasu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00560">560</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a3b0df574f13907172df13ec93ab4430c" name="a3b0df574f13907172df13ec93ab4430c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b0df574f13907172df13ec93ab4430c">&#9670;&#160;</a></span>setupLighting3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupLighting3D </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>rootEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje oświetlenie dla sceny modelu 3D. </p>
+<p>Konfiguruje oświetlenie kierunkowe dla sceny modelu 3D. Dodaje do sceny byt reprezentujący źródło światła kierunkowego.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D.</td></tr>
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D, do którego zostanie dodane światło. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00444">444</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00389">create3DView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a3b0df574f13907172df13ec93ab4430c_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a3b0df574f13907172df13ec93ab4430c_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a3f683011837380b0d2ea575ad5b07ce9" name="a3f683011837380b0d2ea575ad5b07ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f683011837380b0d2ea575ad5b07ce9">&#9670;&#160;</a></span>setupLightingCompass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupLightingCompass </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>rootEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje oświetlenie dla sceny kompasu. </p>
+<p>Konfiguruje oświetlenie kierunkowe dla sceny kompasu. Dodaje do sceny byt reprezentujący źródło światła kierunkowego.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny kompasu. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00583">583</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ac2a199dc1a1aed47e0ac97509bf0ae56" name="ac2a199dc1a1aed47e0ac97509bf0ae56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a199dc1a1aed47e0ac97509bf0ae56">&#9670;&#160;</a></span>setupMainLayout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupMainLayout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje główny układ interfejsu użytkownika. </p>
+<p>Konfiguruje główny układ interfejsu użytkownika. Tworzy panel przycisków, lewy panel z danymi (paski/wykresy), panel wizualizacji (3D/kompas) i układa je w głównym oknie widgetu. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">184</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00217">createButtonPanel()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00243">createLeftPanel()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00216">stackedWidget</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00220">visualizationPanelWidget</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00039">ImuDataHandler()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="ab5824452fd383d251cb5651a8db52d79" name="ab5824452fd383d251cb5651a8db52d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5824452fd383d251cb5651a8db52d79">&#9670;&#160;</a></span>setupModelLoader3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupModelLoader3D </td>
+          <td>(</td>
+          <td class="paramtype">Qt3DCore::QEntity *</td>          <td class="paramname"><span class="paramname"><em>rootEntity</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje ładowanie modelu 3D (np. z pliku .dae). </p>
+<p>Konfiguruje ładowanie modelu 3D z pliku (np. DAE). Tworzy byt dla modelu i komponent QSceneLoader. Łączy sygnał statusu ładowania, aby po pomyślnym załadowaniu przypisać transformację <code>boardTransform</code> do głównego bytu załadowanej sceny.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D.</td></tr>
+    <tr><td class="paramname">rootEntity</td><td>Wskaźnik na główny byt sceny 3D, do którego zostanie dodany model. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00463">463</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00226">boardTransform</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00389">create3DView()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_ab5824452fd383d251cb5651a8db52d79_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_ab5824452fd383d251cb5651a8db52d79_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a9179f9700276cd0eaad6a9c764780156" name="a9179f9700276cd0eaad6a9c764780156"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9179f9700276cd0eaad6a9c764780156">&#9670;&#160;</a></span>setupVisualizationPanel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::setupVisualizationPanel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konfiguruje panel wizualizacji 3D (model i kompas). </p>
+<p>Konfiguruje panel wizualizacji, tworząc widoki 3D i kompasu. Jeśli widoki nie zostały jeszcze utworzone, wywołuje odpowiednie funkcje <code>create3DView</code> i <code>createCompassView</code>. Następnie umieszcza je w głównym widgecie panelu wizualizacji (<code>visualizationPanelWidget</code>). </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">359</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00222">compassContainerWidget</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00389">create3DView()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00525">createCompassView()</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00221">view3DContainerWidget</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00220">visualizationPanelWidget</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a>.</p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a9179f9700276cd0eaad6a9c764780156_cgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a9179f9700276cd0eaad6a9c764780156_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a9179f9700276cd0eaad6a9c764780156_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a9179f9700276cd0eaad6a9c764780156_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a7a22d9a72d177b0ede32f905ee3ac241" name="a7a22d9a72d177b0ede32f905ee3ac241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a22d9a72d177b0ede32f905ee3ac241">&#9670;&#160;</a></span>showGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::showGraph </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Slot przełączający widok na zakładkę z wykresami. </p>
+<p>Slot przełączający widok na zakładkę z wykresami. Ustawia aktywny indeks w QStackedWidget na 1. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00174">174</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00216">stackedWidget</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00217">createButtonPanel()</a>.</p>
+<div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../da/d41/classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241_icgraph.png" border="0" usemap="#ada/d41/classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a5c806ccd18eaae4b8afc0c9213c2b485" name="a5c806ccd18eaae4b8afc0c9213c2b485"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c806ccd18eaae4b8afc0c9213c2b485">&#9670;&#160;</a></span>updateCompass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::updateCompass </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>heading</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aktualizuje kierunek wskazywany przez strzałkę kompasu. </p>
+<p>Aktualizuje kierunek wskazywany przez strzałkę kompasu. Tworzy kwaternion rotacji wokół osi Z na podstawie podanego kierunku i stosuje go do transformacji strzałki kompasu (<code>compassTransform</code>).</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heading</td><td>Kierunek w stopniach (0 = Północ).</td></tr>
+    <tr><td class="paramname">heading</td><td>Kierunek w stopniach (0 = Północ, obrót przeciwny do ruchu wskazówek zegara). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00147">147</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00225">compassTransform</a>.</p>
+
+</div>
+</div>
+<a id="a18aa5b9ea29b6757d9cb9329e37bd4eb" name="a18aa5b9ea29b6757d9cb9329e37bd4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18aa5b9ea29b6757d9cb9329e37bd4eb">&#9670;&#160;</a></span>updateData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ImuDataHandler::updateData </td>
+          <td>(</td>
+          <td class="paramtype">const QVector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>acc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>gyro</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>mag</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aktualizuje dane wyświetlane przez widget. </p>
+<p>Aktualizuje dane wyświetlane przez widget. Odświeża wartości pasków postępu i dodaje nowe punkty do wykresów na podstawie otrzymanych danych z sensorów IMU.</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">acc</td><td>Wektor danych z akcelerometru [X, Y, Z]. </td></tr>
+    <tr><td class="paramname">gyro</td><td>Wektor danych z żyroskopu [X, Y, Z]. </td></tr>
+    <tr><td class="paramname">mag</td><td>Wektor danych z magnetometru [X, Y, Z]. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definicja w linii <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">55</a> pliku <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a>.</p>
+
+<p class="reference">Odwołuje się do <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00211">accGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">accZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00212">gyroGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroYBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">gyroZBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00213">magGraph</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magXBar</a>, <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magYBar</a> i <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">magZBar</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="ae5e4e195f4bbd4dd2ade774f6194572e" name="ae5e4e195f4bbd4dd2ade774f6194572e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e4e195f4bbd4dd2ade774f6194572e">&#9670;&#160;</a></span>__pad0__</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ImuDataHandler::__pad0__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00092">92</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+</div>
+</div>
+<a id="a0c475a0c5787e56256adfb638e5464e7" name="a0c475a0c5787e56256adfb638e5464e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c475a0c5787e56256adfb638e5464e7">&#9670;&#160;</a></span>accGraph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a>* ImuDataHandler::accGraph = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wykres dla akcelerometru. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00211">211</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">setSampleCount()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="a1c0a2a1767b8621205b3972a5cab6bd6" name="a1c0a2a1767b8621205b3972a5cab6bd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c0a2a1767b8621205b3972a5cab6bd6">&#9670;&#160;</a></span>accXBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar* ImuDataHandler::accXBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">206</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="ac2259dc2830f76451c861bb798a6c5e6" name="ac2259dc2830f76451c861bb798a6c5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2259dc2830f76451c861bb798a6c5e6">&#9670;&#160;</a></span>accYBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::accYBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">206</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="a153c3674781806b1e3521a85bd7de9d3" name="a153c3674781806b1e3521a85bd7de9d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a153c3674781806b1e3521a85bd7de9d3">&#9670;&#160;</a></span>accZBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::accZBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Paski dla akcelerometru X, Y, Z. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00206">206</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="acbf894b25a3d8e4f7542130ad2e1d624" name="acbf894b25a3d8e4f7542130ad2e1d624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf894b25a3d8e4f7542130ad2e1d624">&#9670;&#160;</a></span>boardTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt3DCore::QTransform* ImuDataHandler::boardTransform = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transformacja dla modelu 3D płytki. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00226">226</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00127">setRotation()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00463">setupModelLoader3D()</a>.</p>
+
+</div>
+</div>
+<a id="abefb855b5b0847efc251b2215ef7b75e" name="abefb855b5b0847efc251b2215ef7b75e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abefb855b5b0847efc251b2215ef7b75e">&#9670;&#160;</a></span>compassContainerWidget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget* ImuDataHandler::compassContainerWidget = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kontener dla widoku kompasu. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00222">222</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>.</p>
+
+</div>
+</div>
+<a id="a0e01799410c507772a97dab13c6d6727" name="a0e01799410c507772a97dab13c6d6727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e01799410c507772a97dab13c6d6727">&#9670;&#160;</a></span>compassTransform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt3DCore::QTransform* ImuDataHandler::compassTransform = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transformacja dla strzałki kompasu. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00225">225</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00626">createCompassArrow()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00147">updateCompass()</a>.</p>
+
+</div>
+</div>
+<a id="a4b5fd7c20e56decd6abfa512a5f02ada" name="a4b5fd7c20e56decd6abfa512a5f02ada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5fd7c20e56decd6abfa512a5f02ada">&#9670;&#160;</a></span>currentSampleCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ImuDataHandler::currentSampleCount = 1000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aktualna liczba próbek na wykresach. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00217">217</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00039">ImuDataHandler()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">setSampleCount()</a>.</p>
+
+</div>
+</div>
+<a id="ac2076f1f1f53bb378fd62c3e42d4701b" name="ac2076f1f1f53bb378fd62c3e42d4701b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2076f1f1f53bb378fd62c3e42d4701b">&#9670;&#160;</a></span>gyroGraph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a>* ImuDataHandler::gyroGraph = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wykres dla żyroskopu. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00212">212</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">setSampleCount()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="aa20b8feea41f31c812e900014f440b7c" name="aa20b8feea41f31c812e900014f440b7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa20b8feea41f31c812e900014f440b7c">&#9670;&#160;</a></span>gyroXBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar* ImuDataHandler::gyroXBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">207</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="ab86947f3a0ceda7494afb92b2e8de0fe" name="ab86947f3a0ceda7494afb92b2e8de0fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab86947f3a0ceda7494afb92b2e8de0fe">&#9670;&#160;</a></span>gyroYBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::gyroYBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">207</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="a44676ca7b55459e3c2a5dfd8c2bf7e13" name="a44676ca7b55459e3c2a5dfd8c2bf7e13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44676ca7b55459e3c2a5dfd8c2bf7e13">&#9670;&#160;</a></span>gyroZBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::gyroZBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Paski dla żyroskopu X, Y, Z. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00207">207</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="ad632a86ed603579020ff922a26db285e" name="ad632a86ed603579020ff922a26db285e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad632a86ed603579020ff922a26db285e">&#9670;&#160;</a></span>magGraph</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d55/classSensorGraph.html">SensorGraph</a>* ImuDataHandler::magGraph = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wykres dla magnetometru. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00213">213</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00331">createGraphDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00086">setSampleCount()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="ab4c59111a73ad1903c3b97bc4c9614a9" name="ab4c59111a73ad1903c3b97bc4c9614a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4c59111a73ad1903c3b97bc4c9614a9">&#9670;&#160;</a></span>magXBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar* ImuDataHandler::magXBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">208</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="a381fd5be357127b011085de38def2a28" name="a381fd5be357127b011085de38def2a28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a381fd5be357127b011085de38def2a28">&#9670;&#160;</a></span>magYBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::magYBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">208</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="a29b4baf17210aa4328bee4088c268201" name="a29b4baf17210aa4328bee4088c268201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b4baf17210aa4328bee4088c268201">&#9670;&#160;</a></span>magZBar</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QProgressBar * ImuDataHandler::magZBar = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Paski dla magnetometru X, Y, Z. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00208">208</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00269">createBarDisplayWidget()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00102">setRange()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00055">updateData()</a>.</p>
+
+</div>
+</div>
+<a id="ad040a42ce230d3a98a62585626843bdb" name="ad040a42ce230d3a98a62585626843bdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad040a42ce230d3a98a62585626843bdb">&#9670;&#160;</a></span>stackedWidget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QStackedWidget* ImuDataHandler::stackedWidget = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Widget zarządzający widokami danych. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00216">216</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00243">createLeftPanel()</a>, <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00174">showGraph()</a>.</p>
+
+</div>
+</div>
+<a id="a2f0374c6d26e76b7900a3d915cd8ebc2" name="a2f0374c6d26e76b7900a3d915cd8ebc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f0374c6d26e76b7900a3d915cd8ebc2">&#9670;&#160;</a></span>view3DContainerWidget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget* ImuDataHandler::view3DContainerWidget = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kontener dla widoku modelu 3D. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00221">221</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>.</p>
+
+</div>
+</div>
+<a id="a912ae87d0b8cfde5f539150754c135bb" name="a912ae87d0b8cfde5f539150754c135bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a912ae87d0b8cfde5f539150754c135bb">&#9670;&#160;</a></span>visualizationPanelWidget</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget* ImuDataHandler::visualizationPanelWidget = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Główny widget panelu wizualizacji (3D + kompas) </p>
+
+<p class="definition">Definicja w linii <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html#l00220">220</a> pliku <a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a>.</p>
+
+<p class="reference">Odwołania w <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00184">setupMainLayout()</a> i <a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html#l00359">setupVisualizationPanel()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="../../db/d51/ImuDataHandler_8h_source.html">ImuDataHandler.h</a></li>
+<li><a class="el" href="../../d8/d4b/ImuDataHandler_8cpp_source.html">ImuDataHandler.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../da/d41/classImuDataHandler.html">ImuDataHandler</a></li>
+    <li class="footer">Wygenerowano Wt, 22 kwi 2025 17:51:42 dla Orienta -- WDS za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

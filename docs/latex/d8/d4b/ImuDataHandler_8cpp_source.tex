@@ -1,0 +1,538 @@
+\doxysubsection{Imu\+Data\+Handler.\+cpp}
+\hypertarget{ImuDataHandler_8cpp_source}{}\label{ImuDataHandler_8cpp_source}\mbox{\hyperlink{ImuDataHandler_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ImuDataHandler_8h}{ImuDataHandler.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SensorGraph_8h}{SensorGraph.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QStackedWidget>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QGroupBox>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <QProgressBar>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <QFont>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <QUrl>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <QColor>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <QVector3D>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <QtMath>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <Qt3DCore/QEntity>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <Qt3DCore/QTransform>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ <Qt3DCore/QComponent>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <Qt3DRender/QCamera>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <Qt3DRender/QCameraLens>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <Qt3DRender/QDirectionalLight>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <Qt3DRender/QSceneLoader>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/Qt3DWindow>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QForwardRenderer>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QOrbitCameraController>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QPhongMaterial>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QTorusMesh>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QCuboidMesh>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00031}00031\ \textcolor{preprocessor}{\#include\ <Qt3DExtras/QText2DEntity>}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00033}00033\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00039}\mbox{\hyperlink{classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7}{00039}}\ \mbox{\hyperlink{classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7}{ImuDataHandler::ImuDataHandler}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00040}00040\ \ \ \ \ :\ QWidget(parent),}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00041}00041\ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}}(1000)\ \textcolor{comment}{//\ Inicjalizacja\ domyślnej\ liczby\ próbek}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56}{setupMainLayout}}();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00046}00046\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00055}\mbox{\hyperlink{classImuDataHandler_a18aa5b9ea29b6757d9cb9329e37bd4eb}{00055}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a18aa5b9ea29b6757d9cb9329e37bd4eb}{ImuDataHandler::updateData}}(\textcolor{keyword}{const}\ QVector<int>\ \&acc,\ \textcolor{keyword}{const}\ QVector<int>\ \&gyro,\ \textcolor{keyword}{const}\ QVector<int>\ \&mag)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ pasków\ i\ wykresu\ akcelerometru}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (acc.size()\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}}-\/>setValue(acc[0]);\ \mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}}-\/>setFormat(QString::number(acc[0]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}}-\/>setValue(acc[1]);\ \mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}}-\/>setFormat(QString::number(acc[1]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}}-\/>setValue(acc[2]);\ \mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}}-\/>setFormat(QString::number(acc[2]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}})\ \mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}}-\/>addData(acc);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ pasków\ i\ wykresu\ żyroskopu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (gyro.size()\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}}-\/>setValue(gyro[0]);\ \mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}}-\/>setFormat(QString::number(gyro[0]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}}-\/>setValue(gyro[1]);\ \mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}}-\/>setFormat(QString::number(gyro[1]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}}-\/>setValue(gyro[2]);\ \mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}}-\/>setFormat(QString::number(gyro[2]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}})\ \mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}}-\/>addData(gyro);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ pasków\ i\ wykresu\ magnetometru}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (mag.size()\ ==\ 3)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}}-\/>setValue(mag[0]);\ \mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}}-\/>setFormat(QString::number(mag[0]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}}-\/>setValue(mag[1]);\ \mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}}-\/>setFormat(QString::number(mag[1]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}})\ \{\ \mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}}-\/>setValue(mag[2]);\ \mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}}-\/>setFormat(QString::number(mag[2]));\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}})\ \mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}}-\/>addData(mag);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00079}00079\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00086}\mbox{\hyperlink{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c}{00086}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c}{ImuDataHandler::setSampleCount}}(\textcolor{keywordtype}{int}\ samples)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}}\ =\ qMax(10,\ samples);\ \textcolor{comment}{//\ Upewnij\ się,\ że\ liczba\ próbek\ nie\ jest\ mniejsza\ niż\ 10}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}})\ \mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}}-\/>setSampleCount(\mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}})\ \mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}}-\/>setSampleCount(\mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}})\ \mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}}-\/>setSampleCount(\mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00093}00093\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00102}\mbox{\hyperlink{classImuDataHandler_a9f78bbf73ad3c919f33800c563cf14d8}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a9f78bbf73ad3c919f33800c563cf14d8}{ImuDataHandler::setRange}}(\textcolor{keywordtype}{int}\ minVal,\ \textcolor{keywordtype}{int}\ maxVal)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00103}00103\ \ \ \ \ \ \textcolor{comment}{//\ Ustawianie\ zakresów\ dla\ pasków\ postępu\ (hardcoded)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00104}00104\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}})\ \mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}}-\/>setRange(-\/4000,\ 4000);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}})\ \mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}}-\/>setRange(-\/4000,\ 4000);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}})\ \mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}}-\/>setRange(-\/4000,\ 4000);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00105}00105\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}})\ \mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}}-\/>setRange(-\/250,\ 250);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}})\ \mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}}-\/>setRange(-\/250,\ 250);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}})\ \mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}}-\/>setRange(-\/250,\ 250);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00106}00106\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}})\ \mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}}-\/>setRange(-\/1600,\ 1600);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}})\ \mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}}-\/>setRange(-\/1600,\ 1600);\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}})\ \mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}}-\/>setRange(-\/1600,\ 1600);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00108}00108\ \ \ \ \ \ \textcolor{comment}{//\ Ustawianie\ zakresów\ dla\ wykresów\ (hardcoded)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00109}00109\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}})\ \mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}}-\/>setYRange(-\/4000,\ 4000);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00110}00110\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}})\ \mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}}-\/>setYRange(-\/250,\ 250);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00111}00111\ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}})\ \mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}}-\/>setYRange(-\/1600,\ 1600);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00113}00113\ \ \ \ \ \ \textcolor{comment}{//\ Oznaczenie\ parametrów\ jako\ nieużywane,\ aby\ uniknąć\ ostrzeżeń\ kompilatora}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00114}00114\ \ \ \ \ \ Q\_UNUSED(minVal);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00115}00115\ \ \ \ \ \ Q\_UNUSED(maxVal);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00116}00116\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00118}00118\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00127}\mbox{\hyperlink{classImuDataHandler_a2774f802773da8e0121d2323a860e8fc}{00127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a2774f802773da8e0121d2323a860e8fc}{ImuDataHandler::setRotation}}(\textcolor{keywordtype}{float}\ yaw,\ \textcolor{keywordtype}{float}\ pitch,\ \textcolor{keywordtype}{float}\ roll)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kwaternionu\ z\ kątów\ Eulera\ (pitch,\ yaw,\ roll)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00129}00129\ \ \ \ \ QQuaternion\ rotation\ =\ QQuaternion::fromEulerAngles(pitch,\ yaw,\ roll);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ Zastosowanie\ rotacji\ do\ transformacji\ modelu,\ jeśli\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}}-\/>setRotation(rotation);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Opcjonalnie:\ logowanie,\ jeśli\ transformacja\ nie\ została\ jeszcze\ utworzona}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ qDebug()\ <<\ "{}boardTransform\ is\ null,\ cannot\ set\ rotation\ yet."{};}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00137}00137\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00138}00138\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00140}00140\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00147}\mbox{\hyperlink{classImuDataHandler_a5c806ccd18eaae4b8afc0c9213c2b485}{00147}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a5c806ccd18eaae4b8afc0c9213c2b485}{ImuDataHandler::updateCompass}}(\textcolor{keywordtype}{float}\ heading)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ Zastosowanie\ rotacji\ do\ transformacji\ kompasu,\ jeśli\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compassTransform}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kwaternionu\ rotacji\ wokół\ osi\ Z\ (0,0,1)\ o\ kąt\ -\/heading}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (ujemny,\ aby\ dopasować\ kierunek\ obrotu)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ QQuaternion\ headingRotation\ =\ QQuaternion::fromAxisAndAngle(QVector3D(0,\ 0,\ 1),\ -\/heading);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compassTransform}}-\/>setRotation(headingRotation);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00154}00154\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Opcjonalnie:\ logowanie,\ jeśli\ transformacja\ nie\ została\ jeszcze\ utworzona}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ qDebug()\ <<\ "{}compassTransform\ is\ null,\ cannot\ update\ compass\ heading."{};}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00158}00158\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00160}00160\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00165}00165\ \textcolor{keywordtype}{void}\ ImuDataHandler::showCurrentData()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}})\ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}-\/>setCurrentIndex(0);\ \textcolor{comment}{//\ Pokaż\ widget\ z\ paskami\ (indeks\ 0)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00167}00167\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00169}00169\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00174}\mbox{\hyperlink{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241}{00174}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241}{ImuDataHandler::showGraph}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}})\ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}-\/>setCurrentIndex(1);\ \textcolor{comment}{//\ Pokaż\ widget\ z\ wykresami\ (indeks\ 1)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00178}00178\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00184}\mbox{\hyperlink{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56}{00184}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56}{ImuDataHandler::setupMainLayout}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00185}00185\ \ \ \ \ \textcolor{comment}{//\ Główny\ layout\ pionowy}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00186}00186\ \ \ \ \ QVBoxLayout\ *mainLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00188}00188\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ poszczególnych\ paneli}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00189}00189\ \ \ \ \ QWidget\ *buttonPanel\ =\ \mbox{\hyperlink{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25}{createButtonPanel}}();\ \textcolor{comment}{//\ Panel\ z\ przyciskami\ "{}Current\ Data"{}\ /\ "{}Graph"{}}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00190}00190\ \ \ \ \ QWidget\ *leftPanel\ =\ \mbox{\hyperlink{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1}{createLeftPanel}}();\ \ \ \ \ \textcolor{comment}{//\ Panel\ z\ QStackedWidget\ (paski/wykresy)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00192}00192\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156}{setupVisualizationPanel}}();\ \textcolor{comment}{//\ Konfiguracja\ panelu\ z\ widokami\ 3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//\ Layout\ poziomy\ dla\ treści\ (lewy\ panel\ +\ panel\ wizualizacji)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00195}00195\ \ \ \ \ QHBoxLayout\ *contentLayout\ =\ \textcolor{keyword}{new}\ QHBoxLayout();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00196}00196\ \ \ \ \ contentLayout-\/>addWidget(leftPanel,\ 1);\ \textcolor{comment}{//\ Lewy\ panel\ zajmuje\ dostępną\ przestrzeń\ (stretch\ factor\ 1)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualizationPanelWidget}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ contentLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualizationPanelWidget}},\ 1);\ \textcolor{comment}{//\ Panel\ wizualizacji\ zajmuje\ dostępną\ przestrzeń\ (stretch\ factor\ 1)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00199}00199\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Visualization\ panel\ widget\ is\ null!"{}};\ \textcolor{comment}{//\ Ostrzeżenie,\ jeśli\ panel\ wizualizacji\ nie\ został\ utworzony}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ paneli\ do\ głównego\ layoutu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00204}00204\ \ \ \ \ mainLayout-\/>addWidget(buttonPanel);\ \ \textcolor{comment}{//\ Przyciski\ na\ górze}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00205}00205\ \ \ \ \ mainLayout-\/>addLayout(contentLayout);\ \textcolor{comment}{//\ Reszta\ treści\ poniżej}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00207}00207\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ domyślnego\ widoku\ na\ paski\ postępu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00208}00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}})\ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}-\/>setCurrentIndex(0);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00209}00209\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00211}00211\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00217}\mbox{\hyperlink{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25}{00217}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25}{ImuDataHandler::createButtonPanel}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00218}00218\ \ \ \ \ QWidget\ *buttonPanel\ =\ \textcolor{keyword}{new}\ QWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00219}00219\ \ \ \ \ QHBoxLayout\ *buttonLayout\ =\ \textcolor{keyword}{new}\ QHBoxLayout(buttonPanel);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00221}00221\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ przycisków}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00222}00222\ \ \ \ \ QPushButton\ *currentDataButton\ =\ \textcolor{keyword}{new}\ QPushButton(tr(\textcolor{stringliteral}{"{}Current\ Data"{}}));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00223}00223\ \ \ \ \ QPushButton\ *graphButton\ =\ \textcolor{keyword}{new}\ QPushButton(tr(\textcolor{stringliteral}{"{}Graph"{}}));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00225}00225\ \ \ \ \ \textcolor{comment}{//\ Dodawanie\ przycisków\ do\ layoutu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00226}00226\ \ \ \ \ buttonLayout-\/>addWidget(currentDataButton);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00227}00227\ \ \ \ \ buttonLayout-\/>addWidget(graphButton);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00229}00229\ \ \ \ \ \textcolor{comment}{//\ Łączenie\ sygnałów\ \`{}clicked`\ ze\ slotami}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00230}00230\ \ \ \ \ connect(currentDataButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&ImuDataHandler::showCurrentData);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00231}00231\ \ \ \ \ connect(graphButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241}{ImuDataHandler::showGraph}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{return}\ buttonPanel;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00234}00234\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00236}00236\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00243}\mbox{\hyperlink{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1}{00243}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1}{ImuDataHandler::createLeftPanel}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00244}00244\ \ \ \ \ QWidget\ *leftPanelWidget\ =\ \textcolor{keyword}{new}\ QWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00245}00245\ \ \ \ \ QVBoxLayout\ *leftPanelLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(leftPanelWidget);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00246}00246\ \ \ \ \ leftPanelLayout-\/>setContentsMargins(0,0,0,0);\ \textcolor{comment}{//\ Usunięcie\ marginesów\ wewnętrznych}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ widgetów\ dla\ poszczególnych\ widoków}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00249}00249\ \ \ \ \ QWidget\ *barWidget\ =\ \mbox{\hyperlink{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e}{createBarDisplayWidget}}();\ \ \ \textcolor{comment}{//\ Widok\ z\ paskami\ postępu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00250}00250\ \ \ \ \ QWidget\ *graphWidget\ =\ \mbox{\hyperlink{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869}{createGraphDisplayWidget}}();\ \textcolor{comment}{//\ Widok\ z\ wykresami}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00252}00252\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ QStackedWidget\ i\ dodanie\ do\ niego\ widoków}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00253}00253\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}\ =\ \textcolor{keyword}{new}\ QStackedWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00254}00254\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}-\/>addWidget(barWidget);\ \ \ \textcolor{comment}{//\ Indeks\ 0}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00255}00255\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}}-\/>addWidget(graphWidget);\ \textcolor{comment}{//\ Indeks\ 1}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00257}00257\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ QStackedWidget\ do\ layoutu\ lewego\ panelu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00258}00258\ \ \ \ \ leftPanelLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stackedWidget}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordflow}{return}\ leftPanelWidget;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00261}00261\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00263}00263\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00269}\mbox{\hyperlink{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e}{00269}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e}{ImuDataHandler::createBarDisplayWidget}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00270}00270\ \ \ \ \ QWidget\ *barWidget\ =\ \textcolor{keyword}{new}\ QWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00271}00271\ \ \ \ \ QVBoxLayout\ *barLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(barWidget);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ Funkcja\ pomocnicza\ do\ tworzenia\ grupy\ pasków\ dla\ jednego\ sensora}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keyword}{auto}\ addBarGroup\ =\ [\&](\textcolor{keyword}{const}\ QString\ \&title,\ QProgressBar\ *\&x,\ QProgressBar\ *\&y,\ QProgressBar\ *\&z,\ \textcolor{keywordtype}{int}\ range)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ QGroupBox*\ groupBox\ =\ \textcolor{keyword}{new}\ QGroupBox(title);\ \textcolor{comment}{//\ Grupa\ dla\ sensora}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ QVBoxLayout*\ groupLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(groupBox);\ \textcolor{comment}{//\ Layout\ wewnątrz\ grupy}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Funkcja\ pomocnicza\ do\ tworzenia\ pojedynczego\ paska\ (X,\ Y\ lub\ Z)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ createBar\ =\ [\&](\textcolor{keyword}{const}\ QString\ \&axis,\ QProgressBar\ *\&bar)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ QLabel\ *axisLabel\ =\ \textcolor{keyword}{new}\ QLabel(axis);\ \textcolor{comment}{//\ Etykieta\ osi\ (X:,\ Y:,\ Z:)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ axisLabel-\/>setFixedWidth(20);\ \textcolor{comment}{//\ Stała\ szerokość\ etykiety}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ bar\ =\ \textcolor{keyword}{new}\ QProgressBar();\ \textcolor{comment}{//\ Tworzenie\ paska\ postępu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ bar-\/>setRange(-\/range,\ range);\ \textcolor{comment}{//\ Ustawienie\ zakresu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ bar-\/>setValue(0);\ \textcolor{comment}{//\ Wartość\ początkowa}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ bar-\/>setTextVisible(\textcolor{keyword}{true});\ \textcolor{comment}{//\ Wyświetlanie\ tekstu\ na\ pasku}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Format\ wyświetlania\ tekstu\ (początkowo\ pokazujący\ zakres)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ bar-\/>setFormat(QString(\textcolor{stringliteral}{"{}\%1\ /\ \%2"{}}).arg(QString::number(range)).arg(QString::number(-\/range)));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dodanie\ etykiet\ z\ zakresem\ (-\/range,\ 0,\ range)\ pod\ paskiem}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ QHBoxLayout\ *rangeLabels\ =\ \textcolor{keyword}{new}\ QHBoxLayout();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ rangeLabels-\/>addWidget(\textcolor{keyword}{new}\ QLabel(QString::number(-\/range)));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ rangeLabels-\/>addStretch();\ \textcolor{comment}{//\ Rozciągliwa\ przestrzeń}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ rangeLabels-\/>addWidget(\textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}0"{}}));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ rangeLabels-\/>addStretch();\ \textcolor{comment}{//\ Rozciągliwa\ przestrzeń}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ rangeLabels-\/>addWidget(\textcolor{keyword}{new}\ QLabel(QString::number(range)));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Layout\ pionowy\ dla\ paska\ i\ etykiet\ zakresu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ QVBoxLayout\ *barWithLabels\ =\ \textcolor{keyword}{new}\ QVBoxLayout();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ barWithLabels-\/>addLayout(rangeLabels);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ barWithLabels-\/>addWidget(bar);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ barWithLabels-\/>setSpacing(0);\ \textcolor{comment}{//\ Brak\ odstępu\ między\ etykietami\ a\ paskiem}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Layout\ poziomy\ dla\ etykiety\ osi\ i\ paska\ z\ etykietami\ zakresu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ QHBoxLayout\ *row\ =\ \textcolor{keyword}{new}\ QHBoxLayout();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ row-\/>addWidget(axisLabel);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ row-\/>addLayout(barWithLabels);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ groupLayout-\/>addLayout(row);\ \textcolor{comment}{//\ Dodanie\ wiersza\ do\ layoutu\ grupy}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ pasków\ dla\ osi\ X,\ Y,\ Z}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ createBar(\textcolor{stringliteral}{"{}X:"{}},\ x);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ createBar(\textcolor{stringliteral}{"{}Y:"{}},\ y);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ createBar(\textcolor{stringliteral}{"{}Z:"{}},\ z);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ barLayout-\/>addWidget(groupBox);\ \textcolor{comment}{//\ Dodanie\ grupy\ do\ głównego\ layoutu\ pasków}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00315}00315\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00317}00317\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ grup\ pasków\ dla\ każdego\ sensora}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00318}00318\ \ \ \ \ addBarGroup(\textcolor{stringliteral}{"{}Accelerometer\ [mg]"{}},\ \mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{accXBar}},\ \mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{accYBar}},\ \mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{accZBar}},\ 4000);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00319}00319\ \ \ \ \ addBarGroup(\textcolor{stringliteral}{"{}Gyroscope\ [dps]"{}},\ \mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyroXBar}},\ \mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyroYBar}},\ \mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyroZBar}},\ 250);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00320}00320\ \ \ \ \ addBarGroup(\textcolor{stringliteral}{"{}Magnetometer\ [mG]"{}},\ \mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{magXBar}},\ \mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{magYBar}},\ \mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{magZBar}},\ 1600);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00322}00322\ \ \ \ \ \textcolor{keywordflow}{return}\ barWidget;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00323}00323\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00325}00325\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00331}\mbox{\hyperlink{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869}{00331}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869}{ImuDataHandler::createGraphDisplayWidget}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00332}00332\ \ \ \ \ QWidget\ *graphWidget\ =\ \textcolor{keyword}{new}\ QWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00333}00333\ \ \ \ \ QVBoxLayout\ *graphLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(graphWidget);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00334}00334\ \ \ \ \ graphLayout-\/>setContentsMargins(5,\ 5,\ 5,\ 5);\ \textcolor{comment}{//\ Dodanie\ małych\ marginesów}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00335}00335\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00336}00336\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ instancji\ SensorGraph\ dla\ każdego\ sensora}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00337}00337\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classSensorGraph}{SensorGraph}}(\textcolor{stringliteral}{"{}Accelerometer\ [mg]"{}},\ -\/4000,\ 4000,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00338}00338\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classSensorGraph}{SensorGraph}}(\textcolor{stringliteral}{"{}Gyroscope\ [dps]"{}},\ -\/250,\ 250,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00339}00339\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classSensorGraph}{SensorGraph}}(\textcolor{stringliteral}{"{}Magnetometer\ [mG]"{}},\ -\/1600,\ 1600,\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ początkowej\ liczby\ próbek\ na\ wykresach}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00342}00342\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c}{setSampleCount}}(this-\/>\mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{currentSampleCount}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00344}00344\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ wykresów\ do\ layoutu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00345}00345\ \ \ \ \ graphLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{accGraph}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00346}00346\ \ \ \ \ graphLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyroGraph}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00347}00347\ \ \ \ \ graphLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{magGraph}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00349}00349\ \ \ \ \ \textcolor{keywordflow}{return}\ graphWidget;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00350}00350\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00352}00352\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00359}\mbox{\hyperlink{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156}{00359}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156}{ImuDataHandler::setupVisualizationPanel}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00360}00360\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ kontenera\ dla\ widoku\ 3D,\ jeśli\ jeszcze\ nie\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00361}00361\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}{view3DContainerWidget}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}{view3DContainerWidget}}\ =\ \mbox{\hyperlink{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4}{create3DView}}();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00363}00363\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00364}00364\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ kontenera\ dla\ widoku\ kompasu,\ jeśli\ jeszcze\ nie\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00365}00365\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}{compassContainerWidget}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}{compassContainerWidget}}\ =\ \mbox{\hyperlink{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66}{createCompassView}}();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00367}00367\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00369}00369\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ głównego\ widgetu\ panelu\ wizualizacji,\ jeśli\ jeszcze\ nie\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00370}00370\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualizationPanelWidget}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualizationPanelWidget}}\ =\ \textcolor{keyword}{new}\ QWidget();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ QVBoxLayout\ *visualizationLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(\mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualizationPanelWidget}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ visualizationLayout-\/>setSpacing(0);\ \textcolor{comment}{//\ Brak\ odstępów\ między\ widokami}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ visualizationLayout-\/>setContentsMargins(0,\ 0,\ 0,\ 0);\ \textcolor{comment}{//\ Brak\ marginesów}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dodanie\ utworzonych\ kontenerów\ do\ layoutu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}{view3DContainerWidget}})\ visualizationLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}{view3DContainerWidget}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}{compassContainerWidget}})\ visualizationLayout-\/>addWidget(\mbox{\hyperlink{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}{compassContainerWidget}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00378}00378\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00379}00379\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00380}00380\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00381}00381\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00389}\mbox{\hyperlink{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4}{00389}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4}{ImuDataHandler::create3DView}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00390}00390\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ okna\ Qt3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00391}00391\ \ \ \ \ \textcolor{keyword}{auto}\ *view\ =\ \textcolor{keyword}{new}\ Qt3DExtras::Qt3DWindow();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00392}00392\ \ \ \ \ view-\/>defaultFrameGraph()-\/>setClearColor(QColor(QRgb(0x4d4d4f)));\ \textcolor{comment}{//\ Ustawienie\ koloru\ tła\ (ciemnoszary)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00393}00393\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00394}00394\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kontenera\ QWidget\ dla\ okna\ Qt3D,\ aby\ można\ było\ je\ umieścić\ w\ layoucie\ Qt\ Widgets}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00395}00395\ \ \ \ \ \textcolor{keyword}{auto}\ *container\ =\ QWidget::createWindowContainer(view);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00396}00396\ \ \ \ \ container-\/>setMinimumSize(QSize(300,\ 200));\ \textcolor{comment}{//\ Minimalny\ rozmiar\ widoku\ 3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00397}00397\ \ \ \ \ container-\/>setFocusPolicy(Qt::StrongFocus);\ \textcolor{comment}{//\ Umożliwia\ interakcję\ z\ widokiem\ (np.\ kontrolerem\ kamery)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00399}00399\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ głównego\ bytu\ (root\ entity)\ dla\ sceny\ 3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00400}00400\ \ \ \ \ \textcolor{keyword}{auto}\ *rootEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00402}00402\ \ \ \ \ \textcolor{comment}{//\ Konfiguracja\ kamery,\ kontrolera,\ oświetlenia\ i\ modelu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00403}00403\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149}{setupCameraAndController3D}}(view,\ rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00404}00404\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c}{setupLighting3D}}(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00405}00405\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79}{setupModelLoader3D}}(rootEntity);\ \textcolor{comment}{//\ Konfiguracja\ ładowania\ modelu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00407}00407\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ głównego\ bytu\ dla\ okna\ widoku}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00408}00408\ \ \ \ \ view-\/>setRootEntity(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00409}00409\ \ \ \ \ \textcolor{keywordflow}{return}\ container;\ \textcolor{comment}{//\ Zwrócenie\ kontenera\ QWidget}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00410}00410\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00412}00412\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00420}\mbox{\hyperlink{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149}{00420}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149}{ImuDataHandler::setupCameraAndController3D}}(Qt3DExtras::Qt3DWindow*\ view,\ Qt3DCore::QEntity*\ rootEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00421}00421\ \ \ \ \ \textcolor{comment}{//\ Pobranie\ obiektu\ kamery\ z\ widoku}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00422}00422\ \ \ \ \ \textcolor{keyword}{auto}\ *camera\ =\ view-\/>camera();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00423}00423\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ projekcji\ perspektywicznej\ (FOV,\ aspect\ ratio,\ near/far\ plane)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00424}00424\ \ \ \ \ camera-\/>lens()-\/>setPerspectiveProjection(45.0f,\ 16.0f\ /\ 9.0f,\ 0.1f,\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00425}00425\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ pozycji\ kamery}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00426}00426\ \ \ \ \ camera-\/>setPosition(QVector3D(1.5,\ 1.5,\ 1.5));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00427}00427\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ wektora\ "{}góry"{}\ dla\ kamery\ (oś\ Y)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00428}00428\ \ \ \ \ camera-\/>setUpVector(QVector3D(0,\ 1,\ 0));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00429}00429\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ punktu,\ na\ który\ patrzy\ kamera\ (środek\ sceny)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00430}00430\ \ \ \ \ camera-\/>setViewCenter(QVector3D(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00432}00432\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kontrolera\ kamery\ typu\ "{}orbita"{}}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00433}00433\ \ \ \ \ \textcolor{keyword}{auto}\ *controller\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QOrbitCameraController(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00434}00434\ \ \ \ \ \textcolor{comment}{//\ Powiązanie\ kontrolera\ z\ kamerą}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00435}00435\ \ \ \ \ controller-\/>setCamera(camera);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00436}00436\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00437}00437\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00438}00438\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00444}\mbox{\hyperlink{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c}{00444}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c}{ImuDataHandler::setupLighting3D}}(Qt3DCore::QEntity*\ rootEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00445}00445\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu\ dla\ światła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00446}00446\ \ \ \ \ \textcolor{keyword}{auto}\ *lightEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00447}00447\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ komponentu\ światła\ kierunkowego}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00448}00448\ \ \ \ \ \textcolor{keyword}{auto}\ *light\ =\ \textcolor{keyword}{new}\ Qt3DRender::QDirectionalLight(lightEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00449}00449\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ kierunku\ padania\ światła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00450}00450\ \ \ \ \ light-\/>setWorldDirection(QVector3D(-\/1,\ -\/1,\ -\/1));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00451}00451\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ komponentu\ światła\ do\ bytu\ światła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00452}00452\ \ \ \ \ lightEntity-\/>addComponent(light);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00453}00453\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00455}00455\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00463}\mbox{\hyperlink{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79}{00463}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79}{ImuDataHandler::setupModelLoader3D}}(Qt3DCore::QEntity*\ rootEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00464}00464\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu,\ który\ będzie\ przechowywał\ ładowany\ model}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00465}00465\ \ \ \ \ \textcolor{keyword}{auto}\ *modelEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00466}00466\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ komponentu\ do\ ładowania\ sceny\ 3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00467}00467\ \ \ \ \ \textcolor{keyword}{auto}\ *loader\ =\ \textcolor{keyword}{new}\ Qt3DRender::QSceneLoader(modelEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00468}00468\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00469}00469\ \ \ \ \ \textcolor{comment}{//\ Połączenie\ sygnału\ zmiany\ statusu\ ładowarki}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00470}00470\ \ \ \ \ connect(loader,\ \&Qt3DRender::QSceneLoader::statusChanged,\ \textcolor{keyword}{this},}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00471}00471\ \ \ \ \ \ \ \ \ \ \ \ \ [\textcolor{keyword}{this},\ loader,\ modelEntity](Qt3DRender::QSceneLoader::Status\ status)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ ładowanie\ zakończyło\ się\ sukcesem\ (Ready)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00473}00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\ ==\ Qt3DRender::QSceneLoader::Ready)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00474}00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobranie\ listy\ bytów\ załadowanych\ przez\ loader}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00475}00475\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&childEntities\ =\ loader-\/>entities();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!childEntities.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Pobranie\ pierwszego\ (zazwyczaj\ głównego)\ bytu\ załadowanej\ sceny}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Qt3DCore::QEntity\ *sceneRootEntity\ =\ childEntities.first();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sceneRootEntity)\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Zabezpieczenie,\ jeśli\ byt\ jest\ nullem}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00480}00480\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ transformacji\ dla\ płytki,\ jeśli\ jeszcze\ nie\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}}\ =\ \textcolor{keyword}{new}\ Qt3DCore::QTransform();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}BoardTransform\ created."{}};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ transformacja\ nie\ jest\ już\ dodana\ (na\ wszelki\ wypadek)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ alreadyHasTransform\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(Qt3DCore::QComponent\ *comp\ :\ sceneRootEntity-\/>components())\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(comp\ ==\ this-\/>\mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ alreadyHasTransform\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dodanie\ transformacji\ do\ głównego\ bytu\ załadowanej\ sceny,\ jeśli\ jeszcze\ jej\ nie\ ma}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!alreadyHasTransform)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Attaching\ boardTransform."{}};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sceneRootEntity-\/>addComponent(this-\/>\mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{boardTransform}});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}SceneLoader\ loaded\ successfully,\ but\ no\ entities\ found."{}};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00502}00502\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ wystąpił\ błąd\ podczas\ ładowania}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (status\ ==\ Qt3DRender::QSceneLoader::Error)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ model\ (status\ Error).\ Source:"{}}\ <<\ loader-\/>source();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00507}00507\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00508}00508\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00509}00509\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ źródła\ modelu\ 3D\ (ścieżka\ do\ pliku)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00510}00510\ \ \ \ \ \textcolor{comment}{//\ WAŻNE:\ Upewnij\ się,\ że\ ta\ ścieżka\ jest\ poprawna\ w\ Twoim\ systemie!}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00511}00511\ \ \ \ \ loader-\/>setSource(QUrl::fromLocalFile(\textcolor{stringliteral}{"{}/Users/mateuszwojtaszek/projekty/wds\_Orienta/ESP32.dae"{}}));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00512}00512\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ komponentu\ loadera\ do\ bytu\ modelu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00513}00513\ \ \ \ \ modelEntity-\/>addComponent(loader);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00514}00514\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00515}00515\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00516}00516\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00525}\mbox{\hyperlink{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66}{00525}}\ QWidget*\ \mbox{\hyperlink{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66}{ImuDataHandler::createCompassView}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00526}00526\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ okna\ Qt3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00527}00527\ \ \ \ \ \textcolor{keyword}{auto}\ *view\ =\ \textcolor{keyword}{new}\ Qt3DExtras::Qt3DWindow();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00528}00528\ \ \ \ \ view-\/>defaultFrameGraph()-\/>setClearColor(QColor(QRgb(0x4d4d4f)));\ \textcolor{comment}{//\ Ustawienie\ koloru\ tła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00529}00529\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00530}00530\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kontenera\ QWidget\ dla\ okna\ Qt3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00531}00531\ \ \ \ \ \textcolor{keyword}{auto}\ *container\ =\ QWidget::createWindowContainer(view);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00532}00532\ \ \ \ \ container-\/>setMinimumSize(QSize(500,\ 500));\ \textcolor{comment}{//\ Minimalny\ rozmiar\ widoku\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00533}00533\ \ \ \ \ container-\/>setFocusPolicy(Qt::NoFocus);\ \textcolor{comment}{//\ Wyłączenie\ fokusu,\ aby\ nie\ przechwytywał\ zdarzeń\ myszy\ przeznaczonych\ dla\ modelu\ 3D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00535}00535\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ głównego\ bytu\ sceny\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00536}00536\ \ \ \ \ \textcolor{keyword}{auto}\ *rootEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00537}00537\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00538}00538\ \ \ \ \ \textcolor{comment}{//\ Konfiguracja\ kamery,\ kontrolera\ i\ oświetlenia\ dla\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00539}00539\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7}{setupCameraAndControllerCompass}}(view,\ rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00540}00540\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9}{setupLightingCompass}}(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00542}00542\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ elementów\ graficznych\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00543}00543\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f}{createCompassRing}}(rootEntity);\ \ \textcolor{comment}{//\ Pierścień\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00544}00544\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9}{createCompassArrow}}(rootEntity);\ \textcolor{comment}{//\ Strzałka\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00545}00545\ \ \ \ \ \mbox{\hyperlink{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310}{addCompassLabels}}(rootEntity);\ \ \ \textcolor{comment}{//\ Etykiety\ kierunków}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00546}00546\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00547}00547\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ głównego\ bytu\ dla\ okna\ widoku\ kompasu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00548}00548\ \ \ \ \ view-\/>setRootEntity(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00549}00549\ \ \ \ \ \textcolor{keywordflow}{return}\ container;\ \textcolor{comment}{//\ Zwrócenie\ kontenera\ QWidget}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00550}00550\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00552}00552\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00560}\mbox{\hyperlink{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7}{00560}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7}{ImuDataHandler::setupCameraAndControllerCompass}}(Qt3DExtras::Qt3DWindow*\ view,\ Qt3DCore::QEntity*\ rootEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00561}00561\ \ \ \ \ \textcolor{comment}{//\ Pobranie\ obiektu\ kamery}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00562}00562\ \ \ \ \ \textcolor{keyword}{auto}\ *camera\ =\ view-\/>camera();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00563}00563\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ projekcji\ perspektywicznej}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00564}00564\ \ \ \ \ camera-\/>lens()-\/>setPerspectiveProjection(45.0f,\ 16.0f\ /\ 9.0f,\ 0.1f,\ 1000.0f);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00565}00565\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ pozycji\ kamery\ -\/\ wysoko\ nad\ sceną\ (patrzy\ w\ dół)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00566}00566\ \ \ \ \ camera-\/>setPosition(QVector3D(0,\ 0,\ 45));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00567}00567\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ wektora\ "{}góry"{}\ (oś\ Y)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00568}00568\ \ \ \ \ camera-\/>setUpVector(QVector3D(0,\ 1,\ 0));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00569}00569\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ punktu\ centralnego\ widoku\ (środek\ kompasu)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00570}00570\ \ \ \ \ camera-\/>setViewCenter(QVector3D(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00571}00571\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00572}00572\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ kontrolera\ kamery\ (mimo\ NoFocus,\ jest\ potrzebny\ dla\ struktury\ sceny)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00573}00573\ \ \ \ \ \textcolor{keyword}{auto}\ *controller\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QOrbitCameraController(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00574}00574\ \ \ \ \ controller-\/>setCamera(camera);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00575}00575\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00576}00576\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00577}00577\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00583}\mbox{\hyperlink{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9}{00583}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9}{ImuDataHandler::setupLightingCompass}}(Qt3DCore::QEntity*\ rootEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00584}00584\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu\ dla\ światła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00585}00585\ \ \ \ \ \textcolor{keyword}{auto}\ *lightEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity(rootEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00586}00586\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ komponentu\ światła\ kierunkowego}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00587}00587\ \ \ \ \ \textcolor{keyword}{auto}\ *light\ =\ \textcolor{keyword}{new}\ Qt3DRender::QDirectionalLight(lightEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00588}00588\ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ kierunku\ padania\ światła}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00589}00589\ \ \ \ \ light-\/>setWorldDirection(QVector3D(-\/1,\ -\/1,\ -\/1));}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00590}00590\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ komponentu\ światła\ do\ bytu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00591}00591\ \ \ \ \ lightEntity-\/>addComponent(light);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00592}00592\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00594}00594\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00601}\mbox{\hyperlink{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f}{00601}}\ Qt3DCore::QEntity*\ \mbox{\hyperlink{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f}{ImuDataHandler::createCompassRing}}(Qt3DCore::QEntity*\ parentEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00602}00602\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu\ dla\ pierścienia}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00603}00603\ \ \ \ \ \textcolor{keyword}{auto}\ *ringEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity(parentEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00604}00604\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ siatki\ w\ kształcie\ torusa\ (pierścienia)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00605}00605\ \ \ \ \ \textcolor{keyword}{auto}\ *ringMesh\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QTorusMesh();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00606}00606\ \ \ \ \ ringMesh-\/>setRadius(6.5f);\ \textcolor{comment}{//\ Główny\ promień\ torusa}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00607}00607\ \ \ \ \ ringMesh-\/>setMinorRadius(0.15f);\ \textcolor{comment}{//\ Promień\ przekroju\ torusa}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00608}00608\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ materiału\ dla\ pierścienia}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00609}00609\ \ \ \ \ \textcolor{keyword}{auto}\ *ringMaterial\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QPhongMaterial();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00610}00610\ \ \ \ \ ringMaterial-\/>setDiffuse(QColor(\textcolor{stringliteral}{"{}\#44aaff"{}}));\ \textcolor{comment}{//\ Kolor\ materiału\ (jasnoniebieski)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00611}00611\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ komponentów\ siatki\ i\ materiału\ do\ bytu\ pierścienia}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00612}00612\ \ \ \ \ ringEntity-\/>addComponent(ringMesh);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00613}00613\ \ \ \ \ ringEntity-\/>addComponent(ringMaterial);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00614}00614\ \ \ \ \ \textcolor{keywordflow}{return}\ ringEntity;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00615}00615\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00616}00616\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00617}00617\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00626}\mbox{\hyperlink{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9}{00626}}\ Qt3DCore::QEntity*\ \mbox{\hyperlink{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9}{ImuDataHandler::createCompassArrow}}(Qt3DCore::QEntity*\ parentEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00627}00627\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu\ dla\ strzałki}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00628}00628\ \ \ \ \ \textcolor{keyword}{auto}\ *arrowEntity\ =\ \textcolor{keyword}{new}\ Qt3DCore::QEntity(parentEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00629}00629\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ siatki\ w\ kształcie\ prostopadłościanu\ (wydłużonego,\ aby\ przypominał\ strzałkę)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00630}00630\ \ \ \ \ \textcolor{keyword}{auto}\ *cuboidMesh\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QCuboidMesh();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00631}00631\ \ \ \ \ cuboidMesh-\/>setXExtent(1.0f);\ \textcolor{comment}{//\ Szerokość}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00632}00632\ \ \ \ \ cuboidMesh-\/>setYExtent(6.0f);\ \textcolor{comment}{//\ Długość\ (wysokość\ w\ osi\ Y)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00633}00633\ \ \ \ \ cuboidMesh-\/>setZExtent(0.5f);\ \textcolor{comment}{//\ Grubość}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00634}00634\ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ materiału\ dla\ strzałki}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00635}00635\ \ \ \ \ \textcolor{keyword}{auto}\ *arrowMaterial\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QPhongMaterial();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00636}00636\ \ \ \ \ arrowMaterial-\/>setAmbient(Qt::darkYellow);\ \textcolor{comment}{//\ Kolor\ otoczenia}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00637}00637\ \ \ \ \ arrowMaterial-\/>setDiffuse(Qt::yellow);\ \ \ \ \ \textcolor{comment}{//\ Główny\ kolor}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00638}00638\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00639}00639\ \ \ \ \ \textcolor{comment}{//\ Utworzenie\ transformacji\ dla\ kompasu,\ jeśli\ jeszcze\ nie\ istnieje}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00640}00640\ \ \ \ \ \textcolor{keywordflow}{if}\ (!this-\/>\mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compassTransform}})\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00641}00641\ \ \ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compassTransform}}\ =\ \textcolor{keyword}{new}\ Qt3DCore::QTransform();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00642}00642\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}CompassTransform\ created."{}};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00643}00643\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00644}00644\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ komponentów\ siatki,\ materiału\ i\ transformacji\ do\ bytu\ strzałki}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00645}00645\ \ \ \ \ arrowEntity-\/>addComponent(cuboidMesh);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00646}00646\ \ \ \ \ arrowEntity-\/>addComponent(arrowMaterial);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00647}00647\ \ \ \ \ arrowEntity-\/>addComponent(this-\/>\mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compassTransform}});\ \textcolor{comment}{//\ Kluczowe\ -\/\ ta\ transformacja\ będzie\ obracana}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00648}00648\ \ \ \ \ \textcolor{keywordflow}{return}\ arrowEntity;}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00649}00649\ \}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00651}00651\ \textcolor{comment}{/***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00657}\mbox{\hyperlink{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310}{00657}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310}{ImuDataHandler::addCompassLabels}}(Qt3DCore::QEntity*\ parentEntity)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00658}00658\ \ \ \ \ \textcolor{comment}{//\ Funkcja\ pomocnicza\ do\ tworzenia\ pojedynczej\ etykiety\ tekstowej\ 2D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00659}00659\ \ \ \ \ \textcolor{keyword}{auto}\ addLabel\ =\ [\&](\textcolor{keyword}{const}\ QString\ \&text,\ \textcolor{keyword}{const}\ QVector3D\ \&pos)\ \{}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00660}00660\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ bytu\ dla\ etykiety\ tekstowej\ 2D}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00661}00661\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ *label\ =\ \textcolor{keyword}{new}\ Qt3DExtras::QText2DEntity(parentEntity);}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00662}00662\ \ \ \ \ \ \ \ \ label-\/>setFont(QFont(\textcolor{stringliteral}{"{}Arial"{}},\ 2,\ QFont::Bold));\ \textcolor{comment}{//\ Ustawienie\ czcionki}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00663}00663\ \ \ \ \ \ \ \ \ label-\/>setText(text);\ \textcolor{comment}{//\ Tekst\ etykiety\ (N,\ E,\ S,\ W)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00664}00664\ \ \ \ \ \ \ \ \ label-\/>setHeight(5);\ \textcolor{comment}{//\ Wysokość\ etykiety\ w\ jednostkach\ sceny}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00665}00665\ \ \ \ \ \ \ \ \ label-\/>setWidth(5);\ \ \textcolor{comment}{//\ Szerokość\ etykiety\ w\ jednostkach\ sceny}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00666}00666\ \ \ \ \ \ \ \ \ label-\/>setColor(Qt::white);\ \textcolor{comment}{//\ Kolor\ tekstu}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00667}00667\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tworzenie\ transformacji\ do\ pozycjonowania\ etykiety}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00668}00668\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ *t\ =\ \textcolor{keyword}{new}\ Qt3DCore::QTransform();}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00669}00669\ \ \ \ \ \ \ \ \ t-\/>setTranslation(pos);\ \textcolor{comment}{//\ Ustawienie\ pozycji\ etykiety}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ label-\/>addComponent(t);\ \textcolor{comment}{//\ Dodanie\ transformacji\ do\ bytu\ etykiety}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00671}00671\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00672}00672\ }
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00673}00673\ \ \ \ \ \textcolor{comment}{//\ Dodanie\ etykiet\ dla\ głównych\ kierunków\ geograficznych\ w\ odpowiednich\ pozycjach}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00674}00674\ \ \ \ \ \textcolor{comment}{//\ Pozycje\ są\ dobrane\ eksperymentalnie,\ aby\ pasowały\ do\ promienia\ pierścienia}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00675}00675\ \ \ \ \ addLabel(\textcolor{stringliteral}{"{}N"{}},\ QVector3D(-\/1,\ 4,\ 0));\ \ \ \textcolor{comment}{//\ Północ\ (trochę\ na\ lewo,\ nad\ środkiem)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00676}00676\ \ \ \ \ addLabel(\textcolor{stringliteral}{"{}E"{}},\ QVector3D(7,\ -\/4,\ 0));\ \ \ \textcolor{comment}{//\ Wschód\ (na\ prawo,\ poniżej\ środka)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00677}00677\ \ \ \ \ addLabel(\textcolor{stringliteral}{"{}S"{}},\ QVector3D(-\/1,\ -\/12,\ 5));\ \textcolor{comment}{//\ Południe\ (trochę\ na\ lewo,\ pod\ pierścieniem,\ lekko\ wysunięte\ w\ Z)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00678}00678\ \ \ \ \ addLabel(\textcolor{stringliteral}{"{}W"{}},\ QVector3D(-\/9,\ -\/4,\ 0));\ \ \textcolor{comment}{//\ Zachód\ (na\ lewo,\ poniżej\ środka)}}
+\DoxyCodeLine{\Hypertarget{ImuDataHandler_8cpp_source_l00679}00679\ \}}
+
+\end{DoxyCode}

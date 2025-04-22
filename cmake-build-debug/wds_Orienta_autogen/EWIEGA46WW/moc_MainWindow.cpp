@@ -7,6 +7,7 @@
 *****************************************************************************/
 
 #include "../../../MainWindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QList>
 
@@ -52,11 +53,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "updateSimulationData",
         "handleSerialData",
         "QList<float>",
-        "data",
-        "setManualRotation",
-        "yaw",
-        "pitch",
-        "roll"
+        "data"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -81,10 +78,6 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         // Slot 'handleSerialData'
         QtMocHelpers::SlotData<void(QVector<float>)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 12, 13 },
-        }}),
-        // Slot 'setManualRotation'
-        QtMocHelpers::SlotData<void(float, float, float)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Float, 15 }, { QMetaType::Float, 16 }, { QMetaType::Float, 17 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -119,7 +112,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 7: _t->showGPSHandler(); break;
         case 8: _t->updateSimulationData(); break;
         case 9: _t->handleSerialData((*reinterpret_cast< std::add_pointer_t<QList<float>>>(_a[1]))); break;
-        case 10: _t->setManualRotation((*reinterpret_cast< std::add_pointer_t<float>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<float>>(_a[3]))); break;
         default: ;
         }
     }
@@ -162,14 +154,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 10;
     }
     return _id;
 }

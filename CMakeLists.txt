@@ -28,7 +28,9 @@ add_executable(wds_Orienta main.cpp
         GpsDataHandler.cpp
         GpsDataHandler.h
         SerialPortHandler.cpp
-        SerialPortHandler.h)
+        SerialPortHandler.h
+        SensorGraph.h
+        SensorGraph.cpp)
 target_link_libraries(wds_Orienta
         Qt6::Widgets
         Qt6::Charts

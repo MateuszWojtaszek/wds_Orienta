@@ -1,0 +1,424 @@
+\doxysubsection{Main\+Window.\+cpp}
+\hypertarget{MainWindow_8cpp_source}{}\label{MainWindow_8cpp_source}\mbox{\hyperlink{MainWindow_8cpp}{Idź do dokumentacji tego pliku.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00001}00001\ \textcolor{comment}{//\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMPLEMENTACJA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00003}00003\ \textcolor{comment}{//\ \#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Autor:\ Mateusz\ Wojtaszek\ 275419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MainWindow_8h}{MainWindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00007}00007\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00017}00017\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00018}\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{00018}}\ \mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow::MainWindow}}(QWidget\ *parent)\ :}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00019}00019\ \ \ \ \ QMainWindow(parent),}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00020}00020\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}(new\ QTimer(this)),\ \textcolor{comment}{//\ Inicjalizacja\ timera}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00021}00021\ \ \ \ \ \mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}}(new\ \mbox{\hyperlink{classSerialPortHandler}{SerialPortHandler}}(this))\ \textcolor{comment}{//\ Inicjalizacja\ handlera\ portu\ szeregowego}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00023}00023\ \ \ \ \ setWindowTitle(tr(\textcolor{stringliteral}{"{}Sensor\ Visualizer"{}}));\ \textcolor{comment}{//\ Ustawienie\ tytułu\ okna\ (z\ obsługą\ tłumaczeń)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ Próba\ załadowania\ danych\ symulacyjnych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classMainWindow_ab932e36c2d63473d5830c3a61624f827}{loadSimulationData}}(\mbox{\hyperlink{MainWindow_8h_aa7a12c11573ca59be52bf90b7e63b309}{SIMULATION\_DATA\_FILE\_PATH}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ ostrzeżenia,\ jeśli\ ładowanie\ się\ nie\ powiodło}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ QMessageBox::warning(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Simulation\ Data"{}}),\ tr(\textcolor{stringliteral}{"{}Could\ not\ load\ simulation\ data\ from:\ \%1"{}}).arg(\mbox{\hyperlink{MainWindow_8h_aa7a12c11573ca59be52bf90b7e63b309}{SIMULATION\_DATA\_FILE\_PATH}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00029}00029\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ Inicjalizacja\ handlerów\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classImuDataHandler}{ImuDataHandler}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classGPSDataHandler}{GPSDataHandler}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Inicjalizacja\ i\ konfiguracja\ QStackedWidget}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}\ =\ \textcolor{keyword}{new}\ QStackedWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}-\/>addWidget(\mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}});\ \textcolor{comment}{//\ Dodanie\ widoku\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}-\/>addWidget(\mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}});\ \textcolor{comment}{//\ Dodanie\ widoku\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00040}00040\ \ \ \ \ setCentralWidget(\mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}});\ \textcolor{comment}{//\ Ustawienie\ stackedWidget\ jako\ centralnego\ widgetu\ okna}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}-\/>setCurrentWidget(\mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}});\ \textcolor{comment}{//\ Ustawienie\ widoku\ IMU\ jako\ domyślnego}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa4907b0251d305659e403c62921ef331}{createMenus}}();\ \textcolor{comment}{//\ Utworzenie\ menu\ aplikacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00045}00045\ \ \ \ \ showFullScreen();\ \textcolor{comment}{//\ Wyświetlenie\ okna\ na\ pełnym\ ekranie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Połączenie\ sygnałów\ i\ slotów}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00048}00048\ \ \ \ \ connect(\textcolor{keyword}{this},\ \&MainWindow::switchToIMU,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a66dd23bcb343810b119e808a30a4d8a3}{MainWindow::showIMUHandler}});\ \textcolor{comment}{//\ Przełączanie\ na\ widok\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00049}00049\ \ \ \ \ connect(\textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_aacb27bb63656c75c74959c477c837f65}{MainWindow::switchToGPS}},\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a6b3d9ebef51a07121ca3864b2a29c0c4}{MainWindow::showGPSHandler}});\ \textcolor{comment}{//\ Przełączanie\ na\ widok\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00050}00050\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}},\ \&QTimer::timeout,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a702c91073cc33a1476ec5c8b8f9d76fc}{MainWindow::updateSimulationData}});\ \textcolor{comment}{//\ Obsługa\ timera\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00051}00051\ \ \ \ \ connect(\mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}},\ \&SerialPortHandler::newDataReceived,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a69bb8d7ebb3e74a68708fdde35c51d01}{MainWindow::handleSerialData}});\ \textcolor{comment}{//\ Obsługa\ danych\ z\ portu\ szeregowego}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00054}00054\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00060}00060\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00061}00061\ \mbox{\hyperlink{classMainWindow_a1f7d2c56410fc1bfa135bb907d43313f}{MainWindow::\string~MainWindow}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00063}00063\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00071}00071\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00072}\mbox{\hyperlink{classMainWindow_aa4907b0251d305659e403c62921ef331}{00072}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_aa4907b0251d305659e403c62921ef331}{MainWindow::createMenus}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00073}00073\ \ \ \ \ QMenuBar\ *bar\ =\ menuBar();\ \textcolor{comment}{//\ Pobranie\ paska\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Menu\ "{}Sensor"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00076}00076\ \ \ \ \ QMenu\ *sensorMenu\ =\ bar-\/>addMenu(tr(\textcolor{stringliteral}{"{}Sensor"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00077}00077\ \ \ \ \ QAction\ *imuAction\ =\ sensorMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}IMU"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00078}00078\ \ \ \ \ QAction\ *gpsAction\ =\ sensorMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}GPS"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Połączenie\ akcji\ menu\ "{}Sensor"{}\ ze\ slotami\ przełączającymi\ widoki}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00081}00081\ \ \ \ \ connect(imuAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&MainWindow::switchToIMU);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00082}00082\ \ \ \ \ connect(gpsAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_aacb27bb63656c75c74959c477c837f65}{MainWindow::switchToGPS}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ Menu\ "{}Settings"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00085}00085\ \ \ \ \ QMenu\ *settingsMenu\ =\ bar-\/>addMenu(tr(\textcolor{stringliteral}{"{}Settings"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//\ Podmenu\ "{}Language"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00088}00088\ \ \ \ \ QMenu\ *languageMenu\ =\ settingsMenu-\/>addMenu(tr(\textcolor{stringliteral}{"{}Language"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00089}00089\ \ \ \ \ QAction\ *englishAction\ =\ languageMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}English"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00090}00090\ \ \ \ \ QAction\ *polishAction\ =\ languageMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}Polish"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00092}00092\ \ \ \ \ settingsMenu-\/>addSeparator();\ \textcolor{comment}{//\ Separator\ w\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ Akcja\ "{}Simulation\ Mode"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00095}00095\ \ \ \ \ QAction\ *simulationModeAction\ =\ settingsMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00096}00096\ \ \ \ \ simulationModeAction-\/>setCheckable(\textcolor{keyword}{true});\ \textcolor{comment}{//\ Umożliwia\ zaznaczenie/odznaczenie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00097}00097\ \ \ \ \ simulationModeAction-\/>setChecked(\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}});\ \textcolor{comment}{//\ Ustawienie\ początkowego\ stanu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ Akcja\ "{}Select\ Port"{}}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00100}00100\ \ \ \ \ QAction\ *selectPortAction\ =\ settingsMenu-\/>addAction(tr(\textcolor{stringliteral}{"{}Select\ Port"{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//\ Połączenie\ akcji\ menu\ "{}Settings"{}\ z\ odpowiednimi\ slotami}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00103}00103\ \ \ \ \ connect(englishAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&MainWindow::setEnglishLanguage);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00104}00104\ \ \ \ \ connect(polishAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a6878cf6875af692eb62f82298b80d951}{MainWindow::setPolishLanguage}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00105}00105\ \ \ \ \ connect(simulationModeAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a74d49095c78009ce819250352fab920b}{MainWindow::toggleSimulationMode}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00106}00106\ \ \ \ \ connect(selectPortAction,\ \&QAction::triggered,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{classMainWindow_a6dedd56270ef8d464c3761d832150a4f}{MainWindow::selectPort}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00109}00109\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00116}00116\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00117}00117\ \textcolor{keywordtype}{void}\ MainWindow::setEnglishLanguage()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ komunikatu\ -\/\ implementacja\ zmiany\ języka\ wymagałaby\ np.\ QTranslator}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00119}00119\ \ \ \ \ QMessageBox::information(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Language\ Change"{}}),\ tr(\textcolor{stringliteral}{"{}Language\ changed\ to\ English\ (placeholder)."{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00122}00122\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00129}00129\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00130}\mbox{\hyperlink{classMainWindow_a6878cf6875af692eb62f82298b80d951}{00130}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a6878cf6875af692eb62f82298b80d951}{MainWindow::setPolishLanguage}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ komunikatu\ -\/\ implementacja\ zmiany\ języka\ wymagałaby\ np.\ QTranslator}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00132}00132\ \ \ \ \ QMessageBox::information(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Language\ Change"{}}),\ tr(\textcolor{stringliteral}{"{}Language\ changed\ to\ Polish\ (placeholder)."{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00135}00135\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00145}00145\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00146}\mbox{\hyperlink{classMainWindow_ab932e36c2d63473d5830c3a61624f827}{00146}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMainWindow_ab932e36c2d63473d5830c3a61624f827}{MainWindow::loadSimulationData}}(\textcolor{keyword}{const}\ QString\&\ filePath)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00147}00147\ \ \ \ \ QFile\ file(filePath);\ \textcolor{comment}{//\ Utworzenie\ obiektu\ QFile}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ Próba\ otwarcia\ pliku\ do\ odczytu\ w\ trybie\ tekstowym}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (file.open(QIODevice::ReadOnly\ |\ QIODevice::Text))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ QTextStream\ in(\&file);\ \textcolor{comment}{//\ Strumień\ tekstowy\ do\ odczytu\ z\ pliku}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.clear();\ \textcolor{comment}{//\ Wyczyszczenie\ ewentualnych\ starych\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Odczyt\ pliku\ linia\ po\ linii}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!in.atEnd())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ line\ =\ in.readLine();\ \textcolor{comment}{//\ Odczytanie\ linii}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Podział\ linii\ na\ części\ względem\ przecinka,\ pomijając\ puste\ części}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ QStringList\ values\ =\ line.split(\textcolor{charliteral}{','},\ Qt::SkipEmptyParts);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ liczba\ wartości\ zgadza\ się\ z\ oczekiwaną}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (values.size()\ ==\ \mbox{\hyperlink{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}{EXPECTED\_DATA\_SIZE}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QVector<float>\ parsedLine;\ \textcolor{comment}{//\ Wektor\ na\ sparsowane\ wartości\ z\ linii}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsedLine.reserve(\mbox{\hyperlink{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}{EXPECTED\_DATA\_SIZE}});\ \textcolor{comment}{//\ Rezerwacja\ miejsca\ dla\ optymalizacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ conversionOk\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Flaga\ poprawności\ konwersji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iteracja\ przez\ wartości\ tekstowe}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QString\ \&val\ :\ values)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ fVal\ =\ val.toFloat(\&conversionOk);\ \textcolor{comment}{//\ Konwersja\ na\ float}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ konwersja\ się\ powiodła}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!conversionOk)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ convert\ value\ to\ float\ in\ line:"{}}\ <<\ line;\ \textcolor{comment}{//\ Logowanie\ błędu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsedLine.clear();\ \textcolor{comment}{//\ Wyczyść\ częściowo\ sparsowaną\ linię}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ Przerwij\ przetwarzanie\ tej\ linii}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parsedLine.append(fVal);\ \textcolor{comment}{//\ Dodanie\ sparsowanej\ wartości\ do\ wektora}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jeśli\ linia\ została\ poprawnie\ sparsowana\ (nie\ była\ pusta\ po\ błędzie\ konwersji)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!parsedLine.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.append(parsedLine);\ \textcolor{comment}{//\ Dodanie\ sparsowanej\ linii\ do\ głównych\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!line.trimmed().isEmpty())\ \{\ \textcolor{comment}{//\ Jeśli\ linia\ nie\ jest\ pusta,\ ale\ ma\ złą\ liczbę\ wartości}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Skipping\ line\ with\ incorrect\ number\ of\ values\ ("{}}\ <<\ values.size()\ <<\ \textcolor{stringliteral}{"{}):"{}}\ <<\ line;\ \textcolor{comment}{//\ Logowanie\ ostrzeżenia}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ file.close();\ \textcolor{comment}{//\ Zamknięcie\ pliku}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Successfully\ loaded"{}}\ <<\ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.size()\ <<\ \textcolor{stringliteral}{"{}lines\ of\ simulation\ data\ from"{}}\ <<\ filePath;\ \textcolor{comment}{//\ Logowanie\ sukcesu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Zwrócenie\ informacji\ o\ sukcesie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00184}00184\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Logowanie\ błędu,\ jeśli\ nie\ udało\ się\ otworzyć\ pliku}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ simulation\ data\ file:"{}}\ <<\ filePath\ <<\ \textcolor{stringliteral}{"{}Error:"{}}\ <<\ file.errorString();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Zwrócenie\ informacji\ o\ porażce}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00188}00188\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00189}00189\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00191}00191\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00200}00200\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00201}\mbox{\hyperlink{classMainWindow_a74d49095c78009ce819250352fab920b}{00201}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a74d49095c78009ce819250352fab920b}{MainWindow::toggleSimulationMode}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00202}00202\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ =\ !\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}};\ \textcolor{comment}{//\ Przełączenie\ flagi\ trybu\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00203}00203\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aab20fdf2ca0fe1bd725ba2fb37290c49}{currentDataIndex}}\ =\ 0;\ \textcolor{comment}{//\ Zresetowanie\ indeksu\ danych\ symulacyjnych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}})\ \{\ \textcolor{comment}{//\ Włączanie\ trybu\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jeśli\ port\ szeregowy\ jest\ połączony,\ zamknij\ go}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}}-\/>closePort();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Serial\ port\ closed\ due\ to\ enabling\ simulation\ mode."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdź,\ czy\ dane\ symulacyjne\ są\ załadowane}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ pozycji\ startowej\ markera\ GPS\ (jeśli\ handler\ istnieje)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}}-\/>updateMarker(\mbox{\hyperlink{classMainWindow_a8af49a9f21b831714cf5c5d2ccbd737d}{baseLatitude}},\ \mbox{\hyperlink{classMainWindow_a4369b28a6b2d6ea56737b33faf4dd4bf}{baseLongitude}});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}-\/>start(\mbox{\hyperlink{MainWindow_8h_a8155f5976e70ad6ee5d6a465b748f498}{SIMULATION\_TIMER\_INTERVAL\_MS}});\ \textcolor{comment}{//\ Uruchomienie\ timera\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Simulation\ mode\ enabled.\ Timer\ started."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ostrzeżenie,\ jeśli\ próbowano\ włączyć\ symulację\ bez\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ QMessageBox::warning(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}),\ tr(\textcolor{stringliteral}{"{}Simulation\ mode\ enabled,\ but\ no\ simulation\ data\ loaded."{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Simulation\ mode\ enabled,\ but\ no\ data\ loaded."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Cofnięcie\ zmiany\ trybu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ stanu\ przycisku\ menu\ -\/\ odznaczenie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ QList<QAction*>\ actions\ =\ menuBar()-\/>findChildren<QAction*>();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(QAction*\ action\ :\ actions)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(action-\/>text()\ ==\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ action-\/>setChecked(\textcolor{keyword}{false});\ \textcolor{comment}{//\ Odznaczenie\ akcji\ w\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00234}00234\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Wyłączanie\ trybu\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}-\/>stop();\ \textcolor{comment}{//\ Zatrzymanie\ timera}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Simulation\ mode\ disabled.\ Timer\ stopped."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ stanu\ przycisku\ menu\ -\/\ odznaczenie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ QList<QAction*>\ actions\ =\ menuBar()-\/>findChildren<QAction*>();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(QAction*\ action\ :\ actions)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(action-\/>text()\ ==\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ action-\/>setChecked(\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}});\ \textcolor{comment}{//\ Ustawienie\ stanu\ akcji\ (na\ false)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00246}00246\ \ \ \ \ \ \textcolor{comment}{//\ Ponowna\ (lub\ pierwsza,\ jeśli\ nie\ było\ danych)\ aktualizacja\ stanu\ przycisku\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00247}00247\ \ \ \ \ \ QList<QAction*>\ actions\ =\ menuBar()-\/>findChildren<QAction*>();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00248}00248\ \ \ \ \ \ \textcolor{keywordflow}{for}(QAction*\ action\ :\ actions)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(action-\/>text()\ ==\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ action-\/>setChecked(\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}});\ \textcolor{comment}{//\ Ustawienie\ właściwego\ stanu\ akcji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00253}00253\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00254}00254\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00255}00255\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00256}00256\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00265}00265\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00266}\mbox{\hyperlink{classMainWindow_a702c91073cc33a1476ec5c8b8f9d76fc}{00266}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a702c91073cc33a1476ec5c8b8f9d76fc}{MainWindow::updateSimulationData}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//\ Warunki\ przerwania\ symulacji:\ połączenie\ szeregowe,\ wyłączony\ tryb\ symulacji,\ brak\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ ||\ !\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ ||\ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}-\/>stop();\ \textcolor{comment}{//\ Zatrzymaj\ timer,\ jeśli\ warunki\ są\ spełnione}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Zakończ\ funkcję}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ Sprawdź,\ czy\ osiągnięto\ koniec\ danych\ symulacyjnych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_afa40e1a2abe5498fff8e6ef43f03e952}{checkSimulationEndAndUpdateState}}())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Jeśli\ symulacja\ się\ zakończyła,\ zakończ\ funkcję}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{comment}{//\ Pobranie\ bieżącego\ zestawu\ danych\ IMU\ z\ załadowanych\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keyword}{const}\ QVector<float>\ \&imuData\ =\ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}[\mbox{\hyperlink{classMainWindow_aab20fdf2ca0fe1bd725ba2fb37290c49}{currentDataIndex}}];}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00280}00280\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a368a5a3f1f3f29b0defb5b61dc47b862}{processImuData}}(imuData);\ \textcolor{comment}{//\ Przetworzenie\ danych\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00282}00282\ \ \ \ \ \mbox{\hyperlink{classMainWindow_afe979219ae90701550fd7db098f08ac9}{updateSimulatedGPSMarker}}();\ \textcolor{comment}{//\ Aktualizacja\ symulowanej\ pozycji\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00284}00284\ \ \ \ \ \mbox{\hyperlink{classMainWindow_aab20fdf2ca0fe1bd725ba2fb37290c49}{currentDataIndex}}++;\ \textcolor{comment}{//\ Przejście\ do\ następnego\ zestawu\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00285}00285\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00287}00287\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00297}00297\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00298}\mbox{\hyperlink{classMainWindow_afa40e1a2abe5498fff8e6ef43f03e952}{00298}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMainWindow_afa40e1a2abe5498fff8e6ef43f03e952}{MainWindow::checkSimulationEndAndUpdateState}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00299}00299\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ indeks\ wyszedł\ poza\ zakres\ załadowanych\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00300}00300\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_aab20fdf2ca0fe1bd725ba2fb37290c49}{currentDataIndex}}\ >=\ \mbox{\hyperlink{classMainWindow_aff13436a1fc9dff683124a0bc405ac81}{loadedData}}.size())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}-\/>stop();\ \textcolor{comment}{//\ Zatrzymaj\ timer\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wyświetl\ komunikat\ o\ zakończeniu\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ QMessageBox::information(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Simulation\ Ended"{}}),\ tr(\textcolor{stringliteral}{"{}End\ of\ simulation\ data\ reached."{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Simulation\ data\ playback\ finished."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Wyłącz\ tryb\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zaktualizuj\ stan\ zaznaczenia\ akcji\ "{}Simulation\ Mode"{}\ w\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ QList<QAction*>\ actions\ =\ menuBar()-\/>findChildren<QAction*>();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(QAction*\ action\ :\ actions)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(action-\/>text()\ ==\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ action-\/>setChecked(\textcolor{keyword}{false});\ \textcolor{comment}{//\ Odznacz\ akcję}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Zwróć\ true,\ informując,\ że\ symulacja\ się\ zakończyła}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00315}00315\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00316}00316\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Zwróć\ false,\ symulacja\ trwa\ nadal}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00317}00317\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00319}00319\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00329}00329\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00330}\mbox{\hyperlink{classMainWindow_afe979219ae90701550fd7db098f08ac9}{00330}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_afe979219ae90701550fd7db098f08ac9}{MainWindow::updateSimulatedGPSMarker}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00331}00331\ \ \ \ \ \textcolor{comment}{//\ Sprawdź,\ czy\ tryb\ symulacji\ jest\ aktywny\ i\ czy\ handler\ GPS\ istnieje}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00332}00332\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ \&\&\ \mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obliczenie\ kąta\ oscylacji\ na\ podstawie\ indeksu\ danych\ i\ współczynnika\ prędkości}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ angleRad\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(\mbox{\hyperlink{classMainWindow_aab20fdf2ca0fe1bd725ba2fb37290c49}{currentDataIndex}})\ *\ \mbox{\hyperlink{classMainWindow_a20591f521e9f9b5d7059a4b5f2d2458f}{gpsOscillationSpeedFactor}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obliczenie\ przesunięć\ dla\ szerokości\ i\ długości\ geograficznej}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latOffset\ =\ \mbox{\hyperlink{classMainWindow_a6a636689ec316650a2920b136ff9bcdc}{gpsOscillationAmplitude}}\ *\ std::sin(angleRad);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lonOffset\ =\ \mbox{\hyperlink{classMainWindow_a6a636689ec316650a2920b136ff9bcdc}{gpsOscillationAmplitude}}\ *\ std::cos(angleRad);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obliczenie\ aktualnych\ współrzędnych\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ currentLatitude\ =\ \mbox{\hyperlink{classMainWindow_a8af49a9f21b831714cf5c5d2ccbd737d}{baseLatitude}}\ +\ latOffset;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ currentLongitude\ =\ \mbox{\hyperlink{classMainWindow_a4369b28a6b2d6ea56737b33faf4dd4bf}{baseLongitude}}\ +\ lonOffset;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00342}00342\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ pozycji\ markera\ w\ handlerze\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}}-\/>updateMarker(currentLatitude,\ currentLongitude);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00345}00345\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00346}00346\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00348}00348\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00357}00357\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00358}\mbox{\hyperlink{classMainWindow_a69bb8d7ebb3e74a68708fdde35c51d01}{00358}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a69bb8d7ebb3e74a68708fdde35c51d01}{MainWindow::handleSerialData}}(QVector<float>\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00359}00359\ \ \ \ \ \textcolor{comment}{//\ Przetwarzaj\ dane\ tylko\ jeśli\ port\ jest\ połączony\ i\ nie\ jesteśmy\ w\ trybie\ symulacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00360}00360\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ ||\ \mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Ignoruj\ dane\ w\ przeciwnym\ razie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00362}00362\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00363}00363\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a368a5a3f1f3f29b0defb5b61dc47b862}{processImuData}}(data);\ \textcolor{comment}{//\ Przekaż\ dane\ do\ głównej\ funkcji\ przetwarzającej}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00364}00364\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00366}00366\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00378}00378\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00379}\mbox{\hyperlink{classMainWindow_a368a5a3f1f3f29b0defb5b61dc47b862}{00379}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a368a5a3f1f3f29b0defb5b61dc47b862}{MainWindow::processImuData}}(\textcolor{keyword}{const}\ QVector<float>\&\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00380}00380\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ rozmiar\ otrzymanych\ danych\ jest\ zgodny\ z\ oczekiwanym}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00381}00381\ \ \ \ \ \textcolor{keywordflow}{if}\ (data.size()\ !=\ \mbox{\hyperlink{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}{EXPECTED\_DATA\_SIZE}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Received\ data\ packet\ with\ incorrect\ size:"{}}\ <<\ data.size()\ <<\ \textcolor{stringliteral}{"{}Expected:"{}}\ <<\ \mbox{\hyperlink{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}{EXPECTED\_DATA\_SIZE}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Ignoruj\ niepoprawny\ pakiet\ danych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00384}00384\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00386}00386\ \ \ \ \ \textcolor{comment}{//\ Ekstrakcja\ danych\ żyroskopu\ (konwersja\ na\ int\ -\/\ może\ wymagać\ weryfikacji,\ czy\ to\ zamierzone)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00387}00387\ \ \ \ \ QVector<int>\ gyro\ =\ \{\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_a2c9ad59072bddf2f952e98d5eb65b5aa}{GYRO\_X\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_aa5e93ca8c16ee3fcf43e1317e234fa67}{GYRO\_Y\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_a35393e7d5c7a1f5060f917772e7bb6a7}{GYRO\_Z\_IDX}}])\ \};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00388}00388\ \ \ \ \ \textcolor{comment}{//\ Ekstrakcja\ danych\ akcelerometru\ (konwersja\ na\ int)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00389}00389\ \ \ \ \ QVector<int>\ acc\ \ =\ \{\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_a6362765713573508a83d1bd06f221f54}{ACC\_X\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_ab3da2016dcd83848e7a82dd34c0b0f45}{ACC\_Y\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_a6d6de9bafd0c4cd8a929cf7cb205e526}{ACC\_Z\_IDX}}])\ \};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00390}00390\ \ \ \ \ \textcolor{comment}{//\ Ekstrakcja\ danych\ magnetometru\ (konwersja\ na\ int)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00391}00391\ \ \ \ \ QVector<int>\ mag\ \ =\ \{\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_acb6d503e34e10d2f8f0bdf2fa57b9e35}{MAG\_X\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_aa4f5877a9c2b506b2f54ec0d5ce63d41}{MAG\_Y\_IDX}}]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(data[\mbox{\hyperlink{MainWindow_8h_a4c47ef620bdbb397a1d922e042eadea0}{MAG\_Z\_IDX}}])\ \};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00393}00393\ \ \ \ \ \textcolor{comment}{//\ Ekstrakcja\ kątów\ orientacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00394}00394\ \ \ \ \ \textcolor{keywordtype}{float}\ roll\ =\ data[\mbox{\hyperlink{MainWindow_8h_a18907fd312ac7af5adfdcb0995153558}{ROLL\_IDX}}];}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00395}00395\ \ \ \ \ \textcolor{keywordtype}{float}\ pitch\ =\ data[\mbox{\hyperlink{MainWindow_8h_abc44bcb5e1677ea4d30ca6b0d3fa6998}{PITCH\_IDX}}];}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{keywordtype}{float}\ yaw\ =\ data[\mbox{\hyperlink{MainWindow_8h_a442db6e73f15d986dcfd5bcedcc2abad}{YAW\_IDX}}];}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00398}00398\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ handler\ IMU\ istnieje}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00399}00399\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ danych\ surowych\ w\ handlerze\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}}-\/>updateData(acc,\ gyro,\ mag);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ustawienie\ rotacji\ modelu\ 3D\ w\ handlerze\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}}-\/>setRotation(yaw,\ pitch,\ roll);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00404}00404\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obliczenie\ i\ aktualizacja\ kursu\ kompasu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ dane\ magnetometru\ są\ wystarczające\ i\ niezerowe\ (aby\ uniknąć\ atan2(0,0))}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mag.size()\ >=\ 2\ \&\&\ (mag[0]\ !=\ 0\ ||\ mag[1]\ !=\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Obliczenie\ kąta\ za\ pomocą\ atan2\ (daje\ wynik\ w\ radianach\ od\ -\/PI\ do\ PI)}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heading\_rad\ =\ std::atan2(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(mag[1]),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(mag[0]));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Konwersja\ radianów\ na\ stopnie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heading\_deg\ =\ heading\_rad\ *\ 180.0f\ /\ M\_PI;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalizacja\ kąta\ do\ zakresu\ [0,\ 360)\ stopni}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (heading\_deg\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heading\_deg\ +=\ 360.0f;}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Aktualizacja\ wskaźnika\ kompasu\ w\ handlerze\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}}-\/>updateCompass(heading\_deg);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jeśli\ dane\ magnetometru\ są\ niewystarczające\ lub\ zerowe,\ ustaw\ kurs\ na\ 0}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}}-\/>updateCompass(0.0f);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00423}00423\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Logowanie\ ostrzeżenia,\ jeśli\ handler\ IMU\ nie\ został\ zainicjalizowany}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}processImuData\ called\ but\ imuHandler\ is\ null!"{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00426}00426\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00427}00427\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00428}00428\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00429}00429\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00435}00435\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00436}\mbox{\hyperlink{classMainWindow_a66dd23bcb343810b119e808a30a4d8a3}{00436}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a66dd23bcb343810b119e808a30a4d8a3}{MainWindow::showIMUHandler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00437}00437\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ stackedWidget\ i\ imuHandler\ istnieją}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00438}00438\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}\ \&\&\ \mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00439}00439\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}-\/>setCurrentWidget(\mbox{\hyperlink{classMainWindow_a3fe5b3f8c4cf70b1489bfc31ea109002}{imuHandler}});\ \textcolor{comment}{//\ Ustawienie\ widoku\ IMU}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Switched\ view\ to\ IMU\ Handler"{}};\ \textcolor{comment}{//\ Logowanie\ informacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00441}00441\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00442}00442\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00444}00444\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00450}00450\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00451}\mbox{\hyperlink{classMainWindow_a6b3d9ebef51a07121ca3864b2a29c0c4}{00451}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a6b3d9ebef51a07121ca3864b2a29c0c4}{MainWindow::showGPSHandler}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00452}00452\ \ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ stackedWidget\ i\ gpsHandler\ istnieją}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00453}00453\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}\ \&\&\ \mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_aa86720a51d3246a6dc316d51488dcb15}{stackedWidget}}-\/>setCurrentWidget(\mbox{\hyperlink{classMainWindow_a58751a67779b5064d39a76a5bc64501a}{gpsHandler}});\ \textcolor{comment}{//\ Ustawienie\ widoku\ GPS}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00455}00455\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Switched\ view\ to\ GPS\ Handler"{}};\ \textcolor{comment}{//\ Logowanie\ informacji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00456}00456\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00457}00457\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00459}00459\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00466}00466\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00467}\mbox{\hyperlink{classMainWindow_a6dedd56270ef8d464c3761d832150a4f}{00467}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a6dedd56270ef8d464c3761d832150a4f}{MainWindow::selectPort}}()\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00468}00468\ \ \ \ \ QStringList\ ports;\ \textcolor{comment}{//\ Lista\ nazw\ portów}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00469}00469\ \ \ \ \ \textcolor{comment}{//\ Pobranie\ informacji\ o\ dostępnych\ portach\ szeregowych}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00470}00470\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ availablePorts\ =\ QSerialPortInfo::availablePorts();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00471}00471\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QSerialPortInfo\ \&info\ :\ availablePorts)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ ports\ <<\ info.portName();\ \textcolor{comment}{//\ Dodanie\ nazwy\ portu\ do\ listy}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00474}00474\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00475}00475\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ znaleziono\ jakiekolwiek\ porty}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00476}00476\ \ \ \ \ \textcolor{keywordflow}{if}\ (ports.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00477}00477\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ ostrzeżenia,\ jeśli\ brak\ dostępnych\ portów}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00478}00478\ \ \ \ \ \ \ \ \ QMessageBox::warning(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}No\ Ports"{}}),\ tr(\textcolor{stringliteral}{"{}No\ serial\ ports\ available.\ Check\ connections\ and\ permissions."{}}));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00479}00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Zakończenie\ funkcji}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00480}00480\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00481}00481\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00482}00482\ \ \ \ \ \textcolor{keywordtype}{bool}\ ok;\ \textcolor{comment}{//\ Flaga\ wskazująca,\ czy\ użytkownik\ kliknął\ OK\ w\ dialogu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00483}00483\ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ dialogu\ QInputDialog\ typu\ lista\ rozwijana}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00484}00484\ \ \ \ \ QString\ port\ =\ QInputDialog::getItem(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Select\ Port"{}}),\ tr(\textcolor{stringliteral}{"{}Available\ Ports:"{}}),\ ports,\ 0,\ \textcolor{keyword}{false},\ \&ok);}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00485}00485\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00486}00486\ \ \ \ \ \textcolor{comment}{//\ Sprawdzenie,\ czy\ użytkownik\ wybrał\ port\ i\ kliknął\ OK}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00487}00487\ \ \ \ \ \textcolor{keywordflow}{if}\ (ok\ \&\&\ !port.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4e76cb4a4945fbcb6775f3e146bd9083}{handlePortConnectionAttempt}}(port);\ \textcolor{comment}{//\ Próba\ nawiązania\ połączenia\ z\ wybranym\ portem}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00489}00489\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00490}00490\ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00491}00491\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00492}00492\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00501}00501\ \textcolor{comment}{/******************************/}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00502}\mbox{\hyperlink{classMainWindow_a4e76cb4a4945fbcb6775f3e146bd9083}{00502}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a4e76cb4a4945fbcb6775f3e146bd9083}{MainWindow::handlePortConnectionAttempt}}(\textcolor{keyword}{const}\ QString\&\ portName)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00503}00503\ \ \ \ \ \mbox{\hyperlink{classMainWindow_a2bf8bda0161e4940b32557244fbe1aeb}{selectedPort}}\ =\ portName;\ \textcolor{comment}{//\ Zapisanie\ nazwy\ wybranego\ portu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00504}00504\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00505}00505\ \ \ \ \ \textcolor{comment}{//\ Jeśli\ już\ istnieje\ połączenie,\ zamknij\ je\ przed\ próbą\ otwarcia\ nowego}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00506}00506\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}}-\/>closePort();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00509}00509\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00510}00510\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00511}00511\ \ \ \ \ \textcolor{comment}{//\ Jeśli\ tryb\ symulacji\ jest\ aktywny,\ wyłącz\ go}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00512}00512\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}})\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a4ed9a84fe12bd7b75f989bc785724c18}{simulationTimer}}-\/>stop();\ \textcolor{comment}{//\ Zatrzymaj\ timer}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a425cb6d7d967c6af77224da941a9473f}{simulationMode}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Zmień\ flagę}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Simulation\ mode\ disabled\ due\ to\ serial\ port\ selection."{}};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Odznacz\ akcję\ "{}Simulation\ Mode"{}\ w\ menu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ QList<QAction*>\ actions\ =\ menuBar()-\/>findChildren<QAction*>();}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(QAction*\ action\ :\ actions)\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(action-\/>text()\ ==\ tr(\textcolor{stringliteral}{"{}Simulation\ Mode"{}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00520}00520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ action-\/>setChecked(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00521}00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00522}00522\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00523}00523\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00524}00524\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00525}00525\ }
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00526}00526\ \ \ \ \ \textcolor{comment}{//\ Próba\ otwarcia\ wybranego\ portu\ za\ pomocą\ handlera}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00527}00527\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}}-\/>openPort(\mbox{\hyperlink{classMainWindow_a2bf8bda0161e4940b32557244fbe1aeb}{selectedPort}}))\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Ustawienie\ flagi\ połączenia\ na\ true}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ komunikatu\ o\ sukcesie}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ QMessageBox::information(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Connected"{}}),\ tr(\textcolor{stringliteral}{"{}Successfully\ connected\ to\ \%1"{}}).arg(portName));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00531}00531\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}Connected\ to\ serial\ port:"{}}\ <<\ \mbox{\hyperlink{classMainWindow_a2bf8bda0161e4940b32557244fbe1aeb}{selectedPort}};\ \textcolor{comment}{//\ Logowanie\ sukcesu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00532}00532\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00533}00533\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wyświetlenie\ komunikatu\ o\ błędzie\ połączenia}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00534}00534\ \ \ \ \ \ \ \ \ QMessageBox::critical(\textcolor{keyword}{this},\ tr(\textcolor{stringliteral}{"{}Connection\ Error"{}}),\ tr(\textcolor{stringliteral}{"{}Failed\ to\ open\ port\ \%1.\ Reason:\ \%2"{}}).arg(portName).arg(\mbox{\hyperlink{classMainWindow_abc37b614f732d5db51a87cad044d1114}{serialHandler}}-\/>getLastError()));}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00535}00535\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ serial\ port:"{}}\ <<\ \mbox{\hyperlink{classMainWindow_a2bf8bda0161e4940b32557244fbe1aeb}{selectedPort}};\ \textcolor{comment}{//\ Logowanie\ błędu}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00536}00536\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMainWindow_a3ef25d8603dcf27fec1117e816c9a4a1}{serialConnected}}\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Upewnienie\ się,\ że\ flaga\ połączenia\ jest\ false}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00537}00537\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MainWindow_8cpp_source_l00538}00538\ \}}
+
+\end{DoxyCode}

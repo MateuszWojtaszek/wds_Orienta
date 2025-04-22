@@ -1,0 +1,1145 @@
+\doxysubsection{Dokumentacja klasy Imu\+Data\+Handler}
+\hypertarget{classImuDataHandler}{}\label{classImuDataHandler}\index{ImuDataHandler@{ImuDataHandler}}
+
+
+Klasa \doxylink{classImuDataHandler}{Imu\+Data\+Handler} zarządza i wizualizuje dane z jednostki IMU.  
+
+
+
+
+{\ttfamily \#include $<$Imu\+Data\+Handler.\+h$>$}
+
+
+
+Diagram dziedziczenia dla Imu\+Data\+Handler
+% FIG 0
+
+
+Diagram współpracy dla Imu\+Data\+Handler\+:
+% FIG 1
+\doxysubsubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7}{Imu\+Data\+Handler}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy \doxylink{classImuDataHandler}{Imu\+Data\+Handler}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a18aa5b9ea29b6757d9cb9329e37bd4eb}{update\+Data}} (const QVector$<$ int $>$ \&acc, const QVector$<$ int $>$ \&gyro, const QVector$<$ int $>$ \&mag)
+\begin{DoxyCompactList}\small\item\em Aktualizuje dane wyświetlane przez widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c}{set\+Sample\+Count}} (int samples)
+\begin{DoxyCompactList}\small\item\em Ustawia liczbę próbek wyświetlanych na wykresach. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a9f78bbf73ad3c919f33800c563cf14d8}{set\+Range}} (int min\+Val, int max\+Val)
+\begin{DoxyCompactList}\small\item\em Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA\+: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz, ignorując parametry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a2774f802773da8e0121d2323a860e8fc}{set\+Rotation}} (float yaw, float pitch, float roll)
+\begin{DoxyCompactList}\small\item\em Ustawia rotację modelu 3D na podstawie kątów Eulera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a5c806ccd18eaae4b8afc0c9213c2b485}{update\+Compass}} (float heading)
+\begin{DoxyCompactList}\small\item\em Aktualizuje kierunek wskazywany przez strzałkę kompasu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241}{show\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Slot przełączający widok na zakładkę z wykresami. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Atrybuty publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\+: void show\+Current\+Data()
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Metody prywatne}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56}{setup\+Main\+Layout}} ()
+\begin{DoxyCompactList}\small\item\em Konfiguruje główny układ interfejsu użytkownika. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25}{create\+Button\+Panel}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy panel z przyciskami do przełączania widoków. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1}{create\+Left\+Panel}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy lewy panel zawierający przełączane widoki danych (paski/wykresy). \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e}{create\+Bar\+Display\+Widget}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy widget wyświetlający dane w postaci pasków postępu. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869}{create\+Graph\+Display\+Widget}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy widget wyświetlający dane w postaci wykresów. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156}{setup\+Visualization\+Panel}} ()
+\begin{DoxyCompactList}\small\item\em Konfiguruje panel wizualizacji 3D (model i kompas). \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4}{create3\+DView}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy widok 3D do wyświetlania modelu urządzenia. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149}{setup\+Camera\+And\+Controller3D}} (Qt3\+DExtras\+::\+Qt3\+DWindow \texorpdfstring{$\ast$}{*}view, Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}root\+Entity)
+\begin{DoxyCompactList}\small\item\em Konfiguruje kamerę i kontroler dla widoku modelu 3D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c}{setup\+Lighting3D}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}root\+Entity)
+\begin{DoxyCompactList}\small\item\em Konfiguruje oświetlenie dla sceny modelu 3D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79}{setup\+Model\+Loader3D}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}root\+Entity)
+\begin{DoxyCompactList}\small\item\em Konfiguruje ładowanie modelu 3D (np. z pliku .dae). \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66}{create\+Compass\+View}} ()
+\begin{DoxyCompactList}\small\item\em Tworzy widok 3D dla kompasu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7}{setup\+Camera\+And\+Controller\+Compass}} (Qt3\+DExtras\+::\+Qt3\+DWindow \texorpdfstring{$\ast$}{*}view, Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}root\+Entity)
+\begin{DoxyCompactList}\small\item\em Konfiguruje kamerę i kontroler dla widoku kompasu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9}{setup\+Lighting\+Compass}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}root\+Entity)
+\begin{DoxyCompactList}\small\item\em Konfiguruje oświetlenie dla sceny kompasu. \end{DoxyCompactList}\item 
+Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f}{create\+Compass\+Ring}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}parent\+Entity)
+\begin{DoxyCompactList}\small\item\em Tworzy pierścień kompasu jako element sceny 3D. \end{DoxyCompactList}\item 
+Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9}{create\+Compass\+Arrow}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}parent\+Entity)
+\begin{DoxyCompactList}\small\item\em Tworzy strzałkę kompasu jako element sceny 3D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310}{add\+Compass\+Labels}} (Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}parent\+Entity)
+\begin{DoxyCompactList}\small\item\em Dodaje etykiety kierunków (N, E, S, W) do sceny kompasu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Atrybuty prywatne}
+\begin{DoxyCompactItemize}
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}{acc\+XBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}{acc\+YBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}{acc\+ZBar}} = nullptr
+\begin{DoxyCompactList}\small\item\em Paski dla akcelerometru X, Y, Z. \end{DoxyCompactList}\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}{gyro\+XBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}{gyro\+YBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}{gyro\+ZBar}} = nullptr
+\begin{DoxyCompactList}\small\item\em Paski dla żyroskopu X, Y, Z. \end{DoxyCompactList}\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}{mag\+XBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a381fd5be357127b011085de38def2a28}{mag\+YBar}} = nullptr
+\item 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}{mag\+ZBar}} = nullptr
+\begin{DoxyCompactList}\small\item\em Paski dla magnetometru X, Y, Z. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}{acc\+Graph}} = nullptr
+\begin{DoxyCompactList}\small\item\em Wykres dla akcelerometru. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}{gyro\+Graph}} = nullptr
+\begin{DoxyCompactList}\small\item\em Wykres dla żyroskopu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ad632a86ed603579020ff922a26db285e}{mag\+Graph}} = nullptr
+\begin{DoxyCompactList}\small\item\em Wykres dla magnetometru. \end{DoxyCompactList}\item 
+QStacked\+Widget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}{stacked\+Widget}} = nullptr
+\begin{DoxyCompactList}\small\item\em Widget zarządzający widokami danych. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}{current\+Sample\+Count}} = 1000
+\begin{DoxyCompactList}\small\item\em Aktualna liczba próbek na wykresach. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}{visualization\+Panel\+Widget}} = nullptr
+\begin{DoxyCompactList}\small\item\em Główny widget panelu wizualizacji (3D + kompas) \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}{view3\+DContainer\+Widget}} = nullptr
+\begin{DoxyCompactList}\small\item\em Kontener dla widoku modelu 3D. \end{DoxyCompactList}\item 
+QWidget \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}{compass\+Container\+Widget}} = nullptr
+\begin{DoxyCompactList}\small\item\em Kontener dla widoku kompasu. \end{DoxyCompactList}\item 
+Qt3\+DCore\+::\+QTransform \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}{compass\+Transform}} = nullptr
+\begin{DoxyCompactList}\small\item\em Transformacja dla strzałki kompasu. \end{DoxyCompactList}\item 
+Qt3\+DCore\+::\+QTransform \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}{board\+Transform}} = nullptr
+\begin{DoxyCompactList}\small\item\em Transformacja dla modelu 3D płytki. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Opis szczegółowy}
+Klasa \doxylink{classImuDataHandler}{Imu\+Data\+Handler} zarządza i wizualizuje dane z jednostki IMU. 
+
+Odpowiada za odbieranie danych z akcelerometru, żyroskopu i magnetometru, wyświetlanie ich w postaci pasków postępu, wykresów, a także wizualizację orientacji 3D urządzenia i kierunku kompasu. 
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00048}{48}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+\doxysubsubsection{Dokumentacja konstruktora i destruktora}
+\Hypertarget{classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7}\index{ImuDataHandler@{ImuDataHandler}!ImuDataHandler@{ImuDataHandler}}
+\index{ImuDataHandler@{ImuDataHandler}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{ImuDataHandler()}{ImuDataHandler()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a1ebcd9d4e4ff48f36ca78edcbcece7c7} 
+Imu\+Data\+Handler\+::\+Imu\+Data\+Handler (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Konstruktor klasy \doxylink{classImuDataHandler}{Imu\+Data\+Handler}. 
+
+Konstruktor klasy \doxylink{classImuDataHandler}{Imu\+Data\+Handler}. Inicjalizuje UI poprzez wywołanie setup\+Main\+Layout.
+
+
+\begin{DoxyParams}{Parametry}
+{\em parent} & Wskaźnik na widget nadrzędny (opcjonalny). \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00039}{39}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00217}{current\+Sample\+Count}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 2
+
+
+\doxysubsubsection{Dokumentacja funkcji składowych}
+\Hypertarget{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310}\index{ImuDataHandler@{ImuDataHandler}!addCompassLabels@{addCompassLabels}}
+\index{addCompassLabels@{addCompassLabels}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{addCompassLabels()}{addCompassLabels()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a6f5931bf0e948c1f34c5f8079f04d310} 
+void Imu\+Data\+Handler\+::add\+Compass\+Labels (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{parent\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Dodaje etykiety kierunków (N, E, S, W) do sceny kompasu. 
+
+Dodaje etykiety kierunków (N, E, S, W) jako tekst 2D do sceny kompasu. Wykorzystuje QText2\+DEntity do wyświetlenia liter w odpowiednich miejscach wokół pierścienia.
+
+
+\begin{DoxyParams}{Parametry}
+{\em parent\+Entity} & Wskaźnik na byt nadrzędny, do którego zostaną dodane etykiety. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00657}{657}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 3
+\Hypertarget{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4}\index{ImuDataHandler@{ImuDataHandler}!create3DView@{create3DView}}
+\index{create3DView@{create3DView}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{create3DView()}{create3DView()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_aa577768c3943c9ab20d01449a2abc5b4} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create3\+DView (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy widok 3D do wyświetlania modelu urządzenia. 
+
+Tworzy widok 3D do wyświetlania modelu urządzenia. Inicjalizuje okno Qt3\+DWindow, ustawia jego tło, tworzy główny byt sceny, konfiguruje kamerę, oświetlenie i ładowanie modelu.
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na kontener QWidget zawierający okno Qt3\+DWindow dla modelu 3D.
+
+Wskaźnik na kontener QWidget ({\ttfamily QWidget\+::create\+Window\+Container}) zawierający okno Qt3\+DWindow dla modelu 3D. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00389}{389}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00420}{setup\+Camera\+And\+Controller3\+D()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00444}{setup\+Lighting3\+D()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00463}{setup\+Model\+Loader3\+D()}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 4
+Oto graf wywoływań tej funkcji\+:
+% FIG 5
+\Hypertarget{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e}\index{ImuDataHandler@{ImuDataHandler}!createBarDisplayWidget@{createBarDisplayWidget}}
+\index{createBarDisplayWidget@{createBarDisplayWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createBarDisplayWidget()}{createBarDisplayWidget()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_aaf10774c1c6dc0f610a7e0da6d916b7e} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Bar\+Display\+Widget (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy widget wyświetlający dane w postaci pasków postępu. 
+
+Tworzy widget wyświetlający dane IMU w postaci pasków postępu. Grupuje paski dla akcelerometru, żyroskopu i magnetometru w osobnych QGroup\+Box.
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony widget z paskami postępu. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{269}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+YBar}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+ZBar}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00243}{create\+Left\+Panel()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 6
+\Hypertarget{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25}\index{ImuDataHandler@{ImuDataHandler}!createButtonPanel@{createButtonPanel}}
+\index{createButtonPanel@{createButtonPanel}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createButtonPanel()}{createButtonPanel()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ab54382d06d6dddb783422b93e2b12c25} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Button\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy panel z przyciskami do przełączania widoków. 
+
+Tworzy panel z przyciskami do przełączania widoków ("{}\+Current Data"{}, "{}\+Graph"{}). Łączy sygnały {\ttfamily clicked} przycisków z odpowiednimi slotami {\ttfamily show\+Current\+Data} i {\ttfamily show\+Graph}.
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony widget panelu przycisków. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00217}{217}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00174}{show\+Graph()}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 7
+Oto graf wywoływań tej funkcji\+:
+% FIG 8
+\Hypertarget{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9}\index{ImuDataHandler@{ImuDataHandler}!createCompassArrow@{createCompassArrow}}
+\index{createCompassArrow@{createCompassArrow}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createCompassArrow()}{createCompassArrow()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a8ecf69a4d883f09b5123b57937a973c9} 
+Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Compass\+Arrow (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{parent\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy strzałkę kompasu jako element sceny 3D. 
+
+Tworzy strzałkę kompasu jako element sceny 3D. Wykorzystuje siatkę QCuboid\+Mesh (prostopadłościan) i materiał QPhong\+Material. Przypisuje do strzałki transformację {\ttfamily compass\+Transform}, która będzie używana do obracania strzałki zgodnie z kierunkiem.
+
+
+\begin{DoxyParams}{Parametry}
+{\em parent\+Entity} & Wskaźnik na byt nadrzędny, do którego zostanie dodana strzałka. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony byt strzałki kompasu. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00626}{626}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00225}{compass\+Transform}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 9
+\Hypertarget{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f}\index{ImuDataHandler@{ImuDataHandler}!createCompassRing@{createCompassRing}}
+\index{createCompassRing@{createCompassRing}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createCompassRing()}{createCompassRing()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ae9fc18fee49df95c702ce5f89147920f} 
+Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Compass\+Ring (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{parent\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy pierścień kompasu jako element sceny 3D. 
+
+Tworzy pierścień kompasu jako element sceny 3D. Wykorzystuje siatkę QTorus\+Mesh i materiał QPhong\+Material.
+
+
+\begin{DoxyParams}{Parametry}
+{\em parent\+Entity} & Wskaźnik na byt nadrzędny, do którego zostanie dodany pierścień. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony byt pierścienia kompasu. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00601}{601}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 10
+\Hypertarget{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66}\index{ImuDataHandler@{ImuDataHandler}!createCompassView@{createCompassView}}
+\index{createCompassView@{createCompassView}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createCompassView()}{createCompassView()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a015c4523ec22dfe00e7128f4081c9a66} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Compass\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy widok 3D dla kompasu. 
+
+Tworzy widok 3D dla kompasu. Inicjalizuje okno Qt3\+DWindow, ustawia tło, tworzy główny byt sceny, konfiguruje kamerę, oświetlenie oraz tworzy elementy wizualne kompasu (pierścień, strzałkę, etykiety).
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na kontener QWidget zawierający okno Qt3\+DWindow dla kompasu.
+
+Wskaźnik na kontener QWidget ({\ttfamily QWidget\+::create\+Window\+Container}) zawierający okno Qt3\+DWindow dla kompasu. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{525}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00657}{add\+Compass\+Labels()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00626}{create\+Compass\+Arrow()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00601}{create\+Compass\+Ring()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00560}{setup\+Camera\+And\+Controller\+Compass()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00583}{setup\+Lighting\+Compass()}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 11
+Oto graf wywoływań tej funkcji\+:
+% FIG 12
+\Hypertarget{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869}\index{ImuDataHandler@{ImuDataHandler}!createGraphDisplayWidget@{createGraphDisplayWidget}}
+\index{createGraphDisplayWidget@{createGraphDisplayWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createGraphDisplayWidget()}{createGraphDisplayWidget()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ac2511de943f7f2c27c82e5e58ab7d869} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Graph\+Display\+Widget (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy widget wyświetlający dane w postaci wykresów. 
+
+Tworzy widget wyświetlający dane IMU w postaci wykresów. Inicjalizuje obiekty \doxylink{classSensorGraph}{Sensor\+Graph} dla akcelerometru, żyroskopu i magnetometru.
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony widget z wykresami. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{331}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00211}{acc\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00217}{current\+Sample\+Count}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00212}{gyro\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00213}{mag\+Graph}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{set\+Sample\+Count()}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00243}{create\+Left\+Panel()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 13
+Oto graf wywoływań tej funkcji\+:
+% FIG 14
+\Hypertarget{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1}\index{ImuDataHandler@{ImuDataHandler}!createLeftPanel@{createLeftPanel}}
+\index{createLeftPanel@{createLeftPanel}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{createLeftPanel()}{createLeftPanel()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a87ffdfb6a4e85385b2b9e2234cba3ee1} 
+QWidget \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::create\+Left\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Tworzy lewy panel zawierający przełączane widoki danych (paski/wykresy). 
+
+Tworzy lewy panel zawierający QStacked\+Widget. QStacked\+Widget umożliwia przełączanie między widokiem pasków postępu a widokiem wykresów.
+
+\begin{DoxyReturn}{Zwraca}
+Wskaźnik na utworzony widget lewego panelu. 
+\end{DoxyReturn}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00243}{243}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00216}{stacked\+Widget}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 15
+Oto graf wywoływań tej funkcji\+:
+% FIG 16
+\Hypertarget{classImuDataHandler_a9f78bbf73ad3c919f33800c563cf14d8}\index{ImuDataHandler@{ImuDataHandler}!setRange@{setRange}}
+\index{setRange@{setRange}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setRange()}{setRange()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a9f78bbf73ad3c919f33800c563cf14d8} 
+void Imu\+Data\+Handler\+::set\+Range (\begin{DoxyParamCaption}\item[{int}]{min\+Val}{, }\item[{int}]{max\+Val}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA\+: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz, ignorując parametry. 
+
+Ustawia zakres wartości dla pasków postępu i wykresów. UWAGA\+: Aktualnie funkcja ustawia sztywne zakresy zdefiniowane wewnątrz. Parametry min\+Val i max\+Val są ignorowane. Ustawia predefiniowane zakresy dla akcelerometru (-\/4000, 4000), żyroskopu (-\/250, 250) i magnetometru (-\/1600, 1600).
+
+
+\begin{DoxyParams}{Parametry}
+{\em min\+Val} & Minimalna wartość zakresu (obecnie nieużywana). \\
+\hline
+{\em max\+Val} & Maksymalna wartość zakresu (obecnie nieużywana). \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{102}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00211}{acc\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00212}{gyro\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00213}{mag\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+YBar}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+ZBar}}.
+
+\Hypertarget{classImuDataHandler_a2774f802773da8e0121d2323a860e8fc}\index{ImuDataHandler@{ImuDataHandler}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a2774f802773da8e0121d2323a860e8fc} 
+void Imu\+Data\+Handler\+::set\+Rotation (\begin{DoxyParamCaption}\item[{float}]{yaw}{, }\item[{float}]{pitch}{, }\item[{float}]{roll}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia rotację modelu 3D na podstawie kątów Eulera. 
+
+Ustawia rotację modelu 3D na podstawie kątów Eulera. Tworzy kwaternion rotacji z podanych kątów i stosuje go do transformacji modelu 3D ({\ttfamily board\+Transform}).
+
+
+\begin{DoxyParams}{Parametry}
+{\em yaw} & Kąt odchylenia (obrót wokół osi Z). \\
+\hline
+{\em pitch} & Kąt pochylenia (obrót wokół osi X). \\
+\hline
+{\em roll} & Kąt przechylenia (obrót wokół osi Y). \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00127}{127}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00226}{board\+Transform}}.
+
+\Hypertarget{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c}\index{ImuDataHandler@{ImuDataHandler}!setSampleCount@{setSampleCount}}
+\index{setSampleCount@{setSampleCount}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setSampleCount()}{setSampleCount()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ac6e9b4fe17a2bf511d67eba5c65b3e2c} 
+void Imu\+Data\+Handler\+::set\+Sample\+Count (\begin{DoxyParamCaption}\item[{int}]{samples}{}\end{DoxyParamCaption})}
+
+
+
+Ustawia liczbę próbek wyświetlanych na wykresach. 
+
+Ustawia liczbę próbek wyświetlanych na wykresach. Aktualizuje liczbę próbek dla każdego z wykresów (akcelerometr, żyroskop, magnetometr). Minimalna liczba próbek to 10.
+
+
+\begin{DoxyParams}{Parametry}
+{\em samples} & Liczba próbek do wyświetlenia. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{86}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00211}{acc\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00217}{current\+Sample\+Count}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00212}{gyro\+Graph}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00213}{mag\+Graph}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 17
+\Hypertarget{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149}\index{ImuDataHandler@{ImuDataHandler}!setupCameraAndController3D@{setupCameraAndController3D}}
+\index{setupCameraAndController3D@{setupCameraAndController3D}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupCameraAndController3D()}{setupCameraAndController3D()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a4754002ef74444e87ff8a32e8a47a149} 
+void Imu\+Data\+Handler\+::setup\+Camera\+And\+Controller3D (\begin{DoxyParamCaption}\item[{Qt3\+DExtras\+::\+Qt3\+DWindow \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{root\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje kamerę i kontroler dla widoku modelu 3D. 
+
+Konfiguruje kamerę i kontroler orbity dla widoku modelu 3D. Ustawia projekcję perspektywiczną, pozycję i kierunek kamery oraz tworzy kontroler QOrbit\+Camera\+Controller umożliwiający obracanie widoku myszą.
+
+
+\begin{DoxyParams}{Parametry}
+{\em view} & Wskaźnik na okno Qt3\+DWindow dla modelu 3D. \\
+\hline
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D.\\
+\hline
+{\em view} & Wskaźnik na okno Qt3\+DWindow dla modelu 3D. \\
+\hline
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D, do którego zostanie dodany kontroler. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00420}{420}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00389}{create3\+DView()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 18
+\Hypertarget{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7}\index{ImuDataHandler@{ImuDataHandler}!setupCameraAndControllerCompass@{setupCameraAndControllerCompass}}
+\index{setupCameraAndControllerCompass@{setupCameraAndControllerCompass}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupCameraAndControllerCompass()}{setupCameraAndControllerCompass()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a8cc085ea14f6988b41b2a731968027a7} 
+void Imu\+Data\+Handler\+::setup\+Camera\+And\+Controller\+Compass (\begin{DoxyParamCaption}\item[{Qt3\+DExtras\+::\+Qt3\+DWindow \texorpdfstring{$\ast$}{*}}]{view}{, }\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{root\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje kamerę i kontroler dla widoku kompasu. 
+
+Konfiguruje kamerę i kontroler orbity dla widoku kompasu. Ustawia kamerę w widoku z góry (nad kompasem) i tworzy kontroler QOrbit\+Camera\+Controller (choć interakcja z nim jest wyłączona przez No\+Focus).
+
+
+\begin{DoxyParams}{Parametry}
+{\em view} & Wskaźnik na okno Qt3\+DWindow dla kompasu. \\
+\hline
+{\em root\+Entity} & Wskaźnik na główny byt sceny kompasu. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00560}{560}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 19
+\Hypertarget{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c}\index{ImuDataHandler@{ImuDataHandler}!setupLighting3D@{setupLighting3D}}
+\index{setupLighting3D@{setupLighting3D}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupLighting3D()}{setupLighting3D()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a3b0df574f13907172df13ec93ab4430c} 
+void Imu\+Data\+Handler\+::setup\+Lighting3D (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{root\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje oświetlenie dla sceny modelu 3D. 
+
+Konfiguruje oświetlenie kierunkowe dla sceny modelu 3D. Dodaje do sceny byt reprezentujący źródło światła kierunkowego.
+
+
+\begin{DoxyParams}{Parametry}
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D.\\
+\hline
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D, do którego zostanie dodane światło. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00444}{444}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00389}{create3\+DView()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 20
+\Hypertarget{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9}\index{ImuDataHandler@{ImuDataHandler}!setupLightingCompass@{setupLightingCompass}}
+\index{setupLightingCompass@{setupLightingCompass}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupLightingCompass()}{setupLightingCompass()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a3f683011837380b0d2ea575ad5b07ce9} 
+void Imu\+Data\+Handler\+::setup\+Lighting\+Compass (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{root\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje oświetlenie dla sceny kompasu. 
+
+Konfiguruje oświetlenie kierunkowe dla sceny kompasu. Dodaje do sceny byt reprezentujący źródło światła kierunkowego.
+
+
+\begin{DoxyParams}{Parametry}
+{\em root\+Entity} & Wskaźnik na główny byt sceny kompasu. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00583}{583}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 21
+\Hypertarget{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56}\index{ImuDataHandler@{ImuDataHandler}!setupMainLayout@{setupMainLayout}}
+\index{setupMainLayout@{setupMainLayout}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupMainLayout()}{setupMainLayout()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ac2a199dc1a1aed47e0ac97509bf0ae56} 
+void Imu\+Data\+Handler\+::setup\+Main\+Layout (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje główny układ interfejsu użytkownika. 
+
+Konfiguruje główny układ interfejsu użytkownika. Tworzy panel przycisków, lewy panel z danymi (paski/wykresy), panel wizualizacji (3D/kompas) i układa je w głównym oknie widgetu. 
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{184}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00217}{create\+Button\+Panel()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00243}{create\+Left\+Panel()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00216}{stacked\+Widget}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00220}{visualization\+Panel\+Widget}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00039}{Imu\+Data\+Handler()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 22
+Oto graf wywoływań tej funkcji\+:
+% FIG 23
+\Hypertarget{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79}\index{ImuDataHandler@{ImuDataHandler}!setupModelLoader3D@{setupModelLoader3D}}
+\index{setupModelLoader3D@{setupModelLoader3D}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupModelLoader3D()}{setupModelLoader3D()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ab5824452fd383d251cb5651a8db52d79} 
+void Imu\+Data\+Handler\+::setup\+Model\+Loader3D (\begin{DoxyParamCaption}\item[{Qt3\+DCore\+::\+QEntity \texorpdfstring{$\ast$}{*}}]{root\+Entity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje ładowanie modelu 3D (np. z pliku .dae). 
+
+Konfiguruje ładowanie modelu 3D z pliku (np. DAE). Tworzy byt dla modelu i komponent QScene\+Loader. Łączy sygnał statusu ładowania, aby po pomyślnym załadowaniu przypisać transformację {\ttfamily board\+Transform} do głównego bytu załadowanej sceny.
+
+
+\begin{DoxyParams}{Parametry}
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D.\\
+\hline
+{\em root\+Entity} & Wskaźnik na główny byt sceny 3D, do którego zostanie dodany model. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00463}{463}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00226}{board\+Transform}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00389}{create3\+DView()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 24
+\Hypertarget{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156}\index{ImuDataHandler@{ImuDataHandler}!setupVisualizationPanel@{setupVisualizationPanel}}
+\index{setupVisualizationPanel@{setupVisualizationPanel}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{setupVisualizationPanel()}{setupVisualizationPanel()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a9179f9700276cd0eaad6a9c764780156} 
+void Imu\+Data\+Handler\+::setup\+Visualization\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Konfiguruje panel wizualizacji 3D (model i kompas). 
+
+Konfiguruje panel wizualizacji, tworząc widoki 3D i kompasu. Jeśli widoki nie zostały jeszcze utworzone, wywołuje odpowiednie funkcje {\ttfamily create3\+DView} i {\ttfamily create\+Compass\+View}. Następnie umieszcza je w głównym widgecie panelu wizualizacji ({\ttfamily visualization\+Panel\+Widget}). 
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{359}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00222}{compass\+Container\+Widget}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00389}{create3\+DView()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00525}{create\+Compass\+View()}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00221}{view3\+DContainer\+Widget}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00220}{visualization\+Panel\+Widget}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}}.
+
+Oto graf wywołań dla tej funkcji\+:
+% FIG 25
+Oto graf wywoływań tej funkcji\+:
+% FIG 26
+\Hypertarget{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241}\index{ImuDataHandler@{ImuDataHandler}!showGraph@{showGraph}}
+\index{showGraph@{showGraph}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{showGraph()}{showGraph()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a7a22d9a72d177b0ede32f905ee3ac241} 
+void Imu\+Data\+Handler\+::show\+Graph (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Slot przełączający widok na zakładkę z wykresami. 
+
+Slot przełączający widok na zakładkę z wykresami. Ustawia aktywny indeks w QStacked\+Widget na 1. 
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00174}{174}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00216}{stacked\+Widget}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00217}{create\+Button\+Panel()}}.
+
+Oto graf wywoływań tej funkcji\+:
+% FIG 27
+\Hypertarget{classImuDataHandler_a5c806ccd18eaae4b8afc0c9213c2b485}\index{ImuDataHandler@{ImuDataHandler}!updateCompass@{updateCompass}}
+\index{updateCompass@{updateCompass}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{updateCompass()}{updateCompass()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a5c806ccd18eaae4b8afc0c9213c2b485} 
+void Imu\+Data\+Handler\+::update\+Compass (\begin{DoxyParamCaption}\item[{float}]{heading}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizuje kierunek wskazywany przez strzałkę kompasu. 
+
+Aktualizuje kierunek wskazywany przez strzałkę kompasu. Tworzy kwaternion rotacji wokół osi Z na podstawie podanego kierunku i stosuje go do transformacji strzałki kompasu ({\ttfamily compass\+Transform}).
+
+
+\begin{DoxyParams}{Parametry}
+{\em heading} & Kierunek w stopniach (0 = Północ).\\
+\hline
+{\em heading} & Kierunek w stopniach (0 = Północ, obrót przeciwny do ruchu wskazówek zegara). \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00147}{147}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00225}{compass\+Transform}}.
+
+\Hypertarget{classImuDataHandler_a18aa5b9ea29b6757d9cb9329e37bd4eb}\index{ImuDataHandler@{ImuDataHandler}!updateData@{updateData}}
+\index{updateData@{updateData}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{updateData()}{updateData()}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a18aa5b9ea29b6757d9cb9329e37bd4eb} 
+void Imu\+Data\+Handler\+::update\+Data (\begin{DoxyParamCaption}\item[{const QVector$<$ int $>$ \&}]{acc}{, }\item[{const QVector$<$ int $>$ \&}]{gyro}{, }\item[{const QVector$<$ int $>$ \&}]{mag}{}\end{DoxyParamCaption})}
+
+
+
+Aktualizuje dane wyświetlane przez widget. 
+
+Aktualizuje dane wyświetlane przez widget. Odświeża wartości pasków postępu i dodaje nowe punkty do wykresów na podstawie otrzymanych danych z sensorów IMU.
+
+
+\begin{DoxyParams}{Parametry}
+{\em acc} & Wektor danych z akcelerometru \mbox{[}X, Y, Z\mbox{]}. \\
+\hline
+{\em gyro} & Wektor danych z żyroskopu \mbox{[}X, Y, Z\mbox{]}. \\
+\hline
+{\em mag} & Wektor danych z magnetometru \mbox{[}X, Y, Z\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{55}} pliku \mbox{\hyperlink{ImuDataHandler_8cpp_source}{Imu\+Data\+Handler.\+cpp}}.
+
+
+
+Odwołuje się do \mbox{\hyperlink{ImuDataHandler_8h_source_l00211}{acc\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{acc\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00212}{gyro\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+YBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{gyro\+ZBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00213}{mag\+Graph}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+XBar}}, \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+YBar}} i \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{mag\+ZBar}}.
+
+
+
+\doxysubsubsection{Dokumentacja atrybutów składowych}
+\Hypertarget{classImuDataHandler_ae5e4e195f4bbd4dd2ade774f6194572e}\index{ImuDataHandler@{ImuDataHandler}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ae5e4e195f4bbd4dd2ade774f6194572e} 
+Imu\+Data\+Handler\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00092}{92}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+\Hypertarget{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7}\index{ImuDataHandler@{ImuDataHandler}!accGraph@{accGraph}}
+\index{accGraph@{accGraph}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{accGraph}{accGraph}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a0c475a0c5787e56256adfb638e5464e7} 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}}\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::acc\+Graph = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wykres dla akcelerometru. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00211}{211}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{set\+Sample\+Count()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6}\index{ImuDataHandler@{ImuDataHandler}!accXBar@{accXBar}}
+\index{accXBar@{accXBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{accXBar}{accXBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a1c0a2a1767b8621205b3972a5cab6bd6} 
+QProgress\+Bar\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::acc\+XBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{206}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6}\index{ImuDataHandler@{ImuDataHandler}!accYBar@{accYBar}}
+\index{accYBar@{accYBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{accYBar}{accYBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ac2259dc2830f76451c861bb798a6c5e6} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::acc\+YBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{206}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3}\index{ImuDataHandler@{ImuDataHandler}!accZBar@{accZBar}}
+\index{accZBar@{accZBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{accZBar}{accZBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a153c3674781806b1e3521a85bd7de9d3} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::acc\+ZBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Paski dla akcelerometru X, Y, Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00206}{206}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624}\index{ImuDataHandler@{ImuDataHandler}!boardTransform@{boardTransform}}
+\index{boardTransform@{boardTransform}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{boardTransform}{boardTransform}}
+{\footnotesize\ttfamily \label{classImuDataHandler_acbf894b25a3d8e4f7542130ad2e1d624} 
+Qt3\+DCore\+::\+QTransform\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::board\+Transform = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transformacja dla modelu 3D płytki. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00226}{226}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00127}{set\+Rotation()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00463}{setup\+Model\+Loader3\+D()}}.
+
+\Hypertarget{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e}\index{ImuDataHandler@{ImuDataHandler}!compassContainerWidget@{compassContainerWidget}}
+\index{compassContainerWidget@{compassContainerWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{compassContainerWidget}{compassContainerWidget}}
+{\footnotesize\ttfamily \label{classImuDataHandler_abefb855b5b0847efc251b2215ef7b75e} 
+QWidget\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::compass\+Container\+Widget = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kontener dla widoku kompasu. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00222}{222}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}.
+
+\Hypertarget{classImuDataHandler_a0e01799410c507772a97dab13c6d6727}\index{ImuDataHandler@{ImuDataHandler}!compassTransform@{compassTransform}}
+\index{compassTransform@{compassTransform}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{compassTransform}{compassTransform}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a0e01799410c507772a97dab13c6d6727} 
+Qt3\+DCore\+::\+QTransform\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::compass\+Transform = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Transformacja dla strzałki kompasu. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00225}{225}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00626}{create\+Compass\+Arrow()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00147}{update\+Compass()}}.
+
+\Hypertarget{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada}\index{ImuDataHandler@{ImuDataHandler}!currentSampleCount@{currentSampleCount}}
+\index{currentSampleCount@{currentSampleCount}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{currentSampleCount}{currentSampleCount}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a4b5fd7c20e56decd6abfa512a5f02ada} 
+int Imu\+Data\+Handler\+::current\+Sample\+Count = 1000\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Aktualna liczba próbek na wykresach. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00217}{217}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00039}{Imu\+Data\+Handler()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{set\+Sample\+Count()}}.
+
+\Hypertarget{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b}\index{ImuDataHandler@{ImuDataHandler}!gyroGraph@{gyroGraph}}
+\index{gyroGraph@{gyroGraph}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{gyroGraph}{gyroGraph}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ac2076f1f1f53bb378fd62c3e42d4701b} 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}}\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::gyro\+Graph = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wykres dla żyroskopu. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00212}{212}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{set\+Sample\+Count()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c}\index{ImuDataHandler@{ImuDataHandler}!gyroXBar@{gyroXBar}}
+\index{gyroXBar@{gyroXBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{gyroXBar}{gyroXBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_aa20b8feea41f31c812e900014f440b7c} 
+QProgress\+Bar\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::gyro\+XBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{207}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe}\index{ImuDataHandler@{ImuDataHandler}!gyroYBar@{gyroYBar}}
+\index{gyroYBar@{gyroYBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{gyroYBar}{gyroYBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ab86947f3a0ceda7494afb92b2e8de0fe} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::gyro\+YBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{207}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13}\index{ImuDataHandler@{ImuDataHandler}!gyroZBar@{gyroZBar}}
+\index{gyroZBar@{gyroZBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{gyroZBar}{gyroZBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a44676ca7b55459e3c2a5dfd8c2bf7e13} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::gyro\+ZBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Paski dla żyroskopu X, Y, Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00207}{207}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_ad632a86ed603579020ff922a26db285e}\index{ImuDataHandler@{ImuDataHandler}!magGraph@{magGraph}}
+\index{magGraph@{magGraph}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{magGraph}{magGraph}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ad632a86ed603579020ff922a26db285e} 
+\mbox{\hyperlink{classSensorGraph}{Sensor\+Graph}}\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::mag\+Graph = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Wykres dla magnetometru. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00213}{213}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00331}{create\+Graph\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00086}{set\+Sample\+Count()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9}\index{ImuDataHandler@{ImuDataHandler}!magXBar@{magXBar}}
+\index{magXBar@{magXBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{magXBar}{magXBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ab4c59111a73ad1903c3b97bc4c9614a9} 
+QProgress\+Bar\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::mag\+XBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{208}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_a381fd5be357127b011085de38def2a28}\index{ImuDataHandler@{ImuDataHandler}!magYBar@{magYBar}}
+\index{magYBar@{magYBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{magYBar}{magYBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a381fd5be357127b011085de38def2a28} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::mag\+YBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{208}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_a29b4baf17210aa4328bee4088c268201}\index{ImuDataHandler@{ImuDataHandler}!magZBar@{magZBar}}
+\index{magZBar@{magZBar}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{magZBar}{magZBar}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a29b4baf17210aa4328bee4088c268201} 
+QProgress\+Bar \texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::mag\+ZBar = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Paski dla magnetometru X, Y, Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00208}{208}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00269}{create\+Bar\+Display\+Widget()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00102}{set\+Range()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00055}{update\+Data()}}.
+
+\Hypertarget{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb}\index{ImuDataHandler@{ImuDataHandler}!stackedWidget@{stackedWidget}}
+\index{stackedWidget@{stackedWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{stackedWidget}{stackedWidget}}
+{\footnotesize\ttfamily \label{classImuDataHandler_ad040a42ce230d3a98a62585626843bdb} 
+QStacked\+Widget\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::stacked\+Widget = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Widget zarządzający widokami danych. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00216}{216}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00243}{create\+Left\+Panel()}}, \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00174}{show\+Graph()}}.
+
+\Hypertarget{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2}\index{ImuDataHandler@{ImuDataHandler}!view3DContainerWidget@{view3DContainerWidget}}
+\index{view3DContainerWidget@{view3DContainerWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{view3DContainerWidget}{view3DContainerWidget}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a2f0374c6d26e76b7900a3d915cd8ebc2} 
+QWidget\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::view3\+DContainer\+Widget = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Kontener dla widoku modelu 3D. 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00221}{221}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}.
+
+\Hypertarget{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb}\index{ImuDataHandler@{ImuDataHandler}!visualizationPanelWidget@{visualizationPanelWidget}}
+\index{visualizationPanelWidget@{visualizationPanelWidget}!ImuDataHandler@{ImuDataHandler}}
+\doxyparagraph{\texorpdfstring{visualizationPanelWidget}{visualizationPanelWidget}}
+{\footnotesize\ttfamily \label{classImuDataHandler_a912ae87d0b8cfde5f539150754c135bb} 
+QWidget\texorpdfstring{$\ast$}{*} Imu\+Data\+Handler\+::visualization\+Panel\+Widget = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Główny widget panelu wizualizacji (3D + kompas) 
+
+
+
+Definicja w linii \mbox{\hyperlink{ImuDataHandler_8h_source_l00220}{220}} pliku \mbox{\hyperlink{ImuDataHandler_8h_source}{Imu\+Data\+Handler.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00184}{setup\+Main\+Layout()}} i \mbox{\hyperlink{ImuDataHandler_8cpp_source_l00359}{setup\+Visualization\+Panel()}}.
+
+
+
+Dokumentacja dla tej klasy została wygenerowana z plików\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ImuDataHandler_8h}{Imu\+Data\+Handler.\+h}}\item 
+\mbox{\hyperlink{ImuDataHandler_8cpp}{Imu\+Data\+Handler.\+cpp}}\end{DoxyCompactItemize}

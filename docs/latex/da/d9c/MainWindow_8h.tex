@@ -1,0 +1,336 @@
+\doxysubsection{Dokumentacja pliku Main\+Window.\+h}
+\hypertarget{MainWindow_8h}{}\label{MainWindow_8h}\index{MainWindow.h@{MainWindow.h}}
+{\ttfamily \#include $<$QMain\+Window$>$}\newline
+{\ttfamily \#include $<$QStacked\+Widget$>$}\newline
+{\ttfamily \#include $<$QTimer$>$}\newline
+{\ttfamily \#include $<$QVector3D$>$}\newline
+{\ttfamily \#include $<$QString$>$}\newline
+{\ttfamily \#include $<$QVector$>$}\newline
+{\ttfamily \#include $<$QMenu\+Bar$>$}\newline
+{\ttfamily \#include $<$QMenu$>$}\newline
+{\ttfamily \#include $<$QAction$>$}\newline
+{\ttfamily \#include $<$QVBox\+Layout$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QFile$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include $<$QInput\+Dialog$>$}\newline
+{\ttfamily \#include $<$QSerial\+Port\+Info$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include "{}Imu\+Data\+Handler.\+h"{}}\newline
+{\ttfamily \#include "{}Gps\+Data\+Handler.\+h"{}}\newline
+{\ttfamily \#include "{}Serial\+Port\+Handler.\+h"{}}\newline
+Wykres zależności załączania dla Main\+Window.\+h\+:
+% FIG 0
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik\+:
+% FIG 1
+\doxysubsubsubsection*{Komponenty}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classMainWindow}{Main\+Window}}
+\begin{DoxyCompactList}\small\item\em Główne okno aplikacji do wizualizacji danych sensorycznych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Zmienne}
+\begin{DoxyCompactItemize}
+\item 
+const QString \mbox{\hyperlink{MainWindow_8h_aa7a12c11573ca59be52bf90b7e63b309}{SIMULATION\+\_\+\+DATA\+\_\+\+FILE\+\_\+\+PATH}} = "{}/Users/mateuszwojtaszek/projekty/wds\+\_\+\+Orienta/simulation\+\_\+data3.\+log"{}
+\begin{DoxyCompactList}\small\item\em Ścieżka do pliku z danymi symulacyjnymi. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a8155f5976e70ad6ee5d6a465b748f498}{SIMULATION\+\_\+\+TIMER\+\_\+\+INTERVAL\+\_\+\+MS}} = 10
+\begin{DoxyCompactList}\small\item\em Interwał timera symulacji w milisekundach. \end{DoxyCompactList}\item 
+static constexpr int \mbox{\hyperlink{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}{EXPECTED\+\_\+\+DATA\+\_\+\+SIZE}} = 12
+\begin{DoxyCompactList}\small\item\em Oczekiwana liczba wartości w pojedynczej linii danych. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a2c9ad59072bddf2f952e98d5eb65b5aa}{GYRO\+\_\+\+X\+\_\+\+IDX}} = 0
+\begin{DoxyCompactList}\small\item\em Indeks danych żyroskopu dla osi X. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_aa5e93ca8c16ee3fcf43e1317e234fa67}{GYRO\+\_\+\+Y\+\_\+\+IDX}} = 1
+\begin{DoxyCompactList}\small\item\em Indeks danych żyroskopu dla osi Y. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a35393e7d5c7a1f5060f917772e7bb6a7}{GYRO\+\_\+\+Z\+\_\+\+IDX}} = 2
+\begin{DoxyCompactList}\small\item\em Indeks danych żyroskopu dla osi Z. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a6362765713573508a83d1bd06f221f54}{ACC\+\_\+\+X\+\_\+\+IDX}} = 3
+\begin{DoxyCompactList}\small\item\em Indeks danych akcelerometru dla osi X. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_ab3da2016dcd83848e7a82dd34c0b0f45}{ACC\+\_\+\+Y\+\_\+\+IDX}} = 4
+\begin{DoxyCompactList}\small\item\em Indeks danych akcelerometru dla osi Y. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a6d6de9bafd0c4cd8a929cf7cb205e526}{ACC\+\_\+\+Z\+\_\+\+IDX}} = 5
+\begin{DoxyCompactList}\small\item\em Indeks danych akcelerometru dla osi Z. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_acb6d503e34e10d2f8f0bdf2fa57b9e35}{MAG\+\_\+\+X\+\_\+\+IDX}} = 6
+\begin{DoxyCompactList}\small\item\em Indeks danych magnetometru dla osi X. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_aa4f5877a9c2b506b2f54ec0d5ce63d41}{MAG\+\_\+\+Y\+\_\+\+IDX}} = 7
+\begin{DoxyCompactList}\small\item\em Indeks danych magnetometru dla osi Y. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a4c47ef620bdbb397a1d922e042eadea0}{MAG\+\_\+\+Z\+\_\+\+IDX}} = 8
+\begin{DoxyCompactList}\small\item\em Indeks danych magnetometru dla osi Z. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a18907fd312ac7af5adfdcb0995153558}{ROLL\+\_\+\+IDX}} = 9
+\begin{DoxyCompactList}\small\item\em Indeks danych kąta przechyłu (Roll). \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_abc44bcb5e1677ea4d30ca6b0d3fa6998}{PITCH\+\_\+\+IDX}} = 10
+\begin{DoxyCompactList}\small\item\em Indeks danych kąta pochylenia (Pitch). \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{MainWindow_8h_a442db6e73f15d986dcfd5bcedcc2abad}{YAW\+\_\+\+IDX}} = 11
+\begin{DoxyCompactList}\small\item\em Indeks danych kąta odchylenia (Yaw). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Dokumentacja zmiennych}
+\Hypertarget{MainWindow_8h_a6362765713573508a83d1bd06f221f54}\index{MainWindow.h@{MainWindow.h}!ACC\_X\_IDX@{ACC\_X\_IDX}}
+\index{ACC\_X\_IDX@{ACC\_X\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{ACC\_X\_IDX}{ACC\_X\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a6362765713573508a83d1bd06f221f54} 
+int ACC\+\_\+\+X\+\_\+\+IDX = 3\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych akcelerometru dla osi X. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00056}{56}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_ab3da2016dcd83848e7a82dd34c0b0f45}\index{MainWindow.h@{MainWindow.h}!ACC\_Y\_IDX@{ACC\_Y\_IDX}}
+\index{ACC\_Y\_IDX@{ACC\_Y\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{ACC\_Y\_IDX}{ACC\_Y\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_ab3da2016dcd83848e7a82dd34c0b0f45} 
+int ACC\+\_\+\+Y\+\_\+\+IDX = 4\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych akcelerometru dla osi Y. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00057}{57}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a6d6de9bafd0c4cd8a929cf7cb205e526}\index{MainWindow.h@{MainWindow.h}!ACC\_Z\_IDX@{ACC\_Z\_IDX}}
+\index{ACC\_Z\_IDX@{ACC\_Z\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{ACC\_Z\_IDX}{ACC\_Z\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a6d6de9bafd0c4cd8a929cf7cb205e526} 
+int ACC\+\_\+\+Z\+\_\+\+IDX = 5\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych akcelerometru dla osi Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00058}{58}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf}\index{MainWindow.h@{MainWindow.h}!EXPECTED\_DATA\_SIZE@{EXPECTED\_DATA\_SIZE}}
+\index{EXPECTED\_DATA\_SIZE@{EXPECTED\_DATA\_SIZE}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{EXPECTED\_DATA\_SIZE}{EXPECTED\_DATA\_SIZE}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a0439f2b41f6ce331cd921845469787cf} 
+int EXPECTED\+\_\+\+DATA\+\_\+\+SIZE = 12\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Oczekiwana liczba wartości w pojedynczej linii danych. 
+
+Definiuje, ile oddzielonych przecinkami wartości float powinno znajdować się w każdej linii pliku symulacyjnego lub w pakiecie danych z portu szeregowego. 
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00050}{50}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00146}{Main\+Window\+::load\+Simulation\+Data()}} i \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a2c9ad59072bddf2f952e98d5eb65b5aa}\index{MainWindow.h@{MainWindow.h}!GYRO\_X\_IDX@{GYRO\_X\_IDX}}
+\index{GYRO\_X\_IDX@{GYRO\_X\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{GYRO\_X\_IDX}{GYRO\_X\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a2c9ad59072bddf2f952e98d5eb65b5aa} 
+int GYRO\+\_\+\+X\+\_\+\+IDX = 0\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych żyroskopu dla osi X. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00053}{53}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_aa5e93ca8c16ee3fcf43e1317e234fa67}\index{MainWindow.h@{MainWindow.h}!GYRO\_Y\_IDX@{GYRO\_Y\_IDX}}
+\index{GYRO\_Y\_IDX@{GYRO\_Y\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{GYRO\_Y\_IDX}{GYRO\_Y\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_aa5e93ca8c16ee3fcf43e1317e234fa67} 
+int GYRO\+\_\+\+Y\+\_\+\+IDX = 1\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych żyroskopu dla osi Y. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00054}{54}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a35393e7d5c7a1f5060f917772e7bb6a7}\index{MainWindow.h@{MainWindow.h}!GYRO\_Z\_IDX@{GYRO\_Z\_IDX}}
+\index{GYRO\_Z\_IDX@{GYRO\_Z\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{GYRO\_Z\_IDX}{GYRO\_Z\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a35393e7d5c7a1f5060f917772e7bb6a7} 
+int GYRO\+\_\+\+Z\+\_\+\+IDX = 2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych żyroskopu dla osi Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00055}{55}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_acb6d503e34e10d2f8f0bdf2fa57b9e35}\index{MainWindow.h@{MainWindow.h}!MAG\_X\_IDX@{MAG\_X\_IDX}}
+\index{MAG\_X\_IDX@{MAG\_X\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{MAG\_X\_IDX}{MAG\_X\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_acb6d503e34e10d2f8f0bdf2fa57b9e35} 
+int MAG\+\_\+\+X\+\_\+\+IDX = 6\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych magnetometru dla osi X. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00059}{59}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_aa4f5877a9c2b506b2f54ec0d5ce63d41}\index{MainWindow.h@{MainWindow.h}!MAG\_Y\_IDX@{MAG\_Y\_IDX}}
+\index{MAG\_Y\_IDX@{MAG\_Y\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{MAG\_Y\_IDX}{MAG\_Y\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_aa4f5877a9c2b506b2f54ec0d5ce63d41} 
+int MAG\+\_\+\+Y\+\_\+\+IDX = 7\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych magnetometru dla osi Y. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00060}{60}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a4c47ef620bdbb397a1d922e042eadea0}\index{MainWindow.h@{MainWindow.h}!MAG\_Z\_IDX@{MAG\_Z\_IDX}}
+\index{MAG\_Z\_IDX@{MAG\_Z\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{MAG\_Z\_IDX}{MAG\_Z\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a4c47ef620bdbb397a1d922e042eadea0} 
+int MAG\+\_\+\+Z\+\_\+\+IDX = 8\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych magnetometru dla osi Z. 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00061}{61}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_abc44bcb5e1677ea4d30ca6b0d3fa6998}\index{MainWindow.h@{MainWindow.h}!PITCH\_IDX@{PITCH\_IDX}}
+\index{PITCH\_IDX@{PITCH\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{PITCH\_IDX}{PITCH\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_abc44bcb5e1677ea4d30ca6b0d3fa6998} 
+int PITCH\+\_\+\+IDX = 10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych kąta pochylenia (Pitch). 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00063}{63}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_a18907fd312ac7af5adfdcb0995153558}\index{MainWindow.h@{MainWindow.h}!ROLL\_IDX@{ROLL\_IDX}}
+\index{ROLL\_IDX@{ROLL\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{ROLL\_IDX}{ROLL\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a18907fd312ac7af5adfdcb0995153558} 
+int ROLL\+\_\+\+IDX = 9\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych kąta przechyłu (Roll). 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00062}{62}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+
+\Hypertarget{MainWindow_8h_aa7a12c11573ca59be52bf90b7e63b309}\index{MainWindow.h@{MainWindow.h}!SIMULATION\_DATA\_FILE\_PATH@{SIMULATION\_DATA\_FILE\_PATH}}
+\index{SIMULATION\_DATA\_FILE\_PATH@{SIMULATION\_DATA\_FILE\_PATH}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{SIMULATION\_DATA\_FILE\_PATH}{SIMULATION\_DATA\_FILE\_PATH}}
+{\footnotesize\ttfamily \label{MainWindow_8h_aa7a12c11573ca59be52bf90b7e63b309} 
+const QString SIMULATION\+\_\+\+DATA\+\_\+\+FILE\+\_\+\+PATH = "{}/Users/mateuszwojtaszek/projekty/wds\+\_\+\+Orienta/simulation\+\_\+data3.\+log"{}}
+
+
+
+Ścieżka do pliku z danymi symulacyjnymi. 
+
+Stała przechowująca domyślną ścieżkę do pliku .log, który zawiera dane sensoryczne używane w trybie symulacji. 
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00036}{36}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00018}{Main\+Window\+::\+Main\+Window()}}.
+
+\Hypertarget{MainWindow_8h_a8155f5976e70ad6ee5d6a465b748f498}\index{MainWindow.h@{MainWindow.h}!SIMULATION\_TIMER\_INTERVAL\_MS@{SIMULATION\_TIMER\_INTERVAL\_MS}}
+\index{SIMULATION\_TIMER\_INTERVAL\_MS@{SIMULATION\_TIMER\_INTERVAL\_MS}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{SIMULATION\_TIMER\_INTERVAL\_MS}{SIMULATION\_TIMER\_INTERVAL\_MS}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a8155f5976e70ad6ee5d6a465b748f498} 
+int SIMULATION\+\_\+\+TIMER\+\_\+\+INTERVAL\+\_\+\+MS = 10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Interwał timera symulacji w milisekundach. 
+
+Określa, jak często (w ms) timer symulacji będzie wywoływał aktualizację danych w trybie symulacji. 
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00043}{43}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00201}{Main\+Window\+::toggle\+Simulation\+Mode()}}.
+
+\Hypertarget{MainWindow_8h_a442db6e73f15d986dcfd5bcedcc2abad}\index{MainWindow.h@{MainWindow.h}!YAW\_IDX@{YAW\_IDX}}
+\index{YAW\_IDX@{YAW\_IDX}!MainWindow.h@{MainWindow.h}}
+\doxyparagraph{\texorpdfstring{YAW\_IDX}{YAW\_IDX}}
+{\footnotesize\ttfamily \label{MainWindow_8h_a442db6e73f15d986dcfd5bcedcc2abad} 
+int YAW\+\_\+\+IDX = 11\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Indeks danych kąta odchylenia (Yaw). 
+
+
+
+Definicja w linii \mbox{\hyperlink{MainWindow_8h_source_l00064}{64}} pliku \mbox{\hyperlink{MainWindow_8h_source}{Main\+Window.\+h}}.
+
+
+
+Odwołania w \mbox{\hyperlink{MainWindow_8cpp_source_l00379}{Main\+Window\+::process\+Imu\+Data()}}.
+

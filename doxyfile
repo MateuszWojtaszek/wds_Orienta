@@ -1,0 +1,353 @@
+# Doxyfile - Plik konfiguracyjny Doxygen dla projektu C++/Qt
+
+#---------------------------------------------------------------------------
+# Ustawienia projektu
+#---------------------------------------------------------------------------
+PROJECT_NAME           = "Orienta -- WDS"
+PROJECT_NUMBER         = 1.0
+PROJECT_BRIEF          = "Dokumentacja projektu Orienta"
+PROJECT_LOGO           = # Opcjonalnie: ścieżka do logo projektu
+OUTPUT_DIRECTORY       = docs # Katalog, gdzie zostanie wygenerowana dokumentacja
+CREATE_SUBDIRS         = YES
+OUTPUT_LANGUAGE        = Polish
+BRIEF_MEMBER_DESC      = YES
+REPEAT_BRIEF           = YES
+ALWAYS_DETAILED_SEC    = NO
+INLINE_INHERITED_MEMB  = YES
+FULL_PATH_NAMES        = YES
+STRIP_FROM_PATH        =
+STRIP_FROM_INC_PATH    =
+SHORT_NAMES            = NO
+JAVADOC_AUTOBRIEF      = NO # Ustaw na YES jeśli używasz stylu komentarzy JavaDoc
+QT_AUTOBRIEF           = YES # Ważne dla Qt - automatycznie generuje krótkie opisy dla sygnałów/slotów
+MULTILINE_CPP_IS_BRIEF = NO
+INHERIT_DOCS           = YES # Dziedziczenie dokumentacji z klas bazowych
+SEPARATE_MEMBER_PAGES  = NO
+TAB_SIZE               = 4
+ALIASES                = # Możesz zdefiniować własne aliasy dla poleceń Doxygen
+TCL_SUBST              =
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+OPTIMIZE_FOR_FORTRAN   = NO
+OPTIMIZE_OUTPUT_VHDL   = NO
+EXTENSION_MAPPING      = # Można mapować niestandardowe rozszerzenia na języki
+MARKDOWN_SUPPORT       = YES
+AUTOLINK_SUPPORT       = YES
+BUILTIN_STL_SUPPORT    = YES # Włącz wsparcie dla STL
+CPP_CLI_SUPPORT        = NO
+SIP_SUPPORT            = NO
+IDL_PROPERTY_SUPPORT   = YES
+DISTRIBUTE_GROUP_DOC   = NO
+SUBGROUPING            = YES
+INLINE_GROUPED_CLASSES = NO
+INLINE_SIMPLE_STRUCTS  = NO
+TYPEDEF_HIDES_STRUCT   = NO
+LOOKUP_CACHE_SIZE      = 0
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące budowy dokumentacji
+#---------------------------------------------------------------------------
+EXTRACT_ALL            = YES # Dokumentuj wszystkie elementy, nawet te bez komentarzy
+EXTRACT_PRIVATE        = YES # Dokumentuj prywatne składowe
+EXTRACT_PACKAGE        = YES
+EXTRACT_STATIC         = YES # Dokumentuj statyczne składowe
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+EXTRACT_ANON_NSPACES   = NO
+HIDE_UNDOC_MEMBERS     = NO # Jeśli EXTRACT_ALL = YES, to powinno być NO
+HIDE_UNDOC_CLASSES     = NO
+HIDE_FRIEND_COMPOUNDS  = NO
+HIDE_IN_BODY_DOCS      = NO
+INTERNAL_DOCS          = YES # Dokumentuj sekcje oznaczone jako @internal
+CASE_SENSE_NAMES       = YES # Rozróżnianie wielkości liter (ważne w C++)
+HIDE_SCOPE_NAMES       = NO
+SHOW_INCLUDE_FILES     = YES
+SHOW_GROUPED_MEMB_INC  = NO
+FORCE_LOCAL_INCLUDES   = NO
+INLINE_INFO            = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = NO
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_GROUP_NAMES       = NO
+SORT_BY_SCOPE_NAME     = NO
+STRICT_PROTO_MATCHING  = NO
+GENERATE_TODOLIST      = YES
+GENERATE_TESTLIST      = YES
+GENERATE_BUGLIST       = YES
+GENERATE_DEPRECATEDLIST= YES
+ENABLED_SECTIONS       = # Możesz włączyć/wyłączyć sekcje np. \cond, \endcond
+MAX_INITIALIZER_LINES  = 30
+SHOW_USED_FILES        = YES
+SHOW_FILES             = YES
+SHOW_NAMESPACES        = YES
+FILE_VERSION_FILTER    =
+LAYOUT_FILE            = # Opcjonalnie: plik definiujący układ strony
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące wejścia (plików źródłowych)
+#---------------------------------------------------------------------------
+INPUT                  = . # Główny katalog projektu (lub podaj konkretne ścieżki, np. src .)
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.cpp *.cxx *.cc *.c *.h *.hpp *.hxx *.ui
+RECURSIVE              = YES
+EXCLUDE                = # Możesz tu dodać pełne ścieżki do katalogów do wykluczenia
+EXCLUDE_SYMLINKS       = NO
+EXCLUDE_PATTERNS       = */cmake-build-*/* \ # Wyklucz wszystkie katalogi cmake-build-*
+                         */build/* \         # Wyklucz inne typowe katalogi budowania
+                         */tests/* \         # Wyklucz katalogi testów (jeśli istnieją)
+                         *moc_*.cpp \        # Wyklucz pliki generowane przez MOC
+                         *ui_*.h             # Wyklucz pliki generowane z UI Designer
+EXCLUDE_SYMBOLS        = # Symbole (klasy, funkcje) do wykluczenia
+# EXAMPLE_PATH           = examples # Zakomentowane - katalog nie istnieje
+# EXAMPLE_PATTERNS       = *
+# EXAMPLE_RECURSIVE      = YES
+# IMAGE_PATH             = images # Zakomentowane - katalog nie istnieje
+INPUT_FILTER           =
+FILTER_PATTERNS        =
+FILTER_SOURCE_FILES    = NO
+FILTER_SOURCE_PATTERNS =
+# USE_MDFILE_AS_MAINPAGE = README.md # Zakomentowane - plik nie istnieje lub nie jest potrzebny
+
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące przeglądania kodu źródłowego
+#---------------------------------------------------------------------------
+SOURCE_BROWSER         = YES # Włącz przeglądarkę kodu źródłowego w dokumentacji
+INLINE_SOURCES         = NO # Nie osadzaj kodu bezpośrednio w dokumentacji (lepsze linkowanie)
+STRIP_CODE_COMMENTS    = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+REFERENCES_LINK_SOURCE = YES
+SOURCE_TOOLTIPS        = YES
+USE_HTAGS              = NO
+VERBATIM_HEADERS       = YES
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące obsługi języka C++ (i Qt)
+#---------------------------------------------------------------------------
+ENABLE_PREPROCESSING   = YES # Włącz preprocesor
+MACRO_EXPANSION        = YES # Rozwijaj makra
+EXPAND_ONLY_PREDEF     = NO
+SEARCH_INCLUDES        = YES
+INCLUDE_PATH           = # Dodaj ścieżki do nagłówków, jeśli są niestandardowe
+INCLUDE_FILE_PATTERNS  =
+PREDEFINED             = "Q_OBJECT" \
+                         "Q_PROPERTY(...)= Q_PROPERTY" \
+                         "Q_DECLARE_PRIVATE(...)= " \
+                         "Q_DECLARE_PUBLIC(...)= " \
+                         "Q_SIGNALS=public signals:" \
+                         "Q_SLOTS=public slots:" \
+                         "Q_PRIVATE_SLOT(...)=private slots:" \
+                         "signals=public signals:" \
+                         "slots=public slots:" \
+                         "Q_INVOKABLE= " \
+                         "Q_ENUMS(...)= " \
+                         "Q_FLAGS(...)= " \
+                         "Q_INTERFACES(...)= " \
+                         "Q_CLASSINFO(...)= " \
+                         "QT_BEGIN_NAMESPACE=namespace QT_NAMESPACE {" \
+                         "QT_END_NAMESPACE=}" \
+                         "Q_DECL_EXPORT=" \
+                         "Q_DECL_IMPORT="
+                         # Powyższe makra pomagają Doxygenowi zrozumieć kod Qt
+EXPAND_AS_DEFINED      = Q_OBJECT Q_SIGNALS Q_SLOTS signals slots Q_PROPERTY
+SKIP_FUNCTION_MACROS   = YES
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące zewnętrznej dokumentacji (np. Qt)
+#---------------------------------------------------------------------------
+# Używamy URLi online, ponieważ lokalne ścieżki były niepoprawne.
+# Upewnij się, że wersja Qt w URL (tutaj qt-6) jest zgodna z Twoją.
+# Jeśli chcesz używać lokalnych tagów, musisz znaleźć POPRAWNĄ ścieżkę
+# do plików *.tags w Twojej instalacji i odkomentować/zmodyfikować poniższe.
+# Przykład lokalny (MUSI być poprawny!):
+# TAGFILES             = "/Users/mateuszwojtaszek/Qt/6.10.0/Docs/Qt6/qtcore/qtcore.tags=file:///Users/mateuszwojtaszek/Qt/6.10.0/Docs/Qt6/" \
+#                        # ... inne moduły ...
+
+TAGFILES               = "qtcore.tags=https://doc.qt.io/qt-6/qtcore.tags" \
+                         "qtgui.tags=https://doc.qt.io/qt-6/qtgui.tags" \
+                         "qtwidgets.tags=https://doc.qt.io/qt-6/qtwidgets.tags" \
+                         "qtnetwork.tags=https://doc.qt.io/qt-6/qtnetwork.tags" \
+                         "qtsql.tags=https://doc.qt.io/qt-6/qtsql.tags" \
+                         "qtxml.tags=https://doc.qt.io/qt-6/qtxml.tags" \
+                         "qt3dcore.tags=https://doc.qt.io/qt-6/qt3dcore.tags" \
+                         "qt3drender.tags=https://doc.qt.io/qt-6/qt3drender.tags" \
+                         "qt3dextras.tags=https://doc.qt.io/qt-6/qt3dextras.tags" \
+                         "qtserialport.tags=https://doc.qt.io/qt-6/qtserialport.tags"
+                         # Dodaj inne moduły Qt według potrzeb (np. qml)
+                         # Sprawdź wersję (qt-6 vs qt-5)
+
+GENERATE_TAGFILE       = docs/html/project.tags # Generuj plik tagów dla Twojego projektu
+ALLEXTERNALS           = NO
+EXTERNAL_GROUPS        = YES
+EXTERNAL_PAGES         = YES
+PERL_PATH              = /usr/bin/perl
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania HTML
+#---------------------------------------------------------------------------
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html # Podkatalog dla HTML w OUTPUT_DIRECTORY
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            = # Opcjonalnie: własny nagłówek HTML
+HTML_FOOTER            = # Opcjonalnie: własna stopka HTML
+HTML_STYLESHEET        = # Opcjonalnie: własny arkusz stylów CSS
+HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_FILES       =
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+HTML_COLORSTYLE_GAMMA  = 80
+HTML_TIMESTAMP         = YES
+HTML_DYNAMIC_SECTIONS  = NO
+HTML_INDEX_NUM_ENTRIES = 100
+GENERATE_DOCSET        = NO
+DOCSET_FEEDNAME        = "Doxygen generated docs"
+DOCSET_BUNDLE_ID       = org.doxygen.Project
+DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
+DOCSET_PUBLISHER_NAME  = Publisher
+GENERATE_HTMLHELP      = NO # Czy generować Windows HTML Help
+CHM_FILE               =
+HHC_LOCATION           =
+GENERATE_CHI           = NO
+CHM_INDEX_ENCODING     =
+BINARY_TOC             = NO
+TOC_EXPAND             = NO
+GENERATE_QHP           = NO # Czy generować Qt Help Project
+QCH_FILE               =
+QHP_NAMESPACE          = org.doxygen.Project
+QHP_VIRTUAL_FOLDER     = doc
+QHP_CUST_FILTER_NAME   =
+QHP_CUST_FILTER_ATTRS  =
+QHP_SECT_FILTER_ATTRS  =
+QHG_LOCATION           =
+GENERATE_ECLIPSEHELP   = NO
+ECLIPSE_DOC_ID         = org.doxygen.Project
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES # Generuj widok drzewa nawigacyjnego
+ENUM_VALUES_PER_LINE   = 4
+TREEVIEW_WIDTH         = 250
+EXT_LINKS_IN_WINDOW    = NO
+FORMULA_FONTSIZE       = 10
+FORMULA_TRANSPARENT    = YES
+USE_MATHJAX            = NO # Użyj MathJax do renderowania formuł LaTeX
+MATHJAX_FORMAT         = HTML-CSS # lub LaTeX-HTML, NativeMML
+MATHJAX_RELPATH        = http://cdn.mathjax.org/mathjax/latest
+MATHJAX_EXTENSIONS     =
+MATHJAX_CODEFILE       =
+SEARCHENGINE           = YES # Włącz wyszukiwarkę
+SERVER_BASED_SEARCH    = NO
+EXTERNAL_SEARCH        = NO
+SEARCHENGINE_URL       =
+SEARCHDATA_FILE        = searchdata.xml
+EXTERNAL_SEARCH_ID     =
+EXTRA_SEARCH_MAPPINGS  =
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania LaTeX
+#---------------------------------------------------------------------------
+GENERATE_LATEX         = YES # Czy generować wyjście LaTeX (do stworzenia PDF)
+LATEX_OUTPUT           = latex # Podkatalog dla LaTeX w OUTPUT_DIRECTORY
+LATEX_CMD_NAME         = latex
+MAKEINDEX_CMD_NAME     = makeindex
+COMPACT_LATEX          = YES
+PAPER_TYPE             = a4 # Rozmiar papieru
+EXTRA_PACKAGES         = # Dodatkowe pakiety LaTeX
+LATEX_HEADER           = # Własny nagłówek LaTeX
+LATEX_FOOTER           =
+LATEX_EXTRA_FILES      =
+PDF_HYPERLINKS         = YES # Twórz hiperłącza w PDF
+USE_PDFLATEX           = YES # Użyj pdflatex zamiast latex -> dvi -> ps -> pdf
+LATEX_BATCHMODE        = NO
+LATEX_HIDE_INDICES     = NO
+LATEX_SOURCE_CODE      = YES # Dołącz kod źródłowy w dokumentacji LaTeX/PDF
+LATEX_STYLESHEET       =
+LATEX_TABLE_BORDER_SIZE = 1
+LATEX_TIMESTAMP        = NO
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania RTF
+#---------------------------------------------------------------------------
+GENERATE_RTF           = NO
+RTF_OUTPUT             = rtf
+COMPACT_RTF            = NO
+RTF_HYPERLINKS         = NO
+RTF_STYLESHEET_FILE    =
+RTF_EXTENSIONS_FILE    =
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania Man pages
+#---------------------------------------------------------------------------
+GENERATE_MAN           = NO
+MAN_OUTPUT             = man
+MAN_EXTENSION          = .3
+MAN_LINKS              = NO
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania XML
+#---------------------------------------------------------------------------
+GENERATE_XML           = NO
+XML_OUTPUT             = xml
+XML_SCHEMA             =
+XML_DTD                =
+XML_PROGRAMLISTING     = YES
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania DOCBOOK
+#---------------------------------------------------------------------------
+GENERATE_DOCBOOK       = NO
+DOCBOOK_OUTPUT         = docbook
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generowania AUTOGEN_DEF
+#---------------------------------------------------------------------------
+GENERATE_AUTOGEN_DEF   = NO
+
+#---------------------------------------------------------------------------
+# Ustawienia dotyczące generatora diagramów (wymaga Graphviz 'dot')
+#---------------------------------------------------------------------------
+HAVE_DOT               = YES # Ustaw na YES, jeśli masz zainstalowany Graphviz (dot)
+# !!! WAŻNE: Sprawdź, czy Graphviz jest zainstalowany i 'dot' jest w PATH !!!
+# 1. W terminalu wpisz: which dot
+# 2. Jeśli pokaże ścieżkę (np. /opt/homebrew/bin/dot), skopiuj katalog (np. /opt/homebrew/bin)
+#    i wklej poniżej.
+# 3. Jeśli nic nie pokaże, zainstaluj Graphviz (np. brew install graphviz) i spróbuj ponownie.
+# 4. Jeśli nadal są błędy z 'dot', ustaw HAVE_DOT = NO, aby wyłączyć grafy.
+DOT_PATH               = # np. /opt/homebrew/bin lub /usr/local/bin (pozostaw puste, jeśli 'dot' jest w PATH)
+DOT_NUM_THREADS        = 0
+DOT_FONTNAME           = Helvetica
+DOT_FONTSIZE           = 10
+DOT_FONTPATH           =
+CLASS_DIAGRAMS         = YES
+MSCGEN_PATH            =
+DIA_PATH               =
+HIDE_UNDOC_RELATIONS   = YES
+HAVE_DOT_LEGEND        = YES
+DOT_GRAPH_MAX_NODES    = 50
+MAX_DOT_GRAPH_DEPTH    = 0
+DOT_TRANSPARENT        = NO
+DOT_MULTI_TARGETS      = YES
+GENERATE_LEGEND        = YES
+DOT_IMAGE_FORMAT       = png
+INTERACTIVE_SVG        = NO
+DOT_CLEANUP            = YES
+DOT_LAYOUT_DIRECTION   = LR
+UML_LOOK               = YES
+UML_LIMIT_NUM_FIELDS   = 10
+TEMPLATE_RELATIONS     = YES
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = YES # Ustaw na NO, jeśli generowanie jest zbyt wolne
+CALLER_GRAPH           = YES # Ustaw na NO, jeśli generowanie jest zbyt wolne
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+DOT_RELAXED_NODES      = NO
+GROUP_GRAPHS           = YES
+#---------------------------------------------------------------------------
+# Ostrzeżenia i komunikaty
+#---------------------------------------------------------------------------
+WARN_IF_UNDOCUMENTED   = YES # Ostrzegaj o nieudokumentowanych elementach
+WARN_IF_DOC_ERROR      = YES # Ostrzegaj o błędach w dokumentacji
+WARN_NO_PARAMDOC       = YES # Ostrzegaj o braku dokumentacji parametrów funkcji
+WARN_AS_ERROR          = NO # Traktuj ostrzeżenia jako błędy
+WARN_FORMAT            = "$file:$line: $text"
+WARN_LOGFILE           = doxygen_warnings.log # Plik logu dla ostrzeżeń
