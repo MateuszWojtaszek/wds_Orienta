@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Orienta -- WDS", "index.html", [
+  [ "Orienta", "index.html", [
     [ "Przestrzenie nazw", "namespaces.html", [
       [ "Lista przestrzeni nazw", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -51,7 +51,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"_gps_data_handler_8cpp.html"
 ];
 
 var SYNCONMSG = 'kliknij żeby wyłączyć pokazywanie otwartego elementu w drzewie zawartości';

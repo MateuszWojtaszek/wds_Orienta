@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Orienta: Plik źródłowy GpsDataHandler.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Orienta<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Projekt na WDS</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_gps_data_handler_8cpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">GpsDataHandler.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_gps_data_handler_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_gps_data_handler_8h.html">GpsDataHandler.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QWebEngineView&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QWebEnginePage&gt;</span> <span class="comment">// Potrzebne dla page()-&gt;runJavaScript()</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/***************************************************************************/</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="class_g_p_s_data_handler.html#a796526492a3842e3843f1066f661476a">   20</a></span><a class="code hl_function" href="class_g_p_s_data_handler.html#a796526492a3842e3843f1066f661476a">GPSDataHandler::GPSDataHandler</a>(QWidget *parent)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    : QWidget(parent) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_variable" href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">mapView</a> = <span class="keyword">new</span> QWebEngineView(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_variable" href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">mapView</a>-&gt;setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Kod HTML i JavaScript dla mapy Leaflet osadzony jako C++ Raw String Literal</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    QString mapHtml = R<span class="stringliteral">&quot;(</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="stringliteral">        &lt;!DOCTYPE html&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="stringliteral">        &lt;html&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="stringliteral">        &lt;head&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="stringliteral">            &lt;title&gt;OpenStreetMap&lt;/title&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">            &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.9.3/dist/leaflet.css&quot; /&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">            &lt;script src=&quot;https://unpkg.com/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">            &lt;style&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">                html, body, #map {</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">                    height: 100%;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">                    margin: 0;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral">                    padding: 0;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">                    background-color: lightgray; /* Dodano tło dla lepszej widoczności podczas ładowania */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="stringliteral">                }</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral">            &lt;/style&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="stringliteral">        &lt;/head&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="stringliteral">        &lt;body&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="stringliteral">            &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="stringliteral">            &lt;script&gt;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="stringliteral">                console.log(&quot;✅ Leaflet map loaded&quot;);</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="stringliteral">                // Inicjalizacja mapy Leaflet, początkowy widok ustawiony na [0, 0]</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="stringliteral">                var map = L.map(&#39;map&#39;).setView([0, 0], 15); // Początkowy zoom ustawiony na 15</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="stringliteral">                // Dodanie warstwy kafelków OpenStreetMap</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="stringliteral">                L.tileLayer(&#39;https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png&#39;, {</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="stringliteral">                    maxZoom: 19,</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="stringliteral">                    attribution: &#39;© OpenStreetMap contributors&#39;</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#afab0519bf46982ee64f37d5cc517f4ba">   56</a></span><span class="stringliteral">                }).addTo(map);</span></div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="stringliteral">                // Utworzenie markera na początkowej pozycji [0, 0]</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#a156398e72764a55c3a769880d1506616">   59</a></span><span class="stringliteral">                var marker = L.marker([0, 0]).addTo(map);</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral"></span></div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#ad88ca99168222a54416d1ab6bb758278">   66</a></span>                function updateMarker(lat, lon) {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                    console.log(&quot;📍 updateMarker:&quot;, lat, lon); // Logowanie do konsoli przeglądarki</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    marker.setLatLng([lat, lon]);          // Ustawienie nowej pozycji markera</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                    map.setView([lat, lon], map.getZoom()); // Ustawienie widoku mapy na nową pozycję (z zachowaniem zooma)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                }</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                // Udostępnienie funkcji updateMarker globalnie w oknie przeglądarki</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#a3b58891883b530ca5d3f42d6fe07ca47">   73</a></span>                window.updateMarker = updateMarker;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            &lt;/script&gt;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        &lt;/body&gt;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        &lt;/html&gt;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    )&quot;;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="comment">// Ustawienie zawartości HTML w QWebEngineView</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#ab8abcaf2c441abec930c9e705271ecd1">   80</a></span>    <a class="code hl_variable" href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">mapView</a>-&gt;setHtml(mapHtml);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// Konfiguracja layoutu dla widgetu GPSDataHandler</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">   83</a></span>    <span class="keyword">auto</span> *<a class="code hl_variable" href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">layout</a> = <span class="keyword">new</span> QVBoxLayout(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#aa7953196f2321b2d553b2ed4bb6c2bff">   84</a></span>    <a class="code hl_variable" href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">layout</a>-&gt;addWidget(<a class="code hl_variable" href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">mapView</a>); <span class="comment">// Dodanie widoku mapy do layoutu</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#a6fdbe4b1cd8a052d59834fd500c3a42b">   85</a></span>    <a class="code hl_variable" href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">layout</a>-&gt;setContentsMargins(0, 0, 0, 0); <span class="comment">// Usunięcie marginesów layoutu</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="_gps_data_handler_8cpp.html#a73dc53d9f7b09b91218542e33d56342e">   86</a></span>    <a class="code hl_function" href="_gps_data_handler_8cpp.html#a73dc53d9f7b09b91218542e33d56342e">setLayout</a>(<a class="code hl_variable" href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">layout</a>); <span class="comment">// Ustawienie layoutu dla widgetu</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/***************************************************************************/</span></div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="class_g_p_s_data_handler.html#ae459d1a2c8c27d7c65bb24db85b687e4">   97</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_g_p_s_data_handler.html#ae459d1a2c8c27d7c65bb24db85b687e4">GPSDataHandler::updateMarker</a>(<span class="keywordtype">float</span> latitude, <span class="keywordtype">float</span> longitude) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Przygotowanie kodu JavaScript do wykonania</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    QString jsCode = QString(<span class="stringliteral">&quot;updateMarker(%1, %2);&quot;</span>).arg(latitude).arg(longitude);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// Wykonanie kodu JavaScript na stronie załadowanej w mapView</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_variable" href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">mapView</a>-&gt;page()-&gt;runJavaScript(jsCode);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+</div>
+<div class="ttc" id="a_gps_data_handler_8cpp_html_a65bf360b67ee74412f1f2412583e9e6e"><div class="ttname"><a href="_gps_data_handler_8cpp.html#a65bf360b67ee74412f1f2412583e9e6e">layout</a></div><div class="ttdeci">auto * layout</div><div class="ttdef"><b>Definicja</b> <a href="#l00083">GpsDataHandler.cpp:83</a></div></div>
+<div class="ttc" id="a_gps_data_handler_8cpp_html_a73dc53d9f7b09b91218542e33d56342e"><div class="ttname"><a href="_gps_data_handler_8cpp.html#a73dc53d9f7b09b91218542e33d56342e">setLayout</a></div><div class="ttdeci">setLayout(layout)</div></div>
+<div class="ttc" id="a_gps_data_handler_8h_html"><div class="ttname"><a href="_gps_data_handler_8h.html">GpsDataHandler.h</a></div><div class="ttdoc">Definicja klasy GPSDataHandler do zarządzania danymi GPS i wyświetlania mapy.</div></div>
+<div class="ttc" id="aclass_g_p_s_data_handler_html_a268423536fd56853f7c28d0aa634b52e"><div class="ttname"><a href="class_g_p_s_data_handler.html#a268423536fd56853f7c28d0aa634b52e">GPSDataHandler::mapView</a></div><div class="ttdeci">QWebEngineView * mapView</div><div class="ttdoc">Wskaźnik na obiekt QWebEngineView, który wyświetla mapę.</div><div class="ttdef"><b>Definicja</b> <a href="_gps_data_handler_8h_source.html#l00050">GpsDataHandler.h:50</a></div></div>
+<div class="ttc" id="aclass_g_p_s_data_handler_html_a796526492a3842e3843f1066f661476a"><div class="ttname"><a href="class_g_p_s_data_handler.html#a796526492a3842e3843f1066f661476a">GPSDataHandler::GPSDataHandler</a></div><div class="ttdeci">GPSDataHandler(QWidget *parent=nullptr)</div><div class="ttdoc">Konstruktor klasy GPSDataHandler.</div><div class="ttdef"><b>Definicja</b> <a href="#l00020">GpsDataHandler.cpp:20</a></div></div>
+<div class="ttc" id="aclass_g_p_s_data_handler_html_ae459d1a2c8c27d7c65bb24db85b687e4"><div class="ttname"><a href="class_g_p_s_data_handler.html#ae459d1a2c8c27d7c65bb24db85b687e4">GPSDataHandler::updateMarker</a></div><div class="ttdeci">void updateMarker(float latitude, float longitude)</div><div class="ttdoc">Aktualizuje pozycję markera na mapie.</div><div class="ttdef"><b>Definicja</b> <a href="#l00097">GpsDataHandler.cpp:97</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_gps_data_handler_8cpp.html">GpsDataHandler.cpp</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

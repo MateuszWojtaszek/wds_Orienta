@@ -7,7 +7,7 @@ digraph "Graficzna hierarchia klas"
   rankdir="LR";
   Node0 [id="Node000000",label="QWidget",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
   Node0 -> Node1 [id="edge4_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 [id="Node000001",label="GPSDataHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d7e/classGPSDataHandler.html",tooltip="Klasa odpowiedzialna za zarządzanie danymi GPS i wyświetlanie ich na mapie."];
+  Node1 [id="Node000001",label="GPSDataHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_g_p_s_data_handler.html",tooltip="Klasa odpowiedzialna za zarządzanie danymi GPS i wyświetlanie ich na mapie."];
   Node0 -> Node2 [id="edge5_Node000000_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="ImuDataHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$da/d41/classImuDataHandler.html",tooltip="Klasa ImuDataHandler zarządza i wizualizuje dane z jednostki IMU."];
+  Node2 [id="Node000002",label="ImuDataHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_imu_data_handler.html",tooltip="Zarządza i wizualizuje dane z jednostki IMU (akcelerometr, żyroskop, magnetometr)."];
 }

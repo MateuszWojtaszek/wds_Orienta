@@ -53,7 +53,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "updateSimulationData",
         "handleSerialData",
         "QList<float>",
-        "data"
+        "dataFromSerial"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -76,7 +76,7 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         // Slot 'updateSimulationData'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'handleSerialData'
-        QtMocHelpers::SlotData<void(QVector<float>)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        QtMocHelpers::SlotData<void(const QVector<float> &)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { 0x80000000 | 12, 13 },
         }}),
     };

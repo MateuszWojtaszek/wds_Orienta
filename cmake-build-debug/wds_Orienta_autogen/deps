@@ -370,22 +370,6 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__debug_utils/strict_weak_ordering_check.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/exception.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__exception/operations.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_iterator.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_status.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/file_type.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/operations.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/perms.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/space_info.h \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/buffer.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/concepts.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__format/container_adaptor.h \
@@ -426,6 +410,7 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/binder1st.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/binder2nd.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/boyer_moore_searcher.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/compose.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/default_searcher.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/function.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/hash.h \
@@ -493,6 +478,7 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iter_swap.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iterator.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iterator_traits.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/iterator_with_data.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/mergeable.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_iterator.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__iterator/move_sentinel.h \
@@ -579,19 +565,48 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_int_distribution.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_random_bit_generator.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/access.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/all.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/as_rvalue_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/chunk_by_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/common_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/concepts.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/container_compatible_range.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/counted.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/dangling.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/data.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/drop_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/drop_while_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/elements_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/empty_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/enable_borrowed_range.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/enable_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/filter_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/from_range.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/iota_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/istream_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/join_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/lazy_split_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/movable_box.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/non_propagating_cache.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/owning_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/range_adaptor.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/rbegin.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/ref_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/rend.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/repeat_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/reverse_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/single_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/size.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/split_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/subrange.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/take_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/take_while_view.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/to.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/transform_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/view_interface.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/views.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__ranges/zip_view.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__split_buffer \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__std_mbstate_t.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__string/char_traits.h \
@@ -612,6 +627,7 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/sfinae_helpers.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_element.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_indices.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like_ext.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_like_no_subrange.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__tuple/tuple_size.h \
@@ -735,6 +751,7 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/void_t.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__undef_macros \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/as_const.h \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/as_lvalue.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/auto_cast.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/cmp.h \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/convert_to_integral.h \
@@ -782,11 +799,9 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ctime \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cwchar \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cwctype \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/filesystem \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/format \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
-	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
@@ -799,6 +814,7 @@ wds_Orienta_autogen/timestamp: \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/new \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/numeric \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/optional \
+	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ranges \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/ratio \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
 	/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/span \
@@ -1016,8 +1032,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qlegend.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qtcharts-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCharts.framework/Versions/A/Headers/qtchartsexports.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QDebug \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QFile \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QFlags \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QList \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QMargins \
@@ -1026,7 +1040,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QSize \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QSizeF \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QString \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QTimer \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QUrl \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QVariant \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/QVector \
@@ -1040,6 +1053,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/q23utility.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qabstracteventdispatcher.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qalgorithms.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qalloc.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qanystringview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qarraydata.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qarraydataops.h \
@@ -1056,6 +1070,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qbytearrayview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qcalendar.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qchar.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qcheckedint_impl.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qcompare.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qcompare_impl.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qcomparehelpers.h \
@@ -1075,12 +1090,9 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qdatetime.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qdeadlinetimer.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qelapsedtimer.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qendian.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfile.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfiledevice.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qflags.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qfloat16.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qforeach.h \
@@ -1131,6 +1143,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qsharedpointer_impl.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qsize.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qspan.h \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qstdlibdetection.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qstring.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qstringalgorithms.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qstringbuilder.h \
@@ -1157,7 +1170,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtenvironmentvariables.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtextstream.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtformat_impl.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtimer.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtmetamacros.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtnoop.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qtpreprocessorsupport.h \
@@ -1176,14 +1188,13 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtCore.framework/Versions/A/Headers/qyieldcpu.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QAction \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QBrush \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QColor \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QFont \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QPageLayout \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QPen \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QQuaternion \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QTransform \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/QVector3D \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qaction.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qbitmap.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qbrush.h \
@@ -1221,9 +1232,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qrgba64.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qscreen.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qscreen_platform.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextcursor.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextdocument.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextformat.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtextoption.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h \
@@ -1263,36 +1271,18 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWebEngineWidgets.framework/Versions/A/Headers/qwebengineview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsView \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QGraphicsWidget \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QInputDialog \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenu \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMenuBar \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QMessageBox \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QStackedWidget \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QVBoxLayout \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/QWidget \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qabstractscrollarea.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qboxlayout.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qdialogbuttonbox.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qframe.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsitem.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicslayoutitem.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsscene.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicsview.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgraphicswidget.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qgridlayout.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qinputdialog.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayout.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlayoutitem.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qlineedit.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenu.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmenubar.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qmessagebox.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qscrollarea.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qstackedwidget.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/QtWidgets.framework/Versions/A/Headers/qtwidgetsexports.h \
@@ -1331,6 +1321,7 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicSbomOpsHelpers.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicSbomPurlHelpers.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicSbomPythonHelpers.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicSbomQtEntityHelpers.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicSbomSystemDepHelpers.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicTargetHelpers.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6/QtPublicTestHelpers.cmake \
@@ -1345,13 +1336,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCore/Qt63DCoreTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCore/Qt63DCoreTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCore/Qt63DCoreVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DCorePrivate/Qt63DCorePrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasConfigVersion.cmake \
@@ -1360,13 +1344,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtras/Qt63DExtrasVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DExtrasPrivate/Qt63DExtrasPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputConfigVersion.cmake \
@@ -1376,13 +1353,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInput/Qt63DInputVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DInputPrivate/Qt63DInputPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicConfigVersion.cmake \
@@ -1391,13 +1361,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogic/Qt63DLogicVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DLogicPrivate/Qt63DLogicPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt63DRenderAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt63DRenderConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt63DRenderConfigVersion.cmake \
@@ -1439,13 +1402,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt6Scene2DPluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt6Scene2DPluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRender/Qt6Scene2DPluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt63DRenderPrivate/Qt63DRenderPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsConfigVersion.cmake \
@@ -1454,13 +1410,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Charts/Qt6ChartsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ChartsPrivate/Qt6ChartsPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentConfigVersion.cmake \
@@ -1469,13 +1418,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Concurrent/Qt6ConcurrentVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6ConcurrentPrivate/Qt6ConcurrentPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Core/Qt6CoreAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Core/Qt6CoreConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake \
@@ -1541,13 +1483,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBus/Qt6DBusTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBus/Qt6DBusTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBus/Qt6DBusVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusPrivate/Qt6DBusPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusTools/Qt6DBusToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusTools/Qt6DBusToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6DBusTools/Qt6DBusToolsConfigVersion.cmake \
@@ -1649,13 +1584,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Gui/Qt6QWebpPluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Gui/Qt6QWebpPluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiTools/Qt6GuiToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6GuiTools/Qt6GuiToolsConfigVersion.cmake \
@@ -1689,13 +1617,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLConfigVersion.cmake \
@@ -1704,13 +1625,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGL/Qt6OpenGLVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLPrivate/Qt6OpenGLPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfigVersion.cmake \
@@ -1719,13 +1633,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6OpenGLWidgetsPrivate/Qt6OpenGLWidgetsPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6PositioningAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6PositioningConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6PositioningConfigVersion.cmake \
@@ -1747,13 +1654,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6QGeoPositionInfoSourceFactoryPollPluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6QGeoPositionInfoSourceFactoryPollPluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Positioning/Qt6QGeoPositionInfoSourceFactoryPollPluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PositioningPrivate/Qt6PositioningPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake \
@@ -1763,13 +1663,10 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6PrintSupportPrivate/Qt6PrintSupportPrivateVersionlessAliasTargets.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt63DQuickLogicpluginAdditionalTargetInfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt63DQuickLogicpluginConfig.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt63DQuickLogicpluginTargets-relwithdebinfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt63DQuickLogicpluginTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6DataVisualizationQmlpluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6DataVisualizationQmlpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6DataVisualizationQmlpluginTargets-relwithdebinfo.cmake \
@@ -1790,6 +1687,10 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LabsPlatformpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LabsPlatformpluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LabsPlatformpluginTargets.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LottiepluginAdditionalTargetInfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LottiepluginConfig.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LottiepluginTargets-relwithdebinfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6LottiepluginTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6PdfQuickpluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6PdfQuickpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6PdfQuickpluginTargets-relwithdebinfo.cmake \
@@ -1859,10 +1760,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6labsmodelspluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6labsmodelspluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6labsmodelspluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6lottieqtpluginAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6lottieqtpluginConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6lottieqtpluginTargets-relwithdebinfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6lottieqtpluginTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6modelspluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6modelspluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6modelspluginTargets-relwithdebinfo.cmake \
@@ -2075,6 +1972,10 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickscene3dpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickscene3dpluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickscene3dpluginTargets.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickshapesdesignhelperspluginAdditionalTargetInfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickshapesdesignhelperspluginConfig.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickshapesdesignhelperspluginTargets-relwithdebinfo.cmake \
+	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquickshapesdesignhelperspluginTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquicktemplates2pluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquicktemplates2pluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6qtquicktemplates2pluginTargets-relwithdebinfo.cmake \
@@ -2163,10 +2064,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dinputpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dinputpluginTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dinputpluginTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dlogicpluginAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dlogicpluginConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dlogicpluginTargets-relwithdebinfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3dlogicpluginTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3drenderpluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3drenderpluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Qml/QmlPlugins/Qt6quick3drenderpluginTargets-relwithdebinfo.cmake \
@@ -2264,13 +2161,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloader/Qt6QmlAssetDownloaderTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloader/Qt6QmlAssetDownloaderTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloader/Qt6QmlAssetDownloaderVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlAssetDownloaderPrivate/Qt6QmlAssetDownloaderPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlCompilerPlusPrivateTools/Qt6QmlCompilerPlusPrivateToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlCompilerPlusPrivateTools/Qt6QmlCompilerPlusPrivateToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlCompilerPlusPrivateTools/Qt6QmlCompilerPlusPrivateToolsConfigVersion.cmake \
@@ -2285,13 +2175,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegration/Qt6QmlIntegrationConfigVersionImpl.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegration/Qt6QmlIntegrationTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegration/Qt6QmlIntegrationVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlIntegrationPrivate/Qt6QmlIntegrationPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaConfigVersion.cmake \
@@ -2300,13 +2183,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMeta/Qt6QmlMetaVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlMetaPrivate/Qt6QmlMetaPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsConfigVersion.cmake \
@@ -2315,20 +2191,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModels/Qt6QmlModelsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlModelsPrivate/Qt6QmlModelsPrivateVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlPrivate/Qt6QmlPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlTools/Qt6QmlToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlTools/Qt6QmlToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlTools/Qt6QmlToolsConfigVersion.cmake \
@@ -2345,13 +2207,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScript/Qt6QmlWorkerScriptTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScript/Qt6QmlWorkerScriptTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScript/Qt6QmlWorkerScriptVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QmlWorkerScriptPrivate/Qt6QmlWorkerScriptPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickConfigVersion.cmake \
@@ -2361,13 +2216,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Quick/Qt6QuickVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickPrivate/Qt6QuickPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickTools/Qt6QuickToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickTools/Qt6QuickToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickTools/Qt6QuickToolsConfigVersion.cmake \
@@ -2384,13 +2232,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgets/Qt6QuickWidgetsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgets/Qt6QuickWidgetsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgets/Qt6QuickWidgetsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6QuickWidgetsPrivate/Qt6QuickWidgetsPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersion.cmake \
@@ -2399,13 +2240,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPort/Qt6SerialPortVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6SerialPortPrivate/Qt6SerialPortPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelConfigVersion.cmake \
@@ -2414,13 +2248,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannel/Qt6WebChannelVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebChannelPrivate/Qt6WebChannelPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreConfigVersion.cmake \
@@ -2430,13 +2257,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCore/Qt6WebEngineCoreVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCorePrivate/Qt6WebEngineCorePrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineCoreTools/Qt6WebEngineCoreToolsConfigVersion.cmake \
@@ -2453,13 +2273,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WebEngineWidgetsPrivate/Qt6WebEngineWidgetsPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6QMacStylePluginAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6QMacStylePluginConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6QMacStylePluginTargets-relwithdebinfo.cmake \
@@ -2474,13 +2287,6 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6WidgetsTargets-relwithdebinfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateAdditionalTargetInfo.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfig.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfigVersion.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfigVersionImpl.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateDependencies.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateTargets.cmake \
-	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateVersionlessAliasTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsAdditionalTargetInfo.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersion.cmake \
@@ -2490,19 +2296,21 @@ wds_Orienta_autogen/timestamp: \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake \
 	/Users/mateuszwojtaszek/Qt/6.10.0/macos/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsVersionlessTargets.cmake \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/CMakeLists.txt \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/GpsDataHandler.cpp \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/GpsDataHandler.h \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/ImuDataHandler.cpp \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/ImuDataHandler.h \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/MainWindow.cpp \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/MainWindow.h \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/SensorGraph.cpp \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/SensorGraph.h \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/SerialPortHandler.cpp \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/SerialPortHandler.h \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/CMakeFiles/3.31.6/CMakeCCompiler.cmake \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/CMakeFiles/3.31.6/CMakeCXXCompiler.cmake \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/CMakeFiles/3.31.6/CMakeSystem.cmake \
 	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/moc_predefs.h \
-	/Users/mateuszwojtaszek/projekty/wds_Orienta/main.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/Compass2DRenderer.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/Compass2DRenderer.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/GpsDataHandler.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/GpsDataHandler.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/ImuDataHandler.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/ImuDataHandler.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/MainWindow.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/MainWindow.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/SensorGraph.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/SensorGraph.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/SerialPortHandler.cpp \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/SerialPortHandler.h \
+	/Users/mateuszwojtaszek/projekty/wds_Orienta/src/main.cpp \
 	/Users/mateuszwojtaszek/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake

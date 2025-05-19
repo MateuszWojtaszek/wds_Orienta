@@ -1,16 +1,16 @@
 var hierarchy =
 [
     [ "QChartView", null, [
-      [ "SensorGraph", "d3/d55/classSensorGraph.html", null ]
+      [ "SensorGraph", "class_sensor_graph.html", null ]
     ] ],
     [ "QMainWindow", null, [
-      [ "MainWindow", "d6/d1a/classMainWindow.html", null ]
+      [ "MainWindow", "class_main_window.html", null ]
     ] ],
     [ "QObject", null, [
-      [ "SerialPortHandler", "d1/d1e/classSerialPortHandler.html", null ]
+      [ "SerialPortHandler", "class_serial_port_handler.html", null ]
     ] ],
     [ "QWidget", null, [
-      [ "GPSDataHandler", "d8/d7e/classGPSDataHandler.html", null ],
-      [ "ImuDataHandler", "da/d41/classImuDataHandler.html", null ]
+      [ "GPSDataHandler", "class_g_p_s_data_handler.html", null ],
+      [ "ImuDataHandler", "class_imu_data_handler.html", null ]
     ] ]
 ];

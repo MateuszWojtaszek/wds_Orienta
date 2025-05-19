@@ -20,17 +20,19 @@ find_package(Qt6 COMPONENTS
   SerialPort
   REQUIRED)
 
-add_executable(wds_Orienta main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        ImuDataHandler.cpp
-        ImuDataHandler.h
-        GpsDataHandler.cpp
-        GpsDataHandler.h
-        SerialPortHandler.cpp
-        SerialPortHandler.h
-        SensorGraph.h
-        SensorGraph.cpp)
+add_executable(wds_Orienta src/main.cpp
+        src/MainWindow.cpp
+        src/MainWindow.h
+        src/ImuDataHandler.cpp
+        src/ImuDataHandler.h
+        src/GpsDataHandler.cpp
+        src/GpsDataHandler.h
+        src/SerialPortHandler.cpp
+        src/SerialPortHandler.h
+        src/SensorGraph.h
+        src/SensorGraph.cpp
+        src/Compass2DRenderer.cpp
+        src/Compass2DRenderer.h)
 target_link_libraries(wds_Orienta
         Qt6::Widgets
         Qt6::Charts

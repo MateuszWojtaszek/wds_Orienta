@@ -1,0 +1,17 @@
+digraph "ImuDataHandler::createCompassArrow"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="ImuDataHandler::createCompass\lArrow",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Tworzy graficzną strzałkę kompasu jako element sceny 3D."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ImuDataHandler::createCompassView",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_imu_data_handler.html#a015c4523ec22dfe00e7128f4081c9a66",tooltip="Tworzy widok 3D (Qt3DWindow w kontenerze QWidget) dla kompasu."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ImuDataHandler::setupVisualization\lPanel",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_imu_data_handler.html#a9179f9700276cd0eaad6a9c764780156",tooltip="Konfiguruje prawy panel wizualizacji, zawierający model 3D i kompas."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ImuDataHandler::setupMain\lLayout",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_imu_data_handler.html#ac2a199dc1a1aed47e0ac97509bf0ae56",tooltip="Konfiguruje główny układ interfejsu użytkownika, tworząc i rozmieszczając panele."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="ImuDataHandler::ImuDataHandler",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_imu_data_handler.html#a1ebcd9d4e4ff48f36ca78edcbcece7c7",tooltip="Konstruktor klasy ImuDataHandler."];
+}

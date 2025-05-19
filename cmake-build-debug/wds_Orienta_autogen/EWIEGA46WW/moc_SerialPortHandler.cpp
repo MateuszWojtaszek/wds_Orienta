@@ -43,7 +43,7 @@ template <> constexpr inline auto SerialPortHandler::qt_create_metaobjectdata<qt
         "newDataReceived",
         "",
         "QList<float>",
-        "data",
+        "parsedDataFromSensors",
         "errorOccurred",
         "QSerialPort::SerialPortError",
         "error",
@@ -54,7 +54,7 @@ template <> constexpr inline auto SerialPortHandler::qt_create_metaobjectdata<qt
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'newDataReceived'
-        QtMocHelpers::SignalData<void(QVector<float>)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+        QtMocHelpers::SignalData<void(const QVector<float> &)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { 0x80000000 | 3, 4 },
         }}),
         // Signal 'errorOccurred'
@@ -110,7 +110,7 @@ void SerialPortHandler::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
-        if (QtMocHelpers::indexOfMethod<void (SerialPortHandler::*)(QVector<float> )>(_a, &SerialPortHandler::newDataReceived, 0))
+        if (QtMocHelpers::indexOfMethod<void (SerialPortHandler::*)(const QVector<float> & )>(_a, &SerialPortHandler::newDataReceived, 0))
             return;
         if (QtMocHelpers::indexOfMethod<void (SerialPortHandler::*)(QSerialPort::SerialPortError , const QString & )>(_a, &SerialPortHandler::errorOccurred, 1))
             return;
@@ -149,7 +149,7 @@ int SerialPortHandler::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void SerialPortHandler::newDataReceived(QVector<float> _t1)
+void SerialPortHandler::newDataReceived(const QVector<float> & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
 }
