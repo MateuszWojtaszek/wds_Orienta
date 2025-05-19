@@ -57,3 +57,13 @@
 15	72	1747684820476641040	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
 72	1203	1747684820533197184	CMakeFiles/wds_Orienta.dir/src/MainWindow.cpp.o	7e5fb43a32dfc252
 1203	1284	1747684821664470151	wds_Orienta	e2ae2957352eebc2
+20	2532	1747687268841738000	wds_Orienta_autogen/timestamp	45525bc2bbc1a2f7
+20	2532	1747687268841738000	wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
+20	2532	1747687268841738000	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/timestamp	45525bc2bbc1a2f7
+20	2532	1747687268841738000	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
+2533	3630	1747687268856967843	CMakeFiles/wds_Orienta.dir/src/SerialPortHandler.cpp.o	15451569315d4e16
+2533	3771	1747687268857069802	CMakeFiles/wds_Orienta.dir/src/SensorGraph.cpp.o	4cb9cc9113255c22
+2533	3892	1747687268856867343	CMakeFiles/wds_Orienta.dir/src/ImuDataHandler.cpp.o	ea17d910eb757308
+2532	3999	1747687268856567092	CMakeFiles/wds_Orienta.dir/wds_Orienta_autogen/mocs_compilation.cpp.o	ac96863d75fa74ec
+2533	4029	1747687268856756967	CMakeFiles/wds_Orienta.dir/src/MainWindow.cpp.o	7e5fb43a32dfc252
+4029	4216	1747687270352995680	wds_Orienta	e2ae2957352eebc2

@@ -3,156 +3,142 @@
  * @brief Implementacja metod klasy SensorGraph.
  * @details Zawiera logikę inicjalizacji wykresu, dodawania danych,
  * ustawiania liczby próbek oraz zakresu osi Y, a także ponownego tłumaczenia UI.
- * @author Mateusz Wojtaszek (lub oryginalny autor, jeśli inny)
- * @date 2025-04-29 (lub aktualna data modyfikacji)
+ * @author Mateusz Wojtaszek
+ * @date 2025-05-19
  */
 
 #include "SensorGraph.h"
 
-#include <QtCharts/QChart>      // Poprawiono ścieżkę
-#include <QtCharts/QLineSeries> // Poprawiono ścieżkę
-#include <QtCharts/QValueAxis>  // Poprawiono ścieżkę
-#include <QtCharts/QLegend>     // Poprawiono ścieżkę
+#include <QtCharts/QChart>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QValueAxis>
+#include <QtCharts/QLegend>
 #include <QDebug>
-#include <QStringList> // Dla nazw serii w legendzie
+#include <QStringList>
 #include <QColor>
 #include <QSizePolicy>
 #include <QtMath> // Dla qMax
-#include <QPainter> // Dla QPainter::Antialiasing
+#include <QPainter>
 
 
 SensorGraph::SensorGraph(const QString &titleKey, int minY, int maxY, QWidget *parent)
-    : QChartView(new QChart(), parent), // Inicjalizacja QChart w konstruktorze QChartView
-      defaultSampleCount(1000),
-      currentSampleIndex(0),
-      baseTitleKey(titleKey) // Zapisz klucz tłumaczenia
+    : QChartView(new QChart(), parent), // Inicjalizacja QChart bezpośrednio
+      m_maxSampleCount(1000),           // Domyślna liczba próbek
+      m_currentSampleIndex(0),
+      m_baseTitleKey(titleKey)
 {
-    QChart *chartPtr = this->chart(); // Pobierz wskaźnik na QChart zarządzany przez QChartView
-    if (!chartPtr) { // To nie powinno się zdarzyć, jeśli QChartView jest poprawnie skonstruowany
-        qWarning() << "SensorGraph: Failed to get chart object!";
-        return;
-    }
+    QChart *chartPtr = this->chart(); // Pobierz wskaźnik na QChart
 
-    // Ustaw tytuł używając tr() od razu
-    chartPtr->setTitle(tr(qPrintable(baseTitleKey)));
+    chartPtr->setTitle(tr(qPrintable(m_baseTitleKey))); // Użyj tr() dla tytułu
 
     QLegend *legend = chartPtr->legend();
-    if (legend) {
-        legend->setVisible(true);
-        legend->setAlignment(Qt::AlignTop);
-        legend->setMarkerShape(QLegend::MarkerShapeCircle);
-    }
+    legend->setVisible(true);
+    legend->setAlignment(Qt::AlignTop);
+    legend->setMarkerShape(QLegend::MarkerShapeCircle);
 
-    QStringList axisNames = {"X", "Y", "Z"}; // Te nazwy serii nie są tłumaczone, są to etykiety danych
-    QList<QColor> colors = {Qt::blue, Qt::red, Qt::green};
+    // Nazwy serii są stałe i nie podlegają tłumaczeniu w tym kontekście,
+    // reprezentują kanały danych.
+    QStringList seriesNames = {"X", "Y", "Z"};
+    QList<QColor> seriesColors = {Qt::blue, Qt::red, Qt::green};
 
     for (int i = 0; i < 3; ++i) {
-        auto *series = new QLineSeries(this); // Ustaw rodzica dla serii
-        series->setName(axisNames[i]);
-        series->setColor(colors[i]);
+        auto *series = new QLineSeries(this); // Ustawienie rodzica dla serii
+        series->setName(seriesNames[i]);
+        series->setColor(seriesColors[i]);
         chartPtr->addSeries(series);
-        seriesList.append(series);
+        m_seriesList.append(series);
     }
 
-    auto *xAxis = new QValueAxis(this); // Ustaw rodzica dla osi
-    xAxis->setTitleText(tr("Sample Index")); // Tłumaczony tytuł osi
-    xAxis->setTickCount(11);
-    xAxis->setLabelFormat("%lld"); // Użyj "lld" dla qint64
-    chartPtr->setAxisX(xAxis); // Użyj setAxisX bez drugiego argumentu, aby ustawić domyślną oś X
+    auto *axisX = new QValueAxis(this); // Ustawienie rodzica dla osi
+    axisX->setTitleText(tr("Indeks próbki"));
+    axisX->setTickCount(11); // Przykładowa liczba ticków
+    axisX->setLabelFormat("%lld");
+    chartPtr->setAxisX(axisX);
 
-    auto *yAxis = new QValueAxis(this); // Ustaw rodzica dla osi
-    yAxis->setTitleText(tr("Value")); // Tłumaczony tytuł osi
-    yAxis->setRange(minY, maxY);
-    chartPtr->setAxisY(yAxis); // Użyj setAxisY bez drugiego argumentu, aby ustawić domyślną oś Y
+    auto *axisY = new QValueAxis(this); // Ustawienie rodzica dla osi
+    axisY->setTitleText(tr("Wartość"));
+    axisY->setRange(minY, maxY);
+    chartPtr->setAxisY(axisY);
 
-    // Przypisz osie do serii
-    for (QLineSeries *series : seriesList) {
-        chartPtr->setAxisX(xAxis, series);
-        chartPtr->setAxisY(yAxis, series);
+    // Przypisanie osi do serii
+    for (QLineSeries *series : m_seriesList) {
+        chartPtr->setAxisX(axisX, series);
+        chartPtr->setAxisY(axisY, series);
     }
 
-    xAxis->setRange(0, defaultSampleCount > 0 ? defaultSampleCount - 1 : 0);
+    axisX->setRange(0, m_maxSampleCount > 0 ? m_maxSampleCount - 1 : 0);
 
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::MinimumExpanding);
-    this->setRenderHint(QPainter::Antialiasing); // Ustaw antyaliasing dla QChartView
+    this->setRenderHint(QPainter::Antialiasing);
 }
 
 void SensorGraph::addData(const QVector<int> &axisValuesToAdd) {
     QChart *chartPtr = this->chart();
-    if (axisValuesToAdd.size() != 3 || seriesList.size() != 3 || !chartPtr) {
+    if (axisValuesToAdd.size() != 3 || m_seriesList.size() != 3 || !chartPtr) {
+        // Można dodać qWarning, jeśli oczekiwane jest logowanie takich sytuacji
         return;
     }
 
     for (int i = 0; i < 3; ++i) {
-        QLineSeries *series = seriesList.at(i);
+        QLineSeries *series = m_seriesList.at(i);
         if (!series) continue;
 
-        series->append(currentSampleIndex, axisValuesToAdd[i]);
+        series->append(m_currentSampleIndex, axisValuesToAdd[i]);
 
-        if (series->count() > defaultSampleCount) {
+        // Usuń najstarszy punkt, jeśli przekroczono limit
+        if (series->count() > m_maxSampleCount) {
             series->remove(0);
         }
     }
 
-    const int xAxisUpdateFrequency = 10;
-    bool isFirstSampleOrUpdateNeeded = (currentSampleIndex == 0 || currentSampleIndex % xAxisUpdateFrequency == 0);
+    // Aktualizacja zakresu osi X
+    // Aktualizuj co pewną liczbę próbek lub przy pierwszej próbce, aby zoptymalizować wydajność
+    const int xAxisUpdateFrequency = 10; // Aktualizuj rzadziej dla większej liczby danych
+    bool needsUpdate = (m_currentSampleIndex == 0 || m_currentSampleIndex % xAxisUpdateFrequency == 0);
 
-    if (isFirstSampleOrUpdateNeeded) {
-        if (auto *xAxis = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
-            qint64 lastIndex = currentSampleIndex;
-            qint64 minX = (lastIndex >= defaultSampleCount) ? (lastIndex - defaultSampleCount + 1) : 0;
-            qint64 maxX = lastIndex;
+    if (needsUpdate) {
+        if (auto *axisX = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
+            qint64 minX = 0;
+            qint64 maxX = m_currentSampleIndex;
 
-            if (minX > maxX) {
-                 minX = qMax(0LL, maxX - defaultSampleCount + 1);
+            if (m_currentSampleIndex >= m_maxSampleCount) {
+                minX = m_currentSampleIndex - m_maxSampleCount + 1;
+            } else {
+                minX = 0;
+                maxX = qMax(m_currentSampleIndex, static_cast<qint64>(m_maxSampleCount -1) ); // Upewnij się, że początkowy zakres jest poprawny
             }
-            if (lastIndex < 1 && defaultSampleCount > 0) {
-                 minX = 0;
-                 maxX = defaultSampleCount -1;
-            } else if (lastIndex < defaultSampleCount) {
-                 minX = 0;
-                 maxX = qMax(lastIndex, static_cast<qint64>(defaultSampleCount - 1));
-            }
-            xAxis->setRange(minX, maxX);
+            axisX->setRange(minX, maxX);
         }
     }
-    currentSampleIndex++;
+    m_currentSampleIndex++;
 }
 
-void SensorGraph::setSampleCount(int sampleCount) { // Zmieniono const int& na int
-    defaultSampleCount = qMax(10, sampleCount);
+void SensorGraph::setSampleCount(int sampleCount) {
+    m_maxSampleCount = qMax(10, sampleCount); // Minimalna liczba próbek to 10
     QChart *chartPtr = this->chart();
 
-    for (QLineSeries *series : seriesList) {
+    // Dostosuj istniejące serie do nowej liczby próbek
+    for (QLineSeries *series : m_seriesList) {
         if (series) {
-            while (series->count() > defaultSampleCount) {
-                series->remove(0);
+            while (series->count() > m_maxSampleCount) {
+                series->remove(0); // Usuwaj najstarsze próbki
             }
         }
     }
 
+    // Zaktualizuj zakres osi X
     if (chartPtr) {
-        if (auto *xAxis = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
+        if (auto *axisX = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
             qint64 minX = 0;
-            qint64 maxX = 0;
+            qint64 maxX = m_maxSampleCount > 0 ? m_maxSampleCount - 1 : 0; // Domyślny zakres
 
-            if (!seriesList.isEmpty() && seriesList.first() && seriesList.first()->count() > 0) {
-                const auto &points = seriesList.first()->pointsVector();
-                if (!points.isEmpty()) {
-                    minX = static_cast<qint64>(points.first().x());
-                    maxX = static_cast<qint64>(points.last().x());
-                } else {
-                     maxX = (defaultSampleCount > 0) ? (defaultSampleCount - 1) : 0;
-                }
-            } else {
-                maxX = (defaultSampleCount > 0) ? (defaultSampleCount - 1) : 0;
+            if (m_currentSampleIndex > 0) { // Jeśli są już jakieś dane
+                 maxX = m_currentSampleIndex;
+                 if (m_currentSampleIndex >= m_maxSampleCount) {
+                    minX = m_currentSampleIndex - m_maxSampleCount + 1;
+                 }
             }
-
-            if (maxX >= minX) {
-                xAxis->setRange(minX, maxX);
-            } else {
-                 xAxis->setRange(0, defaultSampleCount > 0 ? defaultSampleCount - 1 : 0);
-            }
+            axisX->setRange(minX, maxX);
         }
     }
 }
@@ -160,29 +146,27 @@ void SensorGraph::setSampleCount(int sampleCount) { // Zmieniono const int& na i
 void SensorGraph::setYRange(int minY, int maxY) {
     QChart *chartPtr = this->chart();
     if (chartPtr) {
-        if (auto *yAxis = qobject_cast<QValueAxis*>(chartPtr->axisY())) {
-            yAxis->setRange(minY, maxY);
+        if (auto *axisY = qobject_cast<QValueAxis*>(chartPtr->axisY())) {
+            if (minY >= maxY) {
+                qWarning() << "SensorGraph::setYRange: minY musi być mniejsze niż maxY.";
+                return;
+            }
+            axisY->setRange(minY, maxY);
         }
     }
 }
 
-/**
- * @brief Ponownie tłumaczy elementy UI specyficzne dla SensorGraph.
- * @details Aktualizuje tytuł wykresu oraz tytuły osi na podstawie
- * zapisanych kluczy tłumaczeń lub standardowych tekstów.
- */
 void SensorGraph::retranslateUi() {
     if (auto *chartPtr = chart()) {
-        chartPtr->setTitle(tr(qPrintable(baseTitleKey))); // Przetłumacz zapisany klucz tytułu
+        chartPtr->setTitle(tr(qPrintable(m_baseTitleKey)));
 
-        if (auto *xAxis = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
-            xAxis->setTitleText(tr("Sample Index"));
+        if (auto *axisX = qobject_cast<QValueAxis*>(chartPtr->axisX())) {
+            axisX->setTitleText(tr("Indeks próbki"));
         }
-        if (auto *yAxis = qobject_cast<QValueAxis*>(chartPtr->axisY())) {
-            yAxis->setTitleText(tr("Value"));
+        if (auto *axisY = qobject_cast<QValueAxis*>(chartPtr->axisY())) {
+            axisY->setTitleText(tr("Wartość"));
         }
-        // Jeśli nazwy serii w legendzie również miałyby być tłumaczone,
-        // musiałbyś je tutaj zaktualizować, np. przechowując klucze tłumaczeń dla nich.
-        // Obecnie są stałe ("X", "Y", "Z").
+        // Nazwy serii ("X", "Y", "Z") są obecnie stałe i nie są tłumaczone.
+        // Jeśli miałyby być tłumaczone, należałoby zaimplementować ich aktualizację tutaj.
     }
 }
