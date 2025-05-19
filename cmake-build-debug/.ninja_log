@@ -57,3 +57,12 @@
 14	64	1747690134924174378	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
 64	1183	1747690134974534816	CMakeFiles/wds_Orienta.dir/src/ImuDataHandler.cpp.o	ea17d910eb757308
 1183	1268	1747690136093977399	wds_Orienta	e2ae2957352eebc2
+19	1627	1747690616760107000	wds_Orienta_autogen/timestamp	45525bc2bbc1a2f7
+19	1627	1747690616760107000	wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
+19	1627	1747690616760107000	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/timestamp	45525bc2bbc1a2f7
+19	1627	1747690616760107000	/Users/mateuszwojtaszek/projekty/wds_Orienta/cmake-build-debug/wds_Orienta_autogen/mocs_compilation.cpp	45525bc2bbc1a2f7
+1628	2689	1747690616775823574	CMakeFiles/wds_Orienta.dir/src/GpsDataHandler.cpp.o	38ae4f317975c03d
+1628	2968	1747690616775717157	CMakeFiles/wds_Orienta.dir/src/ImuDataHandler.cpp.o	ea17d910eb757308
+1628	3072	1747690616775355284	CMakeFiles/wds_Orienta.dir/wds_Orienta_autogen/mocs_compilation.cpp.o	ac96863d75fa74ec
+1628	3101	1747690616775597033	CMakeFiles/wds_Orienta.dir/src/MainWindow.cpp.o	7e5fb43a32dfc252
+3101	3266	1747690618249184673	wds_Orienta	e2ae2957352eebc2
