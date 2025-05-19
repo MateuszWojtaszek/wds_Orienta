@@ -99,7 +99,7 @@ Funkcje</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Inicjalizuje obiekt QApplication, który zarządza zasobami aplikacji Qt. Ustawia nazwę aplikacji. Tworzy instancję głównego okna aplikacji (<code><a class="el" href="class_main_window.html" title="Główne okno aplikacji do wizualizacji danych sensorycznych.">MainWindow</a></code>), wyświetla je na ekranie (<code>w.show()</code>), a następnie uruchamia główną pętlę zdarzeń Qt (<code>QApplication::exec()</code>), która obsługuje interakcje użytkownika i inne zdarzenia systemowe aż do zamknięcia aplikacji.</p>
+<p>Inicjalizuje obiekt QApplication, który zarządza zasobami aplikacji Qt. Ustawia nazwę aplikacji. Tworzy instancję głównego okna aplikacji (<code><a class="el" href="class_main_window.html" title="Ścieżka do pliku z danymi symulacyjnymi.">MainWindow</a></code>), wyświetla je na ekranie (<code>w.show()</code>), a następnie uruchamia główną pętlę zdarzeń Qt (<code>QApplication::exec()</code>), która obsługuje interakcje użytkownika i inne zdarzenia systemowe aż do zamknięcia aplikacji.</p>
 <dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">argc</td><td>[in] Liczba argumentów przekazanych do aplikacji z wiersza poleceń. </td></tr>
@@ -108,6 +108,8 @@ Funkcje</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Zwraca</dt><dd>Kod wyjścia aplikacji przekazywany do systemu operacyjnego. Jest to wartość zwracana przez <code>QApplication::exec()</code>. Konwencjonalnie, 0 oznacza pomyślne zakończenie, wartości niezerowe wskazują na błędy. </dd></dl>
+<dl class="section examples"><dt>Przykłady</dt><dd><a class="el" href="_serial_port_usage__p_l_8cpp-example.html#a0">SerialPortUsage_PL.cpp</a>.</dd>
+</dl>
 
 <p class="definition">Definicja w linii <a class="el" href="main_8cpp_source.html#l00027">27</a> pliku <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 

@@ -1,22 +1,20 @@
 #include "SerialPortHandler.h"
 #include <QDebug>
 
-// Definicja stałej wewnętrznej - nie wymaga dokumentacji Doxygen API
 const int EXPECTED_VALUE_COUNT_SERIAL = 12;
 
 SerialPortHandler::SerialPortHandler(QObject *parent)
     : QObject(parent),
       serial(new QSerialPort(this))
 {
-    // Połączenie sygnałów ze slotami (szczegół implementacyjny)
+    // Połączenie sygnałów ze slotami
     connect(serial, &QSerialPort::readyRead, this, &SerialPortHandler::readData);
     connect(serial, &QSerialPort::errorOccurred, this, &SerialPortHandler::handleError);
 }
 
 SerialPortHandler::~SerialPortHandler() {
-    // Zamknięcie portu w destruktorze jest dobrą praktyką
+    // Zamknięcie portu, aby mieć pewność, że port zostanie zamknięty
     closePort();
-    // serial zostanie automatycznie usunięty przez mechanizm parent-child Qt
 }
 
 bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
@@ -45,7 +43,7 @@ bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
     } else {
         // Logowanie błędu w przypadku niepowodzenia
         qWarning() << "Failed to open port" << portName << "Error:" << getLastError();
-        emit errorOccurred(serial->error(), getLastError()); // Można rozważyć emitowanie błędu tutaj
+        emit errorOccurred(serial->error(), getLastError());
         return false;
     }
 }
@@ -82,7 +80,7 @@ void SerialPortHandler::readData() {
             // Brak nowych danych do odczytania
             return;
         }
-    } catch (const std::exception& e) { // Lepiej łapać konkretne wyjątki, jeśli Qt może je rzucić
+    } catch (const std::exception& e) { // Obsługa jakiegokolwiek wyjątku
         qWarning() << "Exception while reading serial data:" << e.what();
         buffer.clear(); // Wyczyść bufor w razie problemu
         return;

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Orienta: Plik źródłowy Compass2DRenderer.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Orienta<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Projekt na WDS</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_compass2_d_renderer_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Compass2DRenderer.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_compass2_d_renderer_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef COMPASS2DRENDERER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define COMPASS2DRENDERER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QWidget&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QColor&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html">    7</a></span><span class="keyword">class </span><a class="code hl_function" href="class_compass2_d_renderer.html#a116bfe231a970431c36c6bc761398e58">Compass2DRenderer</a> : <span class="keyword">public</span> QWidget</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    Q_OBJECT</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_compass2_d_renderer.html#a116bfe231a970431c36c6bc761398e58">Compass2DRenderer</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_compass2_d_renderer.html#abb18bf6be192f00baf0cc4265d60e606">setHeading</a>(<span class="keywordtype">float</span> newHeading);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    QSize <a class="code hl_function" href="class_compass2_d_renderer.html#ae61bac2a67acb6b02b02b020248cee85">sizeHint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    QSize <a class="code hl_function" href="class_compass2_d_renderer.html#aea8687d16867f6b1c9d90ade8762d843">minimumSizeHint</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_compass2_d_renderer.html#ad2ceb2def09553e06b866d5f25242fff">paintEvent</a>(QPaintEvent *event) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#aa6b2f4c7551ab7fd3797376bafb65a46">   27</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="class_compass2_d_renderer.html#aa6b2f4c7551ab7fd3797376bafb65a46">m_heading</a>; <span class="comment">// Aktualny kurs w stopniach</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#aab6a67466d1047d038cdc49e0d864c08">   28</a></span>    QColor <a class="code hl_variable" href="class_compass2_d_renderer.html#aab6a67466d1047d038cdc49e0d864c08">m_backgroundColor</a>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#a435a0e24328b88c0a1762889b6ff0265">   29</a></span>    QColor <a class="code hl_variable" href="class_compass2_d_renderer.html#a435a0e24328b88c0a1762889b6ff0265">m_borderColor</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#ab1025d854b09a504236c36d300b9b445">   30</a></span>    QColor <a class="code hl_variable" href="class_compass2_d_renderer.html#ab1025d854b09a504236c36d300b9b445">m_textColor</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#a494eb97732b2e83524a47f88b554b999">   31</a></span>    QColor <a class="code hl_variable" href="class_compass2_d_renderer.html#a494eb97732b2e83524a47f88b554b999">m_needleNorthColor</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_compass2_d_renderer.html#ad953a81f38433898b65cd6b92c0bea8c">   32</a></span>    QColor <a class="code hl_variable" href="class_compass2_d_renderer.html#ad953a81f38433898b65cd6b92c0bea8c">m_needleSouthColor</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif </span><span class="comment">// COMPASS2DRENDERER_H</span></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_a116bfe231a970431c36c6bc761398e58"><div class="ttname"><a href="class_compass2_d_renderer.html#a116bfe231a970431c36c6bc761398e58">Compass2DRenderer::Compass2DRenderer</a></div><div class="ttdeci">Compass2DRenderer(QWidget *parent=nullptr)</div><div class="ttdef"><b>Definicja</b> <a href="_compass2_d_renderer_8cpp_source.html#l00009">Compass2DRenderer.cpp:9</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_a435a0e24328b88c0a1762889b6ff0265"><div class="ttname"><a href="class_compass2_d_renderer.html#a435a0e24328b88c0a1762889b6ff0265">Compass2DRenderer::m_borderColor</a></div><div class="ttdeci">QColor m_borderColor</div><div class="ttdef"><b>Definicja</b> <a href="#l00029">Compass2DRenderer.h:29</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_a494eb97732b2e83524a47f88b554b999"><div class="ttname"><a href="class_compass2_d_renderer.html#a494eb97732b2e83524a47f88b554b999">Compass2DRenderer::m_needleNorthColor</a></div><div class="ttdeci">QColor m_needleNorthColor</div><div class="ttdef"><b>Definicja</b> <a href="#l00031">Compass2DRenderer.h:31</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_aa6b2f4c7551ab7fd3797376bafb65a46"><div class="ttname"><a href="class_compass2_d_renderer.html#aa6b2f4c7551ab7fd3797376bafb65a46">Compass2DRenderer::m_heading</a></div><div class="ttdeci">float m_heading</div><div class="ttdef"><b>Definicja</b> <a href="#l00027">Compass2DRenderer.h:27</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_aab6a67466d1047d038cdc49e0d864c08"><div class="ttname"><a href="class_compass2_d_renderer.html#aab6a67466d1047d038cdc49e0d864c08">Compass2DRenderer::m_backgroundColor</a></div><div class="ttdeci">QColor m_backgroundColor</div><div class="ttdef"><b>Definicja</b> <a href="#l00028">Compass2DRenderer.h:28</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_ab1025d854b09a504236c36d300b9b445"><div class="ttname"><a href="class_compass2_d_renderer.html#ab1025d854b09a504236c36d300b9b445">Compass2DRenderer::m_textColor</a></div><div class="ttdeci">QColor m_textColor</div><div class="ttdef"><b>Definicja</b> <a href="#l00030">Compass2DRenderer.h:30</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_abb18bf6be192f00baf0cc4265d60e606"><div class="ttname"><a href="class_compass2_d_renderer.html#abb18bf6be192f00baf0cc4265d60e606">Compass2DRenderer::setHeading</a></div><div class="ttdeci">void setHeading(float newHeading)</div><div class="ttdoc">Ustawia aktualny kurs (azymut) wskazywany przez kompas.</div><div class="ttdef"><b>Definicja</b> <a href="_compass2_d_renderer_8cpp_source.html#l00023">Compass2DRenderer.cpp:23</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_ad2ceb2def09553e06b866d5f25242fff"><div class="ttname"><a href="class_compass2_d_renderer.html#ad2ceb2def09553e06b866d5f25242fff">Compass2DRenderer::paintEvent</a></div><div class="ttdeci">void paintEvent(QPaintEvent *event) override</div><div class="ttdef"><b>Definicja</b> <a href="_compass2_d_renderer_8cpp_source.html#l00047">Compass2DRenderer.cpp:47</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_ad953a81f38433898b65cd6b92c0bea8c"><div class="ttname"><a href="class_compass2_d_renderer.html#ad953a81f38433898b65cd6b92c0bea8c">Compass2DRenderer::m_needleSouthColor</a></div><div class="ttdeci">QColor m_needleSouthColor</div><div class="ttdef"><b>Definicja</b> <a href="#l00032">Compass2DRenderer.h:32</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_ae61bac2a67acb6b02b02b020248cee85"><div class="ttname"><a href="class_compass2_d_renderer.html#ae61bac2a67acb6b02b02b020248cee85">Compass2DRenderer::sizeHint</a></div><div class="ttdeci">QSize sizeHint() const override</div><div class="ttdef"><b>Definicja</b> <a href="_compass2_d_renderer_8cpp_source.html#l00037">Compass2DRenderer.cpp:37</a></div></div>
+<div class="ttc" id="aclass_compass2_d_renderer_html_aea8687d16867f6b1c9d90ade8762d843"><div class="ttname"><a href="class_compass2_d_renderer.html#aea8687d16867f6b1c9d90ade8762d843">Compass2DRenderer::minimumSizeHint</a></div><div class="ttdeci">QSize minimumSizeHint() const override</div><div class="ttdef"><b>Definicja</b> <a href="_compass2_d_renderer_8cpp_source.html#l00042">Compass2DRenderer.cpp:42</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_compass2_d_renderer_8h.html">Compass2DRenderer.h</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

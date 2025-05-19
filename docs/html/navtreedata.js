@@ -45,13 +45,14 @@ var NAVTREE =
         [ "Funkcje", "globals_func.html", null ],
         [ "Zmienne", "globals_vars.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Przykłady", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_gps_data_handler_8cpp.html"
+"_compass2_d_renderer_8cpp.html"
 ];
 
 var SYNCONMSG = 'kliknij żeby wyłączyć pokazywanie otwartego elementu w drzewie zawartości';

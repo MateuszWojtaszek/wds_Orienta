@@ -64,20 +64,21 @@ $(function(){initNavTree('_sensor_graph_8cpp.html',''); initResizable(true); });
 <p>Implementacja metod klasy <a class="el" href="class_sensor_graph.html" title="Klasa odpowiadająca za wizualizację danych z czujników w formie wykresu liniowego.">SensorGraph</a>.  
 <a href="#details">Więcej...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_sensor_graph_8h_source.html">SensorGraph.h</a>&quot;</code><br />
-<code>#include &lt;QChart&gt;</code><br />
-<code>#include &lt;QLineSeries&gt;</code><br />
-<code>#include &lt;QValueAxis&gt;</code><br />
-<code>#include &lt;QLegend&gt;</code><br />
+<code>#include &lt;QtCharts/QChart&gt;</code><br />
+<code>#include &lt;QtCharts/QLineSeries&gt;</code><br />
+<code>#include &lt;QtCharts/QValueAxis&gt;</code><br />
+<code>#include &lt;QtCharts/QLegend&gt;</code><br />
 <code>#include &lt;QDebug&gt;</code><br />
 <code>#include &lt;QStringList&gt;</code><br />
 <code>#include &lt;QColor&gt;</code><br />
 <code>#include &lt;QSizePolicy&gt;</code><br />
 <code>#include &lt;QtMath&gt;</code><br />
+<code>#include &lt;QPainter&gt;</code><br />
 </div>
 <p><a href="_sensor_graph_8cpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
-<div class="textblock"><p>Zawiera logikę inicjalizacji wykresu, dodawania danych, ustawiania liczby próbek oraz zakresu osi Y. </p><dl class="section author"><dt>Autor</dt><dd>Twoje Imię/Nazwa (lub pozostaw puste) </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>2025-04-29 // Użyj aktualnej daty lub daty utworzenia/modyfikacji </dd></dl>
+<div class="textblock"><p>Zawiera logikę inicjalizacji wykresu, dodawania danych, ustawiania liczby próbek oraz zakresu osi Y, a także ponownego tłumaczenia UI. </p><dl class="section author"><dt>Autor</dt><dd>Mateusz Wojtaszek (lub oryginalny autor, jeśli inny) </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2025-04-29 (lub aktualna data modyfikacji) </dd></dl>
 
 <p class="definition">Definicja w pliku <a class="el" href="_sensor_graph_8cpp_source.html">SensorGraph.cpp</a>.</p>
 </div></div><!-- contents -->

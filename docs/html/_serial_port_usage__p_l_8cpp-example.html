@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Orienta: SerialPortUsage_PL.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Orienta<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Projekt na WDS</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_serial_port_usage__p_l_8cpp-example.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">SerialPortUsage_PL.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p>To jest przykład użycia klasy <a class="el" href="class_serial_port_handler.html" title="Zarządza komunikacją przez port szeregowy, w tym odbiorem i parsowaniem danych.">SerialPortHandler</a>:</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_serial_port_handler_8h.html">SerialPortHandler.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Slot do obsługi nowych danych</span></div>
+<div class="line"><span class="keywordtype">void</span> onNewData(<span class="keyword">const</span> QVector&lt;float&gt; &amp;data) {</div>
+<div class="line">    qDebug() &lt;&lt; <span class="stringliteral">&quot;Odebrano nowe dane:&quot;</span> &lt;&lt; data;</div>
+<div class="line">    <span class="comment">// Przetwórz dane (np. zaktualizuj interfejs użytkownika, zapisz do pliku itp.)</span></div>
+<div class="line">    <span class="comment">// Przykład: Dostęp do poszczególnych wartości</span></div>
+<div class="line">    <span class="comment">// if (data.size() == 12) {</span></div>
+<div class="line">    <span class="comment">//     float accX = data[0];</span></div>
+<div class="line">    <span class="comment">//     float accY = data[1];</span></div>
+<div class="line">    <span class="comment">//     // ... i tak dalej</span></div>
+<div class="line">    <span class="comment">// }</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Slot do obsługi błędów</span></div>
+<div class="line"><span class="keywordtype">void</span> onError(QSerialPort::SerialPortError error, <span class="keyword">const</span> QString &amp;errorString) {</div>
+<div class="line">    qCritical() &lt;&lt; <span class="stringliteral">&quot;Błąd portu szeregowego:&quot;</span> &lt;&lt; error &lt;&lt; <span class="stringliteral">&quot;-&quot;</span> &lt;&lt; errorString;</div>
+<div class="line">    <span class="comment">// Obsłuż błąd (np. spróbuj połączyć się ponownie, powiadom użytkownika)</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a id="a0" name="a0"></a><a class="code hl_function" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]) {</div>
+<div class="line">    QCoreApplication a(argc, argv); <span class="comment">// Wymagane dla mechanizmu sygnałów/slotów Qt</span></div>
+<div class="line"> </div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="class_serial_port_handler.html">SerialPortHandler</a> portHandler;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Połącz sygnały ze slotami</span></div>
+<div class="line">    QObject::connect(&amp;portHandler, &amp;<a class="code hl_signal" href="class_serial_port_handler.html#acdddb7acc71f9595e515ab4d06cb86e5">SerialPortHandler::newDataReceived</a>, &amp;onNewData);</div>
+<div class="line">    QObject::connect(&amp;portHandler, &amp;<a class="code hl_signal" href="class_serial_port_handler.html#a9100e1e4ac6284a5a682096a451c7d07">SerialPortHandler::errorOccurred</a>, &amp;onError);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Skonfiguruj i otwórz port</span></div>
+<div class="line">    <span class="comment">// Zastąp &quot;COM3&quot; lub &quot;/dev/ttyS0&quot; rzeczywistą nazwą portu</span></div>
+<div class="line">    QString portName = <span class="stringliteral">&quot;COM3&quot;</span>; <span class="comment">// Lub &quot;/dev/ttyUSB0&quot;, itp.</span></div>
+<div class="line">    qint32 baudRate = 115200;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (portHandler.<a id="a2" name="a2"></a><a class="code hl_function" href="class_serial_port_handler.html#adeff07f05f079a490d420d7c5f1a1f49">openPort</a>(portName, baudRate)) {</div>
+<div class="line">        qInfo() &lt;&lt; <span class="stringliteral">&quot;Pomyślnie otwarto port&quot;</span> &lt;&lt; portName;</div>
+<div class="line">        <span class="comment">// Port jest teraz otwarty, a readData() będzie wywoływane asynchronicznie,</span></div>
+<div class="line">        <span class="comment">// gdy nadejdą dane.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        qWarning() &lt;&lt; <span class="stringliteral">&quot;Nie udało się otworzyć portu&quot;</span> &lt;&lt; portName &lt;&lt; <span class="stringliteral">&quot;. Błąd:&quot;</span> &lt;&lt; portHandler.<a id="a3" name="a3"></a><a class="code hl_function" href="class_serial_port_handler.html#aa56731a0a07da0f041f45b98252fb768">getLastError</a>();</div>
+<div class="line">        <span class="comment">// Aplikacja może zakończyć działanie lub spróbować innych portów, jeśli otwarcie się nie powiedzie</span></div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    qInfo() &lt;&lt; <span class="stringliteral">&quot;Aplikacja uruchomiona. Oczekiwanie na dane z portu szeregowego...&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Uruchom pętlę zdarzeń Qt, aby umożliwić przetwarzanie sygnałów/slotów</span></div>
+<div class="line">    <span class="comment">// i utrzymać działanie aplikacji.</span></div>
+<div class="line">    <span class="keywordtype">int</span> execResult = a.exec();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Sprzątanie: zamknij port po zakończeniu (chociaż destruktor również to obsługuje)</span></div>
+<div class="line">    portHandler.<a id="a4" name="a4"></a><a class="code hl_function" href="class_serial_port_handler.html#ae65de3358e0a9ace1a70cc445fdd63c6">closePort</a>();</div>
+<div class="line">    qInfo() &lt;&lt; <span class="stringliteral">&quot;Aplikacja zakończona.&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> execResult;</div>
+<div class="line">}</div>
+<div class="ttc" id="a_serial_port_handler_8h_html"><div class="ttname"><a href="_serial_port_handler_8h.html">SerialPortHandler.h</a></div><div class="ttdoc">Definiuje klasę SerialPortHandler do obsługi komunikacji przez port szeregowy.</div></div>
+<div class="ttc" id="aclass_serial_port_handler_html"><div class="ttname"><a href="class_serial_port_handler.html">SerialPortHandler</a></div><div class="ttdoc">Zarządza komunikacją przez port szeregowy, w tym odbiorem i parsowaniem danych.</div><div class="ttdef"><b>Definicja</b> <a href="_serial_port_handler_8h_source.html#l00035">SerialPortHandler.h:35</a></div></div>
+<div class="ttc" id="aclass_serial_port_handler_html_a9100e1e4ac6284a5a682096a451c7d07"><div class="ttname"><a href="class_serial_port_handler.html#a9100e1e4ac6284a5a682096a451c7d07">SerialPortHandler::errorOccurred</a></div><div class="ttdeci">void errorOccurred(QSerialPort::SerialPortError error, const QString &amp;errorString)</div><div class="ttdoc">Emitowany, gdy wystąpi błąd komunikacji szeregowej.</div></div>
+<div class="ttc" id="aclass_serial_port_handler_html_aa56731a0a07da0f041f45b98252fb768"><div class="ttname"><a href="class_serial_port_handler.html#aa56731a0a07da0f041f45b98252fb768">SerialPortHandler::getLastError</a></div><div class="ttdeci">QString getLastError() const</div><div class="ttdoc">Pobiera czytelny dla człowieka opis ostatniego błędu QSerialPort.</div><div class="ttdef"><b>Definicja</b> <a href="_serial_port_handler_8cpp_source.html#l00059">SerialPortHandler.cpp:59</a></div></div>
+<div class="ttc" id="aclass_serial_port_handler_html_acdddb7acc71f9595e515ab4d06cb86e5"><div class="ttname"><a href="class_serial_port_handler.html#acdddb7acc71f9595e515ab4d06cb86e5">SerialPortHandler::newDataReceived</a></div><div class="ttdeci">void newDataReceived(const QVector&lt; float &gt; &amp;parsedDataFromSensors)</div><div class="ttdoc">Emitowany, gdy kompletna linia danych została odebrana i pomyślnie sparsowana.</div></div>
+<div class="ttc" id="aclass_serial_port_handler_html_adeff07f05f079a490d420d7c5f1a1f49"><div class="ttname"><a href="class_serial_port_handler.html#adeff07f05f079a490d420d7c5f1a1f49">SerialPortHandler::openPort</a></div><div class="ttdeci">bool openPort(const QString &amp;portName, qint32 baudRate=115200)</div><div class="ttdoc">Otwiera i konfiguruje określony port szeregowy.</div><div class="ttdef"><b>Definicja</b> <a href="_serial_port_handler_8cpp_source.html#l00020">SerialPortHandler.cpp:20</a></div></div>
+<div class="ttc" id="aclass_serial_port_handler_html_ae65de3358e0a9ace1a70cc445fdd63c6"><div class="ttname"><a href="class_serial_port_handler.html#ae65de3358e0a9ace1a70cc445fdd63c6">SerialPortHandler::closePort</a></div><div class="ttdeci">void closePort()</div><div class="ttdoc">Zamyka aktualnie otwarty port szeregowy.</div><div class="ttdef"><b>Definicja</b> <a href="_serial_port_handler_8cpp_source.html#l00051">SerialPortHandler.cpp:51</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdoc">Główna funkcja aplikacji Orienta (punkt wejścia).</div><div class="ttdef"><b>Definicja</b> <a href="main_8cpp_source.html#l00027">main.cpp:27</a></div></div>
+</div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

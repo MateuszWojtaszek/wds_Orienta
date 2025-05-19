@@ -62,12 +62,13 @@ $(function(){initNavTree('class_serial_port_handler.html',''); initResizable(tru
 <a href="#pub-methods">Metody publiczne</a> &#124;
 <a href="#pri-slots">Sloty prywatne</a> &#124;
 <a href="#pri-attribs">Atrybuty prywatne</a> &#124;
+<a href="#pri-static-attribs">Statyczne atrybuty prywatne</a> &#124;
 <a href="class_serial_port_handler-members.html">Lista wszystkich składowych</a>  </div>
   <div class="headertitle"><div class="title">Dokumentacja klasy SerialPortHandler</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Klasa obsługująca komunikację przez port szeregowy.  
+<p>Zarządza komunikacją przez port szeregowy, w tym odbiorem i parsowaniem danych.  
  <a href="#details">Więcej...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>&gt;</code></p>
@@ -81,52 +82,65 @@ Diagram dziedziczenia dla SerialPortHandler</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
 Sygnały</h2></td></tr>
 <tr class="memitem:acdddb7acc71f9595e515ab4d06cb86e5" id="r_acdddb7acc71f9595e515ab4d06cb86e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdddb7acc71f9595e515ab4d06cb86e5">newDataReceived</a> (const QVector&lt; float &gt; &amp;parsedDataFromSensors)</td></tr>
-<tr class="memdesc:acdddb7acc71f9595e515ab4d06cb86e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał emitowany po odebraniu i przetworzeniu nowej linii danych.  <br /></td></tr>
+<tr class="memdesc:acdddb7acc71f9595e515ab4d06cb86e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitowany, gdy kompletna linia danych została odebrana i pomyślnie sparsowana.  <br /></td></tr>
 <tr class="separator:acdddb7acc71f9595e515ab4d06cb86e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9100e1e4ac6284a5a682096a451c7d07" id="r_a9100e1e4ac6284a5a682096a451c7d07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9100e1e4ac6284a5a682096a451c7d07">errorOccurred</a> (QSerialPort::SerialPortError error, const QString &amp;errorString)</td></tr>
-<tr class="memdesc:a9100e1e4ac6284a5a682096a451c7d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sygnał emitowany w przypadku błędu komunikacji szeregowej.  <br /></td></tr>
+<tr class="memdesc:a9100e1e4ac6284a5a682096a451c7d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitowany, gdy wystąpi błąd komunikacji szeregowej.  <br /></td></tr>
 <tr class="separator:a9100e1e4ac6284a5a682096a451c7d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
 <tr class="memitem:a658dff23f3feb1250f3a6a241da57d9c" id="r_a658dff23f3feb1250f3a6a241da57d9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a658dff23f3feb1250f3a6a241da57d9c">SerialPortHandler</a> (QObject *parent=nullptr)</td></tr>
-<tr class="memdesc:a658dff23f3feb1250f3a6a241da57d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor klasy <a class="el" href="class_serial_port_handler.html" title="Klasa obsługująca komunikację przez port szeregowy.">SerialPortHandler</a>.  <br /></td></tr>
+<tr class="memdesc:a658dff23f3feb1250f3a6a241da57d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor obiektu <a class="el" href="class_serial_port_handler.html" title="Zarządza komunikacją przez port szeregowy, w tym odbiorem i parsowaniem danych.">SerialPortHandler</a>.  <br /></td></tr>
 <tr class="separator:a658dff23f3feb1250f3a6a241da57d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2457fbfb197c1b1f0f2903e235d47d9" id="r_ac2457fbfb197c1b1f0f2903e235d47d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2457fbfb197c1b1f0f2903e235d47d9">~SerialPortHandler</a> () override</td></tr>
-<tr class="memdesc:ac2457fbfb197c1b1f0f2903e235d47d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor klasy <a class="el" href="class_serial_port_handler.html" title="Klasa obsługująca komunikację przez port szeregowy.">SerialPortHandler</a>.  <br /></td></tr>
+<tr class="memdesc:ac2457fbfb197c1b1f0f2903e235d47d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor obiektu <a class="el" href="class_serial_port_handler.html" title="Zarządza komunikacją przez port szeregowy, w tym odbiorem i parsowaniem danych.">SerialPortHandler</a>.  <br /></td></tr>
 <tr class="separator:ac2457fbfb197c1b1f0f2903e235d47d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeff07f05f079a490d420d7c5f1a1f49" id="r_adeff07f05f079a490d420d7c5f1a1f49"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeff07f05f079a490d420d7c5f1a1f49">openPort</a> (const QString &amp;portName, qint32 baudRate=115200)</td></tr>
-<tr class="memdesc:adeff07f05f079a490d420d7c5f1a1f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otwiera i konfiguruje port szeregowy.  <br /></td></tr>
+<tr class="memdesc:adeff07f05f079a490d420d7c5f1a1f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otwiera i konfiguruje określony port szeregowy.  <br /></td></tr>
 <tr class="separator:adeff07f05f079a490d420d7c5f1a1f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae65de3358e0a9ace1a70cc445fdd63c6" id="r_ae65de3358e0a9ace1a70cc445fdd63c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae65de3358e0a9ace1a70cc445fdd63c6">closePort</a> ()</td></tr>
-<tr class="memdesc:ae65de3358e0a9ace1a70cc445fdd63c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zamyka port szeregowy.  <br /></td></tr>
+<tr class="memdesc:ae65de3358e0a9ace1a70cc445fdd63c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zamyka aktualnie otwarty port szeregowy.  <br /></td></tr>
 <tr class="separator:ae65de3358e0a9ace1a70cc445fdd63c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa56731a0a07da0f041f45b98252fb768" id="r_aa56731a0a07da0f041f45b98252fb768"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa56731a0a07da0f041f45b98252fb768">getLastError</a> () const</td></tr>
-<tr class="memdesc:aa56731a0a07da0f041f45b98252fb768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca opis ostatniego błędu QSerialPort.  <br /></td></tr>
+<tr class="memdesc:aa56731a0a07da0f041f45b98252fb768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera czytelny dla człowieka opis ostatniego błędu QSerialPort.  <br /></td></tr>
 <tr class="separator:aa56731a0a07da0f041f45b98252fb768"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-slots" name="pri-slots"></a>
 Sloty prywatne</h2></td></tr>
 <tr class="memitem:aa7fa0dc9e8034693ef88497111034d3b" id="r_aa7fa0dc9e8034693ef88497111034d3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7fa0dc9e8034693ef88497111034d3b">readData</a> ()</td></tr>
-<tr class="memdesc:aa7fa0dc9e8034693ef88497111034d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot wywoływany po odebraniu danych z portu szeregowego.  <br /></td></tr>
+<tr class="memdesc:aa7fa0dc9e8034693ef88497111034d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wewnętrzny slot wywoływany, gdy nowe dane są dostępne do odczytu z portu szeregowego.  <br /></td></tr>
 <tr class="separator:aa7fa0dc9e8034693ef88497111034d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a95c99f9ac835be091ec1589f47ace6e0" id="r_a95c99f9ac835be091ec1589f47ace6e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95c99f9ac835be091ec1589f47ace6e0">handleError</a> (QSerialPort::SerialPortError error)</td></tr>
-<tr class="memdesc:a95c99f9ac835be091ec1589f47ace6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot reagujący na wystąpienie błędu portu szeregowego.  <br /></td></tr>
+<tr class="memdesc:a95c99f9ac835be091ec1589f47ace6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wewnętrzny slot wywoływany, gdy wystąpi błąd QSerialPort.  <br /></td></tr>
 <tr class="separator:a95c99f9ac835be091ec1589f47ace6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Atrybuty prywatne</h2></td></tr>
 <tr class="memitem:a9b3fe8fd6ebae5e2b8d3011a00af7889" id="r_a9b3fe8fd6ebae5e2b8d3011a00af7889"><td class="memItemLeft" align="right" valign="top">QSerialPort *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b3fe8fd6ebae5e2b8d3011a00af7889">serial</a> = nullptr</td></tr>
-<tr class="memdesc:a9b3fe8fd6ebae5e2b8d3011a00af7889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obiekt portu szeregowego.  <br /></td></tr>
+<tr class="memdesc:a9b3fe8fd6ebae5e2b8d3011a00af7889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźnik na obiekt QSerialPort używany do komunikacji szeregowej.  <br /></td></tr>
 <tr class="separator:a9b3fe8fd6ebae5e2b8d3011a00af7889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8121acf3b781ea020b4b36dd74bfb767" id="r_a8121acf3b781ea020b4b36dd74bfb767"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8121acf3b781ea020b4b36dd74bfb767">buffer</a></td></tr>
-<tr class="memdesc:a8121acf3b781ea020b4b36dd74bfb767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bufor na dane odebrane z portu szeregowego.  <br /></td></tr>
+<tr class="memdesc:a8121acf3b781ea020b4b36dd74bfb767"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wewnętrzny bufor do przechowywania przychodzących danych z portu szeregowego.  <br /></td></tr>
 <tr class="separator:a8121acf3b781ea020b4b36dd74bfb767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Statyczne atrybuty prywatne</h2></td></tr>
+<tr class="memitem:a3dae0ed9c4f067457389b4f05fe125b2" id="r_a3dae0ed9c4f067457389b4f05fe125b2"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dae0ed9c4f067457389b4f05fe125b2">EXPECTED_VALUE_COUNT_SERIAL</a> = 12</td></tr>
+<tr class="memdesc:a3dae0ed9c4f067457389b4f05fe125b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definiuje oczekiwaną liczbę wartości oddzielonych przecinkami w linii danych.  <br /></td></tr>
+<tr class="separator:a3dae0ed9c4f067457389b4f05fe125b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
-<div class="textblock"><p>Zapewnia mechanizm otwierania i zamykania portu szeregowego, odbierania i buforowania danych, parsowania ich w formacie CSV na wektor wartości zmiennoprzecinkowych oraz obsługę błędów z wykorzystaniem mechanizmu sygnałów i slotów Qt. </p>
+<div class="textblock"><p>Zapewnia solidny mechanizm interakcji z portem szeregowym. Kluczowe funkcjonalności obejmują:</p><ul>
+<li>Otwieranie i zamykanie portu szeregowego z określonymi parametrami.</li>
+<li>Buforowanie i odczytywanie przychodzących danych.</li>
+<li>Parsowanie danych w formacie CSV (wartości oddzielone przecinkami) do wektora liczb zmiennoprzecinkowych.</li>
+<li>Emitowanie sygnałów o nowych danych i błędach komunikacji, wykorzystując mechanizm sygnałów i slotów Qt. </li>
+</ul>
+<dl class="section examples"><dt>Przykłady</dt><dd><a class="el" href="_serial_port_usage__p_l_8cpp-example.html#_a1">SerialPortUsage_PL.cpp</a>.</dd>
+</dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00025">25</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00035">35</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
 </div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
 <a id="a658dff23f3feb1250f3a6a241da57d9c" name="a658dff23f3feb1250f3a6a241da57d9c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a658dff23f3feb1250f3a6a241da57d9c">&#9670;&#160;</a></span>SerialPortHandler()</h2>
@@ -150,14 +164,14 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Tworzy nowy obiekt QSerialPort i podłącza odpowiednie sygnały do slotów. </p><dl class="params"><dt>Parametry</dt><dd>
+<p>Inicjalizuje nową instancję QSerialPort i łączy jej sygnały (readyRead, errorOccurred) z odpowiednimi slotami obsługującymi w tej klasie. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parent</td><td>[in] Opcjonalny wskaźnik na obiekt nadrzędny Qt. </td></tr>
+    <tr><td class="paramname">parent</td><td>[in] Opcjonalny wskaźnik na obiekt nadrzędny QObject. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00007">7</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00006">6</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -183,9 +197,9 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Automatycznie zamyka port, jeśli jest otwarty. </p>
+<p>Zapewnia, że port szeregowy zostanie zamknięty, jeśli był otwarty, zapobiegając wyciekom zasobów. </p>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00016">16</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00015">15</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -204,9 +218,11 @@ Atrybuty prywatne</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Jeśli port nie jest otwarty, funkcja nic nie robi. Czyści również bufor odbiorczy. </p>
+<p>Jeśli port nie jest otwarty, ta funkcja nic nie robi. Czyści wewnętrzny bufor danych. </p>
+<dl class="section examples"><dt>Przykłady</dt><dd><a class="el" href="_serial_port_usage__p_l_8cpp-example.html#a4">SerialPortUsage_PL.cpp</a>.</dd>
+</dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00053">53</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00051">51</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -236,10 +252,10 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Emitowany dla błędów innych niż <code>NoError</code> i <code>TimeoutError</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+<p>Sygnał ten jest emitowany dla błędów QSerialPort innych niż <code>QSerialPort::NoError</code> oraz <code>QSerialPort::TimeoutError</code> (ponieważ TimeoutError może być częstym, niekrytycznym zdarzeniem). </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">error</td><td>Kod błędu QSerialPort (parametr wyjściowy sygnału). </td></tr>
-    <tr><td class="paramname">errorString</td><td>Opis błędu (parametr wyjściowy sygnału, przekazywany jako <code>const&amp;</code>). </td></tr>
+    <tr><td class="paramname">error</td><td>[out] Kod błędu QSerialPort::SerialPortError wskazujący typ błędu. </td></tr>
+    <tr><td class="paramname">errorString</td><td>[out] Stała referencja do QString opisującego błąd. </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,9 +276,11 @@ Atrybuty prywatne</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>W przypadku braku inicjalizacji portu zwraca komunikat o błędzie. </p><dl class="section return"><dt>Zwraca</dt><dd>Opis błędu w postaci QString. </dd></dl>
+<p>Jeśli obiekt QSerialPort nie został zainicjalizowany, zwracany jest komunikat "Obiekt szeregowy nie został zainicjalizowany." ("Serial object not initialized."). </p><dl class="section return"><dt>Zwraca</dt><dd>QString zawierający opis błędu. </dd></dl>
+<dl class="section examples"><dt>Przykłady</dt><dd><a class="el" href="_serial_port_usage__p_l_8cpp-example.html#a3">SerialPortUsage_PL.cpp</a>.</dd>
+</dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00061">61</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00059">59</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,14 +306,15 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Dla błędów innych niż <code>NoError</code> i <code>TimeoutError</code> emituje sygnał <code>errorOccurred</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+<p>Filtruje błędy <code>QSerialPort::NoError</code> i <code>QSerialPort::TimeoutError</code>. Dla innych błędów loguje błąd i emituje sygnał <code>errorOccurred</code>. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">error</td><td>[in] Kod błędu zgłoszony przez QSerialPort. </td></tr>
+    <tr><td class="paramname">error</td><td>[in] Kod błędu QSerialPort::SerialPortError zgłoszony przez QSerialPort. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="#a9100e1e4ac6284a5a682096a451c7d07" title="Emitowany, gdy wystąpi błąd komunikacji szeregowej.">errorOccurred</a> </dd></dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00143">143</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00141">141</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -321,12 +340,13 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Parsuje dane wejściowe w formacie CSV. Wymagana jest dokładnie określona liczba wartości. Format danych: ACC_X, ACC_Y, ACC_Z, GYRO_X, GYRO_Y, GYRO_Z, MAG_X, MAG_Y, MAG_Z, ROLL, PITCH, YAW. </p><dl class="params"><dt>Parametry</dt><dd>
+<p>Oczekuje się, że przychodzące dane będą w formacie CSV. Oczekiwany format danych to: ACC_X, ACC_Y, ACC_Z, GYRO_X, GYRO_Y, GYRO_Z, MAG_X, MAG_Y, MAG_Z, ROLL, PITCH, YAW. Sygnał ten dostarcza sparsowane dane jako wektor liczb zmiennoprzecinkowych. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parsedDataFromSensors</td><td>[in] Wektor sparsowanych wartości (przekazywany jako <code>const&amp;</code>). Użycie <code>const referencji</code> w celu uniknięcia niepotrzebnej kopii. </td></tr>
+    <tr><td class="paramname">parsedDataFromSensors</td><td>[out] Stała referencja do QVector&lt;float&gt; zawierającego sparsowane wartości czujników. Użycie <code>const&amp;</code> pozwala uniknąć niepotrzebnego kopiowania danych. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Nota</dt><dd>Liczba wartości musi odpowiadać oczekiwanej liczbie (12 dla określonego formatu). </dd></dl>
 
 </div>
 </div>
@@ -348,16 +368,24 @@ Atrybuty prywatne</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Jeśli port był wcześniej otwarty, zostaje zamknięty. Ustawiane są parametry transmisji (baud rate, bity danych, parzystość, stop bity, kontrola przepływu). Po pomyślnym otwarciu portu czyszczony jest bufor. </p><dl class="params"><dt>Parametry</dt><dd>
+<p>Zamyka każdy wcześniej otwarty port przed próbą otwarcia nowego. Konfiguruje parametry transmisji: prędkość transmisji (baud rate), bity danych (8), parzystość (Brak), bity stopu (Jeden) i kontrolę przepływu (Brak). Czyści wewnętrzny bufor danych po pomyślnym otwarciu. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">portName</td><td>[in] Nazwa portu, np. "COM3" lub "/dev/ttyUSB0". </td></tr>
-    <tr><td class="paramname">baudRate</td><td>[in] Prędkość transmisji (domyślnie 115200). </td></tr>
+    <tr><td class="paramname">portName</td><td>[in] Nazwa portu szeregowego (np. "COM3" w Windows, "/dev/ttyUSB0" w Linux). </td></tr>
+    <tr><td class="paramname">baudRate</td><td>[in] Żądana prędkość transmisji (domyślnie 115200). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Zwraca</dt><dd><code>true</code>, jeśli port został pomyślnie otwarty, w przeciwnym razie <code>false</code>. </dd></dl>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> jeśli port został pomyślnie otwarty i skonfigurowany. </dd>
+<dd>
+<code>false</code> jeśli otwarcie portu nie powiodło się (np. port niedostępny, odmowa dostępu). W przypadku niepowodzenia emitowany jest sygnał errorOccurred. </dd></dl>
+<dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="#a9100e1e4ac6284a5a682096a451c7d07" title="Emitowany, gdy wystąpi błąd komunikacji szeregowej.">errorOccurred</a> </dd>
+<dd>
+<a class="el" href="#ae65de3358e0a9ace1a70cc445fdd63c6" title="Zamyka aktualnie otwarty port szeregowy.">closePort()</a> </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Jeśli port jest już otwarty, zostanie zamknięty i ponownie otwarty z nowymi ustawieniami. </dd></dl>
+<dl class="section examples"><dt>Przykłady</dt><dd><a class="el" href="_serial_port_usage__p_l_8cpp-example.html#a2">SerialPortUsage_PL.cpp</a>.</dd>
+</dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00022">22</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00020">20</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,9 +411,10 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Odczytuje dane z portu, dodaje je do bufora i przetwarza linie zakończone znakiem <code>\n</code>. Linie są parsowane i konwertowane na wartości float, które następnie są przekazywane przez sygnał <code>newDataReceived</code>. </p>
+<p>Odczytuje wszystkie dostępne dane z QSerialPort, dołącza je do wewnętrznego bufora i przetwarza bufor linia po linii (oczekuje się, że linie są zakończone znakiem '\n'). Każda linia jest parsowana jako CSV, a jeśli jest poprawna, emitowany jest sygnał <code>newDataReceived</code>. </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="#acdddb7acc71f9595e515ab4d06cb86e5" title="Emitowany, gdy kompletna linia danych została odebrana i pomyślnie sparsowana.">newDataReceived</a> </dd></dl>
+<dl class="section warning"><dt>Ostrzeżenie</dt><dd>Ten slot bezpośrednio oddziałuje z wewnętrznym stanem QSerialPort. </dd></dl>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00070">70</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8cpp_source.html#l00068">68</a> pliku <a class="el" href="_serial_port_handler_8cpp_source.html">SerialPortHandler.cpp</a>.</p>
 
 </div>
 </div>
@@ -409,9 +438,34 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Zawiera dane przed ich konwersją. Linie są oddzielane znakiem <code>\n</code> i przetwarzane pojedynczo. </p>
+<p>Dane są tutaj gromadzone, dopóki nie zostanie napotkany znak nowej linii ('\n'), sygnalizujący kompletną linię gotową do parsowania. </p>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00112">112</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00141">141</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
+
+</div>
+</div>
+<a id="a3dae0ed9c4f067457389b4f05fe125b2" name="a3dae0ed9c4f067457389b4f05fe125b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dae0ed9c4f067457389b4f05fe125b2">&#9670;&#160;</a></span>EXPECTED_VALUE_COUNT_SERIAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int SerialPortHandler::EXPECTED_VALUE_COUNT_SERIAL = 12</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Używane przez <a class="el" href="#aa7fa0dc9e8034693ef88497111034d3b" title="Wewnętrzny slot wywoływany, gdy nowe dane są dostępne do odczytu z portu szeregowego.">readData()</a> do walidacji integralności przychodzących danych CSV. Aktualnie ustawione na 12 na podstawie formatu danych z czujników. </p>
+
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00149">149</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
 
 </div>
 </div>
@@ -434,9 +488,9 @@ Atrybuty prywatne</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Używany do odbioru danych z urządzenia zewnętrznego. Wskaźnik zarządzany przez Qt. </p>
+<p>Ten obiekt obsługuje niskopoziomowe interakcje z portem szeregowym. Jest zarządzany przez system własności rodzic-dziecko Qt. </p>
 
-<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00105">105</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
+<p class="definition">Definicja w linii <a class="el" href="_serial_port_handler_8h_source.html#l00133">133</a> pliku <a class="el" href="_serial_port_handler_8h_source.html">SerialPortHandler.h</a>.</p>
 
 </div>
 </div>
