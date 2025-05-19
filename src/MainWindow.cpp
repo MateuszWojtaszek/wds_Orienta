@@ -1,14 +1,16 @@
 /**
  * @file MainWindow.cpp
- * @brief Implementacja klasy MainWindow.
+ * @brief Implementacja klasy MainWindow, głównego okna aplikacji wizualizatora sensorów.
+ * @author Mateusz Wojtaszek
+ * @date 2025-05-19
  */
 
 #include "MainWindow.h"
-#include "ImuDataHandler.h"    // Pełne definicje
+#include "ImuDataHandler.h"
 #include "GpsDataHandler.h"
 #include "SerialPortHandler.h"
 
-#include <QApplication> // Dla qApp
+#include <QApplication>
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
@@ -20,204 +22,216 @@
 #include <QSerialPortInfo>
 #include <QInputDialog>
 #include <QTranslator>
-#include <QTimer> // Dla QTimer
-#include <QVector> // Dla QVector
-#include <cmath> // Dla std::sin, std::cos, M_PI (jeśli używane, M_PI może wymagać _USE_MATH_DEFINES w Windows)
+#include <QTimer>
+#include <QVector>
+#include <cmath> // Dla std::sin, std::cos, std::abs
+#ifndef M_PI // Definicja M_PI, jeśli nie jest dostępna (często w <cmath> lub <corecrt_math_defines.h> po #define _USE_MATH_DEFINES w Windows)
+    #define M_PI 3.14159265358979323846
+#endif
 
-// Definicje stałych, jeśli nie są częścią klasy lub globalnie dostępne
-// (Przeniesione z MainWindow.h do .cpp, aby uniknąć problemów z wielokrotną definicją,
-//  lub zdefiniowane jako static constexpr w klasie, jeśli to C++17+)
-const QString SIMULATION_DATA_FILE_PATH_MW = "/Users/mateuszwojtaszek/projekty/wds_Orienta/simulation_data3.log"; // Zmieniono nazwę, aby uniknąć konfliktu
-const QString POLISH_TRANSLATION_FILE_MW = "/Users/mateuszwojtaszek/projekty/wds_Orienta/translations/wds_OrientaPL.qm";
 
-constexpr int SIMULATION_TIMER_INTERVAL_MS_MW = 10;
-constexpr int EXPECTED_DATA_SIZE_MW = 12;
+// Stałe specyficzne dla implementacji MainWindow
+// Rozważ umieszczenie ich w przestrzeni nazw lub jako statyczne składowe klasy, jeśli to bardziej odpowiednie.
+// Dla ścieżek plików, lepszym rozwiązaniem w docelowej aplikacji byłoby użycie QSettings, zasobów Qt lub konfiguracji.
+const QString SIMULATION_DATA_FILE_PATH_MW = "/Users/mateuszwojtaszek/projekty/wds_Orienta/simulation_data3.log"; // Przykładowa ścieżka względna lub zasób Qt
+const QString POLISH_TRANSLATION_FILE_MW = "/Users/mateuszwojtaszek/projekty/wds_Orienta/translations/wds_OrientaPL.qm"; // Przykład użycia zasobów Qt dla tłumaczeń
 
+constexpr int SIMULATION_TIMER_INTERVAL_MS_MW = 10; // ms
+constexpr int EXPECTED_DATA_SIZE_MW = 12;           // Liczba pól w ramce danych
+
+// Indeksy dla poszczególnych danych w ramce
 constexpr int GYRO_X_IDX_MW = 0;
 constexpr int GYRO_Y_IDX_MW = 1;
 constexpr int GYRO_Z_IDX_MW = 2;
-constexpr int ACC_X_IDX_MW = 3;
-constexpr int ACC_Y_IDX_MW = 4;
-constexpr int ACC_Z_IDX_MW = 5;
-constexpr int MAG_X_IDX_MW = 6;
-constexpr int MAG_Y_IDX_MW = 7;
-constexpr int MAG_Z_IDX_MW = 8;
-constexpr int ROLL_IDX_MW = 9;
-constexpr int PITCH_IDX_MW = 10;
-constexpr int YAW_IDX_MW = 11;
+constexpr int ACC_X_IDX_MW  = 3;
+constexpr int ACC_Y_IDX_MW  = 4;
+constexpr int ACC_Z_IDX_MW  = 5;
+constexpr int MAG_X_IDX_MW  = 6;
+constexpr int MAG_Y_IDX_MW  = 7;
+constexpr int MAG_Z_IDX_MW  = 8;
+constexpr int ROLL_IDX_MW   = 9;
+constexpr int PITCH_IDX_MW  = 10;
+constexpr int YAW_IDX_MW    = 11;
 
-constexpr double BASE_LATITUDE_MW = 51.1079;
-constexpr double BASE_LONGITUDE_MW = 17.0595;
-constexpr double GPS_OSCILLATION_AMPLITUDE_MW = 0.0001;
-constexpr double GPS_OSCILLATION_SPEED_FACTOR_MW = 0.05;
+// Stałe dla symulacji GPS
+constexpr double BASE_LATITUDE_MW  = 51.1079;  // Przykładowa szerokość geograficzna (np. Wrocław)
+constexpr double BASE_LONGITUDE_MW = 17.0595; // Przykładowa długość geograficzna (np. Wrocław)
+constexpr double GPS_OSCILLATION_AMPLITUDE_MW = 0.0001; // Amplituda oscylacji pozycji GPS
+constexpr double GPS_OSCILLATION_SPEED_FACTOR_MW = 0.05; // Współczynnik prędkości oscylacji
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    translator(nullptr), // Inicjalizuj translator
-    stackedWidget(new QStackedWidget(this)), // Twórz z rodzicem
-    imuHandler(new ImuDataHandler(this)),    // Twórz z rodzicem
-    gpsHandler(new GPSDataHandler(this)),    // Twórz z rodzicem
-    serialHandler(new SerialPortHandler(this)), // Twórz z rodzicem
-    simulationTimer(new QTimer(this)),       // Twórz z rodzicem
-    currentDataIndex(0),
-    simulationMode(false),
-    serialConnected(false)
-    // selectedPort inicjalizowany domyślnie (pusty QString)
+    m_translator(nullptr),
+    m_stackedWidget(new QStackedWidget(this)),
+    m_imuHandler(new ImuDataHandler(this)),
+    m_gpsHandler(new GPSDataHandler(this)),
+    m_serialHandler(new SerialPortHandler(this)),
+    m_simulationTimer(new QTimer(this)),
+    m_currentDataIndex(0),
+    m_simulationMode(false),
+    m_serialConnected(false)
 {
     setWindowTitle(tr("Sensor Visualizer"));
 
+    // Próba załadowania danych symulacyjnych przy starcie
     if (!loadSimulationData(SIMULATION_DATA_FILE_PATH_MW)) {
-         QMessageBox::warning(this, tr("Simulation Data"), tr("Could not load simulation data from: %1").arg(SIMULATION_DATA_FILE_PATH_MW));
+         QMessageBox::warning(this, tr("Simulation Data"), tr("Could not load simulation data from: %1. Simulation mode may not work correctly.").arg(SIMULATION_DATA_FILE_PATH_MW));
     }
 
-    stackedWidget->addWidget(imuHandler);
-    stackedWidget->addWidget(gpsHandler);
+    m_stackedWidget->addWidget(m_imuHandler);
+    m_stackedWidget->addWidget(m_gpsHandler);
 
-    setCentralWidget(stackedWidget);
-    stackedWidget->setCurrentWidget(imuHandler); // Domyślny widok
+    setCentralWidget(m_stackedWidget);
+    m_stackedWidget->setCurrentWidget(m_imuHandler); // Ustawienie domyślnego widoku
 
-    createMenus();
+    createMenus(); // Utworzenie menu aplikacji
 
-    showFullScreen(); // Jeśli potrzebne
+    // showFullScreen(); // Opcjonalnie, jeśli aplikacja ma startować w trybie pełnoekranowym
 
+    // Połączenie sygnałów wewnętrznych
     connect(this, &MainWindow::switchToIMU, this, &MainWindow::showIMUHandler);
     connect(this, &MainWindow::switchToGPS, this, &MainWindow::showGPSHandler);
-    connect(simulationTimer, &QTimer::timeout, this, &MainWindow::updateSimulationData);
-    connect(serialHandler, &SerialPortHandler::newDataReceived, this, &MainWindow::handleSerialData);
+    // Połączenie timera symulacji
+    connect(m_simulationTimer, &QTimer::timeout, this, &MainWindow::updateSimulationData);
+    // Połączenie handlera portu szeregowego
+    connect(m_serialHandler, &SerialPortHandler::newDataReceived, this, &MainWindow::handleSerialData);
 }
 
 MainWindow::~MainWindow()
 {
-    // Qt automatycznie usunie obiekty potomne (stackedWidget, imuHandler, gpsHandler,
-    // serialHandler, simulationTimer, translator jeśli był dzieckiem 'this').
-    // Jeśli translator nie był dzieckiem 'this' (co jest teraz poprawione),
-    // musiałby być usunięty ręcznie.
-    if (translator && translator->parent() != this) { // Dodatkowe zabezpieczenie, choć teraz powinien być dzieckiem
-        qApp->removeTranslator(translator);
-        delete translator;
-    } else if (translator) { // Jeśli był dzieckiem, wystarczy odinstalować
-         qApp->removeTranslator(translator);
+    // Qt automatycznie zarządza pamięcią obiektów potomnych.
+    // Translator musi być jawnie odinstalowany z aplikacji.
+    if (m_translator) {
+        qApp->removeTranslator(m_translator);
+        // Jeśli m_translator został utworzony z `this` jako rodzicem, Qt go usunie.
+        // Jeśli nie, `delete m_translator;` byłoby potrzebne, ale obecna implementacja tworzy go jako dziecko.
     }
-    // Nie ma potrzeby usuwać wskaźników na widgety zarządzane przez layouty lub jako dzieci.
 }
 
 void MainWindow::createMenus() {
-    QMenuBar *bar = menuBar();
-    bar->clear();
+    QMenuBar *menuBarPtr = menuBar(); // Użyj menuBar() zamiast bar
+    menuBarPtr->clear(); // Wyczyść poprzednie menu, jeśli retranslateUi() jest wołane wielokrotnie
 
-    QMenu *sensorMenu = bar->addMenu(tr("Sensor"));
-    QAction *imuAction = sensorMenu->addAction(tr("IMU"));
-    QAction *gpsAction = sensorMenu->addAction(tr("GPS"));
-    connect(imuAction, &QAction::triggered, this, &MainWindow::switchToIMU);
-    connect(gpsAction, &QAction::triggered, this, &MainWindow::switchToGPS);
+    QMenu *sensorMenu = menuBarPtr->addMenu(tr("Sensor"));
+    QAction *imuAction = sensorMenu->addAction(tr("IMU View"));
+    QAction *gpsAction = sensorMenu->addAction(tr("GPS View"));
+    connect(imuAction, &QAction::triggered, this, &MainWindow::showIMUHandler); // Użyj showIMUHandler zamiast bezpośredniego sygnału
+    connect(gpsAction, &QAction::triggered, this, &MainWindow::showGPSHandler); // Użyj showGPSHandler
 
-    QMenu *settingsMenu = bar->addMenu(tr("Settings"));
+    QMenu *settingsMenu = menuBarPtr->addMenu(tr("Settings"));
     QMenu *languageMenu = settingsMenu->addMenu(tr("Language"));
     QAction *englishAction = languageMenu->addAction(tr("English"));
     QAction *polishAction = languageMenu->addAction(tr("Polish"));
+
     settingsMenu->addSeparator();
     QAction *simulationModeAction = settingsMenu->addAction(tr("Simulation Mode"));
     simulationModeAction->setCheckable(true);
-    simulationModeAction->setChecked(simulationMode);
-    simulationModeAction->setObjectName("simulationModeAction"); // Użyj objectName do identyfikacji
-    QAction *selectPortAction = settingsMenu->addAction(tr("Select Port"));
+    simulationModeAction->setChecked(m_simulationMode); // Ustaw stan na podstawie flagi
+    simulationModeAction->setObjectName("simulationModeAction"); // Do identyfikacji przy retranslateUi
+
+    QAction *selectPortAction = settingsMenu->addAction(tr("Select Serial Port"));
 
     connect(englishAction, &QAction::triggered, this, &MainWindow::setEnglishLanguage);
     connect(polishAction, &QAction::triggered, this, &MainWindow::setPolishLanguage);
-    connect(simulationModeAction, &QAction::triggered, this, &MainWindow::toggleSimulationMode);
+    connect(simulationModeAction, &QAction::triggered, this, &MainWindow::toggleSimulationMode); // Poprawione na triggered
     connect(selectPortAction, &QAction::triggered, this, &MainWindow::selectPort);
 }
 
 void MainWindow::setEnglishLanguage() {
-    if (translator) {
-        qApp->removeTranslator(translator);
-        if (translator->parent() == this) { // Jeśli jest dzieckiem, pozwól Qt go usunąć
-            translator->deleteLater();
-        } else {
-            delete translator; // Jeśli nie, usuń ręcznie
-        }
-        translator = nullptr;
+    if (m_translator) {
+        qApp->removeTranslator(m_translator);
+        m_translator->deleteLater(); // Pozwól Qt usunąć obiekt translatora
+        m_translator = nullptr;
     }
-    retranslateApplicationUi(); // Odśwież UI
-    QMessageBox::information(this, tr("Language Change"), tr("Language changed to English."));
+    retranslateApplicationUi();
+    QMessageBox::information(this, tr("Language Change"), tr("Language successfully changed to English."));
 }
 
 void MainWindow::setPolishLanguage() {
-    if (translator) { // Najpierw usuń stary translator
-        qApp->removeTranslator(translator);
-        if (translator->parent() == this) {
-            translator->deleteLater();
-        } else {
-            delete translator;
-        }
-        translator = nullptr;
+    if (m_translator) { // Usuń stary translator, jeśli istnieje
+        qApp->removeTranslator(m_translator);
+        m_translator->deleteLater();
+        m_translator = nullptr;
     }
 
-    QTranslator* newTranslator = new QTranslator(this); // Utwórz jako dziecko MainWindow
+    QTranslator* newTranslator = new QTranslator(this); // Utwórz jako dziecko MainWindow dla zarządzania pamięcią
     if (newTranslator->load(POLISH_TRANSLATION_FILE_MW)) {
         qApp->installTranslator(newTranslator);
-        translator = newTranslator; // Przypisz wskaźnik, jeśli ładowanie się powiodło
-        retranslateApplicationUi();
-        QMessageBox::information(this, tr("Language Change"), tr("Language changed to Polish."));
+        m_translator = newTranslator; // Zapisz wskaźnik
+        retranslateApplicationUi(); // Odśwież UI
+        QMessageBox::information(this, tr("Language Change"), tr("Language successfully changed to Polish."));
     } else {
-        QMessageBox::warning(this, tr("Language Change"), tr("Failed to load Polish translation from: %1").arg(POLISH_TRANSLATION_FILE_MW));
-        delete newTranslator; // Usuń, jeśli ładowanie się nie powiodło
-        // translator pozostaje nullptr, UI będzie używać języka źródłowego lub poprzedniego
+        QMessageBox::warning(this, tr("Language Change Error"), tr("Failed to load Polish translation from: %1. Please check file path and integrity.").arg(POLISH_TRANSLATION_FILE_MW));
+        delete newTranslator; // Usuń nieudany translator
     }
 }
 
 void MainWindow::retranslateApplicationUi() {
     setWindowTitle(tr("Sensor Visualizer"));
-    createMenus(); // Odtworzy menu z nowymi tłumaczeniami
+    createMenus(); // Odtworzenie menu spowoduje użycie nowych tłumaczeń dla akcji i menu
 
-    if (imuHandler) {
-        imuHandler->retranslateUi();
+    if (m_imuHandler) {
+        m_imuHandler->retranslateUi();
     }
-    if (gpsHandler) {
-        // gpsHandler->retranslateUi(); // Jeśli GPS handler ma taką metodę
+    if (m_gpsHandler) {
+        // m_gpsHandler->retranslateUi(); // Jeśli GPSHandler również ma taką metodę
     }
-    // Przywróć stan zaznaczenia dla akcji "Simulation Mode"
-    QList<QAction*> actions = menuBar()->findChildren<QAction*>();
-    for(QAction* action : actions) {
-        if(action->objectName() == "simulationModeAction") {
-            action->setChecked(simulationMode);
-            break;
-        }
+
+    // Przywrócenie stanu zaznaczenia dla akcji "Simulation Mode" po odtworzeniu menu
+    QList<QAction*> actions = menuBar()->findChildren<QAction*>("simulationModeAction");
+    if (!actions.isEmpty()) {
+        actions.first()->setChecked(m_simulationMode);
     }
 }
 
-bool MainWindow::loadSimulationData(const QString& pathToSimulationFile) { // Zmieniono nazwę parametru
+bool MainWindow::loadSimulationData(const QString& pathToSimulationFile) {
     QFile file(pathToSimulationFile);
+    if (!file.exists()) {
+        qWarning() << "Simulation data file does not exist at path:" << pathToSimulationFile;
+        // W tym miejscu można by spróbować załadować z zasobów Qt jako fallback
+        // np. QFile fileFromResource(":/simulation_data.log");
+        // if (fileFromResource.exists()) { file.setFileName(fileFromResource.fileName()); } else { return false; }
+        return false;
+    }
+
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
-        loadedData.clear();
+        m_loadedData.clear();
+        m_currentDataIndex = 0; // Zresetuj indeks przy ładowaniu nowych danych
+
         while (!in.atEnd()) {
-            QString line = in.readLine();
-            QStringList values = line.split(',', Qt::SkipEmptyParts);
+            QString line = in.readLine().trimmed();
+            if (line.isEmpty() || line.startsWith('#')) { // Pomiń puste linie i komentarze
+                continue;
+            }
+
+            QStringList values = line.split(',', Qt::SkipEmptyParts); // Użyj Qt::SkipEmptyParts
             if (values.size() == EXPECTED_DATA_SIZE_MW) {
-                QVector<float> dataToParse;
-                dataToParse.reserve(EXPECTED_DATA_SIZE_MW);
+                QVector<float> dataFrame;
+                dataFrame.reserve(EXPECTED_DATA_SIZE_MW);
                 bool conversionOk = true;
-                for (const QString &val : values) {
-                    float fVal = val.toFloat(&conversionOk);
-                    if (!conversionOk) {
-                         qWarning() << "Failed to convert value to float in line:" << line;
-                         dataToParse.clear();
-                         break;
+                for (const QString &valStr : values) {
+                    bool okFlag;
+                    float floatVal = valStr.trimmed().toFloat(&okFlag);
+                    if (!okFlag) {
+                        qWarning() << "Conversion to float failed for value '" << valStr << "' in line:" << line;
+                        conversionOk = false;
+                        break;
                     }
-                    dataToParse.append(fVal);
+                    dataFrame.append(floatVal);
                 }
-                if (!dataToParse.isEmpty()) {
-                   loadedData.append(dataToParse);
+
+                if (conversionOk) {
+                   m_loadedData.append(dataFrame);
                 }
-            } else if (!line.trimmed().isEmpty()) {
-                 qWarning() << "Skipping line with incorrect number of values (" << values.size() << "):" << line;
+            } else {
+                 qWarning() << "Skipping line due to incorrect number of values. Expected:" << EXPECTED_DATA_SIZE_MW << "Got:" << values.size() << "Line:" << line;
             }
         }
         file.close();
-        qInfo() << "Successfully loaded" << loadedData.size() << "lines of simulation data from" << pathToSimulationFile;
-        return true;
+        qInfo() << "Successfully loaded" << m_loadedData.size() << "data frames from" << pathToSimulationFile;
+        return !m_loadedData.isEmpty(); // Zwróć true, jeśli cokolwiek załadowano
     } else {
         qWarning() << "Failed to open simulation data file:" << pathToSimulationFile << "Error:" << file.errorString();
         return false;
@@ -226,197 +240,218 @@ bool MainWindow::loadSimulationData(const QString& pathToSimulationFile) { // Zm
 
 void MainWindow::processImuData(const QVector<float>& acquiredData) {
     if (acquiredData.size() != EXPECTED_DATA_SIZE_MW) {
-        qWarning() << "Received data packet with incorrect size:" << acquiredData.size() << "Expected:" << EXPECTED_DATA_SIZE_MW;
+        qWarning() << "processImuData: Received data with incorrect size. Expected:" << EXPECTED_DATA_SIZE_MW << "Got:" << acquiredData.size();
         return;
     }
 
-    QVector<int> gyro = { static_cast<int>(acquiredData[GYRO_X_IDX_MW]), static_cast<int>(acquiredData[GYRO_Y_IDX_MW]), static_cast<int>(acquiredData[GYRO_Z_IDX_MW]) };
-    QVector<int> acc  = { static_cast<int>(acquiredData[ACC_X_IDX_MW]), static_cast<int>(acquiredData[ACC_Y_IDX_MW]), static_cast<int>(acquiredData[ACC_Z_IDX_MW]) };
-    QVector<int> mag  = { static_cast<int>(acquiredData[MAG_X_IDX_MW]), static_cast<int>(acquiredData[MAG_Y_IDX_MW]), static_cast<int>(acquiredData[MAG_Z_IDX_MW]) };
+    if (!m_imuHandler) {
+        qWarning() << "processImuData: ImuDataHandler is null.";
+        return;
+    }
+
+    QVector<int> gyro = {
+        static_cast<int>(acquiredData[GYRO_X_IDX_MW]),
+        static_cast<int>(acquiredData[GYRO_Y_IDX_MW]),
+        static_cast<int>(acquiredData[GYRO_Z_IDX_MW])
+    };
+    QVector<int> acc  = {
+        static_cast<int>(acquiredData[ACC_X_IDX_MW]),
+        static_cast<int>(acquiredData[ACC_Y_IDX_MW]),
+        static_cast<int>(acquiredData[ACC_Z_IDX_MW])
+    };
+    QVector<int> mag  = {
+        static_cast<int>(acquiredData[MAG_X_IDX_MW]),
+        static_cast<int>(acquiredData[MAG_Y_IDX_MW]),
+        static_cast<int>(acquiredData[MAG_Z_IDX_MW])
+    };
 
     float roll = acquiredData[ROLL_IDX_MW];
     float pitch = acquiredData[PITCH_IDX_MW];
     float yaw = acquiredData[YAW_IDX_MW];
 
-    if (imuHandler) {
-        imuHandler->updateData(acc, gyro, mag);
-        imuHandler->setRotation(yaw, pitch, roll);
+    m_imuHandler->updateData(acc, gyro, mag);
+    m_imuHandler->setRotation(yaw, pitch, roll);
 
-        // Użyj std::abs do porównywania floatów z zerem, aby uniknąć problemów z precyzją
-        if (std::abs(acquiredData[MAG_X_IDX_MW]) > 1e-6 || std::abs(acquiredData[MAG_Y_IDX_MW]) > 1e-6) {
-            float heading_rad = std::atan2(acquiredData[MAG_Y_IDX_MW], acquiredData[MAG_X_IDX_MW]);
-            float heading_deg = heading_rad * 180.0f / static_cast<float>(M_PI); // Użyj M_PI z <cmath>
-            if (heading_deg < 0.0f) {
-                heading_deg += 360.0f;
-            }
-            imuHandler->updateCompass(heading_deg);
-        } else {
-            imuHandler->updateCompass(0.0f);
+    // Obliczanie kursu kompasu
+    // Użyj std::abs do porównania float z małą wartością (epsilon) zamiast bezpośrednio z zerem
+    if (std::abs(acquiredData[MAG_X_IDX_MW]) > 1e-6f || std::abs(acquiredData[MAG_Y_IDX_MW]) > 1e-6f) {
+        float heading_rad = std::atan2(acquiredData[MAG_Y_IDX_MW], acquiredData[MAG_X_IDX_MW]);
+        float heading_deg = heading_rad * 180.0f / static_cast<float>(M_PI);
+        if (heading_deg < 0.0f) {
+            heading_deg += 360.0f;
         }
+        m_imuHandler->updateCompass(heading_deg);
     } else {
-        qWarning() << "processImuData called but imuHandler is null!";
+        // Jeśli składowe X i Y magnetometru są bliskie zeru, kurs jest nieokreślony lub 0
+        m_imuHandler->updateCompass(0.0f);
     }
 }
 
 void MainWindow::handlePortConnectionAttempt(const QString& portName) {
-    selectedPort = portName;
+    m_selectedPort = portName; // Zapisz wybrany port
 
-    if (serialConnected) {
-        serialHandler->closePort();
-        serialConnected = false;
+    if (m_serialConnected) { // Jeśli już połączony, zamknij stary port
+        m_serialHandler->closePort();
+        m_serialConnected = false;
+        qInfo() << "Closed previously connected serial port.";
     }
 
-    if (simulationMode) {
-        simulationTimer->stop();
-        simulationMode = false;
-        qInfo() << "Simulation mode disabled due to serial port selection.";
-        // Odznacz akcję w menu
-        QList<QAction*> actions = menuBar()->findChildren<QAction*>();
-        for(QAction* action : actions) {
-            if(action->objectName() == "simulationModeAction") {
-                action->setChecked(false);
-                break;
-            }
+    if (m_simulationMode) { // Jeśli w trybie symulacji, wyłącz go
+        m_simulationTimer->stop();
+        m_simulationMode = false;
+        qInfo() << "Simulation mode disabled due to serial port selection attempt.";
+        // Zaktualizuj stan checkboxa w menu
+        QList<QAction*> actions = menuBar()->findChildren<QAction*>("simulationModeAction");
+        if (!actions.isEmpty()) {
+            actions.first()->setChecked(false);
         }
     }
 
-    if (serialHandler->openPort(selectedPort)) {
-        serialConnected = true;
-        QMessageBox::information(this, tr("Connected"), tr("Successfully connected to %1").arg(portName));
-        qInfo() << "Connected to serial port:" << selectedPort;
+    // Próba otwarcia nowego portu
+    if (m_serialHandler->openPort(m_selectedPort)) {
+        m_serialConnected = true;
+        QMessageBox::information(this, tr("Serial Port Connected"), tr("Successfully connected to port: %1").arg(m_selectedPort));
+        qInfo() << "Successfully connected to serial port:" << m_selectedPort;
     } else {
-        QMessageBox::critical(this, tr("Connection Error"), tr("Failed to open port %1. Reason: %2").arg(portName).arg(serialHandler->getLastError()));
-        qWarning() << "Failed to open serial port:" << selectedPort << "Reason:" << serialHandler->getLastError();
-        serialConnected = false;
+        QMessageBox::critical(this, tr("Serial Port Error"), tr("Failed to open port %1. Reason: %2").arg(m_selectedPort).arg(m_serialHandler->getLastError()));
+        qWarning() << "Failed to open serial port:" << m_selectedPort << "Reason:" << m_serialHandler->getLastError();
+        m_serialConnected = false;
     }
 }
 
 bool MainWindow::checkSimulationEndAndUpdateState() {
-    if (currentDataIndex >= loadedData.size()) {
-        simulationTimer->stop();
-        QMessageBox::information(this, tr("Simulation Ended"), tr("End of simulation data reached."));
-        qInfo() << "Simulation data playback finished.";
-        simulationMode = false;
+    if (m_currentDataIndex >= m_loadedData.size()) {
+        m_simulationTimer->stop();
+        QMessageBox::information(this, tr("Simulation Ended"), tr("End of simulation data reached. Disabling simulation mode."));
+        qInfo() << "End of simulation data reached. Simulation mode disabled.";
+        m_simulationMode = false; // Wyłącz tryb symulacji
 
-        QList<QAction*> actions = menuBar()->findChildren<QAction*>();
-        for(QAction* action : actions) {
-             if(action->objectName() == "simulationModeAction") {
-                 action->setChecked(false);
-                 break;
-             }
+        // Zaktualizuj stan checkboxa w menu
+        QList<QAction*> actions = menuBar()->findChildren<QAction*>("simulationModeAction");
+        if (!actions.isEmpty()) {
+            actions.first()->setChecked(false);
         }
-        return true;
+        return true; // Symulacja zakończona
     }
-    return false;
+    return false; // Symulacja trwa
 }
 
 void MainWindow::updateSimulatedGPSMarker() {
-    if (simulationMode && gpsHandler) {
-        double angleRad = static_cast<double>(currentDataIndex) * GPS_OSCILLATION_SPEED_FACTOR_MW;
+    if (m_simulationMode && m_gpsHandler && !m_loadedData.isEmpty() && m_currentDataIndex < m_loadedData.size()) {
+        // Generowanie prostych, oscylujących danych GPS dla celów demonstracyjnych
+        double angleRad = static_cast<double>(m_currentDataIndex) * GPS_OSCILLATION_SPEED_FACTOR_MW;
         double latOffset = GPS_OSCILLATION_AMPLITUDE_MW * std::sin(angleRad);
         double lonOffset = GPS_OSCILLATION_AMPLITUDE_MW * std::cos(angleRad);
 
         double currentLatitude = BASE_LATITUDE_MW + latOffset;
         double currentLongitude = BASE_LONGITUDE_MW + lonOffset;
 
-        gpsHandler->updateMarker(currentLatitude, currentLongitude);
+        m_gpsHandler->updateMarker(currentLatitude, currentLongitude);
     }
 }
 
-// --- Pozostałe sloty i metody ---
 void MainWindow::toggleSimulationMode() {
-    simulationMode = !simulationMode;
-    currentDataIndex = 0; // Zresetuj indeks danych przy każdej zmianie trybu
+    m_simulationMode = !m_simulationMode; // Przełącz flagę
+    m_currentDataIndex = 0;               // Zawsze resetuj indeks danych przy zmianie trybu
 
-    QAction* simAction = nullptr;
-    QList<QAction*> actions = menuBar()->findChildren<QAction*>();
-    for(QAction* action : actions) {
-        if(action->objectName() == "simulationModeAction") {
-            simAction = action;
-            break;
-        }
-    }
+    QAction* simAction = menuBar()->findChild<QAction*>("simulationModeAction");
 
-    if (simulationMode) {
-        if (serialConnected) { // Jeśli port jest połączony, zamknij go
-            serialHandler->closePort();
-            serialConnected = false;
+    if (m_simulationMode) {
+        if (m_serialConnected) { // Jeśli port jest połączony, zamknij go
+            m_serialHandler->closePort();
+            m_serialConnected = false;
             qInfo() << "Serial port closed due to enabling simulation mode.";
         }
-        if (!loadedData.isEmpty()) {
-            if (gpsHandler) { // Zaktualizuj pozycję GPS na startową
-                 gpsHandler->updateMarker(BASE_LATITUDE_MW, BASE_LONGITUDE_MW);
+        if (!m_loadedData.isEmpty()) {
+            if (m_gpsHandler) { // Ustaw pozycję GPS na startową dla symulacji
+                 m_gpsHandler->updateMarker(BASE_LATITUDE_MW, BASE_LONGITUDE_MW);
             }
-            simulationTimer->start(SIMULATION_TIMER_INTERVAL_MS_MW);
+            m_simulationTimer->start(SIMULATION_TIMER_INTERVAL_MS_MW);
             qInfo() << "Simulation mode enabled. Timer started.";
         } else {
-            QMessageBox::warning(this, tr("Simulation Mode"), tr("Simulation mode enabled, but no simulation data loaded."));
-            qInfo() << "Simulation mode enabled, but no data loaded. Disabling simulation mode.";
-            simulationMode = false; // Cofnij zmianę, jeśli nie ma danych
+            QMessageBox::warning(this, tr("Simulation Mode Warning"), tr("Simulation mode enabled, but no simulation data is loaded. Please load data first."));
+            qInfo() << "Attempted to enable simulation mode, but no data loaded. Simulation mode remains disabled.";
+            m_simulationMode = false; // Cofnij zmianę, jeśli nie ma danych
         }
     } else { // Wyłączanie trybu symulacji
-        simulationTimer->stop();
+        m_simulationTimer->stop();
         qInfo() << "Simulation mode disabled. Timer stopped.";
     }
 
     if (simAction) { // Zaktualizuj stan zaznaczenia w menu
-        simAction->setChecked(simulationMode);
+        simAction->setChecked(m_simulationMode);
     }
 }
 
 void MainWindow::selectPort() {
-    QStringList ports;
-    const auto availablePorts = QSerialPortInfo::availablePorts();
-    for (const QSerialPortInfo &info : availablePorts) {
-        ports << info.portName();
+    QStringList portNames;
+    const auto availablePortsInfo = QSerialPortInfo::availablePorts();
+    for (const QSerialPortInfo &portInfo : availablePortsInfo) {
+        portNames << portInfo.portName();
     }
 
-    if (ports.isEmpty()) {
-        QMessageBox::warning(this, tr("No Ports"), tr("No serial ports available. Check connections and permissions."));
+    if (portNames.isEmpty()) {
+        QMessageBox::warning(this, tr("No Serial Ports"), tr("No serial ports were found on this system. Please check your hardware connections and drivers."));
         return;
     }
 
     bool ok;
-    QString port = QInputDialog::getItem(this, tr("Select Port"), tr("Available Ports:"), ports, 0, false, &ok);
+    QString selectedPortName = QInputDialog::getItem(this, tr("Select Serial Port"), tr("Available serial ports:"), portNames, 0, false, &ok);
 
-    if (ok && !port.isEmpty()) {
-        handlePortConnectionAttempt(port);
+    if (ok && !selectedPortName.isEmpty()) {
+        handlePortConnectionAttempt(selectedPortName);
     }
 }
 
 void MainWindow::showIMUHandler() {
-    if (stackedWidget && imuHandler) {
-        stackedWidget->setCurrentWidget(imuHandler);
-        qDebug() << "Switched view to IMU Handler";
+    if (m_stackedWidget && m_imuHandler) {
+        m_stackedWidget->setCurrentWidget(m_imuHandler);
+        qDebug() << "View switched to IMU Handler.";
     }
 }
 
 void MainWindow::showGPSHandler() {
-     if (stackedWidget && gpsHandler) {
-        stackedWidget->setCurrentWidget(gpsHandler);
-        qDebug() << "Switched view to GPS Handler";
+     if (m_stackedWidget && m_gpsHandler) {
+        m_stackedWidget->setCurrentWidget(m_gpsHandler);
+        qDebug() << "View switched to GPS Handler.";
     }
 }
 
 void MainWindow::updateSimulationData() {
-    if (serialConnected || !simulationMode || loadedData.isEmpty()) {
-        simulationTimer->stop(); // Zatrzymaj, jeśli nie jesteśmy w trybie symulacji lub nie ma danych
+    if (m_serialConnected || !m_simulationMode || m_loadedData.isEmpty()) {
+        // Jeśli nie jesteśmy w trybie symulacji, połączono port szeregowy, lub nie ma danych, zatrzymaj timer
+        if (m_simulationTimer->isActive()) {
+            m_simulationTimer->stop();
+            qDebug() << "Simulation timer stopped due to invalid state (not in sim mode, serial connected, or no data).";
+        }
         return;
     }
 
     if (checkSimulationEndAndUpdateState()) { // Sprawdź, czy symulacja się nie zakończyła
-        return;
+        return; // Jeśli tak, checkSimulationEndAndUpdateState już obsłużyło logikę
     }
 
-    const QVector<float> &currentFrameData = loadedData[currentDataIndex];
-    processImuData(currentFrameData);
-    updateSimulatedGPSMarker();
-    currentDataIndex++;
+    // Przetwórz bieżącą ramkę danych
+    const QVector<float> &currentFrameData = m_loadedData[m_currentDataIndex];
+    processImuData(currentFrameData);   // Przetwórz dane IMU
+    updateSimulatedGPSMarker();         // Zaktualizuj znacznik GPS (jeśli dotyczy)
+
+    m_currentDataIndex++; // Przejdź do następnej ramki
 }
 
 void MainWindow::handleSerialData(const QVector<float>& dataFromSerial) {
-    if (!serialConnected || simulationMode) { // Przetwarzaj tylko, gdy połączony i nie w symulacji
+    if (!m_serialConnected || m_simulationMode) {
+        // Ignoruj dane z portu szeregowego, jeśli nie jesteśmy połączeni lub jesteśmy w trybie symulacji
         return;
     }
-    processImuData(dataFromSerial);
+    processImuData(dataFromSerial); // Przetwórz dane IMU
+    // W trybie na żywo, dane GPS mogą pochodzić z tej samej ramki lub osobnego źródła.
+    // Tutaj zakładamy, że dane GPS nie są bezpośrednio w `dataFromSerial` w tym samym formacie co IMU
+    // lub są obsługiwane inaczej. Jeśli dane GPS są częścią `dataFromSerial`,
+    // dodaj odpowiednią logikę, np.:
+    // if (m_gpsHandler) {
+    //     double lat = ...; // Wyodrębnij z dataFromSerial
+    //     double lon = ...; // Wyodrębnij z dataFromSerial
+    //     m_gpsHandler->updateMarker(lat, lon);
+    // }
 }
