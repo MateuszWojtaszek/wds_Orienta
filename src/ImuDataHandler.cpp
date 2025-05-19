@@ -1,10 +1,13 @@
 /**
  * @file ImuDataHandler.cpp
  * @brief Implementacja metod klasy ImuDataHandler.
+ * @details Ten plik zawiera definicje funkcji składowych klasy `ImuDataHandler`,
+ * które odpowiadają za logikę działania interfejsu użytkownika,
+ * przetwarzanie danych IMU oraz konfigurację elementów wizualizacyjnych.
  */
 #include "ImuDataHandler.h"
-#include "SensorGraph.h"
-#include "Compass2DRenderer.h" // Dodano include dla kompasu 2D
+#include "SensorGraph.h"        // Wymagane dla wizualizacji wykresów
+#include "Compass2DRenderer.h"  // Wymagane dla wizualizacji kompasu 2D
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -19,27 +22,18 @@
 #include <QColor>
 #include <QVector3D>
 #include <QtMath>
-// QPainter nie jest bezpośrednio używany w tym pliku
 
-// Qt3D Includes - potrzebne dla modelu płytki
+// Inkluzje Qt3D dla modelu płytki
 #include <Qt3DCore/QEntity>
 #include <Qt3DCore/QTransform>
-#include <Qt3DCore/QComponent> // Może być potrzebny dla boardTransform
+#include <Qt3DCore/QComponent>
 #include <Qt3DRender/QCamera>
 #include <Qt3DRender/QCameraLens>
 #include <Qt3DRender/QDirectionalLight>
 #include <Qt3DRender/QSceneLoader>
-// #include <Qt3DRender/QMaterial> // Prawdopodobnie niepotrzebne, jeśli model DAE ma własne materiały
-// #include <Qt3DRender/QMesh> // Prawdopodobnie niepotrzebne
 #include <Qt3DExtras/Qt3DWindow>
 #include <Qt3DExtras/QForwardRenderer>
 #include <Qt3DExtras/QOrbitCameraController>
-// Usunięto Qt3DExtras, które były tylko dla kompasu 3D:
-// #include <Qt3DExtras/QPhongMaterial>
-// #include <Qt3DExtras/QTorusMesh>
-// #include <Qt3DExtras/QCuboidMesh>
-// #include <Qt3DExtras/QConeMesh>
-// #include <Qt3DExtras/QText2DEntity>
 
 
 ImuDataHandler::ImuDataHandler(QWidget *parent)
@@ -51,9 +45,9 @@ ImuDataHandler::ImuDataHandler(QWidget *parent)
       accGraph(nullptr), gyroGraph(nullptr), magGraph(nullptr),
       stackedWidget(nullptr),
       visualizationPanelWidget(nullptr),
-      view3DContainerWidget(nullptr), // Inicjalizacja kontenera widoku 3D
-      m_compass2DRenderer(nullptr), // Inicjalizacja wskaźnika kompasu 2D
-      boardTransform(nullptr), // Inicjalizacja transformacji modelu płytki
+      view3DContainerWidget(nullptr),
+      m_compass2DRenderer(nullptr),
+      boardTransform(nullptr),
       m_currentDataButton(nullptr),
       m_graphButton(nullptr),
       m_accGroupBox(nullptr),
@@ -61,7 +55,7 @@ ImuDataHandler::ImuDataHandler(QWidget *parent)
       m_magGroupBox(nullptr)
 {
     setupMainLayout();
-    setRange(0, 0); // Ustawienie domyślnych zakresów dla pasków/wykresów
+    setRange(0, 0); // Ustawienie domyślnych zakresów (funkcja obecnie ignoruje argumenty)
 }
 
 void ImuDataHandler::updateData(const QVector<int> &acc, const QVector<int> &gyro, const QVector<int> &mag) {
@@ -73,7 +67,10 @@ void ImuDataHandler::updateData(const QVector<int> &acc, const QVector<int> &gyr
         if (accYBar) accYBar->setFormat(QString::number(acc[1]));
         if (accZBar) accZBar->setFormat(QString::number(acc[2]));
         if (accGraph) accGraph->addData(acc);
+    } else if (!acc.isEmpty()) { // Log warning only if data was provided but was invalid
+        qWarning() << "Accelerometer data size is not 3. Expected [X, Y, Z]. Received size:" << acc.size();
     }
+
     if (gyro.size() == 3) {
         if (gyroXBar) gyroXBar->setValue(gyro[0]);
         if (gyroYBar) gyroYBar->setValue(gyro[1]);
@@ -82,7 +79,10 @@ void ImuDataHandler::updateData(const QVector<int> &acc, const QVector<int> &gyr
         if (gyroYBar) gyroYBar->setFormat(QString::number(gyro[1]));
         if (gyroZBar) gyroZBar->setFormat(QString::number(gyro[2]));
         if (gyroGraph) gyroGraph->addData(gyro);
+    } else if (!gyro.isEmpty()) {
+        qWarning() << "Gyroscope data size is not 3. Expected [X, Y, Z]. Received size:" << gyro.size();
     }
+
     if (mag.size() == 3) {
         if (magXBar) magXBar->setValue(mag[0]);
         if (magYBar) magYBar->setValue(mag[1]);
@@ -91,41 +91,66 @@ void ImuDataHandler::updateData(const QVector<int> &acc, const QVector<int> &gyr
         if (magYBar) magYBar->setFormat(QString::number(mag[1]));
         if (magZBar) magZBar->setFormat(QString::number(mag[2]));
         if (magGraph) magGraph->addData(mag);
+    } else if (!mag.isEmpty()) {
+        qWarning() << "Magnetometer data size is not 3. Expected [X, Y, Z]. Received size:" << mag.size();
     }
 }
 
 void ImuDataHandler::setSampleCount(int samples) {
-    currentSampleCount = qMax(10, samples); // Ograniczenie minimalnej liczby próbek
+    currentSampleCount = qMax(10, samples); // Minimalna liczba próbek to 10
     if (accGraph) accGraph->setSampleCount(currentSampleCount);
     if (gyroGraph) gyroGraph->setSampleCount(currentSampleCount);
     if (magGraph) magGraph->setSampleCount(currentSampleCount);
 }
 
 void ImuDataHandler::setRange(int minVal, int maxVal) {
-    // Ustawienie zakresów dla pasków postępu
-    if (accXBar) accXBar->setRange(-4000, 4000);
-    if (accYBar) accYBar->setRange(-4000, 4000);
-    if (accZBar) accZBar->setRange(-4000, 4000);
-    if (gyroXBar) gyroXBar->setRange(-250, 250);
-    if (gyroYBar) gyroYBar->setRange(-250, 250);
-    if (gyroZBar) gyroZBar->setRange(-250, 250);
-    if (magXBar) magXBar->setRange(-1600, 1600);
-    if (magYBar) magYBar->setRange(-1600, 1600);
-    if (magZBar) magZBar->setRange(-1600, 1600);
+    // Aktualne zakresy są stałe i zdefiniowane w tej metodzie.
+    // Argumenty minVal i maxVal są ignorowane.
+    const int accRangeVal = 4000;
+    const int gyroRangeVal = 250;
+    const int magRangeVal = 1600;
 
-    // Ustawienie zakresów dla wykresów
-    if (accGraph) accGraph->setYRange(-4000, 4000);
-    if (gyroGraph) gyroGraph->setYRange(-250, 250);
-    if (magGraph) magGraph->setYRange(-1600, 1600);
+    if (accXBar) accXBar->setRange(-accRangeVal, accRangeVal);
+    if (accYBar) accYBar->setRange(-accRangeVal, accRangeVal);
+    if (accZBar) accZBar->setRange(-accRangeVal, accRangeVal);
 
-    Q_UNUSED(minVal); // Parametry minVal i maxVal są obecnie ignorowane
-    Q_UNUSED(maxVal);
+    if (gyroXBar) gyroXBar->setRange(-gyroRangeVal, gyroRangeVal);
+    if (gyroYBar) gyroYBar->setRange(-gyroRangeVal, gyroRangeVal);
+    if (gyroZBar) gyroZBar->setRange(-gyroRangeVal, gyroRangeVal);
+
+    if (magXBar) magXBar->setRange(-magRangeVal, magRangeVal);
+    if (magYBar) magYBar->setRange(-magRangeVal, magRangeVal);
+    if (magZBar) magZBar->setRange(-magRangeVal, magRangeVal);
+
+    if (accGraph) accGraph->setYRange(-accRangeVal, accRangeVal);
+    if (gyroGraph) gyroGraph->setYRange(-gyroRangeVal, gyroRangeVal);
+    if (magGraph) magGraph->setYRange(-magRangeVal, magRangeVal);
+
+    Q_UNUSED(minVal); // Zaznaczenie, że parametr jest celowo nieużywany
+    Q_UNUSED(maxVal); // Zaznaczenie, że parametr jest celowo nieużywany
 }
 
 void ImuDataHandler::setRotation(float yaw, float pitch, float roll) {
+    // Konwersja kątów Eulera na kwaternion.
+    // Uwaga: Qt używa kolejności (pitch, yaw, roll) dla osi (X, Y, Z) w fromEulerAngles,
+    // co może być mylące. Jeśli 'yaw' ma być wokół osi Y, 'pitch' wokół X, 'roll' wokół Z,
+    // to kolejność (pitch, yaw, roll) jest poprawna dla (X, Y, Z).
+    // W dokumentacji funkcji jest: yaw (Z), pitch (X), roll (Y).
+    // Jeśli to jest docelowy układ, to powinno być: QQuaternion::fromEulerAngles(pitch, roll, yaw);
+    // Jednakże, jeśli kąty są już w układzie oczekiwanym przez model (np. Y-up),
+    // to (pitch, yaw, roll) jako (kąt wokół X, kąt wokół Y, kąt wokół Z) jest częstą konwencją.
+    // Aktualna implementacja: (pitch, yaw, roll) -> (obrót wokół X, obrót wokół Y, obrót wokół Z)
+    // Jeśli yaw to Z, pitch to X, roll to Y, to trzeba dostosować:
+    // QQuaternion rotation = QQuaternion::fromEulerAngles(pitch, roll, yaw); // (X, Y, Z)
+    // Aktualnie używana (pitch, yaw, roll) w funkcji setRotation w klasie,
+    // oznacza, że yaw jest drugim argumentem, więc odpowiada osi Y
     QQuaternion rotation = QQuaternion::fromEulerAngles(pitch, yaw, roll);
     if (boardTransform) {
         boardTransform->setRotation(rotation);
+    } else {
+        // qWarning() << "boardTransform is null in setRotation. Cannot set model rotation.";
+        // Opcjonalnie: można dodać logowanie, jeśli transformacja nie istnieje,
+        // ale może to generować dużo logów, jeśli model ładuje się asynchronicznie.
     }
 }
 
@@ -146,22 +171,22 @@ void ImuDataHandler::showGraph() {
 }
 
 void ImuDataHandler::setupMainLayout() {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this); // Główny layout pionowy
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    QWidget *buttonPanel = createButtonPanel(); // Panel z przyciskami wyboru widoku
-    QWidget *leftPanel = createLeftPanel();     // Lewy panel (dane bieżące/wykresy)
-    setupVisualizationPanel();                  // Prawy panel (wizualizacje 3D/2D)
+    QWidget *buttonPanel = createButtonPanel();
+    QWidget *leftPanel = createLeftPanel();
+    setupVisualizationPanel(); // Prawy panel (wizualizacje 3D/2D)
 
-    QHBoxLayout *contentLayout = new QHBoxLayout(); // Layout dla lewego i prawego panelu
-    contentLayout->addWidget(leftPanel, 1);         // Lewy panel zajmuje 1 część
+    QHBoxLayout *contentLayout = new QHBoxLayout();
+    contentLayout->addWidget(leftPanel, 1); // Lewy panel zajmuje 1 część wagową
     if (visualizationPanelWidget) {
-        contentLayout->addWidget(visualizationPanelWidget, 1); // Prawy panel zajmuje 1 część
+        contentLayout->addWidget(visualizationPanelWidget, 1); // Prawy panel zajmuje 1 część wagową
     } else {
-        qWarning() << "Visualization panel widget is null after setup!";
+        qWarning() << "Visualization panel widget is null after setupVisualizationPanel call!";
     }
 
-    mainLayout->addWidget(buttonPanel);  // Dodanie panelu przycisków na górze
-    mainLayout->addLayout(contentLayout); // Dodanie paneli treści
+    mainLayout->addWidget(buttonPanel);
+    mainLayout->addLayout(contentLayout);
 
     if (stackedWidget) stackedWidget->setCurrentIndex(0); // Domyślnie pokaż dane bieżące
     setLayout(mainLayout);
@@ -187,12 +212,12 @@ QWidget *ImuDataHandler::createButtonPanel() {
 QWidget *ImuDataHandler::createLeftPanel() {
     QWidget *leftPanelWidget = new QWidget(this);
     QVBoxLayout *leftPanelLayout = new QVBoxLayout(leftPanelWidget);
-    leftPanelLayout->setContentsMargins(0, 0, 0, 0); // Usunięcie marginesów
+    leftPanelLayout->setContentsMargins(0, 0, 0, 0);
 
-    QWidget *barWidget = createBarDisplayWidget();   // Widget z paskami postępu
-    QWidget *graphWidget = createGraphDisplayWidget(); // Widget z wykresami
+    QWidget *barWidget = createBarDisplayWidget();
+    QWidget *graphWidget = createGraphDisplayWidget();
 
-    stackedWidget = new QStackedWidget(leftPanelWidget); // Widget do przełączania widoków
+    stackedWidget = new QStackedWidget(leftPanelWidget);
     stackedWidget->addWidget(barWidget);
     stackedWidget->addWidget(graphWidget);
 
@@ -205,7 +230,7 @@ QWidget *ImuDataHandler::createBarDisplayWidget() {
     QWidget *barWidget = new QWidget(this);
     QVBoxLayout *barLayout = new QVBoxLayout(barWidget);
 
-    // Funkcja pomocnicza do tworzenia grupy pasków postępu
+    // Funkcja pomocnicza lambda do tworzenia grupy pasków postępu
     auto addBarGroup = [&](const QString &titleKey, QGroupBox *&groupBoxMemberRef, QProgressBar *&x, QProgressBar *&y, QProgressBar *&z, int range) {
         groupBoxMemberRef = new QGroupBox(tr(qPrintable(titleKey)), barWidget);
         QVBoxLayout *groupLayout = new QVBoxLayout(groupBoxMemberRef);
@@ -216,15 +241,13 @@ QWidget *ImuDataHandler::createBarDisplayWidget() {
             row->setContentsMargins(0,0,0,0);
 
             QLabel *axisLabel = new QLabel(axis, rowWidget);
-            axisLabel->setFixedWidth(20); // Stała szerokość etykiety osi
+            axisLabel->setFixedWidth(20);
 
             bar = new QProgressBar(rowWidget);
             bar->setRange(-range, range);
             bar->setValue(0);
-            bar->setTextVisible(true); // Pokaż tekst na pasku
-            // Domyślny format dla paska, aktualizowany w updateData
-            bar->setFormat(QString::number(0));
-
+            bar->setTextVisible(true);
+            bar->setFormat(QString::number(0)); // Domyślny format, aktualizowany w updateData
 
             QWidget* labelsWidget = new QWidget(rowWidget);
             QVBoxLayout *barWithLabelsLayout = new QVBoxLayout(labelsWidget);
@@ -242,7 +265,7 @@ QWidget *ImuDataHandler::createBarDisplayWidget() {
             barWithLabelsLayout->addWidget(bar);
 
             row->addWidget(axisLabel);
-            row->addWidget(labelsWidget); // Dodanie widgetu z paskiem i etykietami zakresu
+            row->addWidget(labelsWidget);
             groupLayout->addWidget(rowWidget);
         };
 
@@ -264,13 +287,15 @@ QWidget *ImuDataHandler::createBarDisplayWidget() {
 QWidget *ImuDataHandler::createGraphDisplayWidget() {
     QWidget *graphWidget = new QWidget(this);
     QVBoxLayout *graphLayout = new QVBoxLayout(graphWidget);
-    graphLayout->setContentsMargins(5, 5, 5, 5); // Niewielkie marginesy wewnętrzne
+    graphLayout->setContentsMargins(5, 5, 5, 5);
 
+    // Tworzenie wykresów z odpowiednimi tytułami i zakresami
     accGraph = new SensorGraph(tr("Accelerometer [mg]"), -4000, 4000, graphWidget);
     gyroGraph = new SensorGraph(tr("Gyroscope [dps]"), -250, 250, graphWidget);
     magGraph  = new SensorGraph(tr("Magnetometer [mG]"), -1600, 1600, graphWidget);
 
-    setSampleCount(this->currentSampleCount); // Ustawienie liczby próbek dla nowo utworzonych wykresów
+    // Ustawienie liczby próbek dla nowo utworzonych wykresów
+    setSampleCount(this->currentSampleCount);
 
     graphLayout->addWidget(accGraph);
     graphLayout->addWidget(gyroGraph);
@@ -281,7 +306,6 @@ QWidget *ImuDataHandler::createGraphDisplayWidget() {
 }
 
 void ImuDataHandler::setupVisualizationPanel() {
-    // Tworzenie kontenera dla widoku 3D płytki, jeśli jeszcze nie istnieje
     if (!view3DContainerWidget) {
         view3DContainerWidget = create3DView();
         if(view3DContainerWidget) {
@@ -289,29 +313,23 @@ void ImuDataHandler::setupVisualizationPanel() {
         }
     }
 
-    // Tworzenie widgetu kompasu 2D, jeśli jeszcze nie istnieje
     if (!m_compass2DRenderer) {
         m_compass2DRenderer = new Compass2DRenderer(this);
         m_compass2DRenderer->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        // Można ustawić preferowany lub minimalny rozmiar, np.
-        m_compass2DRenderer->setMinimumSize(150, 150);
-        // Compass2DRenderer używa sizeHint, więc to powinno wystarczyć
+        m_compass2DRenderer->setMinimumSize(150, 150); // Minimalny rozsądny rozmiar dla kompasu
     }
 
-    // Tworzenie głównego widgetu panelu wizualizacji, jeśli jeszcze nie istnieje
     if (!visualizationPanelWidget) {
         visualizationPanelWidget = new QWidget(this);
         QVBoxLayout *visualizationLayout = new QVBoxLayout(visualizationPanelWidget);
-        visualizationLayout->setSpacing(5); // Odstęp między elementami
+        visualizationLayout->setSpacing(5);
         visualizationLayout->setContentsMargins(0, 0, 0, 0);
 
         if (view3DContainerWidget) {
-            // Widok 3D płytki zajmuje więcej miejsca
-            visualizationLayout->addWidget(view3DContainerWidget, 2); // Stretch factor 2
+            visualizationLayout->addWidget(view3DContainerWidget, 2); // Widok 3D zajmuje więcej miejsca (stretch factor 2)
         }
         if (m_compass2DRenderer) {
-            // Kompas 2D zajmuje mniej miejsca
-            visualizationLayout->addWidget(m_compass2DRenderer, 1); // Stretch factor 1
+            visualizationLayout->addWidget(m_compass2DRenderer, 1);   // Kompas 2D zajmuje mniej miejsca (stretch factor 1)
         }
         visualizationPanelWidget->setLayout(visualizationLayout);
         visualizationPanelWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -319,61 +337,59 @@ void ImuDataHandler::setupVisualizationPanel() {
 }
 
 QWidget *ImuDataHandler::create3DView() {
-    auto *view = new Qt3DExtras::Qt3DWindow();
+    Qt3DExtras::Qt3DWindow *view = new Qt3DExtras::Qt3DWindow();
     view->defaultFrameGraph()->setClearColor(QColor(QRgb(0x4d4d4f))); // Ciemnoszary kolor tła
-    auto *container = QWidget::createWindowContainer(view, this);
-    container->setFocusPolicy(Qt::StrongFocus); // Umożliwia interakcję z kamerą
+    QWidget *container = QWidget::createWindowContainer(view, this);
+    container->setFocusPolicy(Qt::StrongFocus);
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-
-    auto *rootEntity = new Qt3DCore::QEntity();
-    setupCameraAndController3D(view, rootEntity); // Konfiguracja kamery i kontrolera
-    setupLighting3D(rootEntity);                  // Konfiguracja oświetlenia sceny
-    setupModelLoader3D(rootEntity);               // Ładowanie modelu 3D
+    Qt3DCore::QEntity *rootEntity = new Qt3DCore::QEntity();
+    setupCameraAndController3D(view, rootEntity);
+    setupLighting3D(rootEntity);
+    setupModelLoader3D(rootEntity);
 
     view->setRootEntity(rootEntity);
     return container;
 }
 
 void ImuDataHandler::setupCameraAndController3D(Qt3DExtras::Qt3DWindow *view, Qt3DCore::QEntity *rootEntity) {
-    auto *camera = view->camera();
-    camera->lens()->setPerspectiveProjection(45.0f, 16.0f / 9.0f, 0.1f, 1000.0f); // Ustawienia projekcji
-    camera->setPosition(QVector3D(1.5f, 1.5f, 1.5f)); // Pozycja kamery
-    camera->setUpVector(QVector3D(0, 1, 0));          // Orientacja "góry" kamery
-    camera->setViewCenter(QVector3D(0, 0, 0));        // Punkt, na który patrzy kamera
+    Qt3DRender::QCamera *camera = view->camera();
+    camera->lens()->setPerspectiveProjection(45.0f, 16.0f / 9.0f, 0.1f, 1000.0f);
+    camera->setPosition(QVector3D(1.5f, 1.5f, 1.5f)); // Pozycja kamery nieco oddalona
+    camera->setUpVector(QVector3D(0, 1, 0));         // Oś Y jako "góra"
+    camera->setViewCenter(QVector3D(0, 0, 0));       // Kamera patrzy na środek sceny
 
-    auto *controller = new Qt3DExtras::QOrbitCameraController(rootEntity); // Kontroler kamery orbitalnej
+    Qt3DExtras::QOrbitCameraController *controller = new Qt3DExtras::QOrbitCameraController(rootEntity);
+    controller->setLinearSpeed(50.0f); // Dostosowanie prędkości kamery
+    controller->setLookSpeed(180.0f);
     controller->setCamera(camera);
 }
 
 void ImuDataHandler::setupLighting3D(Qt3DCore::QEntity *rootEntity) {
-    auto *lightEntity = new Qt3DCore::QEntity(rootEntity); // Encja dla światła
-    auto *light = new Qt3DRender::QDirectionalLight(lightEntity); // Światło kierunkowe
-    light->setWorldDirection(QVector3D(-1, -1, -1)); // Kierunek padania światła
+    Qt3DCore::QEntity *lightEntity = new Qt3DCore::QEntity(rootEntity);
+    Qt3DRender::QDirectionalLight *light = new Qt3DRender::QDirectionalLight(lightEntity);
+    light->setWorldDirection(QVector3D(-1, -1, -1)); // Kierunek światła
     light->setColor(Qt::white);
     light->setIntensity(1.0f);
     lightEntity->addComponent(light);
 }
 
 void ImuDataHandler::setupModelLoader3D(Qt3DCore::QEntity *rootEntity) {
-    auto *modelEntity = new Qt3DCore::QEntity(rootEntity); // Encja dla modelu
-    auto *loader = new Qt3DRender::QSceneLoader(modelEntity);  // Komponent do ładowania sceny/modelu
+    Qt3DCore::QEntity *modelEntity = new Qt3DCore::QEntity(rootEntity);
+    Qt3DRender::QSceneLoader *loader = new Qt3DRender::QSceneLoader(modelEntity);
 
-    // Połączenie sygnału statusChanged, aby przetworzyć załadowany model
     connect(loader, &Qt3DRender::QSceneLoader::statusChanged, this,
             [this, loader, modelEntity](Qt3DRender::QSceneLoader::Status status) {
                 if (status == Qt3DRender::QSceneLoader::Ready) {
-                    const auto &childEntities = loader->entities(); // Pobranie encji ze sceny
+                    const auto &childEntities = loader->entities();
                     if (!childEntities.isEmpty()) {
                         Qt3DCore::QEntity *sceneRootEntity = childEntities.first();
                         if (!sceneRootEntity) return;
 
-                        // Utworzenie i przypisanie transformacji do głównej encji modelu,
-                        // jeśli jeszcze nie została przypisana.
                         if (!this->boardTransform) {
                             this->boardTransform = new Qt3DCore::QTransform();
                         }
-                        // Sprawdzenie, czy komponent transformacji już istnieje
+
                         bool alreadyHasTransform = false;
                         for(Qt3DCore::QComponent *comp : sceneRootEntity->components()){
                             if(dynamic_cast<Qt3DCore::QTransform*>(comp) == this->boardTransform){
@@ -382,33 +398,27 @@ void ImuDataHandler::setupModelLoader3D(Qt3DCore::QEntity *rootEntity) {
                             }
                         }
                         if(!alreadyHasTransform){
-                             // Jeśli model ma już swoją transformację, można ją pobrać
-                             // Qt3DCore::QTransform *existingTransform = sceneRootEntity->property("transform").value<Qt3DCore::QTransform*>();
-                             // if (existingTransform) { this->boardTransform = existingTransform; }
-                             // else { sceneRootEntity->addComponent(this->boardTransform); }
-                             // Bezpieczniej jest dodać naszą, jeśli chcemy nią sterować z zewnątrz.
-                             // Jeśli chcemy zachować oryginalną transformację modelu i na niej operować,
-                             // trzeba by ją znaleźć i przypisać do boardTransform.
-                             // Na razie zakładamy, że dodajemy nową lub przejmujemy kontrolę.
-                            sceneRootEntity->addComponent(this->boardTransform);
+                             // Jeśli model ma własną transformację, można ją pobrać i używać,
+                             // ale dodanie naszej transformacji daje pewniejszą kontrolę.
+                             sceneRootEntity->addComponent(this->boardTransform);
                         }
-                         // Przeskalowanie i ewentualne początkowe obrócenie modelu, jeśli potrzeba
-                         // this->boardTransform->setScale3D(QVector3D(0.1f, 0.1f, 0.1f)); // Przykład skalowania
-                         // this->boardTransform->setRotationX(90); // Przykład obrotu
+                        // Przykładowe początkowe ustawienia transformacji, jeśli potrzebne
+                        // this->boardTransform->setScale3D(QVector3D(0.05f, 0.05f, 0.05f));
+                        // this->boardTransform->setRotationX(90);
                     } else {
                         qWarning() << "SceneLoader: No entities found after loading model from" << loader->source();
                     }
                 } else if (status == Qt3DRender::QSceneLoader::Error) {
-                     qWarning() << "Failed to load model:" << loader->source();
+                     qWarning() << "Failed to load 3D model:" << loader->source();
                 }
             });
 
-    // Ustawienie źródła modelu (ścieżka do pliku .dae, .gltf, .obj itp.)
-    // PAMIĘTAJ o zmianie ścieżki na poprawną dla Twojego systemu!
+    // WAŻNE: Zmień ścieżkę na poprawną lokalizację pliku modelu 3D w Twoim systemie
+    // lub użyj ścieżki zasobów Qt (qrc:/).
     loader->setSource(QUrl::fromLocalFile("/Users/mateuszwojtaszek/projekty/wds_Orienta/ESP32.dae"));
-    // loader->setSource(QUrl("qrc:/models/ESP32.dae")); // Jeśli używasz zasobów Qt
+    //loader->setSource(QUrl("qrc:/models/ESP32.dae")); // Przykład użycia zasobów Qt
 
-    modelEntity->addComponent(loader); // Dodanie komponentu ładowarki do encji modelu
+    modelEntity->addComponent(loader);
 }
 
 
@@ -420,7 +430,6 @@ void ImuDataHandler::retranslateUi() {
         m_graphButton->setText(tr("Graph"));
     }
 
-    // Tłumaczenie tytułów GroupBoxów dla pasków postępu
     if (m_accGroupBox) {
         m_accGroupBox->setTitle(tr("Accelerometer [mg]"));
     }
@@ -431,12 +440,10 @@ void ImuDataHandler::retranslateUi() {
         m_magGroupBox->setTitle(tr("Magnetometer [mG]"));
     }
 
-    // Tłumaczenie tytułów wykresów (jeśli SensorGraph ma taką metodę)
-    if (accGraph) accGraph->retranslateUi(); // Zakładając, że SensorGraph::retranslateUi() istnieje
+    // Zakładając, że SensorGraph ma metodę retranslateUi do aktualizacji swojego tytułu
+    if (accGraph) accGraph->retranslateUi();
     if (gyroGraph) gyroGraph->retranslateUi();
     if (magGraph) magGraph->retranslateUi();
 
-    // Compass2DRenderer nie ma metody retranslateUi, jego teksty (N,E,S,W) są stałe
-    // i nie są ustawiane przez tr(). Jeśli w przyszłości Compass2DRenderer
-    // będzie miał tłumaczone elementy, trzeba będzie dodać jego retranslację.
+    // Compass2DRenderer nie przechowuje tekstów do tłumaczenia, więc pomijamy.
 }

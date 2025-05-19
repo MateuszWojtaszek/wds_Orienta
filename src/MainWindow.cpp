@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     createMenus(); // Utworzenie menu aplikacji
 
-    // showFullScreen(); // Opcjonalnie, jeśli aplikacja ma startować w trybie pełnoekranowym
+    showFullScreen(); // Opcjonalnie, jeśli aplikacja ma startować w trybie pełnoekranowym
 
     // Połączenie sygnałów wewnętrznych
     connect(this, &MainWindow::switchToIMU, this, &MainWindow::showIMUHandler);
