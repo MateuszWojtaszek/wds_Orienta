@@ -1,8 +1,8 @@
 /**
  * @file SensorGraph.h
- * @brief Definiuje klasę SensorGraph do wyświetlania danych z czujników na wykresie. [cite: 17]
+ * @brief Definiuje klasę SensorGraph do wyświetlania danych z czujników na wykresie.
  * @details Ten plik zawiera deklarację klasy SensorGraph, która rozszerza QChartView
- * i jest przeznaczona do wizualizacji danych telemetrycznych (np. z akcelerometru, żyroskopu)
+ * i jest przeznaczona do wizualizacji danych telemetrycznych (np. z akcelerometru, żyroskopu, magnetometru)
  * w czasie rzeczywistym. Klasa obsługuje dynamiczne dodawanie danych dla trzech
  * osobnych kanałów (np. osie X, Y, Z), automatyczne przesuwanie osi czasu
  * oraz zarządzanie liczbą wyświetlanych próbek.
@@ -90,10 +90,10 @@ public:
     void retranslateUi();
 
 private:
-    QList<QLineSeries *> m_seriesList;      ///< Lista wskaźników na trzy serie danych (X, Y, Z).
-    int m_maxSampleCount;                   ///< Maksymalna liczba wyświetlanych punktów na serii.
-    qint64 m_currentSampleIndex;            ///< Bieżący indeks próbki (wartość na osi X).
-    QString m_baseTitleKey;                 ///< Klucz tłumaczenia dla głównego tytułu wykresu.
+    QList<QLineSeries *> m_seriesList; ///< Lista wskaźników na trzy serie danych (X, Y, Z).
+    int m_maxSampleCount; ///< Maksymalna liczba wyświetlanych punktów na serii.
+    qint64 m_currentSampleIndex; ///< Bieżący indeks próbki (wartość na osi X).
+    QString m_baseTitleKey; ///< Klucz tłumaczenia dla głównego tytułu wykresu.
 };
 
 #endif // SENSORGRAPH_H

@@ -1,140 +1,147 @@
+/**
+ * @file Compass2DRenderer.cpp
+ * @brief Implementacja metod klasy Compass2DRenderer.
+ * @details Ten plik zawiera logikę konstruktora, ustawiania kursu oraz
+ * algorytm rysowania poszczególnych elementów kompasu w metodzie `paintEvent`.
+ */
+
 #include "Compass2DRenderer.h"
 #include <QPainter>
 #include <QtMath> // Dla qDegreesToRadians, qSin, qCos, fmod
 #include <QPen>
 #include <QBrush>
 #include <QFont>
-#include <QPointF>
+#include <QPointF> // Dla QPointF używanego w QPolygonF
 
 Compass2DRenderer::Compass2DRenderer(QWidget *parent)
     : QWidget(parent),
-      m_heading(0.0f),
-      m_backgroundColor(QRgb(0x3B3B3B)),
-      m_borderColor(Qt::darkGray),
-      m_textColor(Qt::white),
-      m_needleNorthColor(Qt::red),
-      m_needleSouthColor(Qt::lightGray) // Jaśniejszy szary dla lepszego kontrastu
+      m_heading(0.0f), // Domyślnie na północ
+      m_backgroundColor(QRgb(0x3B3B3B)), // Ciemnoszary
+      m_borderColor(Qt::darkGray), // Ciemniejszy szary dla krawędzi
+      m_textColor(Qt::white), // Biały tekst dla kontrastu
+      m_needleNorthColor(Qt::red), // Czerwona część północna igły
+      m_needleSouthColor(Qt::lightGray) // Jasnoszara część południowa igły
 {
+    // Ustawienie polityki rozmiaru, aby widget mógł się rozciągać
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setMinimumSize(100, 100); // Zmniejszony minimalny rozmiar
-    // setAttribute(Qt::WA_OpaquePaintEvent); // Może pomóc w wydajności, jeśli tło jest zawsze w pełni kryjące
+    // Ustawienie minimalnego rozmiaru, aby kompas był zawsze czytelny
+    setMinimumSize(100, 100);
+    // Można rozważyć Qt::WA_OpaquePaintEvent dla optymalizacji, jeśli tło jest zawsze w pełni kryjące
+    // setAttribute(Qt::WA_OpaquePaintEvent);
 }
 
-void Compass2DRenderer::setHeading(float newHeading)
-{
+void Compass2DRenderer::setHeading(float newHeading) {
+    // Normalizacja kursu do zakresu [0, 360)
     float normalizedHeading = fmod(newHeading, 360.0f);
     if (normalizedHeading < 0) {
         normalizedHeading += 360.0f;
     }
 
+    // Aktualizuj i przerysuj tylko jeśli wartość faktycznie się zmieniła
+    // (qFuzzyCompare dla uniknięcia problemów z precyzją float)
     if (qFuzzyCompare(m_heading, normalizedHeading))
         return;
 
     m_heading = normalizedHeading;
-    update();
+    update(); // Żądanie odświeżenia widgetu
 }
 
-QSize Compass2DRenderer::sizeHint() const
-{
-    return QSize(180, 180); // Nieco mniejszy preferowany rozmiar
+QSize Compass2DRenderer::sizeHint() const {
+    // Sugerowany, preferowany rozmiar widgetu
+    return QSize(180, 180);
 }
 
-QSize Compass2DRenderer::minimumSizeHint() const
-{
+QSize Compass2DRenderer::minimumSizeHint() const {
+    // Minimalny rozsądny rozmiar widgetu
     return QSize(80, 80);
 }
 
-void Compass2DRenderer::paintEvent(QPaintEvent *event)
-{
-    Q_UNUSED(event);
+void Compass2DRenderer::paintEvent(QPaintEvent *event) {
+    Q_UNUSED(event); // Zaznaczenie, że parametr event nie jest używany w tej funkcji
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::Antialiasing); // Włączenie antyaliasingu dla gładszych krawędzi
 
-    int side = qMin(width(), height());
-    painter.translate(width() / 2.0, height() / 2.0);
-    painter.scale(side / 200.0, side / 200.0); // Rysowanie w przestrzeni -100 do 100
+    int side = qMin(width(), height()); // Użyj mniejszego wymiaru jako bazę dla skalowania
+    painter.translate(width() / 2.0, height() / 2.0); // Przesunięcie środka układu współrzędnych do środka widgetu
+    // Skalowanie, aby rysować w wirtualnej przestrzeni o boku 200 jednostek (od -100 do 100)
+    painter.scale(side / 200.0, side / 200.0);
 
-    // Tarcza
-    painter.setPen(QPen(m_borderColor, 2)); // Grubsza krawędź
-    painter.setBrush(m_backgroundColor);
-    painter.drawEllipse(QRectF(-98, -98, 196, 196));
+    // Rysowanie tarczy kompasu
+    painter.setPen(QPen(m_borderColor, 2)); // Ustawienie grubszego pióra dla krawędzi tarczy
+    painter.setBrush(m_backgroundColor); // Ustawienie koloru wypełnienia tarczy
+    painter.drawEllipse(QRectF(-98, -98, 196, 196)); // Tarcza nieco mniejsza niż 100, aby krawędź była widoczna
 
-    // Kreski co 30 stopni i co 10 stopni
-    painter.setPen(m_borderColor);
+    // Rysowanie kresek (podziałki) na tarczy
+    painter.setPen(m_borderColor); // Domyślny kolor dla kresek
     for (int i = 0; i < 360; i += 10) {
-        painter.save();
-        painter.rotate(i);
-        if (i % 30 == 0) {
-            painter.drawLine(0, -98, 0, -88); // Dłuższe kreski co 30 stopni
-            if (i % 90 == 0) { // Jeszcze dłuższe dla głównych kierunków
-                 painter.setPen(QPen(m_textColor, 2)); // Wyróżnienie głównych kierunków
-                 painter.drawLine(0, -98, 0, -82);
-                 painter.setPen(m_borderColor); // Powrót do domyślnego pena dla kresek
-            }
+        // Kreski co 10 stopni
+        painter.save(); // Zapisanie aktualnego stanu transformacji
+        painter.rotate(i); // Obrót układu współrzędnych
+        if (i % 90 == 0) {
+            // Główne kierunki (N, E, S, W) - najdłuższe kreski
+            painter.setPen(QPen(m_textColor, 2)); // Wyróżnienie głównych kierunków
+            painter.drawLine(0, -98, 0, -82);
+            painter.setPen(m_borderColor); // Przywrócenie domyślnego pióra
+        } else if (i % 30 == 0) {
+            // Kreski co 30 stopni - średniej długości
+            painter.drawLine(0, -98, 0, -88);
         } else {
-            painter.drawLine(0, -98, 0, -93); // Krótsze kreski co 10 stopni
+            // Kreski co 10 stopni - najkrótsze
+            painter.drawLine(0, -98, 0, -93);
         }
-        painter.restore();
+        painter.restore(); // Przywrócenie poprzedniego stanu transformacji
     }
 
-
-    // Tekst (N, E, S, W)
+    // Rysowanie oznaczeń tekstowych (N, E, S, W)
     painter.setPen(m_textColor);
-    QFont labelFont = font();
-    labelFont.setPixelSize(qMax(10, side / 16)); // Nieco mniejsza, ale nadal skalowalna
+    QFont labelFont = font(); // Pobranie domyślnej czcionki widgetu
+    // Dynamiczne skalowanie rozmiaru czcionki, z minimum 10px
+    labelFont.setPixelSize(qMax(10, qRound(side / 16.0)));
     painter.setFont(labelFont);
 
-    const int textOffset = 30; // Odstęp tekstu od krawędzi tarczy (w jednostkach -100 do 100)
-    // Rysowanie tekstu na okręgu, obracając układ współrzędnych
+    const int textRadius = 70; // Promień, na którym umieszczone będą teksty (w jednostkach -100 do 100)
     // N
-    painter.save();
-    painter.rotate(0); // Dla "N"
-    painter.drawText(QRectF(-20, -98 + textOffset - labelFont.pixelSize()/2 , 40, labelFont.pixelSize()), Qt::AlignCenter, "N");
-    painter.restore();
+    painter.drawText(QRectF(-15, -textRadius - labelFont.pixelSize() / 2, 30, labelFont.pixelSize()), Qt::AlignCenter,
+                     "N");
     // E
-    painter.save();
-    painter.rotate(90); // Dla "E"
-    painter.drawText(QRectF(-20, -98 + textOffset - labelFont.pixelSize()/2 , 40, labelFont.pixelSize()), Qt::AlignCenter, "E");
-    painter.restore();
+    painter.drawText(QRectF(textRadius - labelFont.pixelSize() / 2, -15, labelFont.pixelSize(), 30), Qt::AlignCenter,
+                     "E");
     // S
-    painter.save();
-    painter.rotate(180); // Dla "S"
-    painter.drawText(QRectF(-20, -98 + textOffset - labelFont.pixelSize()/2 , 40, labelFont.pixelSize()), Qt::AlignCenter, "S");
-    painter.restore();
+    painter.drawText(QRectF(-15, textRadius - labelFont.pixelSize() / 2, 30, labelFont.pixelSize()), Qt::AlignCenter,
+                     "S");
     // W
-    painter.save();
-    painter.rotate(270); // Dla "W"
-    painter.drawText(QRectF(-20, -98 + textOffset - labelFont.pixelSize()/2 , 40, labelFont.pixelSize()), Qt::AlignCenter, "W");
-    painter.restore();
+    painter.drawText(QRectF(-textRadius - labelFont.pixelSize() / 2, -15, labelFont.pixelSize(), 30), Qt::AlignCenter,
+                     "W");
 
 
-    // Igła kompasu
-    painter.save();
-    painter.rotate(m_heading);
+    // Rysowanie igły kompasu
+    painter.save(); // Zapisanie stanu przed obrotem dla igły
+    painter.rotate(m_heading); // Obrót układu współrzędnych zgodnie z aktualnym kursem
 
-    // Kształt igły (Północ - czerwona, Południe - szara)
+    // Definicja kształtu północnej części igły
     QPolygonF needleNorthPoly;
-    needleNorthPoly << QPointF(0, -85)      // Czupek
-                    << QPointF(-8, -70)   // Lewa podstawa
-                    << QPointF(0, -60)    // Punkt centralny (opcjonalnie, dla "grubości")
-                    << QPointF(8, -70);   // Prawa podstawa
+    needleNorthPoly << QPointF(0, -80) // Wierzchołek
+            << QPointF(-7, -65) // Lewa podstawa
+            << QPointF(0, -55) // Środek podstawy (dla kształtu)
+            << QPointF(7, -65); // Prawa podstawa
 
+    // Definicja kształtu południowej części igły
     QPolygonF needleSouthPoly;
-    needleSouthPoly << QPointF(0, 85)       // Czupek
-                    << QPointF(-8, 70)    // Lewa podstawa
-                    << QPointF(0, 60)     // Punkt centralny
-                    << QPointF(8, 70);    // Prawa podstawa
+    needleSouthPoly << QPointF(0, 80) // Wierzchołek
+            << QPointF(-7, 65) // Lewa podstawa
+            << QPointF(0, 55) // Środek podstawy
+            << QPointF(7, 65); // Prawa podstawa
 
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(m_needleNorthColor);
+    painter.setPen(Qt::NoPen); // Brak krawędzi dla igły
+    painter.setBrush(m_needleNorthColor); // Kolor wypełnienia północnej części
     painter.drawConvexPolygon(needleNorthPoly);
 
-    painter.setBrush(m_needleSouthColor);
+    painter.setBrush(m_needleSouthColor); // Kolor wypełnienia południowej części
     painter.drawConvexPolygon(needleSouthPoly);
 
-    // Centralny okrąg
-    painter.setBrush(Qt::darkRed); // Ciemniejszy niż igła
+    // Centralny okrąg na igle (oś obrotu)
+    painter.setBrush(m_needleNorthColor.darker(150)); // Ciemniejszy niż igła, np. ciemnoczerwony
     painter.drawEllipse(QRectF(-6, -6, 12, 12));
 
-    painter.restore();
+    painter.restore(); // Przywrócenie stanu sprzed rysowania igły
 }

@@ -4,9 +4,10 @@
  * @details Plik zawiera deklarację klasy SerialPortHandler, która jest odpowiedzialna za zarządzanie
  * operacjami portu szeregowego, takimi jak otwieranie, zamykanie, odczytywanie i parsowanie
  * danych przy użyciu QSerialPort z biblioteki Qt. Obsługuje format danych CSV i sygnalizuje błędy komunikacji.
- * @author [Twoje Imię/Nazwa Organizacji]
- * @date [Data Utworzenia/Ostatniej Głównej Poprawki, np. 19 maja 2025]
+ * @author Mateusz Wojtaszek
+ * @date 2025-05-19
  * @version 1.0
+ * @bug Brak znanych błędów.
  *
  * @note Ta klasa opiera się na frameworku Qt, w szczególności na QSerialPort.
  */
@@ -30,7 +31,6 @@
  * - Emitowanie sygnałów o nowych danych i błędach komunikacji, wykorzystując mechanizm sygnałów i slotów Qt.
  *
  * @example SerialPortUsage_PL.cpp
- * To jest przykład użycia klasy SerialPortHandler:
  */
 class SerialPortHandler : public QObject {
     Q_OBJECT

@@ -6,7 +6,8 @@
  * pracy (symulacja, odczyt na żywo), inicjalizację komponentów obsługujących
  * dane z sensorów oraz komunikację.
  * @author Mateusz Wojtaszek
- * @date 2025-05-19
+ * @date 2025-04-19
+ * @bug Brak znanych błędów.
  * @version 1.0
  */
 #ifndef MAINWINDOW_H
@@ -37,7 +38,6 @@ class SerialPortHandler;
  * @note Ścieżki do plików konfiguracyjnych (np. plik symulacji, pliki tłumaczeń)
  * są obecnie zdefiniowane w pliku implementacji (`.cpp`).
  * @example MainWindowUsage_PL.cpp
- * Poniżej znajduje się przykład podstawowego użycia (inicjalizacji) klasy MainWindow w funkcji main:
  */
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -126,7 +126,7 @@ private slots:
      * Przekazuje odebrane dane do przetworzenia, o ile aplikacja nie jest w trybie symulacji.
      * @param dataFromSerial [in] Wektor sparsowanych wartości zmiennoprzecinkowych z portu szeregowego.
      */
-    void handleSerialData(const QVector<float>& dataFromSerial);
+    void handleSerialData(const QVector<float> &dataFromSerial);
 
 private:
     /**
@@ -150,7 +150,7 @@ private:
      * @param pathToSimulationFile [in] Ścieżka do pliku z danymi symulacyjnymi.
      * @return `true` jeśli dane zostały pomyślnie załadowane, `false` w przeciwnym wypadku.
      */
-    bool loadSimulationData(const QString& pathToSimulationFile);
+    bool loadSimulationData(const QString &pathToSimulationFile);
 
     /**
      * @brief Przetwarza pojedynczą ramkę danych IMU (akcelerometr, żyroskop, magnetometr, orientacja).
@@ -158,7 +158,7 @@ private:
      * do `ImuDataHandler` w celu wizualizacji.
      * @param acquiredData [in] Wektor zawierający kompletną ramkę danych IMU.
      */
-    void processImuData(const QVector<float>& acquiredData);
+    void processImuData(const QVector<float> &acquiredData);
 
     /**
      * @brief Obsługuje próbę nawiązania połączenia z wybranym portem szeregowym.
@@ -166,7 +166,7 @@ private:
      * a następnie próbuje otworzyć nowy port. Informuje użytkownika o wyniku operacji.
      * @param portName [in] Nazwa portu szeregowego do połączenia.
      */
-    void handlePortConnectionAttempt(const QString& portName);
+    void handlePortConnectionAttempt(const QString &portName);
 
     /**
      * @brief Sprawdza, czy dane symulacyjne dobiegły końca i aktualizuje stan aplikacji.
@@ -183,18 +183,18 @@ private:
      */
     void updateSimulatedGPSMarker();
 
-    QTranslator* m_translator; ///< Wskaźnik na obiekt translatora języka Qt.
+    QTranslator *m_translator; ///< Wskaźnik na obiekt translatora języka Qt.
 
     QStackedWidget *m_stackedWidget; ///< Widżet do przełączania między widokami IMU i GPS.
-    ImuDataHandler *m_imuHandler;    ///< Handler i wizualizator danych IMU.
-    GPSDataHandler *m_gpsHandler;    ///< Handler i wizualizator danych GPS.
+    ImuDataHandler *m_imuHandler; ///< Handler i wizualizator danych IMU.
+    GPSDataHandler *m_gpsHandler; ///< Handler i wizualizator danych GPS.
     SerialPortHandler *m_serialHandler; ///< Handler do komunikacji przez port szeregowy.
-    QTimer *m_simulationTimer;       ///< Timer do odtwarzania danych w trybie symulacji.
+    QTimer *m_simulationTimer; ///< Timer do odtwarzania danych w trybie symulacji.
 
-    QVector<QVector<float>> m_loadedData; ///< Przechowuje dane załadowane z pliku symulacyjnego.
-    int m_currentDataIndex;              ///< Indeks bieżącej ramki danych w trybie symulacji.
+    QVector<QVector<float> > m_loadedData; ///< Przechowuje dane załadowane z pliku symulacyjnego.
+    int m_currentDataIndex; ///< Indeks bieżącej ramki danych w trybie symulacji.
 
-    bool m_simulationMode;  ///< Flaga wskazująca, czy aplikacja jest w trybie symulacji.
+    bool m_simulationMode; ///< Flaga wskazująca, czy aplikacja jest w trybie symulacji.
     bool m_serialConnected; ///< Flaga wskazująca, czy port szeregowy jest połączony.
     QString m_selectedPort; ///< Nazwa ostatnio wybranego lub połączonego portu szeregowego.
 };

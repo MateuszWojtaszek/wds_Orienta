@@ -4,9 +4,13 @@
 /**
  * @file GpsDataHandler.h
  * @brief Definicja klasy GPSDataHandler, służącej do zarządzania danymi GPS i ich wizualizacji na mapie.
+ * @details Umożliwia dynamiczną aktualizację pozycji markera na mapie, odzwierciedlając
+ * bieżące współrzędne GPS. Logika mapy (HTML, CSS, JavaScript) jest osadzona
+ * bezpośrednio w kodzie C++.
  * @author Mateusz Wojtaszek
  * @date 2024-05-17
  * @bug Brak znanych błędów.
+ * @version 1.0.0
  */
 
 #include <QWidget>
@@ -39,11 +43,8 @@
  * @see https://leafletjs.com/ (Oficjalna dokumentacja biblioteki Leaflet)
  *
  * @example GpsDataHandler_Usage.cpp
- * Poniżej znajduje się przykład ilustrujący podstawowe użycie klasy `GPSDataHandler`
- * w aplikacji Qt do wyświetlania mapy i aktualizowania pozycji markera.
  */
-class GPSDataHandler : public QWidget
-{
+class GPSDataHandler : public QWidget {
     Q_OBJECT
 
 public:

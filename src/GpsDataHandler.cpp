@@ -1,6 +1,10 @@
 /**
  * @file GpsDataHandler.cpp
  * @brief Implementacja klasy GPSDataHandler.
+ * @author Mateusz Wojtaszek
+ * @date 2024-05-17
+ * @bug Brak znanych błędów.
+ * @version 1.0.0
  */
 
 #include "GpsDataHandler.h"
@@ -10,7 +14,6 @@
 
 /***************************************************************************/
 /**
- * @copydoc GPSDataHandler::GPSDataHandler(QWidget*)
  * @details Implementacja konstruktora. Tworzy QWebEngineView, ustawia jego
  * politykę rozmiaru, a następnie osadza i ładuje kod HTML/JavaScript
  * zawierający mapę Leaflet. Konfiguruje również QVBoxLayout do zarządzania
@@ -19,7 +22,6 @@
  */
 GPSDataHandler::GPSDataHandler(QWidget *parent)
     : QWidget(parent) {
-
     mapView = new QWebEngineView(this);
     mapView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -58,11 +60,6 @@ GPSDataHandler::GPSDataHandler(QWidget *parent)
                 // Utworzenie markera na początkowej pozycji [0, 0]
                 var marker = L.marker([0, 0]).addTo(map);
 
-                /**
-                 * @brief Funkcja JavaScript do aktualizacji pozycji markera i widoku mapy.
-                 * @param lat Nowa szerokość geograficzna.
-                 * @param lon Nowa długość geograficzna.
-                 */
                 function updateMarker(lat, lon) {
                     console.log("📍 updateMarker:", lat, lon); // Logowanie do konsoli przeglądarki
                     marker.setLatLng([lat, lon]);          // Ustawienie nowej pozycji markera
@@ -88,7 +85,6 @@ GPSDataHandler::GPSDataHandler(QWidget *parent)
 
 /***************************************************************************/
 /**
- * @copydoc GPSDataHandler::updateMarker(float, float)
  * @details Implementacja wykorzystuje metodę `page()->runJavaScript()` obiektu
  * QWebEngineView do asynchronicznego wykonania kodu JavaScript w kontekście
  * załadowanej strony HTML. Formatowany string z wywołaniem funkcji `updateMarker`

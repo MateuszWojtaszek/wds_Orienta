@@ -1,3 +1,13 @@
+/**
+* @file SerialPortHandler.cpp
+ * @brief Implementacja metod klasy SerialPortHandler.
+ * @details Zawiera logikę otwierania, zamykania portu szeregowego, odczytu danych
+ * @author Mateusz Wojtaszek
+ * @date 2025-05-19
+ * @bug Brak znanych błędów.
+ * @version 1.0
+ */
+
 #include "SerialPortHandler.h"
 #include <QDebug>
 
@@ -5,8 +15,7 @@ const int EXPECTED_VALUE_COUNT_SERIAL = 12;
 
 SerialPortHandler::SerialPortHandler(QObject *parent)
     : QObject(parent),
-      serial(new QSerialPort(this))
-{
+      serial(new QSerialPort(this)) {
     // Połączenie sygnałów ze slotami
     connect(serial, &QSerialPort::readyRead, this, &SerialPortHandler::readData);
     connect(serial, &QSerialPort::errorOccurred, this, &SerialPortHandler::handleError);
@@ -80,7 +89,8 @@ void SerialPortHandler::readData() {
             // Brak nowych danych do odczytania
             return;
         }
-    } catch (const std::exception& e) { // Obsługa jakiegokolwiek wyjątku
+    } catch (const std::exception &e) {
+        // Obsługa jakiegokolwiek wyjątku
         qWarning() << "Exception while reading serial data:" << e.what();
         buffer.clear(); // Wyczyść bufor w razie problemu
         return;
@@ -112,7 +122,7 @@ void SerialPortHandler::readData() {
             bool conversionOk = true;
 
             // Konwersja każdej wartości na float
-            for (const QByteArray &val : values) {
+            for (const QByteArray &val: values) {
                 bool ok;
                 float floatVal = val.toFloat(&ok);
                 if (!ok) {
@@ -128,11 +138,10 @@ void SerialPortHandler::readData() {
                 // Użycie const& w sygnale nie wymaga zmiany w emisji
                 emit newDataReceived(parsedValues);
             }
-
         } else {
             // Logowanie ostrzeżenia o nieprawidłowej liczbie wartości
             qWarning() << "Received line with incorrect value count (" << values.size()
-                       << ", expected" << EXPECTED_VALUE_COUNT_SERIAL << "):" << line;
+                    << ", expected" << EXPECTED_VALUE_COUNT_SERIAL << "):" << line;
         }
     }
     // Uwaga: Może pozostać niekompletna linia w buforze, która zostanie przetworzona przy następnym odczycie.
