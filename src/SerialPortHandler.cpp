@@ -1,39 +1,36 @@
 /**
-* @file SerialPortHandler.cpp
+ * @file SerialPortHandler.cpp
  * @brief Implementacja metod klasy SerialPortHandler.
- * @details Zawiera logikę otwierania, zamykania portu szeregowego, odczytu danych
  * @author Mateusz Wojtaszek
- * @date 2025-05-19
- * @bug Brak znanych błędów.
- * @version 1.0
+ * - 2025-05-20 - Wersja 1.2: Dodano obsługę GPS w ramce danych.
+ *
+ * @details Zawiera logikę otwierania, zamykania portu szeregowego, odczytu danych,
+ * weryfikacji CRC oraz parsowania danych telemetrycznych (IMU + GPS).
  */
 
 #include "SerialPortHandler.h"
 #include <QDebug>
 
-const int EXPECTED_VALUE_COUNT_SERIAL = 12;
+// Implementacje metod (pozostała część pliku .cpp bez zmian w komentarzach Doxygen,
+// ponieważ komentarze Doxygen dla metod są zwykle w pliku .h)
 
 SerialPortHandler::SerialPortHandler(QObject *parent)
     : QObject(parent),
       serial(new QSerialPort(this)) {
-    // Połączenie sygnałów ze slotami
     connect(serial, &QSerialPort::readyRead, this, &SerialPortHandler::readData);
     connect(serial, &QSerialPort::errorOccurred, this, &SerialPortHandler::handleError);
 }
 
 SerialPortHandler::~SerialPortHandler() {
-    // Zamknięcie portu, aby mieć pewność, że port zostanie zamknięty
     closePort();
 }
 
 bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
-    // Zamknięcie portu, jeśli był otwarty
     if (serial->isOpen()) {
         qInfo() << "Closing previously open port:" << serial->portName();
         serial->close();
     }
 
-    // Konfiguracja parametrów portu
     serial->setPortName(portName);
     serial->setBaudRate(baudRate);
     serial->setDataBits(QSerialPort::Data8);
@@ -43,14 +40,12 @@ bool SerialPortHandler::openPort(const QString &portName, qint32 baudRate) {
 
     qInfo() << "Attempting to open port:" << portName << "at baud rate:" << baudRate;
 
-    // Próba otwarcia portu w trybie tylko do odczytu
     if (serial->open(QIODevice::ReadOnly)) {
         qInfo() << "Port" << portName << "opened successfully.";
-        buffer.clear(); // Czyszczenie bufora po otwarciu
-        serial->clear(QSerialPort::Input); // Czyszczenie bufora wejściowego portu
+        buffer.clear();
+        serial->clear(QSerialPort::Input);
         return true;
     } else {
-        // Logowanie błędu w przypadku niepowodzenia
         qWarning() << "Failed to open port" << portName << "Error:" << getLastError();
         emit errorOccurred(serial->error(), getLastError());
         return false;
@@ -61,38 +56,49 @@ void SerialPortHandler::closePort() {
     if (serial && serial->isOpen()) {
         qInfo() << "Closing port:" << serial->portName();
         serial->close();
-        buffer.clear(); // Czyszczenie bufora przy zamykaniu
+        buffer.clear();
     }
 }
 
 QString SerialPortHandler::getLastError() const {
-    // Zabezpieczenie przed odwołaniem do nullptr
     if (serial) {
         return serial->errorString();
     }
-    // Zwrócenie komunikatu, jeśli obiekt serial nie został zainicjalizowany
     return tr("Serial object not initialized.");
 }
 
+uint16_t SerialPortHandler::calculateCrc16(const QByteArray &data) {
+    uint16_t crc = 0xFFFF;
+    const char *bytes = data.constData();
+    int len = data.length();
+
+    for (int i = 0; i < len; ++i) {
+        crc ^= (static_cast<uint16_t>(static_cast<unsigned char>(bytes[i])) << 8);
+        for (int j = 0; j < 8; ++j) {
+            if (crc & 0x8000) {
+                crc = (crc << 1) ^ 0x1021;
+            } else {
+                crc <<= 1;
+            }
+        }
+    }
+    return crc;
+}
+
 void SerialPortHandler::readData() {
-    // Sprawdzenie, czy można bezpiecznie odczytać dane
     if (!serial || !serial->isOpen() || !serial->isReadable()) {
-        //qWarning() << "Cannot read data: Port not open or readable."; // Opcjonalny log
         return;
     }
 
     try {
-        // Odczyt dostępnych danych i dołączenie do bufora
         if (serial->bytesAvailable() > 0) {
             buffer.append(serial->readAll());
         } else {
-            // Brak nowych danych do odczytania
             return;
         }
     } catch (const std::exception &e) {
-        // Obsługa jakiegokolwiek wyjątku
         qWarning() << "Exception while reading serial data:" << e.what();
-        buffer.clear(); // Wyczyść bufor w razie problemu
+        buffer.clear();
         return;
     } catch (...) {
         qWarning() << "Unknown exception while reading serial data.";
@@ -100,64 +106,77 @@ void SerialPortHandler::readData() {
         return;
     }
 
-    // Przetwarzanie bufora linia po linii
     while (buffer.contains('\n')) {
-        int index = buffer.indexOf('\n');
-        // Pobranie linii danych (bez znaku nowej linii) i usunięcie jej z bufora
-        QByteArray line = buffer.left(index).trimmed(); // Usunięcie białych znaków z początku/końca
-        buffer.remove(0, index + 1); // Usunięcie linii i znaku '\n'
+        int endOfLineIndex = buffer.indexOf('\n');
+        QByteArray fullLineWithCrcAndMaybeCR = buffer.left(endOfLineIndex);
+        buffer.remove(0, endOfLineIndex + 1);
+        QByteArray trimmedFullLine = fullLineWithCrcAndMaybeCR.trimmed();
 
-        // Pomiń puste linie
-        if (line.isEmpty()) {
+        if (trimmedFullLine.isEmpty()) {
             continue;
         }
 
-        // Podział linii na wartości oddzielone przecinkiem
-        QList<QByteArray> values = line.split(',');
+        int checksumSeparatorIndex = trimmedFullLine.lastIndexOf('*');
+        if (checksumSeparatorIndex == -1) {
+            qWarning() << "Received line without CRC separator ('*'):" << trimmedFullLine;
+            continue;
+        }
 
-        // Sprawdzenie, czy liczba wartości jest zgodna z oczekiwaną
-        if (values.size() == EXPECTED_VALUE_COUNT_SERIAL) {
+        QByteArray dataPayload = trimmedFullLine.left(checksumSeparatorIndex);
+        QByteArray receivedCrcHex = trimmedFullLine.mid(checksumSeparatorIndex + 1);
+        uint16_t calculatedCrc = calculateCrc16(dataPayload);
+        bool conversionOk;
+        uint16_t receivedCrc = receivedCrcHex.toUShort(&conversionOk, 16);
+
+        if (!conversionOk) {
+            qWarning() << "Failed to convert received CRC from hex:" << receivedCrcHex
+                       << "for payload:" << dataPayload << "in full line:" << trimmedFullLine;
+            continue;
+        }
+
+        if (calculatedCrc != receivedCrc) {
+            qWarning() << "Checksum Mismatch! Payload:" << dataPayload
+                       << "Received CRC:" << receivedCrcHex << "(val:" << receivedCrc << ")"
+                       << "Calculated CRC:" << QString::number(calculatedCrc, 16).toUpper().rightJustified(4, '0') << "(val:" << calculatedCrc << ")"
+                       << "Full line:" << trimmedFullLine;
+            continue;
+        }
+
+        QList<QByteArray> values = dataPayload.split(',');
+        if (values.size() == EXPECTED_VALUE_COUNT_SERIAL) { // Oczekuje 14 wartości
             QVector<float> parsedValues;
-            parsedValues.reserve(EXPECTED_VALUE_COUNT_SERIAL); // Rezerwacja pamięci dla wydajności
-            bool conversionOk = true;
+            parsedValues.reserve(EXPECTED_VALUE_COUNT_SERIAL);
+            bool allConversionsOk = true;
 
-            // Konwersja każdej wartości na float
-            for (const QByteArray &val: values) {
+            for (const QByteArray &val : values) {
                 bool ok;
                 float floatVal = val.toFloat(&ok);
                 if (!ok) {
-                    qWarning() << "Failed to convert value to float:" << val << "in line:" << line;
-                    conversionOk = false;
-                    break; // Przerwij przetwarzanie tej linii, jeśli konwersja się nie powiedzie
+                    qWarning() << "Failed to convert value to float:" << val
+                               << "in payload:" << dataPayload << "(Full line:" << trimmedFullLine << ")";
+                    allConversionsOk = false;
+                    break;
                 }
                 parsedValues.append(floatVal);
             }
 
-            // Jeśli wszystkie wartości zostały poprawnie skonwertowane, wyemituj sygnał
-            if (conversionOk) {
-                // Użycie const& w sygnale nie wymaga zmiany w emisji
-                emit newDataReceived(parsedValues);
+            if (allConversionsOk) {
+                emit newDataReceived(parsedValues); // Emituje wektor 14 floatów
             }
         } else {
-            // Logowanie ostrzeżenia o nieprawidłowej liczbie wartości
-            qWarning() << "Received line with incorrect value count (" << values.size()
-                    << ", expected" << EXPECTED_VALUE_COUNT_SERIAL << "):" << line;
+            qWarning() << "Received line with incorrect value count after CRC check. Count:" << values.size()
+                       << ", Expected:" << EXPECTED_VALUE_COUNT_SERIAL
+                       << "Payload:" << dataPayload << "(Full line:" << trimmedFullLine << ")";
         }
     }
-    // Uwaga: Może pozostać niekompletna linia w buforze, która zostanie przetworzona przy następnym odczycie.
 }
 
 void SerialPortHandler::handleError(QSerialPort::SerialPortError error) {
-    // Ignorowanie braku błędu i błędu timeout (często nie są to krytyczne problemy)
     if (error == QSerialPort::NoError || error == QSerialPort::TimeoutError) {
         return;
     }
 
-    // Pobranie opisu błędu i jego logowanie
-    QString errorString = getLastError(); // Użyj metody klasy, aby uzyskać opis
+    QString errorString = getLastError();
     qWarning() << "Serial port error occurred:" << error << "-" << errorString;
-
-    // Wyemitowanie sygnału o błędzie dla innych części aplikacji
-    // Użycie const& w sygnale nie wymaga zmiany w emisji
     emit errorOccurred(error, errorString);
 }
